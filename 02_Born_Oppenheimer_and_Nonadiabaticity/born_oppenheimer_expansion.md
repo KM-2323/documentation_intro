@@ -11,7 +11,7 @@ i\hbar\frac{\partial \Psi(\mathbf{R}, \mathbf{r},t)}{\partial t}=\hat{H}\Psi(\ma
 $$
 
 $$
-i\hbar\frac{\partial \Psi(\mathbf{R}, \mathbf{r},t)}{\partial t}=\hat{H}\Psi(\bold{R}, \mathbf{r},t)
+i\hbar\frac{\partial \Psi(\mathbf{R}, \mathbf{r},t)}{\partial t}=\hat{H}\Psi(\textbf{R}, \mathbf{r},t)
 $$
 
 where $\hat{H}$ a
