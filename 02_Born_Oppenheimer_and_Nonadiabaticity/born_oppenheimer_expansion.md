@@ -80,3 +80,5 @@ $$
 \G_{ij} = \braket{\psi_j}{\nabla_{\mathbf{R}}^2\psi_i}
 \end{align}
 $$
+
+Both $\F$ and $\G$ are related to the rate of change of your electronic(here the adiabatic) function with respect to the nuclear coordinates. 
