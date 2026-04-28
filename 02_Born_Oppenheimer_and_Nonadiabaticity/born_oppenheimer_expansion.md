@@ -57,6 +57,7 @@ $$
 Here, \(\text{V}_i\) are the electronic eigenvalues, later interpreted as the adiabatic potential energy surfaces (PES) that govern the motion of the nuclei. In this treatment, we assume that our electronic Hilbert space is of dimension \(N\) and is spanned by our orthonormal complete set of eigenfunctions of \(\hat{H}_{\text{el}}\):
 
 
+Here, $V_i$ are the eletroncic eigenvalues (later as the adiabatic potential energy surfaces (PES) that govern the motion of the nuclei). In this treatment, we assume that our electronic Hilbert space is of dimension $N$ and is spanned by our orthonormal complete set of eigenfunction of $\hat{H}_{\text{el}}$:
 
 $$
 \begin{align}
