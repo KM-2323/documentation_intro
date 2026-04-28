@@ -56,7 +56,7 @@ graph TD
     %%QCDB --> CODEMAP
 
     %% Setting up internal links to the nodes
-    click BO "https://github.com/KM-2323/documentation_intro/blob/main/02_Born_Oppenheimer_and_Nonadiabaticity/born_oppenheimer_expansion.md" "View Born-Oppenheimer Derivation"
+    click BO "../02_Born_Oppenheimer_and_Nonadiabaticity/born_oppenheimer_expansion.md" "View Born-Oppenheimer Derivation"
 ```
 
 ## Directory Links
