@@ -24,10 +24,10 @@ quantics-knowledge-base/
 |
 |-- 02_Born_Oppenheimer_and_Nonadiabaticity/
 |   |-- born_oppenheimer_expansion.md
-|   |-- born_oppenheimer_expansion_code.md
+|   |-- born_oppenheimer_expansion_code.md (not sure if this is needed here; 
+|       prob more suited when detailing specific implementation)
 |   |-- adiabatic_representation.md
 |   |-- nonadiabatic_coupling_terms.md
-|   |-- nonadiabatic_coupling_terms_code.md
 |   |-- conical_intersections.md
 |   |-- topology_and_geometric_phase.md
 |   \-- diabatic_representation.md
