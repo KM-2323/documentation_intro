@@ -59,7 +59,7 @@ quantics-knowledge-base/
 |   |-- direct_dynamics_principle.md
 |   |-- direct_dynamics_code.md
 |   |-- quantum_chemistry_database.md
-|   |-- quantum_chemistry_database_code.md
+|   |-- quantum_chemistry_database_code.md: More about sqlite etc
 |   |-- local_harmonic_approximation.md
 |   |-- local_harmonic_approximation_code.md
 |   |-- shepard_interpolation.md
@@ -106,12 +106,12 @@ quantics-knowledge-base/
 |   |-- database_code_pathway.md
 |   \-- future_code_inspection_tasks.md
 |
-|-- 09_Worked_Examples/
+|-- 09_Worked_Examples(computational and mathematical)/
 |   |-- two_state_avoided_crossing.md
 |   |-- conical_intersection_toy_model.md
 |   |-- butatriene_cation.md
-|   |-- thymine.md
 |   |-- allene_cation.md
+|   |-- harmonic_oscillators.md
 |   \-- example_input_files/
 |
 |-- 10_Reference_Guides/

@@ -61,4 +61,4 @@ graph TD
 ## Directory Links
 Use the links below to jump directly to any of the topics outlined in the knowledge map.
 
-[Born--Oppenheimer expansion](02_Born_Oppenheimer_and_Nonadiabaticity/born_oppenheimer_expansion.md)  
+[Born--Oppenheimer expansion](../02_Born_Oppenheimer_and_Nonadiabaticity/born_oppenheimer_expansion.md)  
