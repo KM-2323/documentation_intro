@@ -1,8 +1,5 @@
 # General introduction(beginner)
-The goal of quantum dynamics is to derive the properties and 
-time-evolution of the system of interest. For this, within the 
-non-relativistic framework, the time-dependent Schrodinger 
-equation (TDSE) must be solved:
+The goal of quantum dynamics is to derive the properties and time-evolution of the system of interest. For this, within the non-relativistic framework, the time-dependent Schrodinger equation (TDSE) must be solved:
 
 $$
 \begin{align}
@@ -20,8 +17,7 @@ $$
 \end{align}
 $$
 
-where $\hat{T}$ is the kinetic energy operator, and $\hat{V}$ the potential energy operator with
-subscripts **n** and **e** relating to the nuclei and electrons. The symbol **;** is used to denote the parametric dependence of electronic Hamiltonian on the nuclear coordinates $\mat R$. That is  (explaining what this parameteric dependence is).
+where $\hat{T}$ is the kinetic energy operator, and $\hat{V}$ the potential energy operator with subscripts **n** and **e** relating to the nuclei and electrons. The symbol **;** is used to denote the parametric dependence of electronic Hamiltonian on the nuclear coordinates $\mat R$. That is (explaining what this parameteric dependence is).
 
 Hence this allows the partition of the molecular Hamiltonain:
 
@@ -31,9 +27,7 @@ $$
 \end{align}
 $$
 
-Above can be solved if we allow the separation of nuclear and electronic motion, via
-expanding the total wave function in functions of the electron coordinates, r,
-parametrically dependent on the nuclear coordinates. This is known as the Born-oppenheimer expansion or Born-Haung expansion (the differences is .... one is sum of product while one is only a hartree like product):
+Above can be solved if we allow the separation of nuclear and electronic motion, via expanding the total wave function in functions of the electron coordinates, r, parametrically dependent on the nuclear coordinates. This is known as the Born-oppenheimer expansion or Born-Haung expansion (the differences is .... one is sum of product while one is only a hartree like product):
 
 $$
 \begin{align}
@@ -50,9 +44,6 @@ $$
 \end{align}
 $$
 
- complete set of eigenfunctions of \(\hat{H}_{\text{el}}\):
-
-
 Here, $V_i$ are the eletroncic eigenvalues (later as the adiabatic potential energy surfaces (PES) that govern the motion of the nuclei). In this treatment, we assume that our electronic Hilbert space is of dimension $N$ and is spanned by our orthonormal complete set of eigenfunction of $\hat{H}_{\text{el}}$:
 
 $$
@@ -61,9 +52,10 @@ $$
 \sum_{i=k}^N\ket{\psi_k}\bra{\psi_k}
 \end{align}
 $$
+
 where the braket notation is used to denote integration over all electronic cooridnates.
 
-We can substitute \eqref{eq:bo_expansion} into \eqref{eq:TDSE}, left multiply by $\psi_j(\mat (r);\mat R)$ and intyegrating ober the electronic coordinates(detailed derivations are presented in [born-huang-adiabatic-expansion](adiabatic_tdse.md)):
+We can substitute \eqref{eq:bo_expansion} into \eqref{eq:TDSE}, left multiply by $\psi_j(\mat (r);\mat R)$ and intyegrating ober the electronic coordinates (detailed derivations are presented in [born-huang-adiabatic-expansion](adiabatic_tdse.md)):
 
 $$
 \begin{align}
@@ -71,7 +63,7 @@ $$
 \end{align}
 $$
 
-with $\F$  as the non-adiabatic matrix of vectors(or a rank 3 tensor $\in{(N,N,f)}$, with elements:
+with $\F$  as the non-adiabatic matrix of vectors(or a rank 3 tensor $\in{(N,N,f)}$), with elements:
 
 $$
 \begin{align}
@@ -79,4 +71,12 @@ $$
 \end{align}
 $$
 
-(so each matric elemenet of $\F$ is a vector of $f$ dimension)
+(so each matric elemenet of $\F$ is a vector of $f$ dimension). Here $\F_{ij}$ is known as the derivative coupling vector or also known as the nonadiabatic coupling vector. However, in this guide, nonadiabatic coupling vector will be reserved for another quantity which will be defined later.
+
+and $\G$ as the  non-adiabatic matrix of scalars with elements:
+
+$$
+\begin{align}
+\G_{ij} = \braket{\psi_j}{\nabla_{\mathbf{R}}^2\psi_i}
+\end{align}
+$$
