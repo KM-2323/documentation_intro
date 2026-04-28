@@ -58,3 +58,7 @@ graph TD
     %% Setting up internal links to the nodes
     click BO "derivations/intro/clamped_nuclei_approximation.md" "View Born-Oppenheimer Derivation"
 ```
+## Directory Links
+Use the links below to jump directly to any of the topics outlined in the knowledge map.This approach ignores the Mermaid issue entirely and just presents the links as a standard table of contents or quick-reference guide.
+
+[Born--Oppenheimer expansion](../02_Born_Oppenheimer_and_Nonadiabaticity/born_oppenheimer_expansion.md)  
