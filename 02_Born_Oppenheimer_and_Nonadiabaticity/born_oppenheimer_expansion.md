@@ -9,7 +9,9 @@ $$
 i\hbar\frac{\partial \Psi(\mathbf{R}, \mathbf{r},t)}{\partial t}=\hat{H}\Psi(\mathbf{R}, \mathbf{r},t)
 \end{aligned}
 $$
+
 $$
 i\hbar\frac{\partial \Psi(\mathbf{R}, \mathbf{r},t)}{\partial t}=\hat{H}\Psi(\mathbf{R}, \mathbf{r},t)
 $$
+
 where $\hat{H}$ a
