@@ -1,8 +1,13 @@
-# General introduction(beginer)
-The goal of quantum dybamiucs is to desrive the properties and time-evolution of system of intersest. For this, within the non-relativistic framework, the time-dependent Schrodinger equation (TDSE) must be solved:
+# General introduction(beginner)
+The goal of quantum dynamics is to derive the properties and 
+time-evolution of the system of interest. For this, within the 
+non-relativistic framework, the time-dependent Schrodinger 
+equation (TDSE) must be solved:
+
 $$
-\begin{align}
+\begin{aligned}
 i\hbar\frac{\partial \Psi(\boldsymbol{R}, \boldsymbol{r,t})}{\partial t}=\hat{H}\Psi(\boldsymbol{R}, \boldsymbol{r,t})
-\end{align}
+\end{aligned}
 $$
-where $\hat H$
+
+where $\hat{H}$
