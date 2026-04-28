@@ -6,8 +6,8 @@ equation (TDSE) must be solved:
 
 $$
 \begin{aligned}
-i\hbar\frac{\partial \Psi(\mathbf{R}, \mathbf{r},t)}{\partial t}=\hat{H}\Psi(\mathbf{R}, \mathbf{r},t)
+i\hbar\frac{\partial \Psi(\vec{\mathbf{R}}, \vec{\mathbf{r}},t)}{\partial t}=\hat{H}\Psi(\vec{\mathbf{R}}, \vec{\mathbf{r}},t)
 \end{aligned}
 $$
 
-where $\hat{H}$
+where $\hat{H}$ a
