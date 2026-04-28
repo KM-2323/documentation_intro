@@ -1,7 +1,3 @@
----
-math: mathjax
----
-
 # General introduction(beginner)
 The goal of quantum dynamics is to derive the properties and 
 time-evolution of the system of interest. For this, within the 
@@ -10,7 +6,7 @@ equation (TDSE) must be solved:
 
 $$
 \begin{align}
-i\hbar\frac{\partial \Psi(\mathbf{R}, \mathbf{r},t)}{\partial t}=\hat{H}\Psi(\mathbf{R}, \mathbf{r},t)
+i\hbar\frac{\partial \Psi(\mathbf{R}, \mathbf{r},t)}{\partial t}=\hat{H}\Psi(\mathbf{R}, \mathbf{r},t)\label{eq:TDSE}
 \end{align}
 $$
 
@@ -50,11 +46,11 @@ above introduced electronic Hamiltonian:
 
 $$
 \begin{align}
-\hat{H}_{\text{el}}(\mathbf{r;\mathbf{R}})\psi_i(\mat r;\mat R)=\text{V}_i\psi_i(\mat r;\mat R), \quad i=1,...N
+\hat{H}_{\text{el}}(\mathbf{r;\mathbf{R}})\psi_i(\mat r;\mat R)=V_i\psi_i(\mat r;\mat R), \quad i=1,...N
 \end{align}
 $$
 
-Here, \(\text{V}_i\) are the electronic eigenvalues, later interpreted as the adiabatic potential energy surfaces (PES) that govern the motion of the nuclei. In this treatment, we assume that our electronic Hilbert space is of dimension \(N\) and is spanned by our orthonormal complete set of eigenfunctions of \(\hat{H}_{\text{el}}\):
+ complete set of eigenfunctions of \(\hat{H}_{\text{el}}\):
 
 
 Here, $V_i$ are the eletroncic eigenvalues (later as the adiabatic potential energy surfaces (PES) that govern the motion of the nuclei). In this treatment, we assume that our electronic Hilbert space is of dimension $N$ and is spanned by our orthonormal complete set of eigenfunction of $\hat{H}_{\text{el}}$:
@@ -65,5 +61,22 @@ $$
 \sum_{i=k}^N\ket{\psi_k}\bra{\psi_k}
 \end{align}
 $$
+where the braket notation is used to denote integration over all electronic cooridnates.
 
-We can substitute \eqref{eq:bo_expansion} into 
+We can substitute \eqref{eq:bo_expansion} into \eqref{eq:TDSE}, left multiply by $\psi_j(\mat (r);\mat R)$ and intyegrating ober the electronic coordinates(detailed derivations are presented in [born-huang-adiabatic-expansion](adiabatic_tdse.md)):
+
+$$
+\begin{align}
+-\frac{1}{2}\nabla^2\chi_j + (V_j-E)\chi_j-\frac{1}{2m}\sum_{i=1}^{N}(2\F_{ji}\cdot\nabla\psi_i+\G_{ji}\psi_i)
+\end{align}
+$$
+
+with $\F$  as the non-adiabatic matrix of vectors(or a rank 3 tensor $\in{(N,N,f)}$, with elements:
+
+$$
+\begin{align}
+\F_{ij} = \braket{\psi_j}{\nabla_{\mathbf{R}}\psi_i}
+\end{align}
+$$
+
+(so each matric elemenet of $\F$ is a vector of $f$ dimension)
