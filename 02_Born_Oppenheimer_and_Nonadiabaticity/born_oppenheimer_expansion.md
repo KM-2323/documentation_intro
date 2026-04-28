@@ -6,7 +6,7 @@ equation (TDSE) must be solved:
 
 $$
 \begin{aligned}
-i\hbar\frac{\partial \Psi(\vec{\boldsymbol{\mathrm{R}}}, \vec{\boldsymbol{\mathrm{r}}},t)}{\partial t}=\hat{H}\Psi(\vec{\boldsymbol{\mathrm{R}}}, \vec{\boldsymbol{\mathrm{r}}},t)
+i\hbar\frac{\partial \Psi(\vec{\boldsymbol{\mathbf{R}}}, \vec{\boldsymbol{\mathbf{r}}},t)}{\partial t}=\hat{H}\Psi(\vec{\boldsymbol{\mathbf{R}}}, \vec{\boldsymbol{\mathbf{r}}},t)
 \end{aligned}
 $$
 
