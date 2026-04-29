@@ -9,6 +9,7 @@ window.MathJax = {
       ket: ['|#1\\rangle', 1],
       bra: ['\\langle#1|', 1],
       braket: ['\\langle#1|#2\\rangle', 2],
+      mel: ['\\langle#1|#2|#3\\rangle', 3],
       Fmat: ['\\mat{F}'],
       F : ['\\underline{\\Fmat}'],
       G: ['\\mat{G}'],

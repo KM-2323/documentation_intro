@@ -342,9 +342,9 @@ $$
 
 Unlike $\F_{ji}$, $G_{ji}$ is a scalar function of the nuclear coordinates for each pair of electronic states. The collection of all $G_{ji}$ forms an $N_{\mathrm s}\times N_{\mathrm s}$ matrix $\mat G$.
 
-Terminology note: $\F_{ji}$ is often called the derivative coupling vector, nonadiabatic coupling vector, or first-order nonadiabatic coupling term. To avoid ambiguity in later sections, this guide will usually use the term *derivative coupling vector* for Eq. $\eqref{eq:first_derivative_coupling}$. The term NACV will be introduced carefully when discussing diabatisation and DD-vMCG.
+Terminology note: $\F_{ji}$ is often called the derivative coupling vector, nonadiabatic coupling vector, or first-order nonadiabatic coupling term. To avoid ambiguity in later sections, this guide will usually use the term *nonadiabatic coupling vector (NACV)* for Eq. $\eqref{eq:first_derivative_coupling}$. The term derivative coupling will be introduced carefully when discussing diabatisation and DD-vMCG.
 
-For real electronic eigenfunctions, the derivative coupling matrix is antisymmetric,
+For real electronic eigenfunctions, the nonadiabatic coupling matrix (NACM) is antisymmetric,
 
 $$
 \begin{align}
@@ -352,7 +352,7 @@ $$
 \end{align}
 $$
 
-For complex electronic eigenfunctions, the corresponding statement is anti-Hermiticity,
+For complex electronic eigenfunctions, the corresponding statement is anti-Hermiticity([proof](../derivations/derivations_antihermitian_F.md)),
 
 $$
 \begin{align}
@@ -451,7 +451,7 @@ Here, $\mat I$ is the $N_{\mathrm s}\times N_{\mathrm s}$ identity matrix in ele
 
 ## Dressed kinetic energy form
 
-A compact form often used in the literature rewrites the derivative coupling terms as part of a dressed, or gauge-covariant, kinetic energy operator. This form follows from expressing the second derivative coupling matrix $\mat G$ in terms of the first derivative couplings.
+A compact form often used in the literature rewrites the derivative coupling terms as part of a dressed, or gauge-covariant, kinetic energy operator. This form follows from expressing the second derivative coupling matrix $\mat G$ in terms of the first derivative couplings (NACV).
 
 For a complete electronic basis,
 
@@ -468,7 +468,7 @@ $$
 
 In a finite electronic subspace, the same relation is exact only if the retained subspace is effectively decoupled from the omitted states. Otherwise, it should be interpreted as a subspace approximation.
 
-Using the coordinate-resolved derivative coupling matrices $\F_\alpha$, define
+Using the coordinate-resolved NACM $\F_\alpha$, define
 
 $$
 \begin{align}
@@ -554,7 +554,7 @@ $$
 
 This equation is mathematically compact but physically important. It shows that, in the adiabatic representation, the nuclear kinetic energy is not simply $-\frac{1}{2}\nabla_{\mat q}^{2}$. Instead, the nuclear derivatives are modified by the geometry-dependence of the electronic basis.
 
-Practical note: this is the point at which the adiabatic representation becomes inconvenient for nonadiabatic dynamics. The derivative couplings can become large, or even singular, near electronic degeneracies. This motivates later discussions of adiabatic approximations, conical intersections, and diabatic or quasi-diabatic representations.
+Practical note: this is the point at which the adiabatic representation becomes inconvenient for nonadiabatic dynamics. The NACV can become large, or even singular, near electronic degeneracies. This motivates later discussions of adiabatic approximations, conical intersections, and diabatic or quasi-diabatic representations.
 
 ---
 
@@ -576,4 +576,8 @@ which discusses implicit approximations made when a finite set of adiabatic elec
 
 ## References
 
-The Born--Huang expansion and the resulting nonadiabatic coupling terms are discussed in standard treatments of beyond-Born--Oppenheimer molecular dynamics [@born_oppenheimer_1927; @born_huang_1954; @baer_2002_nact]. The mass-scaled coordinate convention and direct-dynamics notation used here are consistent with the conventions adopted in direct molecular dynamics treatments [@worth_robb_2002_direct_md]. The same adiabatic nuclear equations provide the starting point for the diabatisation methods used in DD-vMCG [@richings_worth_2015_propagation_diabatisation].
+The Born--Huang expansion and the resulting nonadiabatic coupling terms are discussed in standard treatments of beyond-Born--Oppenheimer molecular dynamics [@born_oppenheimer_1927; @born_huang_1954; @baer_2002_nact]. 
+
+The mass-scaled coordinate convention and direct-dynamics notation used here are consistent with the conventions adopted in direct molecular dynamics treatments [@worth_robb_2002_direct_md]. 
+
+The same adiabatic nuclear equations provide the starting point for the diabatisation methods used in DD-vMCG [@richings_worth_2015_propagation_diabatisation].
