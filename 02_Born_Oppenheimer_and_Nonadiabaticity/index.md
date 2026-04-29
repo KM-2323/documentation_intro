@@ -13,4 +13,4 @@
 
 
 ### Intermediates
-[GRouped Born](intermediates/int01_group_born_approximations.md)
+[Grouped Born](intermediates/int01_group_born_approximations.md)
