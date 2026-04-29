@@ -47,9 +47,9 @@ $$
 \end{align}
 $$
 
-To transition from line 3 to line 5, we utilized two key properties. First, we applied the standard complex conjugate rule for inner products: $\braket{\nabla\psi_j}{\psi_k} = \braket{\psi_k}{\nabla\psi_j}^{*}$. 
+To transition from line 3 to line 5, we utilized two key properties. First, we applied the standard complex conjugate rule for inner products: $\braket{\nabla\psi_j}{\psi_k} = \braket{\psi_k}{\nabla\psi_j}^{\*}$. 
 
-Second, we applied the anti-Hermitian property of the non-adiabatic coupling matrix ($\F_{jk} = -\F_{kj}^{*}$) to replace $-\braket{\psi_k}{\nabla\psi_j}^{*}$ with $\braket{\psi_j}{\nabla\psi_k}$  (see [antihermitian proof](derivations_antihermitian_F.md)). In compact matrix notation, this gives us the relation $\G = \nabla\F + \F\cdot\F$.
+Second, we applied the anti-Hermitian property of the non-adiabatic coupling matrix ($\F_{jk} = -\F_{kj}^{\*}$) to replace $-\braket{\psi_k}{\nabla\psi_j}^{\*}$ with $\braket{\psi_j}{\nabla\psi_k}$  (see [antihermitian proof](derivations_antihermitian_F.md)). In compact matrix notation, this gives us the relation $\G = \nabla\F + \F\cdot\F$.
 
 ### Factorizing the Dressed Kinetic Energy Operator
 We can now substitute our expanded matrix expression for $\G$ into the non-adiabatic kinetic energy operator. Note the explicit inclusion of the identity matrix $\mat I$ to ensure dimensional consistency across the operator matrices:

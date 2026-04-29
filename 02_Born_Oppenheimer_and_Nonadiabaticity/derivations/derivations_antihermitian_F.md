@@ -41,7 +41,7 @@ $$
 
 ### Simplification for a Real Electronic Basis
 
-In practise, the electronic basis functions are chosen to be strictly real-valued. So if the wavefunctions are real, then taking their complex conjugate has no effect (i.e. $z^{*}=z$). Hence, the complex conjugate on our NACM elements can be dropped entirely ($\F_{ij}^{*}=\F_{ij}$).
+In practise, the electronic basis functions are chosen to be strictly real-valued. So if the wavefunctions are real, then taking their complex conjugate has no effect (i.e. $z^{\*}=z$). Hence, the complex conjugate on our NACM elements can be dropped entirely ($\F_{ij}^{\*}=\F_{ij}$).
 
 Substituting this into our anti-Hermitian condition yields:
 
@@ -51,4 +51,4 @@ $$
 
 ### Comments:
 1. The matrix is Anti-Symmetric: Without the complex conjugate, the matrix simply becomes anti-symmetric (or skew-symmetric). This means that if you take the transpose of the matrix, you get the exact negative of the original matrix ($\mathbf{F}^T = -\mathbf{F}$). The coupling from state $j$ to state $i$ is the exact negative of the coupling from state $i$ to state $j$.
-2. Diagonal elements are strictly zero: The most significant physical consequence occurs when we look at the diagonal elements, representing a state's coupling to itself ($i = j$). Plugging $i = j$ into the anti-symmetric equation gives $\mathbf{F}_{ii} = -\mathbf{F}_{ii}$. The only number that is equal to its own negative is zero. Therefore, $\mathbf{F}_{ii} = 0$. This mathematically proves that for a real basis, a state cannot have a non-adiabatic coupling with itself.
+2. Diagonal elements are strictly zero: The most significant physical consequence occurs when we look at the diagonal elements, representing a state's coupling to itself ($i = j$). Plugging $i = j$ into the anti-symmetric equation gives $\F_{ii} = -\F_{ii}$. The only number that is equal to its own negative is zero. Therefore, $\mathbf{F}_{ii} = 0$. This mathematically proves that for a real basis, a state cannot have a non-adiabatic coupling with itself.
