@@ -1,0 +1,21 @@
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="{{ '/' | relative_url }}">Home</a>
+
+  {% if page.section_title %}
+    <span class="page-breadcrumb__separator">/</span>
+    {% if page.section_url %}
+      <a href="{{ page.section_url | relative_url }}">{{ page.section_title }}</a>
+    {% else %}
+      <span>{{ page.section_title }}</span>
+    {% endif %}
+  {% endif %}
+
+  {% if page.subsection_title %}
+    <span class="page-breadcrumb__separator">/</span>
+    {% if page.subsection_url %}
+      <a href="{{ page.subsection_url | relative_url }}">{{ page.subsection_title }}</a>
+    {% else %}
+      <span>{{ page.subsection_title }}</span>
+    {% endif %}
+  {% endif %}
+</nav>

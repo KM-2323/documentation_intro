@@ -7,3 +7,58 @@ defaults:
       path: "" # An empty string means this applies to all files in the project
     values:
       layout: "custom"
+  - scope:
+      path: "00_project_overview"
+    values:
+      section_title: "Project Overview"
+      section_url: "/00_project_overview/"
+  - scope:
+      path: "01_Primer"
+    values:
+      section_title: "Primer"
+  - scope:
+      path: "02_Born_Oppenheimer_and_Nonadiabaticity"
+    values:
+      section_title: "Born-Oppenheimer and Nonadiabaticity"
+      section_url: "/02_Born_Oppenheimer_and_Nonadiabaticity/"
+  - scope:
+      path: "02_Born_Oppenheimer_and_Nonadiabaticity/beginer"
+    values:
+      section_title: "Born-Oppenheimer and Nonadiabaticity"
+      section_url: "/02_Born_Oppenheimer_and_Nonadiabaticity/"
+      subsection_title: "Beginner"
+  - scope:
+      path: "02_Born_Oppenheimer_and_Nonadiabaticity/intermediates"
+    values:
+      section_title: "Born-Oppenheimer and Nonadiabaticity"
+      section_url: "/02_Born_Oppenheimer_and_Nonadiabaticity/"
+      subsection_title: "Intermediates"
+  - scope:
+      path: "02_Born_Oppenheimer_and_Nonadiabaticity/advanced"
+    values:
+      section_title: "Born-Oppenheimer and Nonadiabaticity"
+      section_url: "/02_Born_Oppenheimer_and_Nonadiabaticity/"
+      subsection_title: "Advanced"
+  - scope:
+      path: "02_Born_Oppenheimer_and_Nonadiabaticity/derivations"
+    values:
+      section_title: "Born-Oppenheimer and Nonadiabaticity"
+      section_url: "/02_Born_Oppenheimer_and_Nonadiabaticity/"
+      subsection_title: "Derivations"
+  - scope:
+      path: "06_diabatisation_deeperdive"
+    values:
+      section_title: "Diabatisation Deep Dive"
+  - scope:
+      path: "10_References_Guides"
+    values:
+      section_title: "References and Guides"
+  - scope:
+      path: "derivations"
+    values:
+      section_title: "Derivations"
+  - scope:
+      path: "derivations/intro"
+    values:
+      section_title: "Derivations"
+      subsection_title: "Intro"

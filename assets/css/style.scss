@@ -11,3 +11,31 @@ strong, b {
 .mjx-bold {
     font-weight: 1000 !important;
 }
+
+.page-breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    align-items: center;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.95rem;
+    color: #5f6f7c;
+}
+
+.page-breadcrumb + .page-breadcrumb {
+    margin-top: 2rem;
+}
+
+.page-breadcrumb a {
+    color: #1e6bb8;
+    text-decoration: none;
+}
+
+.page-breadcrumb a:hover,
+.page-breadcrumb a:focus {
+    text-decoration: underline;
+}
+
+.page-breadcrumb__separator {
+    color: #8a98a3;
+}
