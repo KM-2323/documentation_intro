@@ -1,7 +1,8 @@
 # Reading order recommendations
-1. [Introduction](beginer/01_bornhuang_expansion.md)
-
-
+1. [Born-Huang Expansion](beginer/01_bornhuang_expansion.md)
+2. [Adiabatic Approximations](beginer/02_adiabatic_approximations.md)
+3. [Conical Intersection](beginer/03_conical_intersections.md)
+4. [Diabatic Representation](beginer/04_diabatic_representation.md)
 
 ### Derivations
 [Adiabatic TDSE using Born-Huang expansion](derivations/derivation_adiabatic_tdse.md)

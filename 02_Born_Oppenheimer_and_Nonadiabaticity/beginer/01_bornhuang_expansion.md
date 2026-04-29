@@ -451,7 +451,7 @@ Here, $\mat I$ is the $N_{\mathrm s}\times N_{\mathrm s}$ identity matrix in ele
 
 ## Dressed kinetic energy form
 
-A compact form often used in the literature rewrites the derivative coupling terms as part of a dressed, or gauge-covariant, kinetic energy operator. This form follows from expressing the second derivative coupling matrix $\mat G$ in terms of the first derivative couplings (NACV).
+A compact form often used in the literature rewrites the derivative coupling terms as part of a dressed, or gauge-covariant, kinetic energy operator. This form follows from expressing the second derivative coupling matrix $\mat G$ in terms of the first derivative couplings $\F$  (NACV).
 
 For a complete electronic basis,
 
@@ -527,7 +527,7 @@ i\hbar\pdv{\boldsymbol{\chi}}{t}
 \nabla_{\mat q}\mat I+\F
 \right)^2
 +
-\mat V_{\mathrm A}
+\mat V
 \right]
 \boldsymbol{\chi}.
 \label{eq:dressed_kinetic_tdse}
@@ -544,7 +544,7 @@ $$
 \nabla_{\mat q}\mat I+\F
 \right)^2
 +
-\mat V_{\mathrm A}
+\mat V
 \right]
 \boldsymbol{\chi}
 =E\boldsymbol{\chi}.
