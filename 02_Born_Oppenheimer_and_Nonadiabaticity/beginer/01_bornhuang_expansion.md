@@ -1,7 +1,7 @@
 # General introduction(beginner)
 
 ## Preliminaries 
-As a reminder, throughout the guides atomic units are adopted, in whcih electronic mass, charge and plank's constant $\hbar$ and unity and the unit of length is Bohr. So the electronic kinetic oeprator and potental operators are simplified as:
+As a reminder, throughout the guides atomic units are adopted, in whcih electronic mass, and charge are unity and the unit of length is Bohr. So the electronic kinetic oeprator and potental operators are simplified as:
 
 $$
 \begin{aligned}
@@ -54,7 +54,7 @@ i\hbar\frac{\partial \Psi(\mathbf{R}, \mathbf{r},t)}{\partial t}=\hat{H}\Psi(\ma
 \end{align}
 $$
 
-where $\hat{H}$ is the molecular Hamiltonian and $\Psi$ is the wavefunction that describes the motion of both electrons ($\mathbf{r}$) and nuclei ($\mathbf{R}$).
+where $\hat{H}$ is the molecular Hamiltonian and $\Psi$ is the wavefunction that describes the motion of both electrons ($\mathbf{r}$) and nuclei ($\mathbf{R}$). 
 
 For a given nuclear configuration $\mathbf{R}$, if we clamp the nuclei in place, then the electronic Hamiltonain can be written as:
 
@@ -91,7 +91,7 @@ $$
 \end{align}
 $$
 
-Here, $V_i$ are the eletroncic eigenvalues (later as the adiabatic potential energy surfaces (PES) that govern the motion of the nuclei). In this treatment, we assume that our electronic Hilbert space is of dimension $N$ and is spanned by our orthonormal complete set of eigenfunction of $\hat{H}_{\text{el}}$:
+Here, $V_i$ are the eletroncic eigenvalues (later as the adiabatic potential energy surfaces (PES) that govern the motion of the nuclei). In this treatment, we assume that our electronic Hilbert space is of dimension $N=\infty$ and is spanned by our orthonormal complete set of eigenfunction of $\hat{H}_{\text{el}}$:
 
 $$
 \begin{align}
@@ -102,11 +102,12 @@ $$
 
 where the braket notation is used to denote integration over all electronic cooridnates.
 
-We can substitute \eqref{eq:bo_expansion} into \eqref{eq:TDSE}, left multiply by $\psi_j(\mat (r);\mat R)$ and intyegrating ober the electronic coordinates (detailed derivations are presented in [born-huang-adiabatic-expansion](adiabatic_tdse.md)):
+We can substitute \eqref{eq:bo_expansion} into \eqref{eq:TDSE}, left multiply by $\psi_j(\mat (r);\mat R)$ and intyegrating ober the electronic coordinates (detailed derivations are presented in [Born-Huang-adiabatic-expansion](../derivations/derivation_adiabatic_tdse.md):
 
 $$
 \begin{align}
--\frac{1}{2}\nabla^2\chi_j + (V_j-E)\chi_j-\frac{1}{2m}\sum_{i=1}^{N}(2\F_{ji}\cdot\nabla\psi_i+\G_{ji}\psi_i)
+-\frac{1}{2}\nabla^2\chi_j + (V_j-E)\chi_j-\frac{1}{2M}\sum_{i=1}^{N}(2\F_{ji}\cdot\nabla\chi_i+\G_{ji}\chi_i)=0
+\label{eq:adiabatic-tdse-componentform}
 \end{align}
 $$
 
@@ -129,3 +130,38 @@ $$
 $$
 
 Both $\F$ and $\G$ are related to the rate of change of your electronic(here the adiabatic) function with respect to the nuclear coordinates. 
+
+Eq.\eqref{eq:adiabatic-tdse-componentform} can be also written in matrix vbector notations as:
+
+$$
+\begin{align}
+-\frac{1}{2}\nabla^2\boldsymbol{\chi} + (\V-E)\boldsymbol{\chi}-\frac{1}{2\mat M}(2\F\cdot\nabla+\G)\boldsymbol{\chi}
+\end{align}
+$$
+
+where $\V$ is the diagonal (adiabatic) potential matrix of dimenion N (the span of your eletronic eigenfunctions) and $\mat M$ as the diagonal mass matric of dimension ... If we define the nonadiabatic coupling operator vector $\mat\Lambda$ with component:
+
+$$
+\begin{align}
+\mat\Lambda_{ij}=\frac{1}{2\mat M}(2\F_{ji}\cdot\nabla+\G_{ji})
+\end{align}
+$$
+
+Then:
+$$
+\begin{align}
+  (-\frac{1}{2\mat M}\nabla^2+\V-\mat\Lambda)\boldsymbol{\chi}=E\boldsymbol{\chi}=i\hbar \pdv{\boldsymbol\chi}{t}
+\end{align}
+$$
+
+Another convinient form that is often seen in literature is called the dressed-kinetic energy operator. The idea is to express elements of $\G$ in terms of $\F$. For detailed derivations see [dressed-kinetic-energy-operator](../derivations/derivation_dressed_term.md):
+
+$$
+\begin{align}
+  \left[\frac{1}{2\mat M} (\nabla+\F)^2+\V\right]\boldsymbol{\chi}=i\hbar \pdv{\boldsymbol\chi}{t}
+\end{align}
+$$
+
+Above lays the foundation for furture development including topics on  [02.adiabatic approximations](02_adiabatic_approximations.md), [03.conical intersections](03_conical_intersections.md), [04.diabatic representations](04_diabatic_representation.md). These are all at beginer levels which present the materials on levels that scratches the surface. The order of reading also follows. Intermeiate topics that branch immediately from our discussion thus far would be [int01. group born approximations](../intermediates/int01_group_born_approximations.md) which briefly comments on some of the implicit approximations that we make but often neglect even within the adiabatic reference (here I am referring to the fact that the born-huang expansion we used are formally in the adiabatic representation as the eletronic states are defined to be the eigenfunction of the clamped-electronic Hamiltonian).
+
+See next [02.adiabatic approximations](02_adiabatic_approximations.md)
