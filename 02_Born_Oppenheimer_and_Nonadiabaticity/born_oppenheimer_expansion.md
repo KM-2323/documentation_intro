@@ -1,4 +1,16 @@
 # General introduction(beginner)
+
+## Preliminaries on units
+As a reminder, throughout the guides atomic units are adopted, in whcih electronic mass, charge and plank's constant $\hbar$ and unity and the unit of length is Bohr. So the electronic kinetic oeprator and potental operators are simplified as:
+
+$$
+\begin{aligned}
+-\frac{1}{2m_e}\nabla^2_i&\equiv-\frac{1}{2}\nabla^2_i\\
+\frac{e^2}{4\pi\epsilon_0r_{ij}}&\equiv\frac{1}{r_{ij}}
+\end{aligned}
+$$
+
+
 The goal of quantum dynamics is to derive the properties and time-evolution of the system of interest. For this, within the non-relativistic framework, the time-dependent Schrodinger equation (TDSE) must be solved:
 
 $$
