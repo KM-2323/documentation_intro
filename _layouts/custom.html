@@ -3,24 +3,7 @@ layout: default
 ---
 {{ content }}
 
-<script>
-  window.MathJax = {
-    tex: {
-      inlineMath: [['$', '$'], ['\\(', '\\)']],
-      displayMath: [['$$', '$$'], ['\\[', '\\]']],
-      tags: 'ams', 
-      macros:{
-        mat:['\\mathbf{#1}', 1],
-        vect:['\\bm{#1}', 1],
-        F:['\\mat{F}'],
-        G:['\\mat{G}'],
-        braket:['\\langle{#1}|#2\\rangle',2]
-
-      }
-    }
-  };
-</script>
-
+<script src="{{ '/assets/js/mathjax-config.js' | relative_url }}"></script>
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
