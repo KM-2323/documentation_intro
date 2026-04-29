@@ -1,6 +1,6 @@
 # General introduction(beginner)
 
-## Preliminaries on units
+## Preliminaries 
 As a reminder, throughout the guides atomic units are adopted, in whcih electronic mass, charge and plank's constant $\hbar$ and unity and the unit of length is Bohr. So the electronic kinetic oeprator and potental operators are simplified as:
 
 $$
@@ -10,7 +10,42 @@ $$
 \end{aligned}
 $$
 
+Boldfaces is used for vectors and matrices and underlined boldfaces is used for tensor of $\text{rank}\geq3$. So $\mat R$ is the vector of nuclear coordiantges with component $\mat{R}_{\alpha}$ of dimenion $3N$ for system with $3N$ nuclei (Cartesian frame). The vector operator $\nabla$, will thus have components:
 
+$$
+\nabla_\alpha=\pder{R_\alpha}
+$$
+
+and is the derivative vector when applied to a scalar function, i.e. when applied to our scalar potential:
+
+$$
+\nabla V=
+\begin{pmatrix}
+\pdv V {R_1}\\ 
+\pdv{V}{R_2}\\
+\vdots\\
+\pdv{V}{R_{3N}}
+\end{pmatrix}
+$$
+
+Later on, the nuclear coordinates are mass-scaled:
+
+$$
+q_\alpha = \sqrt{M_\alpha} R_\alpha
+$$
+
+witj $M_\alpha$ as the mass associated iwth the coordinate, then the nuclear kinetic enegry operator is simplied as (assuming $\hbar=1$):
+
+$$
+\begin{align}
+\hat T&=\sum_{\alpha=1}^{3N}-\frac{1}{2M_\alpha}\pddv{}{R_{\alpha}}
+\\&=-\frac{1}{2\mat M}\nabla^2_{\mat R}\\
+&=-\frac 1 2\nabla^2_{\mat q}
+\end{align}
+$$
+
+For extensive explanation on mass-scaled/mass-frequency scaled coordinates. Please refer to [Coordinate Tranformation](../01_Primer/coordiante_transformation.md)
+## Setting the stage
 The goal of quantum dynamics is to derive the properties and time-evolution of the system of interest. For this, within the non-relativistic framework, the time-dependent Schrodinger equation (TDSE) must be solved:
 
 $$
