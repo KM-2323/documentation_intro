@@ -2,7 +2,7 @@
 graph TD
 
     TDSE["Time-dependent Schrodinger equation"]
-    BO["Born--Oppenheimer expansion"]
+    BO["Born--Huang expansion"]
     ADREP["Adiabatic representation"]
     NAC["Nonadiabatic coupling terms"]
     CI["Conical intersections and topology"]
@@ -62,4 +62,5 @@ graph TD
 ## Directory Links
 Use the links below to jump directly to any of the topics outlined in the knowledge map.
 
-[Born--Oppenheimer expansion](../02_Born_Oppenheimer_and_Nonadiabaticity/01_bornhuang_expansion.md)  
+[Born--Huang expansion](../02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.md)
+
