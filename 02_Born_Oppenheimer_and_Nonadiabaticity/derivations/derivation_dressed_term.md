@@ -51,6 +51,8 @@ To transition from line 3 to line 5, we utilized two key properties. First, we a
 
 Second, we applied the anti-Hermitian property of the non-adiabatic coupling matrix ($\F_{jk} = -\F_{kj}^{\*}$) to replace $-\braket{\psi_k}{\nabla\psi_j}^{\*}$ with $\braket{\psi_j}{\nabla\psi_k}$  (see [antihermitian proof](derivations_antihermitian_F.md)). In compact matrix notation, this gives us the relation $\G = \nabla\F + \F\cdot\F$.
 
+---
+
 ### Factorizing the Dressed Kinetic Energy Operator
 We can now substitute our expanded matrix expression for $\G$ into the non-adiabatic kinetic energy operator. Note the explicit inclusion of the identity matrix $\mat I$ to ensure dimensional consistency across the operator matrices:
 
@@ -110,6 +112,8 @@ $$
 \label{eq:dressed-term}
 \end{align}
 $$
+
+---
 
 ### Comments:
 When implementing these equations in practical computational chemistry or molecular dynamics codes, a vital distinction must be made regarding the matrix $\G$.The elegant relation $\G = \nabla\F + \F\cdot\F$ derived above relies heavily on Equation \ref{eq:electronic_completeness}, the exact resolution of the identity. This is only strictly true for an infinite, complete basis set. In practice, computations always employ a truncated, finite basis set. Consequently, the resolution of the identity is incomplete, and the exact equivalence breaks down. If one attempts to construct $\G$ purely from $\F$ using $\nabla\F + \F\cdot\F$ in a finite basis, it will introduce non-negligible errors into the simulation. Therefore, for rigorous numerical implementations, one must generally avoid this substitution and compute the raw scalar couplings directly via $\G_{ji}=\nabla\F_{ji}-\braket{\nabla\psi_j}{\nabla\psi_i}$, or explicitly evaluate the sum over the available finite states.
