@@ -53,7 +53,7 @@ Then local preview may be served under:
 http://127.0.0.1:4000/documentation_intro/
 ```
 
-Use `{{ '/path/to/file' | relative_url }}` in layouts and includes so links continue to work whether `baseurl` is empty or set. -->
+Use `{% raw %}{{ '/path/to/file' | relative_url }}{% endraw %}` in layouts and includes so links continue to work whether `baseurl` is empty or set. -->
 
 ## Important Files
 
@@ -102,7 +102,7 @@ If that subsection later gets its own `index.md`, add:
 This is the wrapper used by all pages by default. It currently:
 
 - Adds the shared page navigation.
-- Outputs the page content with `{{ content }}`.
+- Outputs the page content with `{% raw %}{{ content }}{% endraw %}`.
 - Loads the MathJax configuration.
 - Loads MathJax.
 - Loads Mermaid support.
@@ -137,10 +137,10 @@ The top of the file has:
 ```scss
 ---
 ---
-@import "{{ site.theme }}";
+@import "{% raw %}{{ site.theme }}{% endraw %}";
 ```
 
-The front matter tells Jekyll to process the file. The `@import "{{ site.theme }}"` line imports the remote theme's CSS through Jekyll/Liquid. VS Code may highlight this line as unusual SCSS, but it is expected in a Jekyll theme override file.
+The front matter tells Jekyll to process the file. The `@import "{% raw %}{{ site.theme }}{% endraw %}"` line imports the remote theme's CSS through Jekyll/Liquid. VS Code may highlight this line as unusual SCSS, but it is expected in a Jekyll theme override file.
 
 Edit this file when changing visual styling, including the breadcrumb style.
 
