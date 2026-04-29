@@ -32,14 +32,7 @@ $$
 \begin{align}
 F_{ai,\alpha}
 =\frac{
-\left\langle
-\psi_a
-\middle|
-\pdv{\hat H_{\mathrm{el}}}{q_\alpha}
-\middle|
-\psi_i
-\right\rangle
-}{
+\mel{\psi_a}{\pdv{\hat H_{\mathrm{el}}}{q_\alpha}}{\psi_i}}{
 V_i - V_a
 },
 \qquad
@@ -131,11 +124,8 @@ Its coordinate components are
 $$
 \begin{align}
 F_{ji,\alpha}
-=\left\langle
-\psi_j
-\middle|
-\pdv{\psi_i}{q_\alpha}
-\right\rangle_{\mat{r}},
+=\braket
+{\psi_j}{\pdv{\psi_i}{q_\alpha}}_{\mat{r}},
 \qquad
 \alpha=1,\ldots,f.
 \end{align}
@@ -217,11 +207,7 @@ $$
 \begin{align}
 \braket{\nabla_{\mat q}\psi_j}{\nabla_{\mat q}\psi_i}_{\mat{r}}
 =\sum_{\alpha=1}^{f}
-\left\langle
-\pdv{\psi_j}{q_\alpha}
-\middle|
-\pdv{\psi_i}{q_\alpha}
-\right\rangle_{\mat{r}}.
+\braket{\pdv{\psi_j}{q_\alpha}}{\pdv{\psi_i}{q_\alpha}}_{\mat{r}}.
 \end{align}
 $$
 
@@ -240,36 +226,20 @@ $$
 \begin{align}
 \braket{\nabla_{\mat q}\psi_j}{\nabla_{\mat q}\psi_i}_{\mat{r}}
 &=
-\left\langle
-\nabla_{\mat q}\psi_j
-\middle|
-\hat P_M
-\middle|
-\nabla_{\mat q}\psi_i
-\right\rangle_{\mat{r}}
+\mel{\nabla_{\mat q}\psi_j}{\hat P_M}{\nabla_{\mat q}\psi_i}_{\mat{r}}
 +
-\left\langle
-\nabla_{\mat q}\psi_j
-\middle|
-\hat Q_M
-\middle|
-\nabla_{\mat q}\psi_i
-\right\rangle_{\mat{r}}.
+\mel{\nabla_{\mat q}\psi_j}{\hat Q_M}{\nabla_{\mat q}\psi_i}_{\mat{r}}
 \label{eq:pq_partition_gradient_inner_product}
 \end{align}
 $$
+
+
 
 The $P$-space contribution is obtained by substituting the explicit projector:
 
 $$
 \begin{align}
-\left\langle
-\nabla_{\mat q}\psi_j
-\middle|
-\hat P_M
-\middle|
-\nabla_{\mat q}\psi_i
-\right\rangle_{\mat{r}}
+\mel{\nabla_{\mat q}\psi_j}{\hat P_M}{\nabla_{\mat q}\psi_i}_{\mat{r}}
 &=\sum_{k=1}^{M}
 \braket{\nabla_{\mat q}\psi_j}{\psi_k}_{\mat{r}}
 \cdot
@@ -305,13 +275,7 @@ $$
 \begin{align}
 B_{ji}^{(Q)}
 &\equiv
-\left\langle
-\nabla_{\mat q}\psi_j
-\middle|
-\hat Q_M
-\middle|
-\nabla_{\mat q}\psi_i
-\right\rangle_{\mat{r}}
+\mel{\nabla_{\mat q}\psi_j}{\hat Q_M}{\nabla_{\mat q}\psi_i}_{\mat{r}}
 \nonumber\\
 &=\sum_{a=M+1}^{\infty}
 \braket{\nabla_{\mat q}\psi_j}{\psi_a}_{\mat{r}}
@@ -534,13 +498,7 @@ $$
 =\frac{1}{2}
 \sum_{\alpha=1}^{f}
 \frac{1}{M_\alpha}
-\left\langle
-\pdv{\psi_j}{R_\alpha}
-\middle|
-\hat Q_M
-\middle|
-\pdv{\psi_i}{R_\alpha}
-\right\rangle_{\mat{r}}.
+\mel{\pdv{\psi_j}{R_\alpha}}{\hat Q_M}{\pdv{\psi_i}{R_\alpha}}_{\mat{r}}.
 \label{eq:q_correction_unscaled_coordinates}
 \end{align}
 $$
