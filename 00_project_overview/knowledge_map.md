@@ -56,7 +56,7 @@ graph TD
     %%QCDB --> CODEMAP
 
     %% Setting up internal links to the nodes
-    click BO "02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.html" "View Born-Oppenheimer Derivation"
+    click BO "../02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.html" "View Born-Oppenheimer Derivation"
 ```
 
 ## Directory Links
