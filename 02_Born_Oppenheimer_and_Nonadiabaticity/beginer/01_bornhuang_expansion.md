@@ -21,9 +21,9 @@ $$
 \end{aligned}
 $$
 
-Here, \(r_{ij}\) denotes the distance between two charged particles. The sign and nuclear charge factors are determined by the particular interaction. For example, an electron--nucleus attraction contributes a term proportional to \(-Z_A/r_{iA}\), whereas electron--electron and nucleus--nucleus interactions are repulsive.
+Here, $r_{ij}$ denotes the distance between two charged particles. The sign and nuclear charge factors are determined by the particular interaction. For example, an electron--nucleus attraction contributes a term proportional to $-Z_A/r_{iA}$, whereas electron--electron and nucleus--nucleus interactions are repulsive.
 
-Bold symbols are used for vectors and matrices. Underlined bold symbols are reserved for collections with tensorial structure, such as a matrix of vectors. The nuclear coordinate vector is denoted by \(\mat R\). For a molecule with \(N_{\mathrm{nuc}}\) nuclei, a Cartesian representation has
+Bold symbols are used for vectors and matrices. Underlined bold symbols are reserved for collections with tensorial structure, such as a matrix of vectors. The nuclear coordinate vector is denoted by $\mat R$. For a molecule with $N_{\mathrm{nuc}}$ nuclei, a Cartesian representation has
 
 $$
 f = 3N_{\mathrm{nuc}}
@@ -57,7 +57,7 @@ $$
 \end{align}
 $$
 
-When this operator acts on a scalar function, such as a potential energy surface \(V(\mat R)\), it produces the gradient vector
+When this operator acts on a scalar function, such as a potential energy surface $V(\mat R)$, it produces the gradient vector
 
 $$
 \begin{align}
@@ -79,7 +79,7 @@ q_\alpha = \sqrt{M_\alpha}\,R_\alpha,
 \alpha=1,\ldots,f,
 $$
 
-where \(M_\alpha\) is the nuclear mass associated with the Cartesian coordinate \(R_\alpha\). Equivalently,
+where $M_\alpha$ is the nuclear mass associated with the Cartesian coordinate $R_\alpha$. Equivalently,
 
 $$
 \mat q = \mat M^{1/2}\mat R,
@@ -101,7 +101,7 @@ $$
 \nabla_{\mat R}.
 $$
 
-Using \(\mat q=\mat M^{1/2}\mat R\), this becomes
+Using $\mat q=\mat M^{1/2}\mat R$, this becomes
 
 $$
 \hat T_{\mathrm n}
@@ -126,7 +126,7 @@ i\hbar \pdv{\Psi(\mat R,\mat r,t)}{t}
 \end{align}
 $$
 
-where \(\Psi(\mat R,\mat r,t)\) is the full molecular wavefunction. The vector \(\mat r\) collects the electronic coordinates, while \(\mat R\) collects the nuclear coordinates. The molecular Hamiltonian can be partitioned as
+where $\Psi(\mat R,\mat r,t)$ is the full molecular wavefunction. The vector $\mat r$ collects the electronic coordinates, while $\mat R$ collects the nuclear coordinates. The molecular Hamiltonian can be partitioned as
 
 $$
 \begin{align}
@@ -137,7 +137,7 @@ $$
 \end{align}
 $$
 
-Here, \(\hat T_{\mathrm n}\) is the nuclear kinetic energy operator and \(\hat H_{\mathrm{el}}\) is the clamped-nuclei electronic Hamiltonian. A common convention is to include the nuclear--nuclear repulsion in \(\hat H_{\mathrm{el}}\), so that the electronic eigenvalues directly define the adiabatic potential energy surfaces. With this convention,
+Here, $\hat T_{\mathrm n}$ is the nuclear kinetic energy operator and $\hat H_{\mathrm{el}}$ is the clamped-nuclei electronic Hamiltonian. A common convention is to include the nuclear--nuclear repulsion in $\hat H_{\mathrm{el}}$, so that the electronic eigenvalues directly define the adiabatic potential energy surfaces. With this convention,
 
 $$
 \begin{align}
@@ -150,7 +150,7 @@ $$
 \end{align}
 $$
 
-The semicolon in \(\hat H_{\mathrm{el}}(\mat r;\mat R)\) indicates that \(\mat R\) is treated as a parameter in the electronic problem. In other words, for each fixed nuclear geometry \(\mat R\), the electronic Schrödinger equation is solved as an eigenvalue problem in the electronic coordinates \(\mat r\). The resulting electronic eigenfunctions and eigenvalues nevertheless change as the nuclear geometry changes.
+The semicolon in $\hat H_{\mathrm{el}}(\mat r;\mat R)$ indicates that $\mat R$ is treated as a parameter in the electronic problem. In other words, for each fixed nuclear geometry $\mat R$, the electronic Schrödinger equation is solved as an eigenvalue problem in the electronic coordinates $\mat r$. The resulting electronic eigenfunctions and eigenvalues nevertheless change as the nuclear geometry changes.
 
 The clamped-nuclei electronic eigenvalue problem is
 
@@ -164,7 +164,7 @@ i=1,\ldots,N_{\mathrm s},
 \end{align}
 $$
 
-where \(V_i(\mat R)\) is the \(i\)-th adiabatic potential energy surface and \(\psi_i(\mat r;\mat R)\) is the corresponding electronic eigenfunction. The number \(N_{\mathrm s}\) denotes the number of electronic states retained in the expansion. Formally, the complete electronic Hilbert space is infinite-dimensional, but practical calculations use a finite subset of states.
+where $V_i(\mat R)$ is the $i$-th adiabatic potential energy surface and $\psi_i(\mat r;\mat R)$ is the corresponding electronic eigenfunction. The number $N_{\mathrm s}$ denotes the number of electronic states retained in the expansion. Formally, the complete electronic Hilbert space is infinite-dimensional, but practical calculations use a finite subset of states.
 
 At each nuclear geometry, the electronic eigenfunctions are taken to be orthonormal with respect to integration over the electronic coordinates,
 
@@ -189,7 +189,7 @@ $$
 \end{align}
 $$
 
-For a finite set of \(N_{\mathrm s}\) electronic states, the same sum defines a projector onto the retained electronic subspace,
+For a finite set of $N_{\mathrm s}$ electronic states, the same sum defines a projector onto the retained electronic subspace,
 
 $$
 \begin{align}
@@ -219,7 +219,7 @@ $$
 \end{align}
 $$
 
-This is the Born--Huang expansion. The functions \(\chi_i(\mat R,t)\) are nuclear wavefunctions associated with the electronic states \(\psi_i\). Each \(\chi_i\) is a scalar function on nuclear configuration space, while the collection of all nuclear amplitudes can be written as the vector
+This is the Born--Huang expansion. The functions $\chi_i(\mat R,t)$ are nuclear wavefunctions associated with the electronic states $\psi_i$. Each $\chi_i$ is a scalar function on nuclear configuration space, while the collection of all nuclear amplitudes can be written as the vector
 
 $$
 \boldsymbol{\chi}(\mat R,t)
@@ -231,15 +231,15 @@ $$
 \end{pmatrix}.
 $$
 
-The Born--Huang expansion should be distinguished from the Born--Oppenheimer approximation. The expansion in Eq. \(\eqref{eq:born_huang_expansion}\) is a sum over electronic states and is formally exact in a complete electronic basis. The Born--Oppenheimer approximation is obtained only after making additional assumptions, typically by retaining one electronic state and neglecting the couplings induced by nuclear motion.
+The Born--Huang expansion should be distinguished from the Born--Oppenheimer approximation. The expansion in Eq. $\eqref{eq:born_huang_expansion}$ is a sum over electronic states and is formally exact in a complete electronic basis. The Born--Oppenheimer approximation is obtained only after making additional assumptions, typically by retaining one electronic state and neglecting the couplings induced by nuclear motion.
 
-Practical note: the electronic basis functions \(\psi_i(\mat r;\mat R)\) depend on \(\mat R\). Therefore, the nuclear kinetic energy operator does not act only on \(\chi_i(\mat R,t)\); it also acts on the electronic basis. This is the origin of derivative coupling terms.
+Practical note: the electronic basis functions $\psi_i(\mat r;\mat R)$ depend on $\mat R$. Therefore, the nuclear kinetic energy operator does not act only on $\chi_i(\mat R,t)$; it also acts on the electronic basis. This is the origin of derivative coupling terms.
 
 ---
 
 ## Projection onto the adiabatic electronic basis
 
-Substituting Eq. \(\eqref{eq:born_huang_expansion}\) into the TDSE and projecting from the left with \(\bra{\psi_j}\), followed by integration over electronic coordinates, gives a set of coupled nuclear equations. In mass-scaled coordinates \(\mat q\), these equations are
+Substituting Eq. $\eqref{eq:born_huang_expansion}$ into the TDSE and projecting from the left with $\bra{\psi_j}$, followed by integration over electronic coordinates, gives a set of coupled nuclear equations. In mass-scaled coordinates $\mat q$, these equations are
 
 $$
 \begin{align}
@@ -310,19 +310,19 @@ F_{ji,\alpha}(\mat q)
 \end{align}
 $$
 
-For each pair of electronic states \((j,i)\), \(\F_{ji}\) is a vector in nuclear coordinate space,
+For each pair of electronic states $(j,i)$, $\F_{ji}$ is a vector in nuclear coordinate space,
 
 $$
 \F_{ji}\in\mathbb{C}^{f}.
 $$
 
-The full collection of these objects may be viewed either as an \(N_{\mathrm s}\times N_{\mathrm s}\) matrix whose elements are \(f\)-dimensional vectors, or equivalently as a rank-three array with shape
+The full collection of these objects may be viewed either as an $N_{\mathrm s}\times N_{\mathrm s}$ matrix whose elements are $f$-dimensional vectors, or equivalently as a rank-three array with shape
 
 $$
 N_{\mathrm s}\times N_{\mathrm s}\times f.
 $$
 
-This guide denotes that collection by \(\F\). Its coordinate components are matrices \(\F_\alpha\), with
+This guide denotes that collection by $\F$. Its coordinate components are matrices $\F_\alpha$, with
 
 $$
 \begin{align}
@@ -340,9 +340,9 @@ G_{ji}(\mat q)
 \end{align}
 $$
 
-Unlike \(\F_{ji}\), \(G_{ji}\) is a scalar function of the nuclear coordinates for each pair of electronic states. The collection of all \(G_{ji}\) forms an \(N_{\mathrm s}\times N_{\mathrm s}\) matrix \(\mat G\).
+Unlike $\F_{ji}$, $G_{ji}$ is a scalar function of the nuclear coordinates for each pair of electronic states. The collection of all $G_{ji}$ forms an $N_{\mathrm s}\times N_{\mathrm s}$ matrix $\mat G$.
 
-Terminology note: \(\F_{ji}\) is often called the derivative coupling vector, nonadiabatic coupling vector, or first-order nonadiabatic coupling term. To avoid ambiguity in later sections, this guide will usually use the term *derivative coupling vector* for Eq. \(\eqref{eq:first_derivative_coupling}\). The term NACV will be introduced carefully when discussing diabatisation and DD-vMCG.
+Terminology note: $\F_{ji}$ is often called the derivative coupling vector, nonadiabatic coupling vector, or first-order nonadiabatic coupling term. To avoid ambiguity in later sections, this guide will usually use the term *derivative coupling vector* for Eq. $\eqref{eq:first_derivative_coupling}$. The term NACV will be introduced carefully when discussing diabatisation and DD-vMCG.
 
 For real electronic eigenfunctions, the derivative coupling matrix is antisymmetric,
 
@@ -360,7 +360,7 @@ $$
 \end{align}
 $$
 
-Both \(\F_{ji}\) and \(G_{ji}\) measure how the electronic basis changes as the nuclear geometry changes. Therefore, they are absent only if the electronic basis is independent of nuclear geometry, which is not the case for the adiabatic electronic basis.
+Both $\F_{ji}$ and $G_{ji}$ measure how the electronic basis changes as the nuclear geometry changes. Therefore, they are absent only if the electronic basis is independent of nuclear geometry, which is not the case for the adiabatic electronic basis.
 
 ---
 
@@ -388,7 +388,7 @@ $$
 N_{\mathrm s}\times N_{\mathrm s}.
 $$
 
-The nonadiabatic coupling operator is an \(N_{\mathrm s}\times N_{\mathrm s}\) matrix of differential operators. Its elements are
+The nonadiabatic coupling operator is an $N_{\mathrm s}\times N_{\mathrm s}$ matrix of differential operators. Its elements are
 
 $$
 \begin{align}
@@ -403,7 +403,7 @@ G_{ji}
 \end{align}
 $$
 
-The action of \(\mat\Lambda\) on the nuclear wavefunction vector is therefore
+The action of $\mat\Lambda$ on the nuclear wavefunction vector is therefore
 
 $$
 \begin{align}
@@ -417,7 +417,7 @@ $$
 \end{align}
 $$
 
-Equation \(\eqref{eq:adiabatic_tdse_component_form}\) can then be written as
+Equation $\eqref{eq:adiabatic_tdse_component_form}$ can then be written as
 
 $$
 \begin{align}
@@ -445,13 +445,13 @@ $$
 \end{align}
 $$
 
-Here, \(\mat I\) is the \(N_{\mathrm s}\times N_{\mathrm s}\) identity matrix in electronic-state space.
+Here, $\mat I$ is the $N_{\mathrm s}\times N_{\mathrm s}$ identity matrix in electronic-state space.
 
 ---
 
 ## Dressed kinetic energy form
 
-A compact form often used in the literature rewrites the derivative coupling terms as part of a dressed, or gauge-covariant, kinetic energy operator. This form follows from expressing the second derivative coupling matrix \(\mat G\) in terms of the first derivative couplings.
+A compact form often used in the literature rewrites the derivative coupling terms as part of a dressed, or gauge-covariant, kinetic energy operator. This form follows from expressing the second derivative coupling matrix $\mat G$ in terms of the first derivative couplings.
 
 For a complete electronic basis,
 
@@ -468,7 +468,7 @@ $$
 
 In a finite electronic subspace, the same relation is exact only if the retained subspace is effectively decoupled from the omitted states. Otherwise, it should be interpreted as a subspace approximation.
 
-Using the coordinate-resolved derivative coupling matrices \(\F_\alpha\), define
+Using the coordinate-resolved derivative coupling matrices $\F_\alpha$, define
 
 $$
 \begin{align}
@@ -497,7 +497,7 @@ $$
 \end{align}
 $$
 
-When this operator acts on \(\boldsymbol{\chi}\), it produces
+When this operator acts on $\boldsymbol{\chi}$, it produces
 
 $$
 \begin{align}
@@ -516,7 +516,7 @@ G_{ji}\chi_i
 \end{align}
 $$
 
-provided Eq. \(\eqref{eq:g_from_f_complete}\) is valid in the electronic space considered. The coupled nuclear equations can therefore be written as
+provided Eq. $\eqref{eq:g_from_f_complete}$ is valid in the electronic space considered. The coupled nuclear equations can therefore be written as
 
 $$
 \begin{align}
@@ -552,7 +552,7 @@ $$
 \end{align}
 $$
 
-This equation is mathematically compact but physically important. It shows that, in the adiabatic representation, the nuclear kinetic energy is not simply \(-\frac{1}{2}\nabla_{\mat q}^{2}\). Instead, the nuclear derivatives are modified by the geometry-dependence of the electronic basis.
+This equation is mathematically compact but physically important. It shows that, in the adiabatic representation, the nuclear kinetic energy is not simply $-\frac{1}{2}\nabla_{\mat q}^{2}$. Instead, the nuclear derivatives are modified by the geometry-dependence of the electronic basis.
 
 Practical note: this is the point at which the adiabatic representation becomes inconvenient for nonadiabatic dynamics. The derivative couplings can become large, or even singular, near electronic degeneracies. This motivates later discussions of adiabatic approximations, conical intersections, and diabatic or quasi-diabatic representations.
 
