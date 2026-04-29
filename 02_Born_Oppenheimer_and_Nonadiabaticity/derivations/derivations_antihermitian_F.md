@@ -41,7 +41,7 @@ $$
 
 ### Simplification for a Real Electronic Basis
 
-In practise, the electronic basis functions are chosen to be strictly real-valued. So if the wavefunctions are real, then taking their complex conjugate has no effect (i.e. $z^*=z$). Hence, the complex conjugate on our NACM elements can be dropped entirely ($\F_{ij}^*=\F_{ij}$).
+In practise, the electronic basis functions are chosen to be strictly real-valued. So if the wavefunctions are real, then taking their complex conjugate has no effect (i.e. $z^{*}=z$). Hence, the complex conjugate on our NACM elements can be dropped entirely ($\F_{ij}^{*}=\F_{ij}$).
 
 Substituting this into our anti-Hermitian condition yields:
 
