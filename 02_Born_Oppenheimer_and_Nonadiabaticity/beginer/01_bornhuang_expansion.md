@@ -213,8 +213,7 @@ $$
 \begin{align}
 \Psi(\mat R,\mat r,t)
 =\sum_{i=1}^{N_{\mathrm s}}
-\chi_i(\mat R,t)
-\psi_i(\mat r;\mat R).
+\psi_i(\mat r;\mat R)\chi_i(\mat R,t).
 \label{eq:born_huang_expansion}
 \end{align}
 $$

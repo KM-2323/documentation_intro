@@ -18,7 +18,17 @@ window.MathJax = {
       pdvn: ["\\frac{\\partial^{#1} #2}{\\partial #3^{#1}}", 3],// \pdvn[3]{f}{x} = \partial^3 f/\partial x^3
       pder: ["\\frac{\\partial}{\\partial #1}", 1],// \pder{x} = \partial/\partial x as a standalone operator
       pdern: ["\\frac{\\partial}{\\partial #2^{#1}}", 2],// \pder{x} = \partial/\partial x as a standalone operator
-      V:["\\mat V"]
+      V:["\\mat V"],
+      U:["\\mat U"],
+      Cmat:["\\mat C"],
+      psivec:["\\boldsymbol{\\psi}"],
+      chivec:["\\boldsymbol{\\chi}"],
+      varphivec:["\\boldsymbol{\\varphi}"],
+      Cinv:["\\Cmat^{\\dagger}"],
+        W:["\\mat W"],
+
+
+
 
 
     }
