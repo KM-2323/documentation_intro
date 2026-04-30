@@ -41,7 +41,7 @@ $$
 and
 
 $$
-(\G_){ji} = G_{ji} = \sum_\alpha \braket{\psi_j}  {\frac{\partial^2 \psi_i}{\partial q_\alpha^2} }. \tag{1}
+(\G)_{ji} = G_{ji} = \sum_\alpha \braket{\psi_j}  {\frac{\partial^2 \psi_i}{\partial q_\alpha^2} }. \tag{1}
 $$
 
 The contraction $\F \cdot \nabla_{\mat{q}}$ means
@@ -88,9 +88,9 @@ Therefore, in Cartesian coordinates, the dressed-kinetic form becomes
 $$
 \begin{align}
 i\hbar\pdv{\boldsymbol{\chi}}{t}
-=\left[-\frac{1}{2\mat M}
+=\left[-\sum_{\alpha}\frac{1}{2M_\alpha}
 \left(
-\nabla_{\mat R}\mat I+\F
+\pder{R_\alpha}\mat I+\mat F_{\alpha}^{\mat R}
 \right)^2
 +
 \mat V
@@ -105,7 +105,7 @@ The adiabatic approximation is the step where we neglect the derivative-coupling
 
 $$
 \begin{align}
-\frac{2\F\cdot\nabla_{\mat R}+\G}{\mat{M}}\approx0
+\frac12\sum_{\alpha}\frac{1}{M_\alpha}\left({2\mat F_{\alpha}^{\mat R}\pder{R_{\alpha}}+\G_{\alpha}^{\mat R}}\right)\approx0
 \end{align}
 $$
 
@@ -116,8 +116,8 @@ Neglecting these terms gives
 $$
 \begin{align}
 i\hbar\pdv{\boldsymbol{\chi}}{t}
-=\left[-\frac{1}{2\mat M}
-\nabla_{\mat R}^2
+=\left[-\frac{1}{2}\sum_{\alpha}\frac{1}{M_{\alpha}}
+\pddv{}{R_{\alpha}}\mat I
 +
 \mat V
 \right]
@@ -131,8 +131,8 @@ Because $\mat{V}$ is diagonal in the adiabatic representation, this matrix equat
 $$
 \begin{align}
 i\hbar\pdv{\chi_i}{t}
-=\left[-\frac{1}{2\mat M}
-\nabla_{\mat R}^2
+=\left[-\frac{1}{2}\sum_{\alpha}\frac{1}{M_{\alpha}}
+\pddv{}{R_{\alpha}}
 +
 V_i
 \right]

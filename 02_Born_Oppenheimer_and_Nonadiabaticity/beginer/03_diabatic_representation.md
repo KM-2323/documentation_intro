@@ -149,7 +149,7 @@ $$
 $$
 
 
-such that the Hamiltonian can be written as (derivations presented in [diabatisation](../derivations/derivations_diabatic_representation.md)):
+such that the Hamiltonian can be written as (derivations presented in [diabatisation](../derivations/derivations_diabatisation.md)):
 
 
 $$
@@ -167,74 +167,6 @@ $$
 \W=\Cinv\V\Cmat
 \end{align}
 $$
-
-
-
-
-
-
-To see the role of this condition, apply the dressed derivative operator to $\Cmat\chivec^{(d)}$:
-
-$$
-\begin{align}
-\left(
-\nabla_{\mat q}\mat I_{N_{\mathrm s}}
-+
-\F
-\right)
-\Cmat\chivec^{(d)}
-=\left(
-\nabla_{\mat q}\Cmat+\F\Cmat
-\right)
-\chivec^{(d)}
-+
-\Cmat\nabla_{\mat q}\chivec^{(d)}.
-\label{eq:ADT_condition_action}
-\end{align}
-$$
-
-Thus, when Eq. \eqref{eq:ADT_transform_differential} holds,
-
-$$
-\begin{align}
-\left(
-\nabla_{\mat q}\mat I_{N_{\mathrm s}}
-+
-\F
-\right)
-\Cmat\chivec^{(d)}
-=\Cmat\nabla_{\mat q}\chivec^{(d)}.
-\label{eq:dressed_derivative_removed}
-\end{align}
-$$
-
-Applying the same argument twice gives the diabatic TDSE
-
-$$
-\begin{align}
-i\hbar
-\pdv{\chivec^{(d)}}{t}
-=\left[
--\frac{1}{2}
-\nabla_{\mat q}^{2}\mat I_{N_{\mathrm s}}
-+
-\W
-\right]
-\chivec^{(d)},
-\label{eq:diabatic_tdse}
-\end{align}
-$$
-
-where the diabatic potential matrix is
-
-$$
-\begin{align}
-\W
-=\Cinv\V\Cmat.
-\label{eq:diabatic_potential_matrix}
-\end{align}
-$$
-
 
 
 The important consequence is that the coupling has changed form. In the adiabatic representation, $\V$ is diagonal and the electronic states are coupled through derivative operators in the nuclear kinetic energy. In the diabatic representation, the kinetic energy is diagonal in electronic-state space, while $\W$ is generally a full Hermitian matrix:
