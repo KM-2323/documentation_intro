@@ -26,7 +26,7 @@ $$
 \end{align}
 $$
 
-A large energy gap between the highest retained state and the lowest omitted state is often a useful practical indicator of this separation. This follows from the Hellmann--Feynman form of the nonadiabatic coupling, which for non-degenerate states gives
+A large energy gap between the highest retained state and the lowest omitted state is often a useful practical indicator of this separation. This follows from the Hellmann--Feynman form of the nonadiabatic coupling (detailed in [off-diagonal Hellmann-Feynman](../derivations/derivation_offdiagonal_Hellman.md) ), which for non-degenerate states gives
 
 $$
 \begin{align}
@@ -318,7 +318,7 @@ $$
 +2\F^{(P)}\cdot\nabla_{\mat q}
 +\mat G
 \right)
-+\mat V_{\mathrm A}^{(P)}
++\mat V^{(P)}
 \right]
 \boldsymbol{\chi}^{(P)}
 =E\boldsymbol{\chi}^{(P)}.
@@ -363,7 +363,7 @@ $$
 \left[
 -\frac{1}{2}
 \left(\nabla_{\mat q}\mat I_M+\F^{(P)}\right)^2
-+\mat V_{\mathrm A}^{(P)}
++\mat V^{(P)}
 +\frac{1}{2}\mat B^{(Q)}
 \right]
 \boldsymbol{\chi}^{(P)}
@@ -377,7 +377,7 @@ It is therefore natural to define an effective, or dressed, potential matrix
 $$
 \begin{align}
 \mat V_{\mathrm{eff}}^{(P)}
-=\mat V_{\mathrm A}^{(P)}
+=\mat V^{(P)}
 +\frac{1}{2}\mat B^{(Q)}.
 \label{eq:effective_p_space_potential}
 \end{align}
@@ -428,6 +428,7 @@ $$
 \F_{ia}=0,
 \qquad
 i\leq M,\quad a>M,
+\label{eq:f_pq=0}
 \end{align}
 $$
 
@@ -449,7 +450,7 @@ $$
 \nabla_{\mat q}\mat I_M+\F^{(P)}
 \right)^2
 +
-\mat V_{\mathrm A}^{(P)}
+\mat V^{(P)}
 \right]
 \boldsymbol{\chi}^{(P)}
 =E\boldsymbol{\chi}^{(P)}.
@@ -507,6 +508,145 @@ The mass dependence is hidden in Eq. $\eqref{eq:effective_p_space_potential_elem
 
 ---
 
+#### Adiabatic approximation within the retained subspace
+
+The finite-subspace equation derived above still retains the nonadiabatic coupling vector within the selected $P$-space. Thus, even after the omitted $Q$-space states have been neglected, the retained electronic states may remain coupled through the nuclear kinetic energy operator. In the strict group Born--Oppenheimer limit, the $P$--$Q$ couplings vanish and the residual $Q$-space correction $\mat B^{(Q)}$ is zero, but the internal coupling $\F^{(P)}$ is still present:
+
+$$
+\begin{align}
+\left[
+-\frac{1}{2}
+\left(
+\nabla_{\mat{q}}\mat I_M+\F^{(P)}
+\right)^2
++
+\mat V^{(P)}
+\right]
+\mat{\chi}^{(P)}
+=E\mat{\chi}^{(P)}.
+\label{eq:strict_group_bo_equation_recalled}
+\end{align}
+$$
+
+This equation describes a retained manifold of $M$ electronic states that is isolated from the rest of the electronic Hilbert space, but not necessarily internally adiabatic. The word "group" is important: the approximation concerns the separation of the retained group from the omitted states, rather than the removal of couplings between states inside the group.
+
+A further approximation is obtained by neglecting the nonadiabatic coupling operator within the retained subspace. In mass-scaled coordinates, this approximation should be expressed at the operator level as
+
+$$
+\begin{align}
+\mat\Lambda^{(P)}
+=\frac{1}{2}
+\left(
+2\F^{(P)}\cdot\nabla_{\mat{q}}
++\mat G^{(P)}
+\right)
+\approx
+\mat 0.
+\label{eq:p_space_adiabatic_operator_approximation}
+\end{align}
+$$
+
+Equivalently, in the dressed kinetic energy form, this corresponds to
+
+$$
+\begin{align}
+\left(\nabla_{\mat{q}}\mat I_M+\F^{(P)}
+\right)^2
+\approx\nabla_{\mat{q}}^2\mat I_M.
+\label{eq:p_space_dressed_kinetic_adiabatic_limit}
+\end{align}
+$$
+
+The resulting equation is
+
+$$
+\begin{align}
+\left[
+-\frac{1}{2}
+\nabla_{\mat{q}}^2\mat I_M
++\mat V^{(P)}
+\right]
+\mat{\chi}^{(P)}
+=E\mat{\chi}^{(P)}.
+\label{eq:p_space_adiabatic_equation}
+\end{align}
+$$
+
+Since $\mat V^{(P)}$ is diagonal in the adiabatic representation,
+
+$$
+\begin{align}
+\mat V^{(P)}
+=\operatorname{diag}
+\left(
+V_1,V_2,\ldots,V_M
+\right),
+\end{align}
+$$
+
+Eq. $\eqref{eq:p_space_adiabatic_equation}$ separates into $M$ independent nuclear Schrödinger equations,
+
+$$
+\begin{align}
+\left[
+-\frac{1}{2}
+\nabla_{\mat{q}}^2
++
+V_i(\mat{q})
+\right]
+\chi_i(\mat{q})
+=E\chi_i(\mat{q}),
+\qquad
+i=1,\ldots,M.
+\label{eq:decoupled_adiabatic_equations}
+\end{align}
+$$
+
+This is the usual adiabatic approximation applied within the retained electronic subspace. It is the equation solved when nuclear motion is assumed to occur independently on one or more uncoupled adiabatic potential energy surfaces.
+
+The approximation in Eq. $\eqref{eq:p_space_adiabatic_operator_approximation}$ is stronger than the group Born--Oppenheimer approximation. The group Born--Oppenheimer approximation assumes that the selected set of electronic states is decoupled from the omitted states. The adiabatic approximation within the retained subspace additionally assumes that the retained states are mutually decoupled by the nuclear kinetic energy operator. In terms of the approximation hierarchy,
+
+$$
+\begin{align}
+\text{Born--Huang expansion}
+&\longrightarrow
+\text{finite isolated } P\text{-space}
+\nonumber\\
+&\longrightarrow
+\text{group Born--Oppenheimer equation}
+\nonumber\\
+&\longrightarrow
+\text{adiabatic approximation within } P.
+\end{align}
+$$
+
+The first step is an expansion of the molecular wavefunction in an electronic basis. It does not, by itself, separate the nuclear and electronic motion. The second step assumes that couplings between the retained $P$-space and omitted $Q$-space are negligible. The final step neglects the remaining nonadiabatic couplings inside the retained $P$-space.
+
+In unscaled Cartesian coordinates, the same approximation is controlled not by $\F^{(P)}$ alone, but by the mass-weighted kinetic coupling terms,
+
+$$
+\begin{align}
+\sum_{\alpha=1}^{f}
+\frac{1}{2M_\alpha}
+\left(
+2F^{(P)}_{ji,\alpha}
+\pder{R_\alpha}
++
+G^{(P)}_{ji,\alpha}
+\right),
+\end{align}
+$$
+
+where $M_\alpha$ is the mass associated with coordinate $R_\alpha$. In mass-scaled coordinates, these inverse-mass factors have already been absorbed into the definition of $\mat{q}$. The physically meaningful assumption is that the full nonadiabatic coupling operator $\mat\Lambda^{(P)}$ is negligible on the nuclear wavefunctions of interest.
+
+Important caveat: neglecting $\F^{(P)}$ is not justified near degeneracies, avoided crossings with small energy gaps, or conical intersections. In such regions, the nonadiabatic coupling vector can become large or singular, and Eq. $\eqref{eq:p_space_adiabatic_equation}$ no longer provides an adequate description of the nuclear dynamics. Population transfer between electronic states then requires either retaining the coupling terms in the adiabatic representation or transforming to a diabatic or quasi-diabatic representation.
+
+In some treatments, only the off-diagonal nonadiabatic coupling operators are neglected, while diagonal Born--Huang-type corrections are retained in the effective potentials. The simpler equation above corresponds to the cruder adiabatic approximation in which these corrections are also omitted. Whether this is acceptable depends on the desired accuracy and on the region of nuclear configuration space sampled by the wavepacket.
+
+References: [@koppel_domcke_cederbaum_1984; @baer_2002_nact]
+
+---
+
 #### Interpretation
 
 Equation $\eqref{eq:finite_subspace_bo_equation}$ separates the effect of finite-state truncation into two parts.
@@ -530,7 +670,6 @@ The group Born--Oppenheimer approximation neglects $\mat B^{(Q)}$ when the omitt
 
 Common pitfall: if the $Q$-space coupling is large, the correct conclusion is not that the residual term should be interpreted qualitatively. Rather, the finite electronic subspace has been chosen too narrowly. The appropriate remedy is to include the relevant omitted state or states in the retained $P$-space.
 
----
 
 #### Connection to later sections
 

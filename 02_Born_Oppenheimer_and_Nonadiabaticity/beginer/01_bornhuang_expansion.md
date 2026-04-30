@@ -370,7 +370,7 @@ The coupled equations can be written compactly by introducing the diagonal adiab
 
 $$
 \begin{align}
-\mat V_{\mathrm A}(\mat q)
+\mat V(\mat q)
 =\operatorname{diag}
 \left(
 V_1(\mat q),
@@ -424,7 +424,7 @@ $$
 i\hbar \pdv{\boldsymbol{\chi}}{t}
 =\left[
 -\frac{1}{2}\nabla_{\mat q}^{2}\mat I
-+\mat V_{\mathrm A}
++\mat V
 -\mat\Lambda
 \right]
 \boldsymbol{\chi}.
@@ -438,7 +438,7 @@ $$
 \begin{align}
 \left[
 -\frac{1}{2}\nabla_{\mat q}^{2}\mat I
-+\mat V_{\mathrm A} -\mat\Lambda
++\mat V -\mat\Lambda
 \right]
 \boldsymbol{\chi}=E\boldsymbol{\chi}.
 \label{eq:adiabatic_tise_matrix_form}

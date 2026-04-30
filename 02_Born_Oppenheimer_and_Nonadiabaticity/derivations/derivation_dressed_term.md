@@ -6,7 +6,7 @@ $$
 \begin{align}
 \nabla\F_{ji}&=\nabla\braket{\psi_j}{\nabla\psi_i}\nonumber\\
 &=\braket{\nabla\psi_j}{\nabla\psi_i}+\braket{\psi_j}{\nabla^2\psi_i}\nonumber\\
-&=\braket{\nabla\psi_j}{\nabla\psi_i}+\G_{ji}\nonumber\\
+&=\braket{\nabla\psi_j}{\nabla\psi_i}+G_{ji}\nonumber\\
 \end{align}
 $$
 
@@ -14,7 +14,7 @@ Rearranging this expression to isolate $\G_{ji}$ yields:
 
 $$
 \begin{align}
-\G_{ji}=\nabla\F_{ji}-\braket{\nabla\psi_j}{\nabla\psi_i}\label{eq:G_raw}\\
+G_{ji}=\nabla\F_{ji}-\braket{\nabla\psi_j}{\nabla\psi_i}\label{eq:G_raw}\\
 \end{align}
 $$
 
@@ -34,7 +34,7 @@ Inserting this identity operator into the second term of Equation \ref{eq:G_raw}
 
 $$
 \begin{align}
-\G_{ji}&=\nabla\F_{ji}-\mel{\nabla\psi_j}{\hat I_{\mathrm{el}}}{\nabla\psi_i}\nonumber\\
+G_{ji}&=\nabla\F_{ji}-\mel{\nabla\psi_j}{\hat I_{\mathrm{el}}}{\nabla\psi_i}\nonumber\\
 &=\nabla\F_{ji}-\sum_{k=1}^{\infty}\mel{\nabla\psi_j}{\Big[\ket{\psi_k}
 \bra{\psi_k}\Big]}{\nabla\psi_i}\nonumber\\
 &=\nabla\F_{ji}-\sum_{k=1}^{\infty}\braket{\nabla\psi_j}{\psi_k}
@@ -116,4 +116,4 @@ $$
 ---
 
 ### Comments:
-When implementing these equations in practical computational chemistry or molecular dynamics codes, a vital distinction must be made regarding the matrix $\G$.The elegant relation $\G = \nabla\F + \F\cdot\F$ derived above relies heavily on Equation \ref{eq:electronic_completeness}, the exact resolution of the identity. This is only strictly true for an infinite, complete basis set. In practice, computations always employ a truncated, finite basis set. Consequently, the resolution of the identity is incomplete, and the exact equivalence breaks down. If one attempts to construct $\G$ purely from $\F$ using $\nabla\F + \F\cdot\F$ in a finite basis, it will introduce non-negligible errors into the simulation. Therefore, for rigorous numerical implementations, one must generally avoid this substitution and compute the raw scalar couplings directly via $\G_{ji}=\nabla\F_{ji}-\braket{\nabla\psi_j}{\nabla\psi_i}$, or explicitly evaluate the sum over the available finite states.
+When implementing these equations in practical computational chemistry or molecular dynamics codes, a vital distinction must be made regarding the matrix $\G$.The elegant relation $\G = \nabla\F + \F\cdot\F$ derived above relies heavily on Equation \ref{eq:electronic_completeness}, the exact resolution of the identity. This is only strictly true for an infinite, complete basis set. In practice, computations always employ a truncated, finite basis set. Consequently, the resolution of the identity is incomplete, and the exact equivalence breaks down. If one attempts to construct $\G$ purely from $\F$ using $\nabla\F + \F\cdot\F$ in a finite basis, it will introduce non-negligible errors into the simulation. Therefore, for rigorous numerical implementations, one must generally avoid this substitution and compute the raw scalar couplings directly via $G_{ji}=\nabla\F_{ji}-\braket{\nabla\psi_j}{\nabla\psi_i}$, or explicitly evaluate the sum over the available finite states.
