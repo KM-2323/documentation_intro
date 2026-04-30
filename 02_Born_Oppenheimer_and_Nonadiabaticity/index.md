@@ -14,6 +14,8 @@
 
 [Anti-Hermitian property of F](derivations/derivations_antihermitian_F.md)
 
+[Off-diagonal Hellmann-Feynman](derivations/derivation_offdiagonal_Hellman.md)
+
 [Diabatisation](derivations/derivations_diabatisation.md)
 
 ---
