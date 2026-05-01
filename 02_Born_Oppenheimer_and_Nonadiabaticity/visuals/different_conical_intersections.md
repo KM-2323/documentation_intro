@@ -9,21 +9,21 @@ diagonalising a two-state quadratic vibronic coupling model. The notebook in
 this folder can still be used as a scratch file, but this page is the
 GitHub Pages version.
 
-\[
+$$
 \mathbf H(x,y)=
 \begin{pmatrix}
 k_1x+\gamma_{1xx}x^2+\gamma_{1yy}y^2+\gamma_{1xy}xy & \lambda y \\
 \lambda y & k_2x+\gamma_{2xx}x^2+\gamma_{2yy}y^2+\gamma_{2xy}xy
 \end{pmatrix}
-\]
+$$
 
-\[
+$$
 E_{\pm}(x,y)=\frac{H_{11}+H_{22}}{2}
 \pm \sqrt{\left(\frac{H_{11}-H_{22}}{2}\right)^2 + H_{12}^2}
-\]
+$$
 
-The two plotted sheets are \(E_+\) and \(E_-\). In this simplified model the
-intersection remains at \((x,y)=(0,0)\); the sliders change the opening,
+The two plotted sheets are $E_+$ and $E_-$. In this simplified model the
+intersection remains at $(x,y)=(0,0)$; the sliders change the opening,
 curvature, and twisting of the surfaces around it.
 
 <style>
