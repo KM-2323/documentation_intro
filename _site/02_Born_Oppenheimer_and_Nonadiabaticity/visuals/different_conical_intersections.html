@@ -1,30 +1,87 @@
----
-title: QVC conical-intersection visualiser
----
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
 
-# QVC conical-intersection visualiser
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>QVC conical-intersection visualiser | Quantics Knowledge Base</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="QVC conical-intersection visualiser" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/visuals/different_conical_intersections.html" />
+<meta property="og:url" content="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/visuals/different_conical_intersections.html" />
+<meta property="og:site_name" content="Quantics Knowledge Base" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="QVC conical-intersection visualiser" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"QVC conical-intersection visualiser","url":"http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/visuals/different_conical_intersections.html"}</script>
+<!-- End Jekyll SEO tag -->
 
-This visualiser shows the two adiabatic potential-energy surfaces obtained by
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64545618641dcf682d804e64e8cd42d1505278b6">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">QVC conical-intersection visualiser</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/KM-2323/documentation_intro" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+</nav>
+
+
+<h1 id="qvc-conical-intersection-visualiser">QVC conical-intersection visualiser</h1>
+
+<p>This visualiser shows the two adiabatic potential-energy surfaces obtained by
 diagonalising a two-state quadratic vibronic coupling model. The notebook in
 this folder can still be used as a scratch file, but this page is the
-GitHub Pages version.
+GitHub Pages version.</p>
 
-$$
-\mathbf H(x,y)=
+\[\mathbf H(x,y)=
 \begin{pmatrix}
-k_1x+\gamma_{1xx}x^2+\gamma_{1yy}y^2+\gamma_{1xy}xy & \lambda y \\
-\lambda y & k_2x+\gamma_{2xx}x^2+\gamma_{2yy}y^2+\gamma_{2xy}xy
-\end{pmatrix}
-$$
+k_1x+\gamma_{1xx}x^2+\gamma_{1yy}y^2+\gamma_{1xy}xy &amp; \lambda y \\
+\lambda y &amp; k_2x+\gamma_{2xx}x^2+\gamma_{2yy}y^2+\gamma_{2xy}xy
+\end{pmatrix}\]
 
-$$
-E_{\pm}(x,y)=\frac{H_{11}+H_{22}}{2}
-\pm \sqrt{\left(\frac{H_{11}-H_{22}}{2}\right)^2 + H_{12}^2}
-$$
+\[E_{\pm}(x,y)=\frac{H_{11}+H_{22}}{2}
+\pm \sqrt{\left(\frac{H_{11}-H_{22}}{2}\right)^2 + H_{12}^2}\]
 
-The two plotted sheets are $E_+$ and $E_-$. In this simplified model the
+<p>The two plotted sheets are $E_+$ and $E_-$. In this simplified model the
 intersection remains at $(x,y)=(0,0)$; the sliders change the opening,
-curvature, and twisting of the surfaces around it.
+curvature, and twisting of the surfaces around it.</p>
 
 <style>
   .ci-page {
@@ -217,17 +274,17 @@ curvature, and twisting of the surfaces around it.
           <legend>Linear terms</legend>
           <div class="ci-control">
             <label for="ci-k1">\(k_1\), state 1 slope</label>
-            <input id="ci-k1" data-param="k1" type="range" min="-3" max="3" step="0.1" value="1">
+            <input id="ci-k1" data-param="k1" type="range" min="-3" max="3" step="0.1" value="1" />
             <output data-output="k1">1.0</output>
           </div>
           <div class="ci-control">
             <label for="ci-k2">\(k_2\), state 2 slope</label>
-            <input id="ci-k2" data-param="k2" type="range" min="-3" max="3" step="0.1" value="-1">
+            <input id="ci-k2" data-param="k2" type="range" min="-3" max="3" step="0.1" value="-1" />
             <output data-output="k2">-1.0</output>
           </div>
           <div class="ci-control">
             <label for="ci-lam"><span class="ci-symbol">&lambda;</span>, coupling slope</label>
-            <input id="ci-lam" data-param="lam" type="range" min="0" max="3" step="0.1" value="1">
+            <input id="ci-lam" data-param="lam" type="range" min="0" max="3" step="0.1" value="1" />
             <output data-output="lam">1.0</output>
           </div>
         </fieldset>
@@ -236,22 +293,22 @@ curvature, and twisting of the surfaces around it.
           <legend>Harmonic curvature</legend>
           <div class="ci-control">
             <label for="ci-g1xx"><span class="ci-symbol">&gamma;</span><sub>1xx</sub></label>
-            <input id="ci-g1xx" data-param="g1xx" type="range" min="0" max="1" step="0.05" value="0.2">
+            <input id="ci-g1xx" data-param="g1xx" type="range" min="0" max="1" step="0.05" value="0.2" />
             <output data-output="g1xx">0.20</output>
           </div>
           <div class="ci-control">
             <label for="ci-g1yy"><span class="ci-symbol">&gamma;</span><sub>1yy</sub></label>
-            <input id="ci-g1yy" data-param="g1yy" type="range" min="0" max="1" step="0.05" value="0.2">
+            <input id="ci-g1yy" data-param="g1yy" type="range" min="0" max="1" step="0.05" value="0.2" />
             <output data-output="g1yy">0.20</output>
           </div>
           <div class="ci-control">
             <label for="ci-g2xx"><span class="ci-symbol">&gamma;</span><sub>2xx</sub></label>
-            <input id="ci-g2xx" data-param="g2xx" type="range" min="0" max="1" step="0.05" value="0.2">
+            <input id="ci-g2xx" data-param="g2xx" type="range" min="0" max="1" step="0.05" value="0.2" />
             <output data-output="g2xx">0.20</output>
           </div>
           <div class="ci-control">
             <label for="ci-g2yy"><span class="ci-symbol">&gamma;</span><sub>2yy</sub></label>
-            <input id="ci-g2yy" data-param="g2yy" type="range" min="0" max="1" step="0.05" value="0.2">
+            <input id="ci-g2yy" data-param="g2yy" type="range" min="0" max="1" step="0.05" value="0.2" />
             <output data-output="g2yy">0.20</output>
           </div>
         </fieldset>
@@ -260,12 +317,12 @@ curvature, and twisting of the surfaces around it.
           <legend>Bilinear twist</legend>
           <div class="ci-control">
             <label for="ci-g1xy"><span class="ci-symbol">&gamma;</span><sub>1xy</sub></label>
-            <input id="ci-g1xy" data-param="g1xy" type="range" min="-1" max="1" step="0.05" value="0">
+            <input id="ci-g1xy" data-param="g1xy" type="range" min="-1" max="1" step="0.05" value="0" />
             <output data-output="g1xy">0.00</output>
           </div>
           <div class="ci-control">
             <label for="ci-g2xy"><span class="ci-symbol">&gamma;</span><sub>2xy</sub></label>
-            <input id="ci-g2xy" data-param="g2xy" type="range" min="-1" max="1" step="0.05" value="0">
+            <input id="ci-g2xy" data-param="g2xy" type="range" min="-1" max="1" step="0.05" value="0" />
             <output data-output="g2xy">0.00</output>
           </div>
         </fieldset>
@@ -286,6 +343,7 @@ curvature, and twisting of the surfaces around it.
 </div>
 
 <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
 <script>
   (function () {
     const root = document.getElementById("ci-qvc-tool");
@@ -593,3 +651,49 @@ curvature, and twisting of the surfaces around it.
     draw();
   })();
 </script>
+
+
+
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+</nav>
+
+
+<script src="/assets/js/mathjax-config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
+    blocks.forEach(function(block) {
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      block.parentNode.replaceWith(div);
+    });
+  });
+</script>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/KM-2323/documentation_intro">documentation_intro</a> is maintained by <a href="https://github.com/KM-2323">KM-2323</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

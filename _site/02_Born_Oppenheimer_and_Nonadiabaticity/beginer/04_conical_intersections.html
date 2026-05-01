@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Two-state diabatic model, conical intersections, and the Lorentzian form of the NACV | Quantics Knowledge Base</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Two-state diabatic model, conical intersections, and the Lorentzian form of the NACV" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/beginer/04_conical_intersections.html" />
+<meta property="og:url" content="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/beginer/04_conical_intersections.html" />
+<meta property="og:site_name" content="Quantics Knowledge Base" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Two-state diabatic model, conical intersections, and the Lorentzian form of the NACV" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Two-state diabatic model, conical intersections, and the Lorentzian form of the NACV","url":"http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/beginer/04_conical_intersections.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64545618641dcf682d804e64e8cd42d1505278b6">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Two-state diabatic model, conical intersections, and the Lorentzian form of the NACV</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/KM-2323/documentation_intro" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Beginner</span>
+    
+  
+</nav>
+
+
+
+<h2 id="two-state-diabatic-model-conical-intersections-and-the-lorentzian-form-of-the-nacv">Two-state diabatic model, conical intersections, and the Lorentzian form of the NACV</h2>
+
+<h3 id="real-two-state-diabatic-potential-matrix">Real two-state diabatic potential matrix</h3>
+
+<p>Consider a two-state electronic subspace described in a real diabatic basis</p>
+
+\[\left\{
+\ket{\varphi_1},
+\ket{\varphi_2}
+\right\}.\]
+
+<p>In this basis the electronic Hamiltonian is represented by the diabatic potential matrix</p>
+
+\[\begin{align}
+\mat W(\mat q)
+=\begin{pmatrix}
+W_{11}(\mat q) &amp; W_{12}(\mat q)\\
+W_{12}(\mat q) &amp; W_{22}(\mat q)
+\end{pmatrix}.
+\label{eq:two_state_diabatic_matrix}
+\end{align}\]
+
+<p>Here (\mat q\in\mathbb R^f) is the nuclear coordinate vector, usually mass-scaled in the present notes. The matrix (\mat W) is a (2\times2) matrix in electronic-state space. Each element (W_{ij}(\mat q)) is a scalar function of the nuclear coordinates.</p>
+
+<p>The matrix is real and symmetric because the diabatic basis has been chosen real and no complex phase convention, magnetic field, or spin-orbit complication is being considered. The diagonal elements (W_{11}) and (W_{22}) are the diabatic potentials, while the off-diagonal element (W_{12}) is the diabatic coupling.</p>
+
+<p>It is useful to define the average and difference functions</p>
+
+\[\begin{align}
+\bar W(\mat q)
+&amp;=
+\frac{1}{2}
+\left[
+W_{11}(\mat q)+W_{22}(\mat q)
+\right],\\
+\Delta(\mat q)
+&amp;=W_{22}(\mat q)-W_{11}(\mat q).
+\label{eq:delta_definition_two_state}
+\end{align}\]
+
+<p>Then Eq. (\eqref{eq:two_state_diabatic_matrix}) can be written as</p>
+
+\[\begin{align}
+\mat W
+=\bar W \mat I
++
+\begin{pmatrix}
+-\Delta/2 &amp; W_{12}\\
+W_{12} &amp; \Delta/2
+\end{pmatrix}.
+\label{eq:two_state_pauli_form}
+\end{align}\]
+
+<p>This form separates the part that shifts both adiabatic energies equally, (\bar W\mat I), from the part that controls the splitting between the two states.</p>
+
+<hr />
+
+<h2 id="adiabatic-energies-from-diagonalising-the-diabatic-matrix">Adiabatic energies from diagonalising the diabatic matrix</h2>
+
+<p>The adiabatic energies are obtained by solving</p>
+
+\[\begin{align}
+\det\left(\mat W-\lambda \mat I\right)=0.
+\end{align}\]
+
+<p>Explicitly,</p>
+
+\[\begin{align}
+\det
+\begin{pmatrix}
+W_{11}-\lambda &amp; W_{12}\\
+W_{12} &amp; W_{22}-\lambda
+\end{pmatrix}
+&amp;=
+(W_{11}-\lambda)(W_{22}-\lambda)-W_{12}^{2}
+\nonumber\\
+&amp;=
+\lambda^2
+-\lambda(W_{11}+W_{22})
++
+W_{11}W_{22}-W_{12}^{2}.
+\end{align}\]
+
+<p>The two eigenvalues are therefore</p>
+
+\[\begin{align}
+V_{\pm}(\mat q)
+=\bar W(\mat q)
+\pm
+\frac{1}{2}
+\sqrt{
+\Delta^2(\mat q)
++
+4W_{12}^2(\mat q)
+}.
+\label{eq:two_state_adiabatic_energies}
+\end{align}\]
+
+<p>The adiabatic energy gap is</p>
+
+\[\begin{align}
+V_{+}-V_{-}
+=\sqrt{
+\Delta^2+4W_{12}^{2}
+}.
+\label{eq:two_state_gap}
+\end{align}\]
+
+<p>A degeneracy requires</p>
+
+\[\begin{align}
+V_{+}=V_{-}
+\quad
+\Longleftrightarrow
+\quad
+\Delta(\mat q)=0
+\quad\text{and}\quad
+W_{12}(\mat q)=0.
+\label{eq:ci_conditions_two_state}
+\end{align}\]
+
+<p>These are two independent scalar conditions. In an (f)-dimensional nuclear coordinate space, their simultaneous solution generally defines an ((f-2))-dimensional intersection seam, provided the two conditions are independent. The two directions that lift the degeneracy form the <strong>branching space</strong>, also called the (g)-(h) plane. The remaining directions form the <strong>intersection space</strong>, along which the degeneracy is retained to first order. This is the standard local picture of a two-state conical intersection: near the degeneracy, the adiabatic surfaces form a double cone in the branching plane. :contentReference[oaicite:0]{index=0}</p>
+
+<hr />
+
+<h2 id="mixing-angle-representation-of-the-adiabatic-states">Mixing-angle representation of the adiabatic states</h2>
+
+<p>Since (\mat W) is real symmetric, it can be diagonalised by a real orthogonal matrix. We write</p>
+
+\[\begin{align}
+\Cmat(\theta)
+=\begin{pmatrix}
+\cos\theta &amp; \sin\theta\\
+-\sin\theta &amp; \cos\theta
+\end{pmatrix},
+\qquad
+\Cmat^{-1}=\Cmat^{T}.
+\label{eq:two_state_rotation_matrix}
+\end{align}\]
+
+<p>With this convention,</p>
+
+\[\begin{align}
+\Cmat^{T}\mat W\Cmat
+=\begin{pmatrix}
+V_1 &amp; 0\\
+0 &amp; V_2
+\end{pmatrix}.
+\label{eq:two_state_diagonalisation}
+\end{align}\]
+
+<p>Equivalently, the adiabatic states are expressed in the diabatic basis as</p>
+
+\[\begin{align}
+\ket{\psi_1}
+&amp;=\cos\theta\,\ket{\varphi_1}
+-\sin\theta\,\ket{\varphi_2},\\
+\ket{\psi_2}
+&amp;=\sin\theta\,\ket{\varphi_1}
++\cos\theta\,\ket{\varphi_2}.
+\label{eq:adiabatic_states_from_diabatic_basis}
+\end{align}\]
+
+<p>The off-diagonal element of (\Cmat^{T}\mat W\Cmat) is</p>
+
+\[\begin{align}
+(\Cmat^{T}\mat W\Cmat)_{12}
+&amp;=W_{12}(\cos^2\theta-\sin^2\theta)
++(W_{11}-W_{22})\sin\theta\cos\theta
+\nonumber\\
+&amp;=W_{12}\cos(2\theta)
+-\frac{\Delta}{2}\sin(2\theta).
+\end{align}\]
+
+<p>Diagonalisation requires this expression to vanish:</p>
+
+\[\begin{align}
+W_{12}\cos(2\theta)
+-\frac{\Delta}{2}\sin(2\theta)
+=0.
+\end{align}\]
+
+<p>Therefore,</p>
+
+\[\begin{align}
+\tan(2\theta)
+=\frac{2W_{12}}{\Delta}
+=\frac{2W_{12}}{W_{22}-W_{11}}.
+\label{eq:two_state_mixing_angle_tangent}
+\end{align}\]
+
+<p>Equivalently,</p>
+
+\[\begin{align}
+\theta(\mat q)
+=\frac{1}{2}
+\operatorname{atan2}
+\left(
+2W_{12}(\mat q),
+\Delta(\mat q)
+\right),
+\label{eq:two_state_mixing_angle_atan2}
+\end{align}\]
+
+<p>where (\operatorname{atan2}(y,x)) is preferable to (\arctan(y/x)) because it retains the correct quadrant. This matters near a conical intersection, where the mixing angle is multivalued and the electronic eigenvectors cannot be made globally single-valued without introducing a phase convention.</p>
+
+<p>At the exact degeneracy,</p>
+
+\[\Delta=0,
+\qquad
+W_{12}=0,\]
+
+<p>so the mixing angle is undefined. This is not a defect of the algebra; it reflects the fact that the two adiabatic eigenvectors are not uniquely defined at a degeneracy.</p>
+
+<hr />
+
+<h2 id="nonadiabatic-coupling-vector-as-the-gradient-of-the-mixing-angle">Nonadiabatic coupling vector as the gradient of the mixing angle</h2>
+
+<p>Assume for the moment that the diabatic basis is strictly diabatic in the local region of interest, so that</p>
+
+\[\begin{align}
+\braket{\varphi_i}{\nabla_{\mat q}\varphi_j}
+=\mat 0.
+\label{eq:strict_diabatic_basis_condition}
+\end{align}\]
+
+<p>In practice, for polyatomic molecules one usually works with local or quasi-diabatic states, so Eq. (\eqref{eq:strict_diabatic_basis_condition}) is an idealisation. It is nevertheless the correct assumption for deriving the standard two-state model and explains why diabatic representations are useful: the singular derivative coupling is transferred into smooth potential-like couplings. This is also the reason DD-vMCG and related approaches prefer smooth quasi-diabatic potential surfaces near degeneracies. :contentReference[oaicite:1]{index=1}</p>
+
+<p>Using Eq. (\eqref{eq:adiabatic_states_from_diabatic_basis}),</p>
+
+\[\begin{align}
+\nabla_{\mat q}\ket{\psi_2}
+&amp;=\nabla_{\mat q}
+\left[
+\sin\theta\,\ket{\varphi_1}
++
+\cos\theta\,\ket{\varphi_2}
+\right]
+\nonumber\\
+&amp;=(\nabla_{\mat q}\theta)
+\left[
+\cos\theta\,\ket{\varphi_1}
+-\sin\theta\,\ket{\varphi_2}
+\right]
+\nonumber\\
+&amp;=(\nabla_{\mat q}\theta)
+\ket{\psi_1}.
+\end{align}\]
+
+<p>Therefore, the first-order nonadiabatic coupling vector is</p>
+
+\[\begin{align}
+\F_{12}
+=\braket{\psi_1}{\nabla_{\mat q}\psi_2}
+=\nabla_{\mat q}\theta.
+\label{eq:nacv_as_gradient_theta}
+\end{align}\]
+
+<p>By antisymmetry,</p>
+
+\[\begin{align}
+\F_{21}
+=-\F_{12}.
+\end{align}\]
+
+<p>Taking the gradient of Eq. (\eqref{eq:two_state_mixing_angle_atan2}) gives</p>
+
+\[\begin{align}
+\F_{12}
+=\nabla_{\mat q}\theta
+=\frac{
+\Delta\,\nabla_{\mat q} W_{12}
+-W_{12}\,\nabla_{\mat q}\Delta
+}{
+\Delta^2+4W_{12}^{2}
+}.
+\label{eq:nacv_general_two_state_diabatic}
+\end{align}\]
+
+<p>In component form,</p>
+
+\[\begin{align}
+F_{12,\alpha}
+=\frac{
+\Delta\,\pdv{W_{12}}{q_\alpha}
+-W_{12}\,\pdv{\Delta}{q_\alpha}
+}{
+\Delta^2+4W_{12}^{2}
+},
+\qquad
+\alpha=1,\ldots,f.
+\label{eq:nacv_general_two_state_diabatic_component}
+\end{align}\]
+
+<p>Thus (\F_{12}\in\mathbb R^f) is a vector in nuclear coordinate space. The denominator is the square of the adiabatic energy gap,</p>
+
+\[\begin{align}
+\Delta^2+4W_{12}^{2}
+=(V_{+}-V_{-})^2.
+\end{align}\]
+
+<p>This makes the singular behaviour transparent: the derivative coupling becomes large when the adiabatic energy gap becomes small, and it is singular at the exact conical intersection.</p>
+
+<p>The sign of Eq. (\eqref{eq:nacv_general_two_state_diabatic}) depends on the convention used for (\Cmat) and for the ordering of (\psi_1,\psi_2). Changing the sign of one adiabatic eigenvector changes the sign of the corresponding coupling vector. The physically meaningful object is the coupled nuclear equation, or equivalently the globally consistent phase convention.</p>
+
+<hr />
+
+<h2 id="linear-vibronic-coupling-model-near-a-conical-intersection">Linear vibronic coupling model near a conical intersection</h2>
+
+<p>Now expand the diabatic potential matrix around a point on the intersection seam. Let (\mat q=\mat 0) denote the chosen conical-intersection point. To first order,</p>
+
+\[\begin{align}
+\Delta(\mat q)
+&amp;=W_{22}(\mat q)-W_{11}(\mat q)
+=\boldsymbol{\kappa}\cdot\mat q
++
+O(q^2),
+\\[4pt]
+W_{12}(\mat q)
+&amp;=\boldsymbol{\lambda}\cdot\mat q
++O(q^2).
+\label{eq:lvc_delta_and_coupling}
+\end{align}\]
+
+<p>Here</p>
+
+\[\begin{align}
+\boldsymbol{\kappa}
+=\nabla_{\mat q}
+\left(
+W_{22}-W_{11}
+\right)_{\mat q=\mat 0},
+\qquad
+\boldsymbol{\lambda}
+=\nabla_{\mat q}W_{12}\big|_{\mat q=\mat 0}.
+\label{eq:kappa_lambda_definitions}
+\end{align}\]
+
+<p>Both (\boldsymbol{\kappa}) and (\boldsymbol{\lambda}) are (f)-dimensional vectors in nuclear coordinate space. The vector (\boldsymbol{\kappa}) is the diabatic energy-gap gradient. It is proportional to the usual gradient-difference vector. The vector (\boldsymbol{\lambda}) is the linear diabatic coupling vector. In the notation often used in vibronic-coupling treatments, one defines</p>
+
+\[\begin{align}
+\boldsymbol{\delta}
+=\frac{1}{2}
+\boldsymbol{\kappa}.
+\end{align}\]
+
+<p>so that (\Delta/2=\boldsymbol{\delta}\cdot\mat q). The linear vibronic coupling expansion and the identification of the gradient-difference and coupling vectors are standard in vibronic-coupling descriptions of conical intersections. :contentReference[oaicite:2]{index=2}</p>
+
+<p>Substituting Eq. (\eqref{eq:lvc_delta_and_coupling}) into Eq. (\eqref{eq:two_state_adiabatic_energies}) gives</p>
+
+\[\begin{align}
+V_{\pm}(\mat q)
+=\bar W(\mat q)
+\pm
+\frac{1}{2}
+\sqrt{
+\left(
+\boldsymbol{\kappa}\cdot\mat q
+\right)^2
++
+4
+\left(
+\boldsymbol{\lambda}\cdot\mat q
+\right)^2
+}
++
+O(q^2).
+\label{eq:lvc_adiabatic_surfaces}
+\end{align}\]
+
+<p>The degeneracy is lifted only by displacements for which at least one of the two scalar projections</p>
+
+\[\begin{align}
+\boldsymbol{\kappa}\cdot\mat q,
+\qquad
+\boldsymbol{\lambda}\cdot\mat q
+\end{align}\]
+
+<p>is nonzero. Therefore, the branching plane is spanned by (\boldsymbol{\kappa}) and (\boldsymbol{\lambda}). The intersection seam consists of displacements satisfying</p>
+
+\[\begin{align}
+\boldsymbol{\kappa}\cdot\mat q=0,
+\qquad
+\boldsymbol{\lambda}\cdot\mat q=0.
+\label{eq:lvc_seam_conditions}
+\end{align}\]
+
+<p>For a system with (f) nuclear degrees of freedom, this seam has dimension (f-2), provided (\boldsymbol{\kappa}) and (\boldsymbol{\lambda}) are linearly independent.</p>
+
+<p>In many symmetry-induced conical intersections, these two vectors have a simple physical interpretation. The diagonal energy gap is modulated by a totally symmetric tuning coordinate, while the off-diagonal coupling is generated by a non-totally symmetric coupling coordinate. This is the standard tuning-mode/coupling-mode picture of linear vibronic coupling. :contentReference[oaicite:3]{index=3}</p>
+
+<hr />
+
+<h2 id="branching-coordinates">Branching coordinates</h2>
+
+<p>There are two common ways to define the branching coordinates.</p>
+
+<p>First, one may define <strong>energy-like branching coordinates</strong></p>
+
+\[\begin{align}
+x(\mat q)
+=\boldsymbol{\kappa}\cdot\mat q,
+\qquad
+y(\mat q)
+=2\boldsymbol{\lambda}\cdot\mat q.
+\label{eq:energy_like_branching_coordinates}
+\end{align}\]
+
+<p>Then the local adiabatic gap is simply</p>
+
+\[\begin{align}
+V_{+}-V_{-}
+=\sqrt{x^2+y^2}.
+\label{eq:lvc_gap_energy_coordinates}
+\end{align}\]
+
+<p>In these coordinates the conical topology is immediate.</p>
+
+<p>Second, one may define <strong>orthonormal geometric branching coordinates</strong>. If (\boldsymbol{\kappa}) and (\boldsymbol{\lambda}) are orthogonal, set</p>
+
+\[\begin{align}
+q_{\kappa}
+=\hat{\boldsymbol{\kappa}}\cdot\mat q,
+\qquad
+q_{\lambda}
+=\hat{\boldsymbol{\lambda}}\cdot\mat q,
+\end{align}\]
+
+<p>where</p>
+
+\[\begin{align}
+\hat{\boldsymbol{\kappa}}
+=\frac{\boldsymbol{\kappa}}{\lVert\boldsymbol{\kappa}\rVert},
+\qquad
+\hat{\boldsymbol{\lambda}}
+=\frac{\boldsymbol{\lambda}}{\lVert\boldsymbol{\lambda}\rVert}.
+\end{align}\]
+
+<p>Then</p>
+
+\[\begin{align}
+\Delta
+=\lVert\boldsymbol{\kappa}\rVert q_{\kappa},
+\qquad
+W_{12}
+=\lVert\boldsymbol{\lambda}\rVert q_{\lambda}.
+\end{align}\]
+
+<p>If (\boldsymbol{\kappa}) and (\boldsymbol{\lambda}) are not orthogonal, one can orthonormalise the two-dimensional space they span, for example by Gram-Schmidt orthogonalisation. The branching space is unchanged; only the coordinate representation changes.</p>
+
+<p>In this orthogonal branching-plane representation, Eq. (\eqref{eq:lvc_adiabatic_surfaces}) becomes</p>
+
+\[\begin{align}
+V_{\pm}
+=\bar W
+\pm
+\frac{1}{2}
+\sqrt{
+\lVert\boldsymbol{\kappa}\rVert^2 q_{\kappa}^{2}
++
+4\lVert\boldsymbol{\lambda}\rVert^2 q_{\lambda}^{2}
+}.
+\label{eq:lvc_surfaces_orthogonal_branching_coords}
+\end{align}\]
+
+<p>If (\bar W) is locally flat, this is a symmetric double cone. If (\bar W) has a nonzero gradient in the branching plane, the cone is tilted. This gives the usual distinction between peaked and sloped conical intersections. A two-mode LVC Hamiltonian with one tuning mode and one coupling mode is often the minimal model needed to capture this local topology. :contentReference[oaicite:4]{index=4}</p>
+
+<hr />
+
+<h2 id="nacv-in-the-lvc-model">NACV in the LVC model</h2>
+
+<p>Substituting the LVC expressions</p>
+
+\[\Delta=\boldsymbol{\kappa}\cdot\mat q,
+\qquad
+W_{12}=\boldsymbol{\lambda}\cdot\mat q\]
+
+<p>into Eq. (\eqref{eq:nacv_general_two_state_diabatic}) gives</p>
+
+\[\begin{align}
+\F_{12}(\mat q)
+=\frac{
+(\boldsymbol{\kappa}\cdot\mat q)\boldsymbol{\lambda}
+-(\boldsymbol{\lambda}\cdot\mat q)\boldsymbol{\kappa}
+}{
+(\boldsymbol{\kappa}\cdot\mat q)^2
++
+4(\boldsymbol{\lambda}\cdot\mat q)^2
+}.
+\label{eq:lvc_nacv_vector}
+\end{align}\]
+
+<p>Equivalently, using the energy-like coordinates (x=\Delta) and (y=2W_{12}),</p>
+
+\[\begin{align}
+\F_{12}
+=\frac{1}{2}
+\frac{
+x\,\nabla_{\mat q}y
+-y\,\nabla_{\mat q}x
+}{
+x^2+y^2
+}.
+\label{eq:lvc_nacv_energy_coordinate_form}
+\end{align}\]
+
+<p>This form shows that the two-state NACV has a vortex-like structure in the branching plane. Away from the conical intersection, it is locally the gradient of the mixing angle. At the conical intersection, the field is singular because (x=y=0).</p>
+
+<p>If a closed loop encircles the conical intersection once, the mixing angle changes by (\pi). Equivalently,</p>
+
+\[\begin{align}
+\oint \F_{12}\cdot d\mat q
+=\oint \nabla_{\mat q}\theta\cdot d\mat q
+=\pi
+\end{align}\]
+
+<p>up to sign convention. This is the local two-state expression of the familiar sign change of real adiabatic eigenvectors around a conical intersection.</p>
+
+<hr />
+
+<h2 id="lorentzian-form-along-a-one-dimensional-cut">Lorentzian form along a one-dimensional cut</h2>
+
+<p>The full two-dimensional NACV in Eq. (\eqref{eq:lvc_nacv_vector}) is not itself a Lorentzian; it is a singular vector field in the branching plane. The Lorentzian form appears when one takes a one-dimensional cut through the branching plane while holding the other branching coordinate fixed.</p>
+
+<p>Assume that the two branching coordinates are orthogonal and write</p>
+
+\[\begin{align}
+\Delta
+=a\,q_{\kappa},
+\qquad
+W_{12}
+=b\,q_{\lambda},
+\label{eq:lvc_orthogonal_ab_model}
+\end{align}\]
+
+<p>where</p>
+
+\[\begin{align}
+a=\lVert\boldsymbol{\kappa}\rVert,
+\qquad
+b=\lVert\boldsymbol{\lambda}\rVert.
+\end{align}\]
+
+<p>Then</p>
+
+\[\begin{align}
+\F_{12}
+=\frac{
+ab\left(
+q_{\kappa}\hat{\boldsymbol{\lambda}}
+-q_{\lambda}\hat{\boldsymbol{\kappa}}
+\right)
+}{a^2q_{\kappa}^{2}
++4b^2q_{\lambda}^{2}
+}.
+\label{eq:lvc_nacv_orthogonal_branching_plane}
+\end{align}\]
+
+<p>Now take a cut along the tuning coordinate (q_{\kappa}), while holding the coupling coordinate fixed at (q_{\lambda}=q_{\lambda}^{(0)}\neq0). The component of the NACV along the tuning coordinate is</p>
+
+\[\begin{align}
+F_{12,\kappa}
+(q_{\kappa};q_{\lambda}^{(0)})
+&amp;=
+\F_{12}\cdot\hat{\boldsymbol{\kappa}}
+\nonumber\\
+&amp;=-\frac{
+ab\,q_{\lambda}^{(0)}
+}{
+a^2q_{\kappa}^{2}
++4b^2
+\left(q_{\lambda}^{(0)}\right)^2
+}.
+\label{eq:lvc_lorentzian_raw}
+\end{align}\]
+
+<p>This can be written in Lorentzian form as</p>
+
+\[\begin{align}
+F_{12,\kappa}
+(q_{\kappa};q_{\lambda}^{(0)})
+=-\frac{a}{4b\,q_{\lambda}^{(0)}}
+\frac{1}{
+1+\left(
+q_{\kappa}/\Gamma_{\kappa}
+\right)^2
+},
+\label{eq:lvc_lorentzian_form}
+\end{align}\]
+
+<p>with half-width</p>
+
+\[\begin{align}
+\Gamma_{\kappa}
+=\frac{
+2|bq_{\lambda}^{(0)}|
+}{
+|a|
+}.
+\label{eq:lvc_lorentzian_width}
+\end{align}\]
+
+<p>Thus, along a one-dimensional slice, the derivative coupling is peaked at the avoided crossing point (q_{\kappa}=0). The smaller the fixed off-diagonal coupling (bq_{\lambda}^{(0)}), the narrower and taller the Lorentzian becomes. In the limit</p>
+
+\[q_{\lambda}^{(0)}\rightarrow 0,\]
+
+<p>the avoided crossing becomes the true conical intersection, and the NACV becomes singular.</p>
+
+<p>The integrated area remains finite:</p>
+
+\[\begin{align}
+\int_{-\infty}^{+\infty}
+F_{12,\kappa}(q_{\kappa};q_{\lambda}^{(0)})
+\,dq_{\kappa}
+=-\frac{\pi}{2}
+\,\operatorname{sgn}
+\left(q_{\lambda}^{(0)}\right),
+\label{eq:lvc_lorentzian_integral}
+\end{align}\]
+
+<p>assuming (a,b&gt;0). This finite area reflects the finite change in the mixing angle as the system passes through the avoided crossing.</p>
+
+<p>A similar Lorentzian is obtained for the component along the coupling coordinate if one instead holds (q_{\kappa}) fixed and scans along (q_{\lambda}).</p>
+
+<hr />
+
+<h2 id="practical-comments-for-the-surrounding-discussion">Practical comments for the surrounding discussion</h2>
+
+<p>The two-state LVC model is local. It is designed to describe the topology near a chosen point on the conical-intersection seam. Higher-order terms, additional tuning modes, and additional electronic states can change the global shape of the surfaces, but the local two-condition structure</p>
+
+\[\Delta=0,
+\qquad
+W_{12}=0\]
+
+<p>is the essential reason a two-state conical intersection has a two-dimensional branching plane and an ((f-2))-dimensional seam.</p>
+
+<p>In direct-dynamics contexts, this local picture explains why smooth diabatic or quasi-diabatic surfaces are preferred. In the adiabatic representation, the surfaces are not differentiable at the degeneracy and the nonadiabatic coupling diverges; in the diabatic representation, the singular derivative coupling is replaced by smooth potential couplings. DD-vMCG implementations therefore use diabatisation schemes to generate smooth diabatic potential surfaces suitable for local harmonic approximations and propagation. :contentReference[oaicite:5]{index=5}</p>
+
+<p>A final convention warning is important. If the rotation matrix is chosen as</p>
+
+\[\begin{pmatrix}
+\cos\theta &amp; -\sin\theta\\
+\sin\theta &amp; \cos\theta
+\end{pmatrix}\]
+
+<p>instead of Eq. (\eqref{eq:two_state_rotation_matrix}), then the sign of (\theta) and of (\F_{12}) changes. This is not a physical change. It is only a phase convention for the adiabatic eigenvectors. What matters is that the convention is used consistently throughout the derivation and in the coupled nuclear equations.</p>
+
+<hr />
+
+
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Beginner</span>
+    
+  
+</nav>
+
+
+<script src="/assets/js/mathjax-config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
+    blocks.forEach(function(block) {
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      block.parentNode.replaceWith(div);
+    });
+  });
+</script>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/KM-2323/documentation_intro">documentation_intro</a> is maintained by <a href="https://github.com/KM-2323">KM-2323</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

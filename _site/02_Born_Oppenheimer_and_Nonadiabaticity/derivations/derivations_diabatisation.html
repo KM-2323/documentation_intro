@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Diabatisation | Quantics Knowledge Base</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Diabatisation" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_diabatisation.html" />
+<meta property="og:url" content="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_diabatisation.html" />
+<meta property="og:site_name" content="Quantics Knowledge Base" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Diabatisation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Diabatisation","url":"http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_diabatisation.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64545618641dcf682d804e64e8cd42d1505278b6">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Diabatisation</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/KM-2323/documentation_intro" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<h3 id="diabatisation">Diabatisation</h3>
+
+<p>We now examine how the operators $-\frac{1}{2}\nabla_{\mat q}^{2}$ and $\mat\Lambda$ act on the transformed nuclear wavefunction</p>
+
+\[\begin{align}
+\chivec^{(a)}(\mat q,t)=\Cmat(\mat q)\chivec^{(d)}(\mat q,t).
+\end{align}\]
+
+<p>Here $\Cmat$ is an $N_{\mathrm s}\times N_{\mathrm s}$ matrix, while $\chivec^{(a)}$ and $\chivec^{(d)}$ are $N_{\mathrm s}\times 1$ column vectors. The derivative coupling $\F$ is a vector of $N_{\mathrm s}\times N_{\mathrm s}$ matrices, with components $\F_\alpha$, one for each mass-scaled nuclear coordinate $q_\alpha$. We use the conventions</p>
+
+\[\begin{align}
+\F\cdot\nabla_{\mat q}
+&amp;=
+\sum_\alpha \mat F_\alpha \pdv{}{q_\alpha},
+\\
+\F\cdot\nabla_{\mat q}\Cmat
+&amp;=
+\sum_\alpha \mat F_\alpha\pdv{\Cmat}{q_\alpha},
+\\
+\F\cdot\F
+&amp;=
+\sum_\alpha \mat F_\alpha\mat F_\alpha,
+\\
+\nabla_{\mat q}\cdot\F
+&amp;=
+\sum_\alpha \pdv{\mat F_\alpha}{q_\alpha}.
+\end{align}\]
+
+<p>Matrix order is important in these expressions.</p>
+
+<p>First consider the Laplacian term:</p>
+
+\[\begin{align}
+-\frac{1}{2}\nabla_{\mat q}^2\chivec^{(a)}
+&amp;=
+-\frac{1}{2}\nabla_{\mat q}^2
+\left[
+\Cmat\chivec^{(d)}
+\right]
+\nonumber\\
+&amp;=
+-\frac{1}{2}
+\nabla_{\mat q}\cdot
+\left[
+\left(\nabla_{\mat q}\Cmat\right)\chivec^{(d)}
++
+\Cmat\nabla_{\mat q}\chivec^{(d)}
+\right]
+\nonumber\\
+&amp;=
+-\frac{1}{2}
+\left[
+\left(\nabla_{\mat q}^{2}\Cmat\right)\chivec^{(d)}
++
+2\left(\nabla_{\mat q}\Cmat\right)\cdot
+\left(\nabla_{\mat q}\chivec^{(d)}\right)
++
+\Cmat
+\left(\nabla_{\mat q}^{2}\chivec^{(d)}\right)
+\right]
+\nonumber\\
+&amp;=
+-\frac{1}{2}
+\left[
+\left(\nabla_{\mat q}^{2}\Cmat\right)
++
+2\left(\nabla_{\mat q}\Cmat\right)\cdot\nabla_{\mat q}
++
+\Cmat\nabla_{\mat q}^{2}
+\right]
+\chivec^{(d)}.
+\label{eq:laplacian_on_transformed_nuclear_wf}
+\end{align}\]
+
+<p>Next consider the nonadiabatic coupling operator</p>
+
+\[\begin{align}
+\mat\Lambda
+=\frac{1}{2}
+\left[
+2\F\cdot\nabla_{\mat q}
++
+\G
+\right],
+\end{align}\]
+
+<p>where $\G$ is the scalar second-derivative coupling matrix. Acting on $\chivec^{(a)}=\Cmat\chivec^{(d)}$ gives</p>
+
+\[\begin{align}
+\mat\Lambda\chivec^{(a)}
+&amp;=\frac{1}{2}
+\left[
+2\F\cdot\nabla_{\mat q}
++
+\G
+\right]
+\left[
+\Cmat\chivec^{(d)}
+\right]
+\nonumber\\
+&amp;=
+\frac{1}{2}
+\left[
+2\F\cdot
+\left(\nabla_{\mat q}\Cmat\right)
+\chivec^{(d)}
++
+2\left(\F\Cmat\right)\cdot
+\left(\nabla_{\mat q}\chivec^{(d)}\right)
++
+\G\Cmat\chivec^{(d)}
+\right]
+\nonumber\\
+&amp;=
+\frac{1}{2}
+\left[
+2\F\cdot
+\left(\nabla_{\mat q}\Cmat\right)
++
+2\left(\F\Cmat\right)\cdot\nabla_{\mat q}
++
+\G\Cmat
+\right]
+\chivec^{(d)}.
+\label{eq:lambda_on_transformed_nuclear_wf}
+\end{align}\]
+
+<p>Therefore,</p>
+
+\[\begin{align}
+&amp;\left[
+-\frac{1}{2}\nabla_{\mat q}^{2}\mat I
++\V-\mat\Lambda
+\right]
+\chivec^{(a)}
+\nonumber\\
+&amp;=\left[
+-\frac{1}{2}\nabla_{\mat q}^{2}\mat I
++\V
+-\mat\Lambda
+\right]
+\Cmat\chivec^{(d)}
+\nonumber\\
+&amp;=\Bigg[-\frac{1}{2}
+\left[
+\left(\nabla_{\mat q}^{2}\Cmat\right)
++2\left(\nabla_{\mat q}\Cmat\right)\cdot\nabla_{\mat q}
++\Cmat\nabla_{\mat q}^{2}
+\right]
++\V\Cmat
+\nonumber\\&amp;\hspace{2.5cm}
+-\frac{1}{2}
+\left[
+2\F\cdot
+\left(\nabla_{\mat q}\Cmat\right)
++2\left(\F\Cmat\right)\cdot\nabla_{\mat q}
++\G\Cmat
+\right]
+\Bigg]
+\chivec^{(d)}
+\nonumber\\
+&amp;=\left[
+\V\Cmat
+-\frac{1}{2}
+\left[
+\left(\nabla_{\mat q}^{2}\Cmat\right)
++2\F\cdot
+\left(\nabla_{\mat q}\Cmat\right)
++\G\Cmat
+\right]
+\right.
+\nonumber\\
+&amp;\hspace{2.5cm}
+\left.
+-\left[
+\nabla_{\mat q}\Cmat+\F\Cmat
+\right]\cdot\nabla_{\mat q}
+-\frac{1}{2}\Cmat\nabla_{\mat q}^{2}
+\right]
+\chivec^{(d)}.
+\label{eq:diabatic_tdse_intermediate}
+\end{align}\]
+
+<p>Apart from unitarity, no particular choice of $\Cmat$ has yet been made. The diabatic choice is to seek a transformation satisfying the adiabatic-to-diabatic transformation condition</p>
+
+\[\begin{align}
+\nabla_{\mat q}\Cmat+\F\Cmat=0.
+\label{eq:ADT_transform_differential}
+\end{align}\]
+
+<p>Componentwise, this means</p>
+
+\[\begin{align}
+\pdv{\Cmat}{q_\alpha}
++\F_\alpha\Cmat
+=0
+\qquad
+\text{for every nuclear coordinate }q_\alpha.
+\end{align}\]
+
+<p>If the retained adiabatic electronic functions form a complete set, or an effectively closed subspace, the derivative couplings obey</p>
+
+\[\begin{align}
+\nabla_{\mat q}\cdot\F
+=\G-\F\cdot\F.
+\label{eq:divergence_identity_F_G}
+\end{align}\]
+
+<p>Taking the divergence of Eq. \eqref{eq:ADT_transform_differential} gives</p>
+
+\[\begin{align}
+0&amp;=\nabla_{\mat q}\cdot
+\left(\nabla_{\mat q}\Cmat+\F\Cmat
+\right)
+\nonumber\\
+&amp;=\nabla_{\mat q}^{2}\Cmat
++\left(
+\nabla_{\mat q}\cdot\F
+\right)\Cmat
++\F\cdot
+\left(
+\nabla_{\mat q}\Cmat
+\right).
+\end{align}\]
+
+<p>Using Eq. \eqref{eq:divergence_identity_F_G},</p>
+
+\[\begin{align}
+\nabla_{\mat q}^{2}\Cmat
++\left(
+\G-\F\cdot\F
+\right)\Cmat
++\F\cdot
+\left(
+\nabla_{\mat q}\Cmat
+\right)
+&amp;=0\nonumber\\
+\nabla_{\mat q}^{2}\Cmat
++\G\Cmat
+-\left(\F\cdot\F\right)\Cmat
++\F\cdot
+\left(
+\nabla_{\mat q}\Cmat
+\right)
+&amp;=0
+\nonumber\\
+\nabla_{\mat q}^{2}\Cmat
++\G\Cmat
++\F\cdot
+\left[
+\nabla_{\mat q}\Cmat-\F\Cmat
+\right]
+&amp;=0.
+\end{align}\]
+
+<p>Substituting Eq. \eqref{eq:ADT_transform_differential}, equivalently $\F\Cmat=-\nabla_{\mat q}\Cmat$, gives</p>
+
+\[\begin{align}
+\nabla_{\mat q}^{2}\Cmat
++\G\Cmat+
+2\F\cdot
+\left(
+\nabla_{\mat q}\Cmat
+\right)
+=0.
+\label{eq:divergence_adt_differential}
+\end{align}\]
+
+<p>This is precisely the scalar term that appears in Eq. \eqref{eq:diabatic_tdse_intermediate}. Applying Eqs. \eqref{eq:ADT_transform_differential} and \eqref{eq:divergence_adt_differential} to Eq. \eqref{eq:diabatic_tdse_intermediate} gives</p>
+
+\[\begin{align}
+\left[
+-\frac{1}{2}\nabla_{\mat q}^{2}\mat I
++\V-\mat\Lambda
+\right]
+\chivec^{(a)}
+=\left[
+\V\Cmat-\frac{1}{2}
+\Cmat\nabla_{\mat q}^{2}
+\right]
+\chivec^{(d)}.
+\end{align}\]
+
+<p>Finally, left multiplying by $\Cinv=\Cmat^\dagger$ gives</p>
+
+\[\begin{align}
+\Cinv
+\left[
+-\frac{1}{2}\nabla_{\mat q}^{2}\mat I
++\V
+-\mat\Lambda
+\right]
+\chivec^{(a)}
+&amp;=\Cinv
+\left[
+\V\Cmat
+-\frac{1}{2}
+\Cmat\nabla_{\mat q}^{2}
+\right]
+\chivec^{(d)}
+\nonumber\\
+&amp;=\left[
+\Cinv\V\Cmat
+-\frac{1}{2}
+\Cinv\Cmat\nabla_{\mat q}^{2}
+\right]
+\chivec^{(d)}
+\nonumber\\
+&amp;=\left[
+\W
+-\frac{1}{2}
+\nabla_{\mat q}^{2}\mat I
+\right]
+\chivec^{(d)}.
+\end{align}\]
+
+<p>The diabatic potential matrix is therefore</p>
+
+\[\begin{align}
+\W
+=\Cinv\V\Cmat.
+\label{eq:diabatic_potential_matrix_derivation}
+\end{align}\]
+
+<p>Since $\Cmat$ is unitary and $\V$ is Hermitian, $\W$ is also Hermitian. In contrast to $\V$, however, $\W$ is generally not diagonal. The nonadiabatic coupling has therefore been transferred from derivative couplings in the kinetic-energy operator to off-diagonal potential couplings in $\W$.</p>
+
+<p>For the time-dependent equation, the left-hand side also transforms cleanly provided $\Cmat$ has no explicit time dependence:</p>
+
+\[\begin{align}
+\Cinv i\hbar\pdv{}{t}
+\left(
+\Cmat\chivec^{(d)}
+\right)
+=i\hbar
+\pdv{\chivec^{(d)}}{t}.
+\end{align}\]
+
+<p>Thus the diabatic nuclear TDSE becomes</p>
+
+\[\begin{align}
+i\hbar
+\pdv{\chivec^{(d)}}{t}
+=\left[
+-\frac{1}{2}
+\nabla_{\mat q}^{2}\mat I
++
+\W
+\right]
+\chivec^{(d)}.
+\label{eq:diabatic_tdse_final_derivation}
+\end{align}\]
+
+<p>Strictly, this cancellation is exact only when the retained electronic space is complete, or when it is an isolated subspace satisfying the required integrability conditions. In practical finite-state calculations, the same derivation motivates a quasi-diabatic representation: the derivative couplings are not necessarily removed exactly everywhere, but they are reduced enough that the dominant coupling is represented by the off-diagonal elements of $\W$.</p>
+
+
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<script src="/assets/js/mathjax-config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
+    blocks.forEach(function(block) {
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      block.parentNode.replaceWith(div);
+    });
+  });
+</script>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/KM-2323/documentation_intro">documentation_intro</a> is maintained by <a href="https://github.com/KM-2323">KM-2323</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

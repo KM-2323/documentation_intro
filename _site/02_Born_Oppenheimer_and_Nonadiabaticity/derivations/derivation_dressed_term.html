@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Expressing the Scalar Coupling Matrix ($\G$) in terms of $\F$ | Quantics Knowledge Base</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Expressing the Scalar Coupling Matrix ($\G$) in terms of $\F$" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivation_dressed_term.html" />
+<meta property="og:url" content="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivation_dressed_term.html" />
+<meta property="og:site_name" content="Quantics Knowledge Base" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Expressing the Scalar Coupling Matrix ($\G$) in terms of $\F$" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Expressing the Scalar Coupling Matrix ($\\G$) in terms of $\\F$","url":"http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivation_dressed_term.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64545618641dcf682d804e64e8cd42d1505278b6">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Expressing the Scalar Coupling Matrix ($\G$) in terms of $\F$</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/KM-2323/documentation_intro" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<h3 id="expressing-the-scalar-coupling-matrix-g-in-terms-of-f">Expressing the Scalar Coupling Matrix ($\G$) in terms of $\F$</h3>
+
+<p>To express the elements of the second derivative (scalar) coupling matrix $\G$ in terms of the non-adiabatic coupling matrix NACM $\F$, we begin by taking the nuclear gradient of the elements $\F_{ji}$:</p>
+
+\[\begin{align}
+\nabla\F_{ji}&amp;=\nabla\braket{\psi_j}{\nabla\psi_i}\nonumber\\
+&amp;=\braket{\nabla\psi_j}{\nabla\psi_i}+\braket{\psi_j}{\nabla^2\psi_i}\nonumber\\
+&amp;=\braket{\nabla\psi_j}{\nabla\psi_i}+G_{ji}\nonumber\\
+\end{align}\]
+
+<p>Rearranging this expression to isolate $\G_{ji}$ yields:</p>
+
+\[\begin{align}
+G_{ji}=\nabla\F_{ji}-\braket{\nabla\psi_j}{\nabla\psi_i}\label{eq:G_raw}\\
+\end{align}\]
+
+<p>Assuming the electronic eigenstates form a complete basis, we can apply the resolution of the identity (see <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.html">Born-Huang expansion</a>), defined as:</p>
+
+\[\begin{align}
+\sum_{k=1}^{\infty}
+\ket{\psi_k(\mat R)}
+\bra{\psi_k(\mat R)}
+=\hat I_{\mathrm{el}}.
+\label{eq:electronic_completeness}
+\end{align}\]
+
+<p>Inserting this identity operator into the second term of Equation \ref{eq:G_raw} allows us to expand the bra-ket:</p>
+
+\[\begin{align}
+G_{ji}&amp;=\nabla\F_{ji}-\mel{\nabla\psi_j}{\hat I_{\mathrm{el}}}{\nabla\psi_i}\nonumber\\
+&amp;=\nabla\F_{ji}-\sum_{k=1}^{\infty}\mel{\nabla\psi_j}{\Big[\ket{\psi_k}
+\bra{\psi_k}\Big]}{\nabla\psi_i}\nonumber\\
+&amp;=\nabla\F_{ji}-\sum_{k=1}^{\infty}\braket{\nabla\psi_j}{\psi_k}
+\braket{\psi_k}{\nabla\psi_i}\nonumber\\
+&amp;=\nabla\F_{ji}-\sum_{k=1}^{\infty}\braket{\psi_k}{\nabla\psi_j}^*
+\braket{\psi_k}{\nabla\psi_i}\nonumber\\
+&amp;=\nabla\F_{ji}+\sum_{k=1}^{\infty}\braket{\psi_j}{\nabla\psi_k}
+\braket{\psi_k}{\nabla\psi_i}\nonumber\\
+&amp;=\nabla\F_{ji}+\sum_{k=1}^{\infty}\F_{jk}\cdot\F_{ki}
+\end{align}\]
+
+<p>To transition from line 3 to line 5, we utilized two key properties. First, we applied the standard complex conjugate rule for inner products: $\braket{\nabla\psi_j}{\psi_k} = \braket{\psi_k}{\nabla\psi_j}^{*}$.</p>
+
+<p>Second, we applied the anti-Hermitian property of the non-adiabatic coupling matrix ($\F_{jk} = -\F_{kj}^{*}$) to replace $-\braket{\psi_k}{\nabla\psi_j}^{*}$ with $\braket{\psi_j}{\nabla\psi_k}$  (see <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_antihermitian_F.html">antihermitian proof</a>). In compact matrix notation, this gives us the relation $\G = \nabla\F + \F\cdot\F$.</p>
+
+<hr />
+
+<h3 id="factorizing-the-dressed-kinetic-energy-operator">Factorizing the Dressed Kinetic Energy Operator</h3>
+<p>We can now substitute our expanded matrix expression for $\G$ into the non-adiabatic kinetic energy operator. Note the explicit inclusion of the identity matrix $\mat I$ to ensure dimensional consistency across the operator matrices:</p>
+
+\[\begin{align}
+-\frac{1}{2}\nabla^{2}\mat I
+-\mat\Lambda
+&amp;=-\frac{1}{2}\nabla^2\mat I-\frac{1}{2}
+\left( 2\F\cdot\nabla\mat I +\G \right)\nonumber\\
+&amp;=-\frac{1}{2}\left[\nabla^2\mat I+2\F\cdot\nabla\mat I +\G \right]\nonumber\\
+&amp;=-\frac{1}{2}\left[\nabla^2\mat I+2\F\cdot\nabla\mat I +\nabla\F+\F\cdot\F \right]
+\label{eq:sub-explicit-G}
+\end{align}\]
+
+<p>Because these terms act as differential operators, we must carefully handle the gradient. The product rule for the gradient operator $\nabla$ acting on a matrix $\F$ multiplied by an arbitrary test vector $\boldsymbol{\chi}$ is $\nabla \cdot (\F\boldsymbol{\chi}) = (\nabla\F)\boldsymbol{\chi} + \F \cdot (\nabla\boldsymbol{\chi})$. Removing the test vector yields the purely operator-based identity:</p>
+
+\[\begin{align}
+\nabla \cdot (\F\boldsymbol{\chi}) &amp;= (\nabla\F)\boldsymbol{\chi} + \F \cdot (\nabla\boldsymbol{\chi})
+\end{align}\]
+
+<p>or equally:</p>
+
+\[\begin{align}
+\nabla \cdot \F = \nabla\F + \F \cdot \nabla\mat I
+\label{eq:operator-algebra}
+\end{align}\]
+
+<p>We can split the $2\F\cdot\nabla\mat I$ term in Equation \ref{eq:sub-explicit-G} and apply this operator identity to factorize the bracketed expression. To make the algebraic factorization explicit, we express the free gradient operators with their corresponding identity matrices ($\nabla = \nabla\mat I$):</p>
+
+\[\begin{align}
+\nabla^2\mat I+2\F\cdot\nabla\mat I +\nabla\F+\F\cdot\F &amp;=\nabla^2\mat I+\F\cdot\nabla\mat I + (\nabla\F + \F\cdot\nabla\mat I)+\F\cdot\F\nonumber\\
+&amp;=\nabla^2\mat I+\F\cdot\nabla\mat I +\nabla\cdot\F+\F\cdot\F\nonumber\\
+&amp;=(\nabla\mat I)\cdot(\nabla\mat I)+\F\cdot(\nabla\mat I) +(\nabla\mat I)\cdot\F+\F\cdot\F\nonumber\\
+&amp;=(\nabla\mat I)\cdot\left(\nabla\mat I+\F\right)+\F\cdot\left(\nabla\mat I +\F\right)\nonumber\\
+&amp;=\left(\nabla\mat I+\F \right)\cdot\left(\nabla\mat I+\F\right)\nonumber\\
+&amp;=\left(\nabla\mat I+\F \right)^2
+\label{eq:dressed-term-factorisation}
+\end{align}\]
+
+<p>Substituting this perfect square back into Equation \ref{eq:sub-explicit-G} yields the familiar, elegant “dressed” form of the non-adiabatic kinetic energy operator:</p>
+
+\[\begin{align}
+-\frac{1}{2}\nabla^{2}\mat I
+-\mat\Lambda=-\frac{1}{2}\left(\nabla\mat I+\F \right)^2
+\label{eq:dressed-term}
+\end{align}\]
+
+<hr />
+
+<h3 id="comments">Comments:</h3>
+<p>When implementing these equations in practical computational chemistry or molecular dynamics codes, a vital distinction must be made regarding the matrix $\G$.The elegant relation $\G = \nabla\F + \F\cdot\F$ derived above relies heavily on Equation \ref{eq:electronic_completeness}, the exact resolution of the identity. This is only strictly true for an infinite, complete basis set. In practice, computations always employ a truncated, finite basis set. Consequently, the resolution of the identity is incomplete, and the exact equivalence breaks down. If one attempts to construct $\G$ purely from $\F$ using $\nabla\F + \F\cdot\F$ in a finite basis, it will introduce non-negligible errors into the simulation. Therefore, for rigorous numerical implementations, one must generally avoid this substitution and compute the raw scalar couplings directly via $G_{ji}=\nabla\F_{ji}-\braket{\nabla\psi_j}{\nabla\psi_i}$, or explicitly evaluate the sum over the available finite states.</p>
+
+
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<script src="/assets/js/mathjax-config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
+    blocks.forEach(function(block) {
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      block.parentNode.replaceWith(div);
+    });
+  });
+</script>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/KM-2323/documentation_intro">documentation_intro</a> is maintained by <a href="https://github.com/KM-2323">KM-2323</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

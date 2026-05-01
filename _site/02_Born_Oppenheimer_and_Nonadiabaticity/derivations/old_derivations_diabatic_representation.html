@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Quantics Knowledge Base</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Quantics Knowledge Base" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/old_derivations_diabatic_representation.html" />
+<meta property="og:url" content="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/old_derivations_diabatic_representation.html" />
+<meta property="og:site_name" content="Quantics Knowledge Base" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Quantics Knowledge Base" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Quantics Knowledge Base","url":"http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/old_derivations_diabatic_representation.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64545618641dcf682d804e64e8cd42d1505278b6">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Quantics Knowledge Base</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/KM-2323/documentation_intro" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<p>we can investigate the effect of applying $-\frac{1}{2}\nabla_{\mat q}^2$ and $\mat \Lambda$ to adiabatic nuclear wavefunction $\chivec^{(a)}=\Cmat\chivec^{(d)}$</p>
+
+\[\begin{align}
+-\frac{1}{2}\nabla_{\mat q}^2\chivec^{(a)}&amp;=-\frac{1}{2}\nabla_{\mat q}^2\left[\Cmat\chivec^{(d)}\right]\nonumber\\
+&amp;=-\frac{1}{2}\nabla_{\mat q}\left[\left(\nabla_{\mat q}\Cmat\right)\cdot\chivec^{(d)}+\Cmat\cdot\left(\nabla_{\mat q}\chivec^{(d)}\right)\right]\nonumber\\
+&amp;=-\frac{1}{2}\left[\left(\nabla_{\mat q}^2\Cmat\right)\chivec^{(d)}+2\left(\nabla_{\mat q}\Cmat\right)\cdot\left(\nabla_{\mat q}\chivec^{(d)}\right)+\Cmat\left(\nabla_{\mat q}^2\chivec^{(d)}\right)\right]\nonumber\\
+&amp;=-\frac{1}{2}\left[\left(\nabla_{\mat q}^2\Cmat\right)+2\left(\nabla_{\mat q}\Cmat\right)\cdot\nabla_{\mat q}+\Cmat\nabla_{\mat q}^2\right]\chivec^{(d)}
+\end{align}\]
+
+\[\begin{align}
+\mat\Lambda\chivec^{(a)}&amp;=\frac{1}{2}\left[2\F\cdot\nabla_{\mat q}
++\G\right]\left[\Cmat\chivec^{(d)}\right]\nonumber\\
+&amp;=\frac{1}{2}\left[2\F\cdot\left(\nabla_{\mat q}\Cmat\right)\chivec^{(d)}+2\F\Cmat\cdot\left(\nabla_{\mat q}\chivec^{(d)}\right)
++\G\Cmat\chivec^{(d)}\right]\nonumber\\
+&amp;=\frac{1}{2}\left[2\F\cdot\left(\nabla_{\mat q}\Cmat\right)+2\F\Cmat\cdot\nabla_{\mat q}
++\G\Cmat\right]\chivec^{(d)}
+\end{align}\]
+
+<p>So:</p>
+
+\[\begin{align}
+\left[
+-\frac{1}{2}\nabla_{\mat q}^{2}\mat I
++\mat V
+-\mat\Lambda
+\right]
+\chivec^{(a)}=&amp;\left[
+-\frac{1}{2}\nabla_{\mat q}^{2}\mat I
++\mat V
+-\mat\Lambda
+\right]
+\Cmat\chivec^{(d)}\nonumber\\
+=&amp;\left[
+-\frac{1}{2}\Big[\left(\nabla_{\mat q}^2\Cmat\right)+2\left(\nabla_{\mat q}\Cmat\right)\cdot\nabla_{\mat q}+\Cmat\nabla_{\mat q}^2\right]
++\mat V\Cmat \nonumber\\&amp;
+ -\frac{1}{2}\left[2\F\cdot\left(\nabla_{\mat q}\Cmat\right)+2\F\Cmat\cdot\nabla_{\mat q}
++\G\Cmat\right]
+\Big]\chivec^{(d)}\nonumber\\
+=&amp;\left[
+\V\Cmat-\frac{1}{2}\Big[\left(\nabla_{\mat q}^2\Cmat\right)+2\F\cdot\left(\nabla_{\mat q}\Cmat\right)+\G\Cmat\right]\nonumber\\
+&amp;-\frac{1}{2}2\left[\nabla_{\mat q}\Cmat+\F\Cmat\right]\cdot\nabla_{\mat q}-\frac{1}{2}\Cmat\nabla_{\mat q}^2\Big]\chivec^{(d)}
+\label{eq:diabatic_tdse_intermediate}
+\end{align}\]
+
+<p>Apart from being unitary, $\Cmat$ has not beed restricted. So it can be chosen to solve the differential equation</p>
+
+\[\begin{align}
+\nabla_{\mat q}\Cmat+\F\Cmat=0
+\label{eq:ADT_transform_differential}
+\end{align}\]
+
+<p>If further, the adiabatic function ${\psi_n}$ form a complete set, then we can take the divergence of equation \eqref{eq:ADT_transform_differential}</p>
+
+\[\begin{align}
+\nabla_{\mat q}^2\Cmat+\left(\nabla_{\mat q}\F\right)\Cmat+\F\left(\nabla_{\mat q}\Cmat\right)=0
+\end{align}\]
+
+<p>Then since ${\psi_n}$ is a complete set, recall:</p>
+
+\[\nabla_{\mat q}\F =\G - \F\cdot\F\]
+
+<p>So:</p>
+
+\[\begin{align}
+\nabla_{\mat q}^2\Cmat+\left(\G - \F\cdot\F\right)\Cmat+\F\cdot\left(\nabla_{\mat q}\Cmat\right)=0\nonumber\\
+\nabla_{\mat q}^2\Cmat+\G\Cmat - \F\cdot\F\Cmat+\F\cdot\left(\nabla_{\mat q}\Cmat\right)=0\nonumber\\
+\nabla_{\mat q}^2\Cmat+\G\Cmat +\F\cdot\left(\nabla_{\mat q}\Cmat-\F\Cmat\right)=0
+\end{align}\]
+
+<p>Substituting \eqref{eq:ADT_transform_differential}:</p>
+
+\[\begin{align}
+\nabla_{\mat q}^2\Cmat+\G\Cmat +2\F\cdot\left(\nabla_{\mat q}\Cmat\right)=0
+\label{eq:divergence_adt_differential}
+\end{align}\]
+
+<p>which is the first term inside the braket of \eqref{eq:diabatic_tdse_intermediate}. Now applying \eqref{eq:divergence_adt_differential} and \eqref{eq:ADT_transform_differential} in  \eqref{eq:diabatic_tdse_intermediate}:</p>
+
+\[\begin{align}
+\left[
+-\frac{1}{2}\nabla_{\mat q}^{2}\mat I
++\mat V
+-\mat\Lambda
+\right]
+\chivec^{(a)}=
+&amp;\Big[
+\V\Cmat-\frac{1}{2}\Cmat\nabla_{\mat q}^2\Big]\chivec^{(d)}
+\end{align}\]
+
+<p>Now applting $\Cinv$ from the left:</p>
+
+\[\begin{align}
+\Cinv\left[
+-\frac{1}{2}\nabla_{\mat q}^{2}\mat I
++\mat V
+-\mat\Lambda
+\right]
+\chivec^{(a)}=
+&amp;\Cinv\Big[
+\V\Cmat-\frac{1}{2}\Cmat\nabla_{\mat q}^2\Big]\chivec^{(d)}\nonumber\\
+=&amp;\Big[
+\Cinv\V\Cmat-\frac{1}{2}\Cinv\Cmat\nabla_{\mat q}^2\Big]\chivec^{(d)}\nonumber\\
+=&amp;\Big[
+\W-\frac{1}{2}\nabla_{\mat q}^2\Big]\chivec^{(d)}
+\end{align}\]
+
+<p>where $\W$ is known as the diabatic matrix.</p>
+
+
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<script src="/assets/js/mathjax-config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
+    blocks.forEach(function(block) {
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      block.parentNode.replaceWith(div);
+    });
+  });
+</script>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/KM-2323/documentation_intro">documentation_intro</a> is maintained by <a href="https://github.com/KM-2323">KM-2323</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

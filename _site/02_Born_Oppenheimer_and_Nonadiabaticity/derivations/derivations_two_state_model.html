@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Quantics Knowledge Base</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Quantics Knowledge Base" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_two_state_model.html" />
+<meta property="og:url" content="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_two_state_model.html" />
+<meta property="og:site_name" content="Quantics Knowledge Base" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Quantics Knowledge Base" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Quantics Knowledge Base","url":"http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_two_state_model.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64545618641dcf682d804e64e8cd42d1505278b6">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Quantics Knowledge Base</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/KM-2323/documentation_intro" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<p>For a 2-state system, the diabatic potentials are</p>
+
+\[\begin{align}
+\W=\begin{pmatrix}
+W_{11} &amp; W_{12} \\
+W_{12} &amp; W_{22}
+\end{pmatrix}
+\end{align}\]
+
+<p>where due to symmetry (the diabatic eigenfunctions are chosen to be real), the $\W_{12}=\W_{21}$. To find the eigenvalues of above we seek to find the $\lambda$ such that:</p>
+
+\[\begin{align}
+\det{(\W-\lambda\mat I)}=0
+\end{align}\]
+
+<p>for non-trivial eigenfunctions (they are the adiabatic electronic functions expressed in basis of diabatic electronic functions)</p>
+
+\[\begin{align}
+\det\left[\begin{pmatrix}
+W_{11}-\lambda &amp; W_{12} \\
+W_{12} &amp; W_{22}-\lambda
+\end{pmatrix}\right]&amp;=(W_{11}-\lambda)( W_{22}-\lambda)-W_{12}^2\nonumber\\
+&amp;=\lambda^2-\lambda(W_{22}+W_{11})+W_{11}W_{22}-W_{12}^2
+\end{align}\]
+
+<p>applying quadratic formula for finding the root:</p>
+
+\[\lambda_{\pm} = \frac{-b\pm\sqrt{b^2-4ac}}{2a};\qquad a\lambda^2+b\lambda+c=0\]
+
+<p>So it is clear that:</p>
+
+\[a = 1;\quad b =-(W_{22}+W_{11});\quad c=W_{11}W_{22}-W_{12}^2\]
+
+<p>So:</p>
+
+\[\begin{align}
+\lambda_{\pm} &amp;= \frac{W_{22}+W_{11}}{2}\pm\frac{\sqrt{(W_{22}+W_{11})^2-4W_{11}W_{22}+4W_{12}^2}}{2}\nonumber\\
+&amp;= \frac{W_{22}+W_{11}}{2}\pm\frac{\sqrt{W_{22}^2+W_{11}^2+2W_{11}W_{22}-4W_{11}W_{22}+4W_{12}^2}}{2}\nonumber\\
+&amp;= \frac{W_{22}+W_{11}}{2}\pm\frac{\sqrt{W_{22}^2+W_{11}^2-2W_{11}W_{22}+4W_{12}^2}}{2}\nonumber\\
+&amp;= \frac{W_{22}+W_{11}}{2}\pm\frac{\sqrt{(W_{22}-W_{11})^2+4W_{12}^2}}{2}\nonumber\\&amp;= 
+\frac{W_{22}+W_{11}}{2}\pm\frac{\sqrt{(\Delta W)^2+4W_{12}^2}}{2}\nonumber\\
+\end{align}\]
+
+<p>Before substituting the eigenvalues in to fix the coefficients of the eigenfunctions. We could first find the eigenfunctions. That is we could apply a generic unitary transformation matrix of form:</p>
+
+\[\begin{align}
+\Cmat = \begin{pmatrix}
+\cos\theta&amp;\sin\theta\\
+-\sin\theta&amp;\cos\theta\\
+\end{pmatrix}
+\end{align}\]
+
+<p>Then:</p>
+
+\[\begin{align}
+\Cinv \W \Cmat&amp; = \V\nonumber\\
+\begin{pmatrix}
+\cos\theta&amp;-\sin\theta\\
+\sin\theta&amp;\cos\theta\\
+\end{pmatrix}
+\begin{pmatrix}
+W_{11} &amp; W_{12} \\
+W_{12} &amp; W_{22}
+\end{pmatrix}
+\begin{pmatrix}
+\cos\theta&amp;\sin\theta\\
+-\sin\theta&amp;\cos\theta\\
+\end{pmatrix}&amp;=
+\begin{pmatrix}
+V_{11} &amp; 0 \\
+0 &amp; V_{22}
+\end{pmatrix}\nonumber\\
+\begin{pmatrix}
+c&amp;-s\\
+s&amp;c\\
+\end{pmatrix}\begin{pmatrix}W_{11} c - W_{12} s &amp; W_{11} s + W_{12} c\\W_{12} c - W_{22} s &amp; W_{12} s + W_{22} c\end{pmatrix}&amp;=
+\begin{pmatrix}
+V_{11} &amp; 0 \\
+0 &amp; V_{22}
+\end{pmatrix}\nonumber\\
+\begin{pmatrix}W_{11} c^2 - 2 W_{12} s c+ W_{22} s^2 &amp; W_{11} s c- W_{12} s^2 + W_{12} c^2 - W_{22} s c\\W_{11} s c- W_{12} s^2 + W_{12} c^2 - W_{22} s c&amp; W_{11} s^2 + 2 W_{12} s c+ W_{22} c^2\end{pmatrix}
+&amp;=
+\begin{pmatrix}
+V_{11} &amp; 0 \\
+0 &amp; V_{22}
+\end{pmatrix}\nonumber\\
+\end{align}\]
+
+<p>This implies:</p>
+
+\[\begin{align}
+W_{11} s c- W_{12} s^2 + W_{12} c^2 - W_{22} s c=0
+\end{align}\]
+
+<p>First apply double angle formula:</p>
+
+\[\begin{align}
+\cos(A\pm B) =\cos(A)\cos(B)\mp\sin(A)\sin(B) \nonumber\\
+\sin(A\pm B) = \sin(A)\cos(B)\pm\cos(A)\sin(B)
+\end{align}\]
+
+<p>Such that:</p>
+
+\[\begin{align}
+W_{12}(c^2-s^2) = W_{12}\cos(2\theta)\\
+(W_{11}-W_{22})sc = \frac{1}{2}\sin(2\theta)
+\end{align}\]
+
+<p>Then:</p>
+
+\[\begin{align}
+W_{11} s c- W_{12} s^2 + W_{12} c^2 - W_{22} s c=\frac{1}{2}\sin(2\theta)(W_{11}-W_{22}) + W_{12} \cos(2\theta) 
+\end{align}\]
+
+<p>Hence:</p>
+
+\[\begin{align}
+\frac{1}{2}\sin(2\theta)(W_{11}-W_{22}) + W_{12} \cos(2\theta) &amp;=0\nonumber\\
+-\frac{1}{2}\frac{\sin(2\theta)}{\cos(2\theta)}&amp;= \frac{W_{12}}{W_{11}-W_{22}}  \nonumber\\
+\tan{2\theta}&amp;= \frac{2W_{12}}{W_{22}-W_{11}}  \nonumber\\
+\end{align}\]
+
+<p>This implies, as long as $\theta$ satisfies the above condition, then the columns in $\Cmat$ defines our eigenvectors (adiabatic eigenfunction). Then we could trivially take:</p>
+
+\[\begin{align}
+\ket{\psi_1} =\cos{\theta}\ket{\varphi_1} -  \sin{\theta}\ket{\varphi_2}\nonumber\\
+\ket{\psi_2} =\sin{\theta}\ket{\varphi_1} +  \cos{\theta}\ket{\varphi_2}
+\end{align}\]
+
+<p>or in vector notation:</p>
+
+<p>\(\begin{align}
+\ket{\psi_1} = \begin{pmatrix}\cos\theta \\ -\sin{\theta}\end{pmatrix}\nonumber\\
+\ket{\psi_2} = \begin{pmatrix}\sin\theta \\ \cos{\theta}\end{pmatrix}
+\end{align}\)</p>
+<h3 id="the-derivative-coupling-identity-in-two-state-model--1d">The derivative coupling identity in two state model + 1D?</h3>
+
+<p>The NACV $\F_{12}$</p>
+
+\[\begin{align}
+\pder{q}\ket{\psi_2} = \pder{q}\left[\sin{\theta}\ket{\varphi_1} +  \cos{\theta}\ket{\varphi_2}\right]
+\end{align}\]
+
+<p>Using chain rule:</p>
+
+\[\begin{align}
+\pder{q}\ket{\psi_2} &amp;= \pdv{\theta}{q}\pder{\theta}\left[\sin{\theta}\ket{\varphi_1} +  \cos{\theta}\ket{\varphi_2}\right] \nonumber\\&amp;= \pdv{\theta}{q}\left[\cos{\theta}\ket{\varphi_1} -  \sin{\theta}\ket{\varphi_2}\right] \nonumber \\
+&amp;=\pdv{\theta}{q}\ket{\psi_1}
+\end{align}\]
+
+<p>Hence:</p>
+
+\[\F_{12} = \braket{\psi_1}{\pdv{\theta}{q}\psi_1}=\pdv{\theta}{q}\]
+
+<p>Now since:</p>
+
+\[\begin{align}
+\tan{2\theta}&amp;= \frac{2W_{12}}{W_{22}-W_{11}} 
+\end{align}\]
+
+<p>Using implicit differentiation:</p>
+
+<p>For the RHS applying quotient rule $\pder{q}(\frac uv)=\frac{\pdv{u}{q}v-u\pdv{v}{q}}{v^2}$</p>
+
+\[\pdv{}{ q}\left(\frac{2W_{12}}{W_{22}-W_{11}}\right) = \frac{2\pdv{ W_{12}}{ q}(W_{22}-W_{11}) - 2W_{12}\left(\pdv{ W_{22}}{ q} - \pdv{ W_{11}}{ q}\right)}{(W_{22}-W_{11})^2}\]
+
+<p>For the LHS:</p>
+
+\[\begin{align}
+\pdv{}{q}\tan{2\theta}&amp;= \sec^2(2\theta)\pdv{}{q}(2\theta)=2\sec^2(2\theta)\pdv{\theta}{q}
+\end{align}\]
+
+<p>Now using $\sec^2(2\theta) = 1 + \tan^2(2\theta)$, :</p>
+
+\[\sec^2(2\theta) = 1 + \left(\frac{2W_{12}}{W_{22}-W_{11}}\right)^2 = \frac{(W_{22}-W_{11})^2 + 4W_{12}^2}{(W_{22}-W_{11})^2}\]
+
+<p>Hence:</p>
+
+\[2 \left[ \frac{(W_{22}-W_{11})^2 + 4W_{12}^2}{(W_{22}-W_{11})^2} \right] \pdv{\theta}{ q} = \frac{2\pdv{ W_{12}}{ q}(W_{22}-W_{11}) - 2W_{12}\left(\pdv{ W_{22}}{ q} - \pdv{ W_{11}}{ q}\right)}{(W_{22}-W_{11})^2}\]
+
+<p>Divide by the bracketed term on the left to isolate $\frac{\partial \theta}{\partial q}$,</p>
+
+\[F_{12} = \pdv{\theta}{q} = \frac{\pdv{ W_{12}}{ q}(W_{22}-W_{11}) - W_{12}\left(\pdv{ W_{22}}{ q} - \pdv{ W_{11}}{ q}\right)}{(W_{22}-W_{11})^2 + 4W_{12}^2}\]
+
+<p>need to link to LVC models $W_{22}-W_{11}=\boldsymbol{\kappa}\cdot\mat q$ and $W_{12} =\boldsymbol{\lambda}\cdot \mat q $ explaining the two branching coordiantes and also how to lead to the Lorentizian form.</p>
+
+
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<script src="/assets/js/mathjax-config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
+    blocks.forEach(function(block) {
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      block.parentNode.replaceWith(div);
+    });
+  });
+</script>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/KM-2323/documentation_intro">documentation_intro</a> is maintained by <a href="https://github.com/KM-2323">KM-2323</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

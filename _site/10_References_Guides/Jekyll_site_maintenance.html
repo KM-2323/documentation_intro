@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Jekyll Site Maintenance Guide | Quantics Knowledge Base</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Jekyll Site Maintenance Guide" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/10_References_Guides/Jekyll_site_maintenance.html" />
+<meta property="og:url" content="http://localhost:4000/10_References_Guides/Jekyll_site_maintenance.html" />
+<meta property="og:site_name" content="Quantics Knowledge Base" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Jekyll Site Maintenance Guide" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Jekyll Site Maintenance Guide","url":"http://localhost:4000/10_References_Guides/Jekyll_site_maintenance.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64545618641dcf682d804e64e8cd42d1505278b6">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Jekyll Site Maintenance Guide</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/KM-2323/documentation_intro" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>References and Guides</span>
+    
+  
+
+  
+</nav>
+
+
+<h1 id="jekyll-site-maintenance-guide">Jekyll Site Maintenance Guide</h1>
+
+<p>This repository is the source for a GitHub Pages site built with Jekyll. The Markdown files are not served directly as Markdown on the final website. GitHub Pages runs a build step that converts the source files into a static HTML site.</p>
+
+<h2 id="how-the-site-is-built">How the site is built</h2>
+
+<p>The main configuration file is <code class="language-plaintext highlighter-rouge">_config.yml</code>.</p>
+
+<p>At build time, Jekyll:</p>
+
+<ol>
+  <li>Reads <code class="language-plaintext highlighter-rouge">_config.yml</code>.</li>
+  <li>Loads the remote Cayman theme from <code class="language-plaintext highlighter-rouge">remote_theme</code>.</li>
+  <li>Converts Markdown files such as <code class="language-plaintext highlighter-rouge">00_project_overview/index.md</code> into HTML pages.</li>
+  <li>Wraps each page with the layout in <code class="language-plaintext highlighter-rouge">_layouts/custom.html</code>.</li>
+  <li>Processes Sass from <code class="language-plaintext highlighter-rouge">assets/css/style.scss</code> into CSS.</li>
+  <li>Copies static assets such as JavaScript from <code class="language-plaintext highlighter-rouge">assets/js/</code>.</li>
+  <li>Serves the generated site from an output folder called <code class="language-plaintext highlighter-rouge">_site</code>.</li>
+</ol>
+
+<p>On GitHub Pages, the <code class="language-plaintext highlighter-rouge">_site</code> folder is created on GitHub’s servers, so it normally does not appear in the repository. Do not manually commit generated HTML files unless the deployment method changes.</p>
+
+<h2 id="local-preview">Local Preview</h2>
+
+<p>Install Ruby/Jekyll on Windows itself, not inside VS Code. VS Code can use the tools after they are installed on Windows.</p>
+
+<p>Recommended setup:</p>
+
+<ol>
+  <li>Install Ruby with DevKit from RubyInstaller for Windows (recommend version 3.4.9).</li>
+  <li>During installation, allow the MSYS2/DevKit setup to run.</li>
+  <li>Open a new PowerShell terminal in the repository.</li>
+  <li>Run:</li>
+</ol>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">echo</span> <span class="s1">'source "https://rubygems.org"'</span> <span class="o">&gt;</span> Gemfile
+<span class="nb">echo</span> <span class="s1">'gem "github-pages", group: :jekyll_plugins'</span> <span class="o">&gt;&gt;</span> Gemfile
+</code></pre></div></div>
+<p>above sets the your local environment to use the exact same Jekyll version and plugins that Github Pages uses</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle <span class="nb">install
+</span>bundle <span class="nb">exec </span>jekyll serve 
+</code></pre></div></div>
+
+<p>Then open the local URL printed by Jekyll, usually:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://127.0.0.1:4000/
+</code></pre></div></div>
+
+<p>If the site is deployed as a project site, for example under <code class="language-plaintext highlighter-rouge">https://USERNAME.github.io/documentation_intro/</code>, set this in <code class="language-plaintext highlighter-rouge">_config.yml</code>:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">baseurl</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/documentation_intro"</span>
+</code></pre></div></div>
+
+<p>Then local preview may be served under:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://127.0.0.1:4000/documentation_intro/
+</code></pre></div></div>
+
+<p>Use <code class="language-plaintext highlighter-rouge">{{ '/path/to/file' | relative_url }}</code> in layouts and includes so links continue to work whether <code class="language-plaintext highlighter-rouge">baseurl</code> is empty or set.</p>
+
+<h2 id="important-files">Important Files</h2>
+
+<h3 id="_configyml"><code class="language-plaintext highlighter-rouge">_config.yml</code></h3>
+
+<p>Use <code class="language-plaintext highlighter-rouge">_config.yml</code> for site-wide metadata and folder defaults.</p>
+
+<p>Edit this file when:</p>
+
+<ul>
+  <li>Adding a new major section.</li>
+  <li>Adding breadcrumb labels for a section or subsection.</li>
+  <li>Changing the active theme.</li>
+  <li>Setting <code class="language-plaintext highlighter-rouge">baseurl</code> for a project GitHub Pages site.</li>
+</ul>
+
+<p>Example section default:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">03_New_Section"</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">section_title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">New</span><span class="nv"> </span><span class="s">Section"</span>
+      <span class="na">section_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/03_New_Section/"</span>
+</code></pre></div></div>
+
+<p>Only add <code class="language-plaintext highlighter-rouge">section_url</code> when the folder has an <code class="language-plaintext highlighter-rouge">index.md</code>.</p>
+
+<p>Example subsection default:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">03_New_Section/derivations"</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">section_title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">New</span><span class="nv"> </span><span class="s">Section"</span>
+      <span class="na">section_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/03_New_Section/"</span>
+      <span class="na">subsection_title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Derivations"</span>
+</code></pre></div></div>
+
+<p>If that subsection later gets its own <code class="language-plaintext highlighter-rouge">index.md</code>, add:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="na">subsection_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/03_New_Section/derivations/"</span>
+</code></pre></div></div>
+
+<h3 id="_layoutscustomhtml"><code class="language-plaintext highlighter-rouge">_layouts/custom.html</code></h3>
+
+<p>This is the wrapper used by all pages by default. It currently:</p>
+
+<ul>
+  <li>Adds the shared page navigation.</li>
+  <li>Outputs the page content with <code class="language-plaintext highlighter-rouge">{{ content }}</code>.</li>
+  <li>Loads the MathJax configuration.</li>
+  <li>Loads MathJax.</li>
+  <li>Loads Mermaid support.</li>
+</ul>
+
+<p>Edit this file when changing page-wide behavior that should appear on every page.</p>
+
+<p>Do not edit this file just to change one page. Put one-page content in that page’s Markdown file instead.</p>
+
+<h3 id="_includespage-navhtml"><code class="language-plaintext highlighter-rouge">_includes/page-nav.html</code></h3>
+
+<p>This file renders the breadcrumb navigation:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Home / Section / Subsection
+</code></pre></div></div>
+
+<p>It reads values from each page, usually supplied by <code class="language-plaintext highlighter-rouge">_config.yml</code> defaults:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">section_title</code></li>
+  <li><code class="language-plaintext highlighter-rouge">section_url</code></li>
+  <li><code class="language-plaintext highlighter-rouge">subsection_title</code></li>
+  <li><code class="language-plaintext highlighter-rouge">subsection_url</code></li>
+</ul>
+
+<p>Edit this file when changing the breadcrumb structure or wording logic for every page.</p>
+
+<h3 id="assetscssstylescss"><code class="language-plaintext highlighter-rouge">assets/css/style.scss</code></h3>
+
+<p>This is the main custom stylesheet.</p>
+
+<p>The top of the file has:</p>
+
+<div class="language-scss highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">---</span>
+<span class="nt">---</span>
+<span class="o">@</span><span class="nt">import</span> <span class="s2">"{{ site.theme }}"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p>The front matter tells Jekyll to process the file. The <code class="language-plaintext highlighter-rouge">@import "{{ site.theme }}"</code> line imports the remote theme’s CSS through Jekyll/Liquid. VS Code may highlight this line as unusual SCSS, but it is expected in a Jekyll theme override file.</p>
+
+<p>Edit this file when changing visual styling, including the breadcrumb style.</p>
+
+<h3 id="assetsjsmathjax-configjs"><code class="language-plaintext highlighter-rouge">assets/js/mathjax-config.js</code></h3>
+
+<p>This file holds the website MathJax configuration and custom macros.</p>
+
+<p>Edit this file when adding commands such as:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">pdv</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="se">\\</span><span class="s1">frac{</span><span class="se">\\</span><span class="s1">partial #1}{</span><span class="se">\\</span><span class="s1">partial #2}</span><span class="dl">'</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</code></pre></div></div>
+
+<p>The local Markdown Preview Enhanced/Crossnote config at <code class="language-plaintext highlighter-rouge">C:/Users/AW/.crossnote/config.js</code> is separate. GitHub Pages cannot read local files from a contributor’s computer, so macros may need to be copied into both places if local preview and deployed rendering should match.</p>
+
+<h2 id="adding-a-new-page">Adding a New Page</h2>
+
+<ol>
+  <li>Create a Markdown file in the correct folder.</li>
+  <li>Link it from the nearest <code class="language-plaintext highlighter-rouge">index.md</code>.</li>
+  <li>If the folder already has <code class="language-plaintext highlighter-rouge">_config.yml</code> defaults, the breadcrumb should appear automatically.</li>
+  <li>If it is a new section or subsection, add a new <code class="language-plaintext highlighter-rouge">_config.yml</code> default block.</li>
+</ol>
+
+<p>For example:</p>
+
+<div class="language-text highlighter-rouge"><div class="highlight"><pre class="highlight"><code>03_New_Section/index.md
+03_New_Section/derivations/example_derivation.md
+</code></pre></div></div>
+
+<p>Then add:</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">03_New_Section"</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">section_title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">New</span><span class="nv"> </span><span class="s">Section"</span>
+      <span class="na">section_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/03_New_Section/"</span>
+  <span class="pi">-</span> <span class="na">scope</span><span class="pi">:</span>
+      <span class="na">path</span><span class="pi">:</span> <span class="s2">"</span><span class="s">03_New_Section/derivations"</span>
+    <span class="na">values</span><span class="pi">:</span>
+      <span class="na">section_title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">New</span><span class="nv"> </span><span class="s">Section"</span>
+      <span class="na">section_url</span><span class="pi">:</span> <span class="s2">"</span><span class="s">/03_New_Section/"</span>
+      <span class="na">subsection_title</span><span class="pi">:</span> <span class="s2">"</span><span class="s">Derivations"</span>
+</code></pre></div></div>
+
+<h2 id="linking-between-pages">Linking Between Pages</h2>
+
+<p>Normal Markdown links can point to <code class="language-plaintext highlighter-rouge">.md</code> files or final <code class="language-plaintext highlighter-rouge">.html</code> files, but using final site paths is often clearer for GitHub Pages:</p>
+
+<div class="language-md highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">[</span><span class="nv">Born-Oppenheimer expansion</span><span class="p">](</span><span class="sx">../02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.html</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Inside Mermaid diagrams, use final website paths such as <code class="language-plaintext highlighter-rouge">.html</code>, because Mermaid links are not converted by Jekyll’s Markdown link processor:</p>
+
+<pre><code class="language-mermaid">click BO "../02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.html" "View page"
+</code></pre>
+
+<h2 id="what-not-to-edit">What Not to Edit</h2>
+
+<p>Do not manually edit or commit <code class="language-plaintext highlighter-rouge">_site/</code>. It is generated output.</p>
+
+<p>Do not add navigation links manually to every Markdown file unless a page needs a special one-off link. Prefer <code class="language-plaintext highlighter-rouge">_config.yml</code>, <code class="language-plaintext highlighter-rouge">_layouts/custom.html</code>, and <code class="language-plaintext highlighter-rouge">_includes/page-nav.html</code> for site-wide behavior.</p>
+
+
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>References and Guides</span>
+    
+  
+
+  
+</nav>
+
+
+<script src="/assets/js/mathjax-config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
+    blocks.forEach(function(block) {
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      block.parentNode.replaceWith(div);
+    });
+  });
+</script>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/KM-2323/documentation_intro">documentation_intro</a> is maintained by <a href="https://github.com/KM-2323">KM-2323</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

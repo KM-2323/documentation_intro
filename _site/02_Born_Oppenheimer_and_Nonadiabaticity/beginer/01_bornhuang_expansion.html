@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>General introduction: from the TDSE to the adiabatic nuclear equations | Quantics Knowledge Base</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="General introduction: from the TDSE to the adiabatic nuclear equations" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.html" />
+<meta property="og:url" content="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.html" />
+<meta property="og:site_name" content="Quantics Knowledge Base" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="General introduction: from the TDSE to the adiabatic nuclear equations" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"General introduction: from the TDSE to the adiabatic nuclear equations","url":"http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64545618641dcf682d804e64e8cd42d1505278b6">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">General introduction: from the TDSE to the adiabatic nuclear equations</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/KM-2323/documentation_intro" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Beginner</span>
+    
+  
+</nav>
+
+
+<h1 id="general-introduction-from-the-tdse-to-the-adiabatic-nuclear-equations">General introduction: from the TDSE to the adiabatic nuclear equations</h1>
+
+<h2 id="preliminaries">Preliminaries</h2>
+
+<p>Throughout these guides, atomic units are used unless stated otherwise. In atomic units,</p>
+
+\[m_{\mathrm e}=1,\qquad |e|=1,\qquad \hbar=1,\qquad 4\pi\epsilon_0=1,\]
+
+<p>and the units of length and energy are the Bohr and Hartree, respectively. With this convention, common electronic kinetic and Coulomb terms simplify to</p>
+
+\[\begin{aligned}
+-\frac{\hbar^2}{2m_{\mathrm e}}\nabla_i^2
+&amp;\equiv
+-\frac{1}{2}\nabla_i^2,\\[4pt]
+\frac{e^2}{4\pi\epsilon_0 r_{ij}}
+&amp;\equiv
+\frac{1}{r_{ij}}.
+\end{aligned}\]
+
+<p>Here, $r_{ij}$ denotes the distance between two charged particles. The sign and nuclear charge factors are determined by the particular interaction. For example, an electron–nucleus attraction contributes a term proportional to $-Z_A/r_{iA}$, whereas electron–electron and nucleus–nucleus interactions are repulsive.</p>
+
+<p>Bold symbols are used for vectors and matrices. Underlined bold symbols are reserved for collections with tensorial structure, such as a matrix of vectors. The nuclear coordinate vector is denoted by $\mat R$. For a molecule with $N_{\mathrm{nuc}}$ nuclei, a Cartesian representation has</p>
+
+\[f = 3N_{\mathrm{nuc}}\]
+
+<p>nuclear coordinates before removing translations and rotations. Thus,</p>
+
+\[\mat R =\begin{pmatrix}
+R_1\\
+R_2\\
+\vdots\\
+R_f
+\end{pmatrix}
+\in \mathbb{R}^{f}.\]
+
+<p>For a nonlinear molecule, the number of internal vibrational degrees of freedom is $3N_{\mathrm{nuc}}-6$, while for a linear molecule it is $3N_{\mathrm{nuc}}-5$. Unless otherwise specified, the present introductory discussion uses Cartesian nuclear coordinates.</p>
+
+<p>The gradient with respect to the nuclear coordinates is the vector differential operator</p>
+
+\[\begin{align}
+\nabla_{\mat R}
+=\begin{pmatrix}
+\pder{R_1}\\
+\pder{R_2}\\
+\vdots\\
+\pder{R_f}
+\end{pmatrix}
+\end{align}\]
+
+<p>When this operator acts on a scalar function, such as a potential energy surface $V(\mat R)$, it produces the gradient vector</p>
+
+\[\begin{align}
+\nabla_{\mat R} V(\mat R)
+=\begin{pmatrix}
+\pdv{V}{R_1}\\
+\pdv{V}{R_2}\\
+\vdots\\
+\pdv{V}{R_f}
+\end{pmatrix}.
+\end{align}\]
+
+<p>It is often convenient to introduce mass-scaled Cartesian coordinates,</p>
+
+\[q_\alpha = \sqrt{M_\alpha}\,R_\alpha,
+\qquad
+\alpha=1,\ldots,f,\]
+
+<p>where $M_\alpha$ is the nuclear mass associated with the Cartesian coordinate $R_\alpha$. Equivalently,</p>
+
+\[\mat q = \mat M^{1/2}\mat R,\]
+
+<p>where</p>
+
+\[\mat M =\operatorname{diag}(M_1,M_2,\ldots,M_f)\]
+
+<p>is the diagonal mass matrix. In unscaled Cartesian coordinates, the nuclear kinetic energy operator is</p>
+
+\[\hat T_{\mathrm n}
+=-\frac{1}{2}
+\nabla_{\mat R}^{T}
+\mat M^{-1}
+\nabla_{\mat R}.\]
+
+<p>Using $\mat q=\mat M^{1/2}\mat R$, this becomes</p>
+
+\[\hat T_{\mathrm n}
+=-\frac{1}{2}
+\nabla_{\mat q}^{T}\nabla_{\mat q}
+=-\frac{1}{2}\nabla_{\mat q}^{2}.\]
+
+<p>This simplification is one of the main reasons for introducing mass-scaled coordinates. A more detailed discussion of mass-scaled and mass-frequency-scaled coordinates is given in <a href="../01_Primer/coordinate_transformation.md">Coordinate transformations</a>.</p>
+
+<hr />
+
+<h2 id="setting-the-stage">Setting the stage</h2>
+
+<p>The aim of quantum dynamics is to describe the time evolution of a molecular system. Within the non-relativistic framework, this evolution is governed by the time-dependent Schrödinger equation (TDSE),</p>
+
+\[\begin{align}
+i\hbar \pdv{\Psi(\mat R,\mat r,t)}{t}
+=\hat H(\mat R,\mat r)\Psi(\mat R,\mat r,t),
+\label{eq:tdse}
+\end{align}\]
+
+<p>where $\Psi(\mat R,\mat r,t)$ is the full molecular wavefunction. The vector $\mat r$ collects the electronic coordinates, while $\mat R$ collects the nuclear coordinates. The molecular Hamiltonian can be partitioned as</p>
+
+\[\begin{align}
+\hat H(\mat R,\mat r)
+=\hat T_{\mathrm n}(\mat R)
++\hat H_{\mathrm{el}}(\mat r;\mat R).
+\label{eq:hamiltonian_partition}
+\end{align}\]
+
+<p>Here, $\hat T_{\mathrm n}$ is the nuclear kinetic energy operator and $\hat H_{\mathrm{el}}$ is the clamped-nuclei electronic Hamiltonian. A common convention is to include the nuclear–nuclear repulsion in $\hat H_{\mathrm{el}}$, so that the electronic eigenvalues directly define the adiabatic potential energy surfaces. With this convention,</p>
+
+\[\begin{align}
+\hat H_{\mathrm{el}}(\mat r;\mat R)
+=\hat T_{\mathrm e}(\mat r)
++\hat V_{\mathrm{ee}}(\mat r)
++\hat V_{\mathrm{en}}(\mat r,\mat R)
++\hat V_{\mathrm{nn}}(\mat R).
+\label{eq:electronic_hamiltonian}
+\end{align}\]
+
+<p>The semicolon in $\hat H_{\mathrm{el}}(\mat r;\mat R)$ indicates that $\mat R$ is treated as a parameter in the electronic problem. In other words, for each fixed nuclear geometry $\mat R$, the electronic Schrödinger equation is solved as an eigenvalue problem in the electronic coordinates $\mat r$. The resulting electronic eigenfunctions and eigenvalues nevertheless change as the nuclear geometry changes.</p>
+
+<p>The clamped-nuclei electronic eigenvalue problem is</p>
+
+\[\begin{align}
+\hat H_{\mathrm{el}}(\mat r;\mat R)\psi_i(\mat r;\mat R)
+=V_i(\mat R)\psi_i(\mat r;\mat R),
+\qquad
+i=1,\ldots,N_{\mathrm s},
+\label{eq:electronic_eigenvalue_problem}
+\end{align}\]
+
+<p>where $V_i(\mat R)$ is the $i$-th adiabatic potential energy surface and $\psi_i(\mat r;\mat R)$ is the corresponding electronic eigenfunction. The number $N_{\mathrm s}$ denotes the number of electronic states retained in the expansion. Formally, the complete electronic Hilbert space is infinite-dimensional, but practical calculations use a finite subset of states.</p>
+
+<p>At each nuclear geometry, the electronic eigenfunctions are taken to be orthonormal with respect to integration over the electronic coordinates,</p>
+
+\[\begin{align}
+\braket{\psi_j}{\psi_i}_{\mat r}
+=\int \psi_j^*(\mat r;\mat R)\psi_i(\mat r;\mat R)\,d\mat r
+=\delta_{ji}.
+\label{eq:electronic_orthonormality}
+\end{align}\]
+
+<p>For a complete electronic basis, the corresponding resolution of identity is</p>
+
+\[\begin{align}
+\sum_{k=1}^{\infty}
+\ket{\psi_k(\mat R)}
+\bra{\psi_k(\mat R)}
+=\hat I_{\mathrm{el}}.
+\label{eq:electronic_completeness}
+\end{align}\]
+
+<p>For a finite set of $N_{\mathrm s}$ electronic states, the same sum defines a projector onto the retained electronic subspace,</p>
+
+\[\begin{align}
+\hat P_{N_{\mathrm s}}(\mat R)
+=\sum_{k=1}^{N_{\mathrm s}}
+\ket{\psi_k(\mat R)}
+\bra{\psi_k(\mat R)}.
+\label{eq:finite_electronic_projector}
+\end{align}\]
+
+<p>This distinction is important. The full Born–Huang expansion is exact only when the electronic basis is complete. A finite-state expansion is a controlled approximation only when the neglected states are weakly coupled to the retained subspace.</p>
+
+<hr />
+
+<h2 id="bornhuang-expansion-of-the-molecular-wavefunction">Born–Huang expansion of the molecular wavefunction</h2>
+
+<p>The full molecular wavefunction can be expanded in the electronic eigenfunctions as</p>
+
+\[\begin{align}
+\Psi(\mat R,\mat r,t)
+=\sum_{i=1}^{N_{\mathrm s}}
+\psi_i(\mat r;\mat R)\chi_i(\mat R,t).
+\label{eq:born_huang_expansion}
+\end{align}\]
+
+<p>This is the Born–Huang expansion. The functions $\chi_i(\mat R,t)$ are nuclear wavefunctions associated with the electronic states $\psi_i$. Each $\chi_i$ is a scalar function on nuclear configuration space, while the collection of all nuclear amplitudes can be written as the vector</p>
+
+\[\boldsymbol{\chi}(\mat R,t)
+=\begin{pmatrix}
+\chi_1(\mat R,t)\\
+\chi_2(\mat R,t)\\
+\vdots\\
+\chi_{N_{\mathrm s}}(\mat R,t)
+\end{pmatrix}.\]
+
+<p>The Born–Huang expansion should be distinguished from the Born–Oppenheimer approximation. The expansion in Eq. $\eqref{eq:born_huang_expansion}$ is a sum over electronic states and is formally exact in a complete electronic basis. The Born–Oppenheimer approximation is obtained only after making additional assumptions, typically by retaining one electronic state and neglecting the couplings induced by nuclear motion.</p>
+
+<p>Practical note: the electronic basis functions $\psi_i(\mat r;\mat R)$ depend on $\mat R$. Therefore, the nuclear kinetic energy operator does not act only on $\chi_i(\mat R,t)$; it also acts on the electronic basis. This is the origin of derivative coupling terms.</p>
+
+<hr />
+
+<h2 id="projection-onto-the-adiabatic-electronic-basis">Projection onto the adiabatic electronic basis</h2>
+
+<p>Substituting Eq. $\eqref{eq:born_huang_expansion}$ into the TDSE and projecting from the left with $\bra{\psi_j}$, followed by integration over electronic coordinates, gives a set of coupled nuclear equations. In mass-scaled coordinates $\mat q$, these equations are</p>
+
+\[\begin{align}
+i\hbar \pdv{\chi_j}{t}
+=-\frac{1}{2}\nabla_{\mat q}^{2}\chi_j
++V_j\chi_j
+-\frac{1}{2}
+\sum_{i=1}^{N_{\mathrm s}}
+\left(
+2\F_{ji}\cdot\nabla_{\mat q}\chi_i
++G_{ji}\chi_i
+\right),
+\qquad
+j=1,\ldots,N_{\mathrm s}.
+\label{eq:adiabatic_tdse_component_form}
+\end{align}\]
+
+<p>The corresponding time-independent form is obtained by substituting</p>
+
+\[\chi_j(\mat q,t)=\chi_j(\mat q)e^{-iEt/\hbar},\]
+
+<p>which gives</p>
+
+\[\begin{align}
+-\frac{1}{2}\nabla_{\mat q}^{2}\chi_j
++\left(V_j-E\right)\chi_j
+-\frac{1}{2}
+\sum_{i=1}^{N_{\mathrm s}}
+\left(
+2\F_{ji}\cdot\nabla_{\mat q}\chi_i
++
+G_{ji}\chi_i
+\right)
+=0.
+\label{eq:adiabatic_tise_component_form}
+\end{align}\]
+
+<p>A detailed derivation is given in <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivation_adiabatic_tdse.html">Born–Huang adiabatic expansion</a>.</p>
+
+<p>The first derivative coupling vector is defined as</p>
+
+\[\begin{align}
+\F_{ji}(\mat q)
+=\braket{\psi_j}{\nabla_{\mat q}\psi_i}_{\mat r}.
+\label{eq:first_derivative_coupling}
+\end{align}\]
+
+<p>In component form,</p>
+
+\[\begin{align}
+F_{ji,\alpha}(\mat q)
+=\left\langle
+\psi_j
+\middle|
+\pdv{\psi_i}{q_\alpha}
+\right\rangle_{\mat r},
+\qquad
+\alpha=1,\ldots,f.
+\label{eq:first_derivative_coupling_component}
+\end{align}\]
+
+<p>For each pair of electronic states $(j,i)$, $\F_{ji}$ is a vector in nuclear coordinate space,</p>
+
+\[\F_{ji}\in\mathbb{C}^{f}.\]
+
+<p>The full collection of these objects may be viewed either as an $N_{\mathrm s}\times N_{\mathrm s}$ matrix whose elements are $f$-dimensional vectors, or equivalently as a rank-three array with shape</p>
+
+\[N_{\mathrm s}\times N_{\mathrm s}\times f.\]
+
+<p>This guide denotes that collection by $\F$. Its coordinate components are matrices $\F_\alpha$, with</p>
+
+\[\begin{align}
+(\F_\alpha)_{ji}=F_{ji,\alpha}.
+\end{align}\]
+
+<p>The second derivative coupling is defined as</p>
+
+\[\begin{align}
+G_{ji}(\mat q)
+=\braket{\psi_j}{\nabla_{\mat q}^{2}\psi_i}_{\mat r}.
+\label{eq:second_derivative_coupling}
+\end{align}\]
+
+<p>Unlike $\F_{ji}$, $G_{ji}$ is a scalar function of the nuclear coordinates for each pair of electronic states. The collection of all $G_{ji}$ forms an $N_{\mathrm s}\times N_{\mathrm s}$ matrix $\mat G$.</p>
+
+<p>Terminology note: $\F_{ji}$ is often called the derivative coupling vector, nonadiabatic coupling vector, or first-order nonadiabatic coupling term. To avoid ambiguity in later sections, this guide will usually use the term <em>nonadiabatic coupling vector (NACV)</em> for Eq. $\eqref{eq:first_derivative_coupling}$. The term derivative coupling will be introduced carefully when discussing diabatisation and DD-vMCG.</p>
+
+<p>For real electronic eigenfunctions, the nonadiabatic coupling matrix (NACM) is antisymmetric,</p>
+
+\[\begin{align}
+\F_{ji}=-\F_{ij}.
+\end{align}\]
+
+<p>For complex electronic eigenfunctions, the corresponding statement is anti-Hermiticity(<a href="/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_antihermitian_F.html">proof</a>),</p>
+
+\[\begin{align}
+\F_{ji}=-\F_{ij}^{\,*}.
+\end{align}\]
+
+<p>Both $\F_{ji}$ and $G_{ji}$ measure how the electronic basis changes as the nuclear geometry changes. Therefore, they are absent only if the electronic basis is independent of nuclear geometry, which is not the case for the adiabatic electronic basis.</p>
+
+<hr />
+
+<h2 id="matrix-form-of-the-coupled-nuclear-equations">Matrix form of the coupled nuclear equations</h2>
+
+<p>The coupled equations can be written compactly by introducing the diagonal adiabatic potential matrix</p>
+
+\[\begin{align}
+\mat V(\mat q)
+=\operatorname{diag}
+\left(
+V_1(\mat q),
+V_2(\mat q),
+\ldots,
+V_{N_{\mathrm s}}(\mat q)
+\right).
+\label{eq:adiabatic_potential_matrix}
+\end{align}\]
+
+<p>This matrix acts in the retained electronic-state space and has dimension</p>
+
+\[N_{\mathrm s}\times N_{\mathrm s}.\]
+
+<p>The nonadiabatic coupling operator is an $N_{\mathrm s}\times N_{\mathrm s}$ matrix of differential operators. Its elements are</p>
+
+\[\begin{align}
+\mat\Lambda_{ji}
+=\frac{1}{2}
+\left(
+2\F_{ji}\cdot\nabla_{\mat q}
++
+G_{ji}
+\right).
+\label{eq:lambda_operator}
+\end{align}\]
+
+<p>The action of $\mat\Lambda$ on the nuclear wavefunction vector is therefore</p>
+
+\[\begin{align}
+(\mat\Lambda\boldsymbol{\chi})_j
+=\sum_{i=1}^{N_{\mathrm s}}
+\frac{1}{2}
+\left(
+2\F_{ji}\cdot\nabla_{\mat q}\chi_i
++G_{ji}\chi_i
+\right).
+\end{align}\]
+
+<p>Equation $\eqref{eq:adiabatic_tdse_component_form}$ can then be written as</p>
+
+\[\begin{align}
+i\hbar \pdv{\boldsymbol{\chi}}{t}
+=\left[
+-\frac{1}{2}\nabla_{\mat q}^{2}\mat I
++\mat V
+-\mat\Lambda
+\right]
+\boldsymbol{\chi}.
+\label{eq:adiabatic_tdse_matrix_form}
+\end{align}\]
+
+<p>The time-independent version is</p>
+
+\[\begin{align}
+\left[
+-\frac{1}{2}\nabla_{\mat q}^{2}\mat I
++\mat V -\mat\Lambda
+\right]
+\boldsymbol{\chi}=E\boldsymbol{\chi}.
+\label{eq:adiabatic_tise_matrix_form}
+\end{align}\]
+
+<p>Here, $\mat I$ is the $N_{\mathrm s}\times N_{\mathrm s}$ identity matrix in electronic-state space.</p>
+
+<hr />
+
+<h2 id="dressed-kinetic-energy-form">Dressed kinetic energy form</h2>
+
+<p>A compact form often used in the literature rewrites the derivative coupling terms as part of a dressed, or gauge-covariant, kinetic energy operator. This form follows from expressing the second derivative coupling matrix $\mat G$ in terms of the first derivative couplings $\F$  (NACV).</p>
+
+<p>For a complete electronic basis,</p>
+
+\[\begin{align}
+G_{ji}
+=\nabla_{\mat q}\cdot\F_{ji}
++
+\sum_{k=1}^{\infty}
+\F_{jk}\cdot\F_{ki}.
+\label{eq:g_from_f_complete}
+\end{align}\]
+
+<p>In a finite electronic subspace, the same relation is exact only if the retained subspace is effectively decoupled from the omitted states. Otherwise, it should be interpreted as a subspace approximation.</p>
+
+<p>Using the coordinate-resolved NACM $\F_\alpha$, define</p>
+
+\[\begin{align}
+\nabla_{\mat q}\mat I+\F
+\equiv
+\left\{
+\pder{q_\alpha}\mat I+\F_\alpha
+\right\}_{\alpha=1}^{f}.
+\end{align}\]
+
+<p>The square of this operator means</p>
+
+\[\begin{align}
+\left(\nabla_{\mat q}\mat I+\F\right)^2
+\equiv
+\sum_{\alpha=1}^{f}
+\left(
+\pder{q_\alpha}\mat I+\F_\alpha
+\right)
+\left(
+\pder{q_\alpha}\mat I+\F_\alpha
+\right).
+\label{eq:dressed_derivative_definition}
+\end{align}\]
+
+<p>When this operator acts on $\boldsymbol{\chi}$, it produces</p>
+
+\[\begin{align}
+\left[
+\left(\nabla_{\mat q}\mat I+\F\right)^2
+\boldsymbol{\chi}
+\right]_j
+=\nabla_{\mat q}^{2}\chi_j
++
+\sum_{i=1}^{N_{\mathrm s}}
+\left(
+2\F_{ji}\cdot\nabla_{\mat q}\chi_i
++
+G_{ji}\chi_i
+\right),
+\end{align}\]
+
+<p>provided Eq. $\eqref{eq:g_from_f_complete}$ is valid in the electronic space considered. The coupled nuclear equations can therefore be written as</p>
+
+\[\begin{align}
+i\hbar\pdv{\boldsymbol{\chi}}{t}
+=\left[
+-\frac{1}{2}
+\left(
+\nabla_{\mat q}\mat I+\F
+\right)^2
++
+\mat V
+\right]
+\boldsymbol{\chi}.
+\label{eq:dressed_kinetic_tdse}
+\end{align}\]
+
+<p>Equivalently, the stationary equation is</p>
+
+\[\begin{align}
+\left[
+-\frac{1}{2}
+\left(
+\nabla_{\mat q}\mat I+\F
+\right)^2
++
+\mat V
+\right]
+\boldsymbol{\chi}
+=E\boldsymbol{\chi}.
+\label{eq:dressed_kinetic_tise}
+\end{align}\]
+
+<p>This equation is mathematically compact but physically important. It shows that, in the adiabatic representation, the nuclear kinetic energy is not simply $-\frac{1}{2}\nabla_{\mat q}^{2}$. Instead, the nuclear derivatives are modified by the geometry-dependence of the electronic basis.</p>
+
+<p>Practical note: this is the point at which the adiabatic representation becomes inconvenient for nonadiabatic dynamics. The NACV can become large, or even singular, near electronic degeneracies. This motivates later discussions of adiabatic approximations, conical intersections, and diabatic or quasi-diabatic representations.</p>
+
+<hr />
+
+<h2 id="reading-path">Reading path</h2>
+
+<p>This page introduces the minimal mathematical framework needed for the beginner-level sections that follow:</p>
+
+<ul>
+  <li><a href="/02_Born_Oppenheimer_and_Nonadiabaticity/beginer/02_adiabatic_approximations.html">Adiabatic approximations</a></li>
+  <li><a href="03_conical_intersections.md">Conical intersections</a></li>
+  <li><a href="04_diabatic_representation.md">Diabatic representations</a></li>
+</ul>
+
+<p>These sections provide first-level explanations of the physical meaning of the equations derived above. More detailed intermediate material is given in</p>
+
+<ul>
+  <li><a href="/02_Born_Oppenheimer_and_Nonadiabaticity/intermediates/int01_group_born_approximations.html">Group Born approximations</a></li>
+</ul>
+
+<p>which discusses implicit approximations made when a finite set of adiabatic electronic states is retained. In particular, the Born–Huang expansion is formally exact only for a complete electronic basis, while practical calculations use a finite electronic subspace.</p>
+
+<hr />
+
+<h2 id="references">References</h2>
+
+<p>The Born–Huang expansion and the resulting nonadiabatic coupling terms are discussed in standard treatments of beyond-Born–Oppenheimer molecular dynamics [@born_oppenheimer_1927; @born_huang_1954; @baer_2002_nact].</p>
+
+<p>The mass-scaled coordinate convention and direct-dynamics notation used here are consistent with the conventions adopted in direct molecular dynamics treatments [@worth_robb_2002_direct_md].</p>
+
+<p>The same adiabatic nuclear equations provide the starting point for the diabatisation methods used in DD-vMCG [@richings_worth_2015_propagation_diabatisation].</p>
+
+
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Beginner</span>
+    
+  
+</nav>
+
+
+<script src="/assets/js/mathjax-config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
+    blocks.forEach(function(block) {
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      block.parentNode.replaceWith(div);
+    });
+  });
+</script>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/KM-2323/documentation_intro">documentation_intro</a> is maintained by <a href="https://github.com/KM-2323">KM-2323</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Proving the Anti-Hermitian Property of the Non-Adiabatic Coupling Matrix (NACM) | Quantics Knowledge Base</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Proving the Anti-Hermitian Property of the Non-Adiabatic Coupling Matrix (NACM)" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_antihermitian_F.html" />
+<meta property="og:url" content="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_antihermitian_F.html" />
+<meta property="og:site_name" content="Quantics Knowledge Base" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Proving the Anti-Hermitian Property of the Non-Adiabatic Coupling Matrix (NACM)" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"Proving the Anti-Hermitian Property of the Non-Adiabatic Coupling Matrix (NACM)","url":"http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_antihermitian_F.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64545618641dcf682d804e64e8cd42d1505278b6">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">Proving the Anti-Hermitian Property of the Non-Adiabatic Coupling Matrix (NACM)</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/KM-2323/documentation_intro" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<h3 id="proving-the-anti-hermitian-property-of-the-non-adiabatic-coupling-matrix-nacm">Proving the Anti-Hermitian Property of the Non-Adiabatic Coupling Matrix (NACM)</h3>
+
+<p>Provided the electronic eigenstates are orthonormal:</p>
+
+\[\begin{align}
+\braket{\psi_j}{\psi_i}_{\mat r}
+=\delta_{ji}.
+\label{eq:electronic_orthonormality}
+\end{align}\]
+
+<p>Then take the gradient $\nabla$ of both sides of the equation. Because $\delta_{ji}$ is a constant (either 1 or 0), its gradient is strictly 0. Lastly, the subindex $\mat r$ are dropped for clarity:</p>
+
+\[\begin{align}
+\nabla\braket{\psi_j}{\psi_i}
+&amp;=\nabla\delta_{ji}\nonumber\\
+\braket{\nabla\psi_j}{\psi_i}+\braket{\psi_j}{\nabla\psi_i}
+&amp;=0\nonumber\\
+\braket{\psi_j}{\nabla\psi_i}&amp;=-\braket{\nabla\psi_j}{\psi_i}\nonumber\\
+\braket{\psi_j}{\nabla\psi_i}&amp;=-\braket{\psi_i}{\nabla\psi_j}^*\nonumber\\
+\F_{ji} &amp;=\F_{ij}^*
+\label{eq:proof-antihermitian-F}
+\end{align}\]
+
+<p>To evaluete the left side from line 1 to line 2, we applied the product rule (the distributyive property of the gradient operator) to the bra-kety.</p>
+
+<p>To go from line 3 to line 4, we relied on fundamental property of inner products in complex Hilbert space: reversing the order of the functions in a bra-ket yields its complex conjugate. Mathematically, this is written as:</p>
+
+\[\braket{A}{B} = \braket{B}{A}^*\rightarrow\braket{\nabla\psi_j}{\psi_i}=\braket{\psi_i}{\nabla\psi_j}^*\]
+
+<p>Lastly, to arrive at the last line, we recoegnise that</p>
+
+\[\braket{\psi_j}{\nabla \psi_i} = \mathbf{F}_{ji},\quad \braket{\psi_i}{\nabla \psi_j} = \mathbf{F}_{ij}\]
+
+<h3 id="simplification-for-a-real-electronic-basis">Simplification for a Real Electronic Basis</h3>
+
+<p>In practise, the electronic basis functions are chosen to be strictly real-valued. So if the wavefunctions are real, then taking their complex conjugate has no effect (i.e. $z^{*}=z$). Hence, the complex conjugate on our NACM elements can be dropped entirely ($\F_{ij}^{*}=\F_{ij}$).</p>
+
+<p>Substituting this into our anti-Hermitian condition yields:</p>
+
+\[\F_{ji} =\F_{ij}\]
+
+<h3 id="comments">Comments:</h3>
+<ol>
+  <li>The matrix is Anti-Symmetric: Without the complex conjugate, the matrix simply becomes anti-symmetric (or skew-symmetric). This means that if you take the transpose of the matrix, you get the exact negative of the original matrix ($\mathbf{F}^T = -\mathbf{F}$). The coupling from state $j$ to state $i$ is the exact negative of the coupling from state $i$ to state $j$.</li>
+  <li>Diagonal elements are strictly zero: The most significant physical consequence occurs when we look at the diagonal elements, representing a state’s coupling to itself ($i = j$). Plugging $i = j$ into the anti-symmetric equation gives $\F_{ii} = -\F_{ii}$. The only number that is equal to its own negative is zero. Therefore, $\mathbf{F}_{ii} = 0$. This mathematically proves that for a real basis, a state cannot have a non-adiabatic coupling with itself.</li>
+</ol>
+
+
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<script src="/assets/js/mathjax-config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
+    blocks.forEach(function(block) {
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      block.parentNode.replaceWith(div);
+    });
+  });
+</script>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/KM-2323/documentation_intro">documentation_intro</a> is maintained by <a href="https://github.com/KM-2323">KM-2323</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

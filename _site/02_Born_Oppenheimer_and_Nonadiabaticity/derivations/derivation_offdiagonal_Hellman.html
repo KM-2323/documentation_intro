@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>The Diagonal Hellmann-Feynman Theorem | Quantics Knowledge Base</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="The Diagonal Hellmann-Feynman Theorem" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivation_offdiagonal_Hellman.html" />
+<meta property="og:url" content="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivation_offdiagonal_Hellman.html" />
+<meta property="og:site_name" content="Quantics Knowledge Base" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="The Diagonal Hellmann-Feynman Theorem" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"The Diagonal Hellmann-Feynman Theorem","url":"http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivation_offdiagonal_Hellman.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64545618641dcf682d804e64e8cd42d1505278b6">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">The Diagonal Hellmann-Feynman Theorem</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/KM-2323/documentation_intro" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<h3 id="the-diagonal-hellmann-feynman-theorem">The Diagonal Hellmann-Feynman Theorem</h3>
+
+<p>Before detailing the equations of motion for the coupled nuclear-electronic system, it is necessary to establish the diagonal Hellmann-Feynman theorem. This theorem relates the nuclear gradient of the adiabatic potential energy to the expectation value of the derivative of the electronic Hamiltonian.</p>
+
+<p>Let $\mat R$ be the vector of nuclear coordinates and $\hat H_{el}$ be the electronic Hamiltonian operator. The adiabatic electronic states $\ket{\psi_j}$ satisfy the time-independent Schrödinger equation $\hat H_{el}\ket{\psi_j} = V_j\ket{\psi_j}$, where $V_j$ is the scalar adiabatic potential energy. Taking the nuclear gradient ($\nabla_{\mat R}$) of the expectation value of the energy gives:</p>
+
+\[\begin{align}
+\nabla_{\mat R} V_j &amp;= \nabla_{\mat R} \mel{\psi_j}{\hat H_{el}}{\psi_j} \nonumber \\
+&amp;= \mel{\nabla_{\mat R} \psi_j}{\hat H_{el}}{\psi_j} + \mel{\psi_j}{\nabla_{\mat R} \hat H_{el}}{\psi_j} + \mel{\psi_j}{\hat H_{el}}{\nabla_{\mat R} \psi_j}.
+\end{align}\]
+
+<p>Because the electronic Hamiltonian $\hat H_{el}$ is a Hermitian operator, it acts on the bra and ket symmetrically. Specifically, the eigenvalues $V_j$ are real scalars, such that</p>
+
+\[\begin{align}
+\bra{\psi_j}\hat H_{el} &amp;= \bra{\hat H_{el}\psi_j}\nonumber\\
+&amp;=\bra{V_j\psi_j}\nonumber\\
+&amp;=\bra{\psi_j}V_j^{*}\nonumber\\
+&amp;=\bra{\psi_j}V_j
+\end{align}\]
+
+<p>Consequently, the expression evaluates to:</p>
+
+\[\begin{align}
+\nabla_{\mat R} V_j = V_j\braket{\nabla_{\mat R} \psi_j}{\psi_j} + \mel{\psi_j}{\nabla_{\mat R} \hat H_{el}}{\psi_j} + V_j\braket{\psi_j}{\nabla_{\mat R} \psi_j}.
+\end{align}\]
+
+<p>Since the electronic eigenfunctions are normalized at all nuclear geometries, their inner product is identically unity ($\braket{\psi_j}{\psi_j} = 1$). Taking the nuclear gradient of this scalar condition yields:</p>
+
+\[\begin{align}
+\nabla_{\mat R} \braket{\psi_j}{\psi_j} &amp;= 0 \nonumber \\
+\braket{\nabla_{\mat R} \psi_j}{\psi_j} + \braket{\psi_j}{\nabla_{\mat R} \psi_j} &amp;= 0 \nonumber \\
+\braket{\nabla_{\mat R} \psi_j}{\psi_j} &amp;= -\braket{\psi_j}{\nabla_{\mat R} \psi_j}.
+\end{align}\]
+
+<p>Substituting this relationship back into the gradient of the potential energy exactly cancels the terms involving the derivatives of the wavefunctions:</p>
+
+\[\begin{align}
+\nabla_{\mat R} V_j &amp;= -V_j\braket{\psi_j}{\nabla_{\mat R} \psi_j} + \mel{\psi_j}{\nabla_{\mat R} \hat H_{el}}{\psi_j} + V_j\braket{\psi_j}{\nabla_{\mat R} \psi_j} \nonumber \\
+&amp;= \mel{\psi_j}{\nabla_{\mat R} \hat H_{el}}{\psi_j}.
+\label{eq:diagonal_hellmann_feynman}
+\end{align}\]
+
+<p>This demonstrates the diagonal Hellmann-Feynman theorem: the gradient of the adiabatic energy eigenvalue depends strictly on the expectation value of the derivative of the Hamiltonian operator, circumventing the need to compute the gradients of the electronic wavefunctions.</p>
+
+<h3 id="off-diagonal-hellman-feynmann">Off-diagonal Hellman-Feynmann</h3>
+
+<p>Next, we evaluate the off-diagonal elements. The nonadiabatic derivative coupling matrix elements, represented as vectors $\mat F_{ji} = \braket{\psi_j}{\nabla_{\mat R} \psi_i}$, can be evaluated using an off-diagonal form of the Hellmann-Feynman theorem.Consider two orthogonal electronic states, $\ket{\psi_i}$ and $\ket{\psi_j}$ (where $i \neq j$), such that $\braket{\psi_j}{\psi_i} = 0$. Taking the nuclear gradient of this off-diagonal matrix element of the Hamiltonian, which is identically zero, we obtain:</p>
+
+\[\begin{align}
+\nabla_{\mat R} \mel{\psi_j}{\hat H_{el}}{\psi_i} = \mel{\nabla_{\mat R} \psi_j}{\hat H_{el}}{\psi_i} + \mel{\psi_j}{\nabla_{\mat R} \hat H_{el}}{\psi_i} + \mel{\psi_j}{\hat H_{el}}{\nabla_{\mat R} \psi_i}.
+\end{align}\]
+
+<p>Applying the eigenvalue relation $\hat H_{el}\ket{\psi_i} = V_i\ket{\psi_i}$ and its Hermitian conjugate $\bra{\psi_j}\hat H_{el} = V_j\bra{\psi_j}$, the expression simplifies to:</p>
+
+\[\begin{align}
+0 = V_i\braket{\nabla_{\mat R} \psi_j}{\psi_i} + \mel{\psi_j}{\nabla_{\mat R} \hat H_{el}}{\psi_i} + V_j\braket{\psi_j}{\nabla_{\mat R} \psi_i}.
+\end{align}\]
+
+<p>To evaluate the first term, we use the anti-Hermitian property of the nonadiabatic coupling vectors (<a href="/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivations_antihermitian_F.html">anti-Hermitian property of NACV</a>):</p>
+
+\[\begin{align}
+\braket{\nabla_{\mat R} \psi_j}{\psi_i} &amp;= -\braket{\psi_j}{\nabla_{\mat R} \psi_i}.
+\end{align}\]
+
+<p>Substituting this property into our Hamiltonian derivative expression yields:</p>
+
+\[\begin{align}
+0 &amp;= -V_i\braket{\psi_j}{\nabla_{\mat R} \psi_i} + \mel{\psi_j}{\nabla_{\mat R} \hat H_{el}}{\psi_i} + V_j\braket{\psi_j}{\nabla_{\mat R} \psi_i} \nonumber \\
+0 &amp;= (V_j - V_i)\braket{\psi_j}{\nabla_{\mat R} \psi_i} + \mel{\psi_j}{\nabla_{\mat R} \hat H_{el}}{\psi_i}.
+\end{align}\]
+
+<p>Rearranging this equation provides a direct expression for the nonadiabatic derivative coupling vector:</p>
+
+\[\begin{align}
+\mat F_{ji} = \braket{\psi_j}{\nabla_{\mat R} \psi_i} = \frac{\mel{\psi_j}{\nabla_{\mat R} \hat H_{el}}{\psi_i}}{V_i - V_j}.
+\label{eq:off_diagonal_hellmann_feynman}
+\end{align}\]
+
+<p>This form reveals a critical physical consequence: as the adiabatic potential energy surfaces become degenerate ($V_i \to V_j$), the denominator approaches zero, and the nonadiabatic coupling matrix elements become singular. These localized singularities (such as conical intersections) drastically break the Born-Oppenheimer approximation, and drive the necessity to seek a transformation into a diabatic representation, where such derivative couplings are systematically removed or minimized.</p>
+
+<hr />
+
+<p>As $\psi_j$ and $\psi_i$ are eigenfunctions of $\hat H_{el}$ at all values of $\mat R$, the above expression at a chosen set of nuclear cooridnates simplfies to:</p>
+
+
+
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Derivations</span>
+    
+  
+</nav>
+
+
+<script src="/assets/js/mathjax-config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
+    blocks.forEach(function(block) {
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      block.parentNode.replaceWith(div);
+    });
+  });
+</script>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/KM-2323/documentation_intro">documentation_intro</a> is maintained by <a href="https://github.com/KM-2323">KM-2323</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>

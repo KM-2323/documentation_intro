@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8">
+
+<!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>The Born-Oppenheimer equation for a finite sub-Hilbert space | Quantics Knowledge Base</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="The Born-Oppenheimer equation for a finite sub-Hilbert space" />
+<meta property="og:locale" content="en_US" />
+<link rel="canonical" href="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/intermediates/old_int01_group_born_approximationsv1.html" />
+<meta property="og:url" content="http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/intermediates/old_int01_group_born_approximationsv1.html" />
+<meta property="og:site_name" content="Quantics Knowledge Base" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="The Born-Oppenheimer equation for a finite sub-Hilbert space" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","headline":"The Born-Oppenheimer equation for a finite sub-Hilbert space","url":"http://localhost:4000/02_Born_Oppenheimer_and_Nonadiabaticity/intermediates/old_int01_group_born_approximationsv1.html"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap" as="style" type="text/css" crossorigin>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="stylesheet" href="/assets/css/style.css?v=64545618641dcf682d804e64e8cd42d1505278b6">
+    <!-- start custom head snippets, customize with your own _includes/head-custom.html file -->
+
+<!-- Setup Google Analytics -->
+
+
+
+<!-- You can set your favicon here -->
+<!-- link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" -->
+
+<!-- end custom head snippets -->
+
+  </head>
+  <body>
+    <a id="skip-to-content" href="#content">Skip to the content.</a>
+
+    <header class="page-header" role="banner">
+      <h1 class="project-name">The Born-Oppenheimer equation for a finite sub-Hilbert space</h1>
+      <h2 class="project-tagline"></h2>
+      
+        <a href="https://github.com/KM-2323/documentation_intro" class="btn">View on GitHub</a>
+      
+      
+    </header>
+
+    <main id="content" class="main-content" role="main">
+      <nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Intermediates</span>
+    
+  
+</nav>
+
+
+<h3 id="the-born-oppenheimer-equation-for-a-finite-sub-hilbert-space">The Born-Oppenheimer equation for a finite sub-Hilbert space</h3>
+
+<p>In practise, only a finite set of $N_{\mathrm s}$ electronic states, are used in the expansion. So, if we break the full Hilbert space into two part: a finite space with dimension M designated as the $P$-space and the complementary part, the $Q$-space which is allowed to be of an infinite dimension. A formal decomposition requires the fullfilment of the following condition:</p>
+
+\[\begin{align}
+\F_{ij}\approx 0;\quad \text{for}\quad i\leq M ,\quad j &gt; M
+\end{align}\]
+
+<p>where the non-adiabatic coupling between $P$-states and $Q$-states are assumed to be zero. This can be achieved when the highest state of $P$-space is well separated from the lowest state of $Q$-space</p>
+
+<p>So like it was disccused in <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.html">Born-Huang expansion</a>, we can define a projector $\hat P_M$ onto the retained electronic subspace,</p>
+
+\[\begin{align}
+\hat P_{M}
+=\sum_{k=1}^{M}
+\ket{\psi_k}
+\bra{\psi_k}.
+\label{eq:P_projector}
+\end{align}\]
+
+<p>and $\hat Q_M$, the projection operator for the $Q$-space</p>
+
+\[\begin{align}
+\hat Q_{M}
+=I-\hat P_M
+\label{eq:Q_projector}
+\end{align}\]
+
+<p>With these operators defined, we can now investiagte the effective potential term that should be replaced in our:</p>
+
+\[\begin{align}
+\left[
+-\frac{1}{2}
+\left(
+\nabla_{\mat q}\mat I+\F^{(P)}
+\right)^2
++
+\mat V^{(P)}
+\right]
+\boldsymbol{\chi}
+=E\boldsymbol{\chi}.
+\label{eq:dressed_kinetic_tise}
+\end{align}\]
+
+<p>To understand how truncating the Hilbert space affects our nuclear Schrödinger equation, we return to the exact definition of the scalar coupling matrix elements:</p>
+
+\[\begin{align}
+\G_{ji}
+&amp;=\nabla\F_{ji}-\sum_{k=1}^{\infty}\braket{\nabla\psi_j}{\psi_k}
+\braket{\psi_k}{\nabla\psi_i}
+\end{align}\]
+
+<p>Instead of assuming a complete infinite basis, we insert the exact partitioned identity operator, $\hat I_{\mathrm{el}} = \hat P_M + \hat Q_M$, into the inner product of the gradients:</p>
+
+\[\begin{align}
+\braket{\nabla\psi_j}{\nabla\psi_i} &amp;= \mel{\nabla\psi_j}{\hat P_M + \hat Q_M}{\nabla\psi_i}\nonumber\\
+&amp;= \mel{\nabla\psi_j}{\hat P_M}{\nabla\psi_i} + \mel{\nabla\psi_j}{\hat Q_M}{\nabla\psi_i}
+\label{eq:partitioned_inner_product}
+\end{align}\]
+
+<p>We evaluate these two terms separately. For the $P$-space contribution, we substitute the explicit projector $\hat P_M = \sum_{k=1}^M \ket{\psi_k}\bra{\psi_k}$. Using the same anti-Hermitian trick we applied in the infinite basis derivation(<a href="/02_Born_Oppenheimer_and_Nonadiabaticity/derivations/derivation_dressed_term.html">dressed kinetic operator</a>) ($\braket{\nabla\psi_j}{\psi_k} = -\braket{\psi_k}{\nabla\psi_j}^* = -\F_{jk}$), this term becomes the square of the Non-Adiabatic Coupling Matrix NACM strictly within the $P$-space:</p>
+
+\[\begin{align}
+\mel{\nabla\psi_j}{\hat P_M}{\nabla\psi_i} &amp;= \sum_{k=1}^M \braket{\nabla\psi_j}{\psi_k} \braket{\psi_k}{\nabla\psi_i}\nonumber\\
+&amp;= -\sum_{k=1}^M \F_{jk} \cdot \F_{ki}\nonumber\\
+&amp;= -(\F^{(P)} \cdot \F^{(P)})_{ji}
+\end{align}\]
+
+<p>Next, we look at the $Q$-space contribution. By substituting $\hat Q_M = \sum_{k=M+1}^\infty \ket{\psi_k}\bra{\psi_k}$, we obtain:</p>
+
+\[\begin{align}
+\mel{\nabla\psi_j}{\hat Q_M}{\nabla\psi_i} &amp;= \sum_{k=M+1}^\infty \braket{\nabla\psi_j}{\psi_k} \braket{\psi_k}{\nabla\psi_i}
+\end{align}\]
+
+<p>Unlike the $P$-space term, this summation runs over the omitted states ($k &gt; M$). Therefore, it cannot be expressed in terms of our retained $M \times M$ matrix $\F^{(P)}$. It represents an irreducible scalar coupling to the discarded electronic states.Substituting both partitioned results back into our expression for $\G_{ji}$ yields the subspace-restricted scalar coupling:</p>
+
+\[\begin{align}
+\G_{ji}^{(P)} &amp;= \nabla\F_{ji}^{(P)} + (\F^{(P)} \cdot \F^{(P)})_{ji} - \sum_{k=M+1}^\infty \braket{\nabla\psi_j}{\psi_k} \braket{\psi_k}{\nabla\psi_i}
+\end{align}\]
+
+<h3 id="the-dressed-kinetic-and-potential-energy-operators">The Dressed Kinetic and Potential Energy Operators</h3>
+
+<p>We are now ready to substitute $\G^{(P)}$ into the kinetic energy brackets for the $M$-dimensional $P$-space. Notice how we group the terms:\(\begin{align}
+-\frac{1}{2} \left[ \nabla^2\mat I + 2\F^{(P)}\cdot\nabla\mat I + \G^{(P)} \right] &amp;= -\frac{1}{2} \left[ \nabla^2\mat I + 2\F^{(P)}\cdot\nabla\mat I + \nabla\F^{(P)} + \F^{(P)}\cdot\F^{(P)} - \mel{\nabla\psi_j}{\hat Q_M}{\nabla\psi_i} \right]\nonumber\\
+&amp;= -\frac{1}{2} \left[ \left(\nabla\mat I + \F^{(P)}\right)^2 \right] + \frac{1}{2} \sum_{k=M+1}^\infty \braket{\nabla\psi_j}{\psi_k} \braket{\psi_k}{\nabla\psi_i}
+\end{align}\)The first four terms perfectly construct our familiar dressed kinetic energy perfect square, just restricted to the $M$-dimensional subspace. However, the truncation leaves behind a positive scalar term from the $Q$-space. Because this leftover term contains no differential operators acting on the nuclear coordinates, it behaves strictly as a potential energy contribution.When we insert this into the full Time-Independent Schrödinger Equation, we combine this residual $Q$-space term with the standard adiabatic potential $\mat V^{(P)}$ to form a new dressed potential-energy matrix, $\mat V^{(P)}$:</p>
+
+\[\begin{align}
+\left[ -\frac{1}{2} \left(\nabla\mat I + \F^{(P)}\right)^2 + \mat V^{(P)} \right] \boldsymbol{\chi}^{(P)} = E \boldsymbol{\chi}^{(P)}
+\label{eq:group_BO_equation}
+\end{align}\]
+
+<p>where the elements of the dressed potential matrix are explicitly defined as:</p>
+
+\[\begin{align}
+\V_{ji}^{(P)} = V_i \delta_{ji} + \frac{1}{2} \sum_{k=M+1}^\infty \braket{\nabla\psi_j}{\psi_k} \braket{\psi_k}{\nabla\psi_i}
+\label{eq:dressed_potential_elements}
+\end{align}\]
+
+<p>This final equation represents the Group Born-Oppenheimer approximation. It demonstrates that when we discard a subset of electronic states ($Q$-space), their influence is not entirely lost. Since in practise, the first-derivative non-adiabatic couplings ($\F_{ji}$) to these higher states are never 0 (a constant interaction of $\varepsilon$), their second-derivative couplings survive as an effective repulsive mass-dependent potential that “dresses” the adiabatic states we chose to keep. So if $\varepsilon»1$, then ..</p>
+
+
+<nav class="page-breadcrumb" aria-label="Page navigation">
+  <a href="/">Home</a>
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <a href="/02_Born_Oppenheimer_and_Nonadiabaticity/">Born-Oppenheimer and Nonadiabaticity</a>
+    
+  
+
+  
+    <span class="page-breadcrumb__separator">/</span>
+    
+      <span>Intermediates</span>
+    
+  
+</nav>
+
+
+<script src="/assets/js/mathjax-config.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
+
+  document.addEventListener("DOMContentLoaded", function() {
+    const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
+    blocks.forEach(function(block) {
+      const div = document.createElement("div");
+      div.className = "mermaid";
+      div.textContent = block.textContent;
+      block.parentNode.replaceWith(div);
+    });
+  });
+</script>
+
+
+      <footer class="site-footer">
+        
+          <span class="site-footer-owner"><a href="https://github.com/KM-2323/documentation_intro">documentation_intro</a> is maintained by <a href="https://github.com/KM-2323">KM-2323</a>.</span>
+        
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a>.</span>
+      </footer>
+    </main>
+  </body>
+</html>
