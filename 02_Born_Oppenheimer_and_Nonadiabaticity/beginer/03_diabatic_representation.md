@@ -90,7 +90,7 @@ i\hbar\pdv{\chivec^{(a)}}{t}
 \end{align}
 $$
 
-Here $\mat q$ denotes mass-scaled nuclear coordinates, $\V$ is an $N_{\mathrm s}\times N_{\mathrm s}$ diagonal matrix of adiabatic potential energy surfaces, and $\F$ is a matrix-valued vector of first-derivative nonadiabatic couplings. For each nuclear coordinate $q_\alpha$, the component $\F_\alpha$ is an $N_{\mathrm s}\times N_{\mathrm s}$ matrix with elements
+Here $\mat q$ denotes mass-scaled nuclear coordinates, $\V$ is an $N_{\mathrm s}\times N_{\mathrm s}$ diagonal matrix of adiabatic potential energy surfaces, and $\F$ is a matrix-valued vector of first-derivative nonadiabatic couplings. For each nuclear coordinate $q_\alpha$, the component $\mat F_\alpha$ is an $N_{\mathrm s}\times N_{\mathrm s}$ matrix with elements
 
 $$
 \begin{align}

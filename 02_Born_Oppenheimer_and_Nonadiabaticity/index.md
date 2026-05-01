@@ -22,3 +22,7 @@
 
 ### Intermediates
 [Grouped Born](intermediates/int01_group_born_approximations.md)
+
+
+### Visualisations
+[text](visuals/different_conical_intersections.ipynb)
