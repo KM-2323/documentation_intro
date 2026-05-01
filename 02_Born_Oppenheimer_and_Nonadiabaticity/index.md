@@ -25,4 +25,4 @@
 
 
 ### Visualisations
-[text](visuals/different_conical_intersections.ipynb)
+[QVC conical-intersection visualiser](visuals/different_conical_intersections.md)
