@@ -65,35 +65,57 @@ $$
 $$
 
 Then:
+We apply the transformation $\mathbf{C} \mathbf{W} \mathbf{C}^T = \mathbf{V}$:$$\begin{align}
+\begin{pmatrix}
+c & s\\
+-s & c\\
+\end{pmatrix}
+\begin{pmatrix}
+W_{11} c + W_{12} s & -W_{11} s + W_{12} c\\
+W_{12} c + W_{22} s & -W_{12} s + W_{22} c
+\end{pmatrix}&=
+\begin{pmatrix}
+V_{11} & 0 \\
+0 & V_{22}
+\end{pmatrix}
+\end{align}$$
+
 
 $$
 \begin{align}
-\Cinv \W \Cmat& = \V\nonumber\\
+\Cmat \W \Cinv& = \V\nonumber\\
 \begin{pmatrix}
-\cos\theta&-\sin\theta\\
-\sin\theta&\cos\theta\\
+\cos\theta & \sin\theta\\
+-\sin\theta & \cos\theta\\
 \end{pmatrix}
 \begin{pmatrix}
 W_{11} & W_{12} \\
 W_{12} & W_{22}
 \end{pmatrix}
 \begin{pmatrix}
-\cos\theta&\sin\theta\\
--\sin\theta&\cos\theta\\
+\cos\theta & -\sin\theta\\
+\sin\theta & \cos\theta\\
 \end{pmatrix}&=
 \begin{pmatrix}
 V_{11} & 0 \\
 0 & V_{22}
 \end{pmatrix}\nonumber\\
 \begin{pmatrix}
-c&-s\\
-s&c\\
-\end{pmatrix}\begin{pmatrix}W_{11} c - W_{12} s & W_{11} s + W_{12} c\\W_{12} c - W_{22} s & W_{12} s + W_{22} c\end{pmatrix}&=
+c & s\\
+-s & c\\
+\end{pmatrix}
+\begin{pmatrix}
+W_{11} c + W_{12} s & -W_{11} s + W_{12} c\\
+W_{12} c + W_{22} s & -W_{12} s + W_{22} c
+\end{pmatrix}&=
 \begin{pmatrix}
 V_{11} & 0 \\
 0 & V_{22}
 \end{pmatrix}\nonumber\\
-\begin{pmatrix}W_{11} c^2 - 2 W_{12} s c+ W_{22} s^2 & W_{11} s c- W_{12} s^2 + W_{12} c^2 - W_{22} s c\\W_{11} s c- W_{12} s^2 + W_{12} c^2 - W_{22} s c& W_{11} s^2 + 2 W_{12} s c+ W_{22} c^2\end{pmatrix}
+\begin{pmatrix}
+W_{11} c^2 + 2 W_{12} s c + W_{22} s^2 & -W_{11} s c - W_{12} s^2 + W_{12} c^2 + W_{22} s c\\
+-W_{11} s c - W_{12} s^2 + W_{12} c^2 + W_{22} s c & W_{11} s^2 - 2 W_{12} s c + W_{22} c^2
+\end{pmatrix}
 &=
 \begin{pmatrix}
 V_{11} & 0 \\
@@ -106,7 +128,7 @@ This implies:
 
 $$
 \begin{align}
-W_{11} s c- W_{12} s^2 + W_{12} c^2 - W_{22} s c=0
+-W_{11} s c- W_{12} s^2 + W_{12} c^2 + W_{22} s c=0
 \end{align}
 $$
 
@@ -124,7 +146,7 @@ Such that:
 $$
 \begin{align}
 W_{12}(c^2-s^2) = W_{12}\cos(2\theta)\\
-(W_{11}-W_{22})sc = \frac{1}{2}\sin(2\theta)
+(W_{22}-W_{11})sc = \frac{1}{2}\sin(2\theta)(W_{22}-W_{11})
 \end{align}
 $$
 
@@ -132,7 +154,7 @@ Then:
 
 $$
 \begin{align}
-W_{11} s c- W_{12} s^2 + W_{12} c^2 - W_{22} s c=\frac{1}{2}\sin(2\theta)(W_{11}-W_{22}) + W_{12} \cos(2\theta) 
+W_{11} s c- W_{12} s^2 + W_{12} c^2 - W_{22} s c=\frac{1}{2}\sin(2\theta)(W_{22}-W_{11}) + W_{12} \cos(2\theta) 
 \end{align}
 $$
 
@@ -140,9 +162,9 @@ Hence:
 
 $$
 \begin{align}
-\frac{1}{2}\sin(2\theta)(W_{11}-W_{22}) + W_{12} \cos(2\theta) &=0\nonumber\\
--\frac{1}{2}\frac{\sin(2\theta)}{\cos(2\theta)}&= \frac{W_{12}}{W_{11}-W_{22}}  \nonumber\\
-\tan{2\theta}&= \frac{2W_{12}}{W_{22}-W_{11}}  \nonumber\\
+\frac{1}{2}\sin(2\theta)(W_{22}-W_{11}) + W_{12} \cos(2\theta) &=0\nonumber\\
+-\frac{1}{2}\frac{\sin(2\theta)}{\cos(2\theta)}&= \frac{W_{12}}{W_{22}-W_{11}}  \nonumber\\
+\tan{2\theta}&= -\frac{2W_{12}}{W_{22}-W_{11}}  \nonumber\\
 \end{align}
 $$
 
@@ -150,8 +172,8 @@ This implies, as long as $\theta$ satisfies the above condition, then the column
 
 $$
 \begin{align}
-\ket{\psi_1} =\cos{\theta}\ket{\varphi_1} -  \sin{\theta}\ket{\varphi_2}\nonumber\\
-\ket{\psi_2} =\sin{\theta}\ket{\varphi_1} +  \cos{\theta}\ket{\varphi_2}
+\ket{\psi_1} =\cos{\theta}\ket{\varphi_1} +  \sin{\theta}\ket{\varphi_2}\nonumber\\
+\ket{\psi_2} =-\sin{\theta}\ket{\varphi_1} +  \cos{\theta}\ket{\varphi_2}
 \end{align}
 $$
 
@@ -159,8 +181,8 @@ or in vector notation:
 
 $$
 \begin{align}
-\ket{\psi_1} = \begin{pmatrix}\cos\theta \\ -\sin{\theta}\end{pmatrix}\nonumber\\
-\ket{\psi_2} = \begin{pmatrix}\sin\theta \\ \cos{\theta}\end{pmatrix}
+\ket{\psi_1} = \begin{pmatrix}\cos\theta \\ \sin{\theta}\end{pmatrix}\nonumber\\
+\ket{\psi_2} = \begin{pmatrix}-\sin\theta \\ \cos{\theta}\end{pmatrix}
 \end{align}
 $$
 ### The derivative coupling identity in two state model + 1D?
@@ -169,7 +191,7 @@ The NACV $\F_{12}$
 
 $$
 \begin{align}
-\pder{q}\ket{\psi_2} = \pder{q}\left[\sin{\theta}\ket{\varphi_1} +  \cos{\theta}\ket{\varphi_2}\right]
+\pder{q}\ket{\psi_2} = \pder{q}\left[-\sin{\theta}\ket{\varphi_1} +  \cos{\theta}\ket{\varphi_2}\right]
 \end{align}
 $$
 
@@ -178,22 +200,22 @@ Using chain rule:
 
 $$
 \begin{align}
-\pder{q}\ket{\psi_2} &= \pdv{\theta}{q}\pder{\theta}\left[\sin{\theta}\ket{\varphi_1} +  \cos{\theta}\ket{\varphi_2}\right] \nonumber\\&= \pdv{\theta}{q}\left[\cos{\theta}\ket{\varphi_1} -  \sin{\theta}\ket{\varphi_2}\right] \nonumber \\
-&=\pdv{\theta}{q}\ket{\psi_1}
+\pder{q}\ket{\psi_2} &= \pdv{\theta}{q}\pder{\theta}\left[-\sin{\theta}\ket{\varphi_1} +  \cos{\theta}\ket{\varphi_2}\right] \nonumber\\&= \pdv{\theta}{q}\left[-\cos{\theta}\ket{\varphi_1} -  \sin{\theta}\ket{\varphi_2}\right] \nonumber \\
+&=-\pdv{\theta}{q}\ket{\psi_1}
 \end{align}
 $$
 
 Hence:
 
 $$
-\F_{12} = \braket{\psi_1}{\pdv{\theta}{q}\psi_1}=\pdv{\theta}{q}
+\F_{12} =- \braket{\psi_1}{\pdv{\theta}{q}\psi_1}=-\pdv{\theta}{q}
 $$
 
 Now since:
 
 $$
 \begin{align}
-\tan{2\theta}&= \frac{2W_{12}}{W_{22}-W_{11}} 
+\tan{2\theta}&= -\frac{2W_{12}}{W_{22}-W_{11}} 
 \end{align}
 $$
 
@@ -204,7 +226,7 @@ Using implicit differentiation:
 For the RHS applying quotient rule $\pder{q}(\frac uv)=\frac{\pdv{u}{q}v-u\pdv{v}{q}}{v^2}$
 
 $$
-\pdv{}{ q}\left(\frac{2W_{12}}{W_{22}-W_{11}}\right) = \frac{2\pdv{ W_{12}}{ q}(W_{22}-W_{11}) - 2W_{12}\left(\pdv{ W_{22}}{ q} - \pdv{ W_{11}}{ q}\right)}{(W_{22}-W_{11})^2}
+\pdv{}{ q}\left(\frac{2W_{12}}{W_{22}-W_{11}}\right) = -\frac{2\pdv{ W_{12}}{ q}(W_{22}-W_{11}) - 2W_{12}\left(\pdv{ W_{22}}{ q} - \pdv{ W_{11}}{ q}\right)}{(W_{22}-W_{11})^2}
 $$
 
 For the LHS:
@@ -221,10 +243,38 @@ $$\sec^2(2\theta) = 1 + \left(\frac{2W_{12}}{W_{22}-W_{11}}\right)^2 = \frac{(W_
 
 Hence:
 
-$$2 \left[ \frac{(W_{22}-W_{11})^2 + 4W_{12}^2}{(W_{22}-W_{11})^2} \right] \pdv{\theta}{ q} = \frac{2\pdv{ W_{12}}{ q}(W_{22}-W_{11}) - 2W_{12}\left(\pdv{ W_{22}}{ q} - \pdv{ W_{11}}{ q}\right)}{(W_{22}-W_{11})^2}$$
+$$2 \left[ \frac{(W_{22}-W_{11})^2 + 4W_{12}^2}{(W_{22}-W_{11})^2} \right] \pdv{\theta}{ q} = -\frac{2\pdv{ W_{12}}{ q}(W_{22}-W_{11}) - 2W_{12}\left(\pdv{ W_{22}}{ q} - \pdv{ W_{11}}{ q}\right)}{(W_{22}-W_{11})^2}$$
 
 Divide by the bracketed term on the left to isolate $\frac{\partial \theta}{\partial q}$,
 
-$$F_{12} = \pdv{\theta}{q} = \frac{\pdv{ W_{12}}{ q}(W_{22}-W_{11}) - W_{12}\left(\pdv{ W_{22}}{ q} - \pdv{ W_{11}}{ q}\right)}{(W_{22}-W_{11})^2 + 4W_{12}^2}$$
+$$ \pdv{\theta}{q} = -\frac{\pdv{ W_{12}}{ q}(W_{22}-W_{11}) - W_{12}\left(\pdv{ W_{22}}{ q} - \pdv{ W_{11}}{ q}\right)}{(W_{22}-W_{11})^2 + 4W_{12}^2}$$
 
-need to link to LVC models $W_{22}-W_{11}=\boldsymbol{\kappa}\cdot\mat q$ and $W_{12} =\boldsymbol{\lambda}\cdot \mat q $ explaining the two branching coordiantes and also how to lead to the Lorentizian form. 
+such that:
+
+$$
+F_{12} = - \pdv{\theta}{q}=\frac{\pdv{ W_{12}}{ q}(W_{22}-W_{11}) - W_{12}\left(\pdv{ W_{22}}{ q} - \pdv{ W_{11}}{ q}\right)}{(W_{22}-W_{11})^2 + 4W_{12}^2}
+$$
+
+### 3. Linear Vibronic Coupling (LVC) Models & Branching Coordinates
+
+In the LVC framework near a Conical Intersection, the diabatic potential energies are linearized. We define two characteristic vectors that map to the two degrees of freedom that lift the degeneracy (the branching plane):
+
+The Tuning Vector ($\boldsymbol{\kappa}$): Represents the gradient of the energy difference.$$ \boldsymbol{\kappa} = \nabla_{\mathbf{q}} (W_{22} - W_{11}) $$
+
+The Coupling Vector ($\boldsymbol{\lambda}$): Represents the gradient of the diabatic coupling.$$ \boldsymbol{\lambda} = \nabla_{\mathbf{q}} W_{12} $$
+
+Assuming a conical intersection at the origin ($\mathbf{q}=0$), the matrix elements in the branching plane are approximated as:
+
+$W_{22} - W_{11} = \boldsymbol{\kappa} \cdot \mathbf{q}$
+
+$W_{12} = \boldsymbol{\lambda} \cdot \mathbf{q}$
+
+Substituting these directly into our invariant $\mathbf{F}_{12}$ equation gives:$$\mathbf{F}_{12}(\mathbf{q}) = \frac{\boldsymbol{\lambda}(\boldsymbol{\kappa} \cdot \mathbf{q}) - \boldsymbol{\kappa}(\boldsymbol{\lambda} \cdot \mathbf{q})}{(\boldsymbol{\kappa} \cdot \mathbf{q})^2 + 4(\boldsymbol{\lambda} \cdot \mathbf{q})^2}$$
+
+
+### 4. The Lorentzian Form
+
+The Lorentzian form emerges when you look at a 1D slice of this multidimensional space, specifically an avoided crossing trajectory.
+
+Imagine a coordinate $q$ that moves parallel to the tuning vector $\boldsymbol{\kappa}$ (so the energy gap changes linearly, $\Delta W = kq$), but it has a constant offset in the coupling direction such that $W_{12} = V$ (a constant).Because $W_{12}$ is a constant, its derivative $\nabla_{\mathbf{q}} W_{12} = 0$. Plugging this into the NACV magnitude equation:$$F_{12}(q) = \frac{(0)(kq) - V \frac{\partial (kq)}{\partial q}}{(kq)^2 + 4V^2}$$$$F_{12}(q) = \frac{-kV}{k^2 q^2 + 4V^2}$$Dividing the top and bottom by $k^2$ yields the classic Lorentzian profile:$$F_{12}(q) = -\frac{V/k}{q^2 + 4(V/k)^2}$$This dictates that at the avoided crossing ($q=0$), the derivative coupling spikes to a maximum of $-\frac{k}{4V}$. If the coupling $V$ is small, the spike is extremely sharp (a highly non-adiabatic transition). If $V$ is large, the spike is broad, and the system behaves more adiabatically.
+

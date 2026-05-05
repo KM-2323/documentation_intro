@@ -274,6 +274,7 @@ curvature, and twisting of the surfaces around it.
           <button type="button" data-preset="reset">Reset</button>
           <button type="button" data-preset="planar">Planar</button>
           <button type="button" data-preset="twisted">Twisted</button>
+          <button type='button' data-preset='sloped'>Sloped</button>
         </div>
       </aside>
     </div>
@@ -285,7 +286,7 @@ curvature, and twisting of the surfaces around it.
   </p>
 </div>
 
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-3.5.1.min.js" charset="utf-8"></script>
 <script>
   (function () {
     const root = document.getElementById("ci-qvc-tool");
@@ -340,10 +341,10 @@ curvature, and twisting of the surfaces around it.
         k1: 1.2,
         k2: 1.2,
         lam: 2,
-        g1xx: 0.15,
-        g1yy: 0.15,
-        g2xx: 0.15,
-        g2yy: 0.15,
+        g1xx: 0.0,
+        g1yy: 0.0,
+        g2xx: 0.0,
+        g2yy: 0.0,
         g1xy: 0.0,
         g2xy: 0.0
       }

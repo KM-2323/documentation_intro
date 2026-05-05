@@ -21,6 +21,7 @@ window.MathJax = {
       V:["\\mat V"],
       U:["\\mat U"],
       Cmat:["\\mat C"],
+      Smat:["\\mat S"],
       psivec:["\\boldsymbol{\\psi}"],
       chivec:["\\boldsymbol{\\chi}"],
       varphivec:["\\boldsymbol{\\varphi}"],

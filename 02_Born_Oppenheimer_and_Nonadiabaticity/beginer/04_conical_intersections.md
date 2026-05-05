@@ -34,7 +34,7 @@ It is useful to define the average and difference functions
 
 $$
 \begin{align}
-\bar W(\mat q)
+\Sigma(\mat q)
 &=
 \frac{1}{2}
 \left[
@@ -51,7 +51,7 @@ Then Eq. \(\eqref{eq:two_state_diabatic_matrix}\) can be written as
 $$
 \begin{align}
 \mat W
-=\bar W \mat I
+=\Sigma \mat I
 +
 \begin{pmatrix}
 -\Delta/2 & W_{12}\\
@@ -61,7 +61,7 @@ W_{12} & \Delta/2
 \end{align}
 $$
 
-This form separates the part that shifts both adiabatic energies equally, \(\bar W\mat I\), from the part that controls the splitting between the two states.
+This form separates the part that shifts both adiabatic energies equally, \(\Sigma\mat I\), from the part that controls the splitting between the two states.
 
 ---
 
@@ -100,7 +100,7 @@ The two eigenvalues are therefore
 $$
 \begin{align}
 V_{\pm}(\mat q)
-=\bar W(\mat q)
+=\Sigma(\mat q)
 \pm
 \frac{1}{2}
 \sqrt{
@@ -139,7 +139,7 @@ W_{12}(\mat q)=0.
 \end{align}
 $$
 
-These are two independent scalar conditions. In an \(f\)-dimensional nuclear coordinate space, their simultaneous solution generally defines an \((f-2)\)-dimensional intersection seam, provided the two conditions are independent. The two directions that lift the degeneracy form the **branching space**, also called the \(g\)-\(h\) plane. The remaining directions form the **intersection space**, along which the degeneracy is retained to first order. This is the standard local picture of a two-state conical intersection: near the degeneracy, the adiabatic surfaces form a double cone in the branching plane. :contentReference[oaicite:0]{index=0}
+These are two independent scalar conditions. In an \(f\)-dimensional nuclear coordinate (here $f= 3N-6$ or $3N-5$ internal coordiantes for non-linear and linear molcules respectively) space, their simultaneous solution generally defines an \((f-2)\)-dimensional intersection seam, provided the two conditions are independent. The two directions that lift the degeneracy form the **branching space**, also called the \(g\)-\(h\) plane. The remaining directions form the **intersection space**, along which the degeneracy is retained to first order. This is the standard local picture of a two-state conical intersection: near the degeneracy, the adiabatic surfaces form a double cone in the branching plane.
 
 ---
 
@@ -164,7 +164,7 @@ With this convention,
 
 $$
 \begin{align}
-\Cmat^{T}\mat W\Cmat
+\Cmat\mat W\Cmat^T
 =\begin{pmatrix}
 V_1 & 0\\
 0 & V_2
@@ -173,15 +173,15 @@ V_1 & 0\\
 \end{align}
 $$
 
-Equivalently, the adiabatic states are expressed in the diabatic basis as
+Equivalently, the adiabatic states are expressed in the diabatic basis as (see short)
 
 $$
 \begin{align}
 \ket{\psi_1}
 &=\cos\theta\,\ket{\varphi_1}
--\sin\theta\,\ket{\varphi_2},\\
++\sin\theta\,\ket{\varphi_2},\\
 \ket{\psi_2}
-&=\sin\theta\,\ket{\varphi_1}
+&=-\sin\theta\,\ket{\varphi_1}
 +\cos\theta\,\ket{\varphi_2}.
 \label{eq:adiabatic_states_from_diabatic_basis}
 \end{align}
@@ -191,12 +191,12 @@ The off-diagonal element of \(\Cmat^{T}\mat W\Cmat\) is
 
 $$
 \begin{align}
-(\Cmat^{T}\mat W\Cmat)_{12}
+(\Cmat\mat W\Cmat^T)_{12}
 &=W_{12}(\cos^2\theta-\sin^2\theta)
-+(W_{11}-W_{22})\sin\theta\cos\theta
++(W_{22}-W_{11})\sin\theta\cos\theta
 \nonumber\\
 &=W_{12}\cos(2\theta)
--\frac{\Delta}{2}\sin(2\theta).
++\frac{\Delta}{2}\sin(2\theta).
 \end{align}
 $$
 
@@ -205,7 +205,7 @@ Diagonalisation requires this expression to vanish:
 $$
 \begin{align}
 W_{12}\cos(2\theta)
--\frac{\Delta}{2}\sin(2\theta)
++\frac{\Delta}{2}\sin(2\theta)
 =0.
 \end{align}
 $$
@@ -215,8 +215,8 @@ Therefore,
 $$
 \begin{align}
 \tan(2\theta)
-=\frac{2W_{12}}{\Delta}
-=\frac{2W_{12}}{W_{22}-W_{11}}.
+=-\frac{2W_{12}}{\Delta}
+=-\frac{2W_{12}}{W_{22}-W_{11}}.
 \label{eq:two_state_mixing_angle_tangent}
 \end{align}
 $$
@@ -226,7 +226,7 @@ Equivalently,
 $$
 \begin{align}
 \theta(\mat q)
-=\frac{1}{2}
+=-\frac{1}{2}
 \operatorname{atan2}
 \left(
 2W_{12}(\mat q),
@@ -271,18 +271,18 @@ $$
 \nabla_{\mat q}\ket{\psi_2}
 &=\nabla_{\mat q}
 \left[
-\sin\theta\,\ket{\varphi_1}
+-\sin\theta\,\ket{\varphi_1}
 +
 \cos\theta\,\ket{\varphi_2}
 \right]
 \nonumber\\
 &=(\nabla_{\mat q}\theta)
 \left[
-\cos\theta\,\ket{\varphi_1}
+-\cos\theta\,\ket{\varphi_1}
 -\sin\theta\,\ket{\varphi_2}
 \right]
 \nonumber\\
-&=(\nabla_{\mat q}\theta)
+&=-(\nabla_{\mat q}\theta)
 \ket{\psi_1}.
 \end{align}
 $$
@@ -293,7 +293,7 @@ $$
 \begin{align}
 \F_{12}
 =\braket{\psi_1}{\nabla_{\mat q}\psi_2}
-=\nabla_{\mat q}\theta.
+=-\nabla_{\mat q}\theta.
 \label{eq:nacv_as_gradient_theta}
 \end{align}
 $$
@@ -312,7 +312,7 @@ Taking the gradient of Eq. \(\eqref{eq:two_state_mixing_angle_atan2}\) gives
 $$
 \begin{align}
 \F_{12}
-=\nabla_{\mat q}\theta
+=-\nabla_{\mat q}\theta
 =\frac{
 \Delta\,\nabla_{\mat q} W_{12}
 -W_{12}\,\nabla_{\mat q}\Delta
@@ -349,9 +349,10 @@ $$
 \end{align}
 $$
 
-This makes the singular behaviour transparent: the derivative coupling becomes large when the adiabatic energy gap becomes small, and it is singular at the exact conical intersection.
+which reveals the nonadiabatic derivative coupling vector becomes large when the adiabatic energy gap becomes small, and it is singular at the exact conical intersection.
 
-The sign of Eq. \(\eqref{eq:nacv_general_two_state_diabatic}\) depends on the convention used for \(\Cmat\) and for the ordering of \(\psi_1,\psi_2\). Changing the sign of one adiabatic eigenvector changes the sign of the corresponding coupling vector. The physically meaningful object is the coupled nuclear equation, or equivalently the globally consistent phase convention.
+
+The sign of Eq. \(\eqref{eq:nacv_general_two_state_diabatic}\) depends on the convention used for \(\Cmat\) and for the ordering of \(\psi_1,\psi_2\) (if convention $\Cmat = \Cmat^T$ is used, where the negative sine swaps places, then $\F_{12} = \nabla_{\mat q}\theta$). Changing the sign of one adiabatic eigenvector changes the sign of the corresponding coupling vector. The physically meaningful object is the coupled nuclear equation, or equivalently the globally consistent phase convention.
 
 ---
 
@@ -407,7 +408,7 @@ Substituting Eq. \(\eqref{eq:lvc_delta_and_coupling}\) into Eq. \(\eqref{eq:two_
 $$
 \begin{align}
 V_{\pm}(\mat q)
-=\bar W(\mat q)
+=\Sigma(\mat q)
 \pm
 \frac{1}{2}
 \sqrt{
@@ -525,7 +526,7 @@ In this orthogonal branching-plane representation, Eq. \(\eqref{eq:lvc_adiabatic
 $$
 \begin{align}
 V_{\pm}
-=\bar W
+=\Sigma
 \pm
 \frac{1}{2}
 \sqrt{
@@ -537,7 +538,7 @@ V_{\pm}
 \end{align}
 $$
 
-If \(\bar W\) is locally flat, this is a symmetric double cone. If \(\bar W\) has a nonzero gradient in the branching plane, the cone is tilted. This gives the usual distinction between peaked and sloped conical intersections. A two-mode LVC Hamiltonian with one tuning mode and one coupling mode is often the minimal model needed to capture this local topology. :contentReference[oaicite:4]{index=4}
+If \(\Sigma\) is locally flat, this is a symmetric double cone. If \(\Sigma\) has a nonzero gradient in the branching plane, the cone is tilted. This gives the usual distinction between peaked and sloped conical intersections. A two-mode LVC Hamiltonian with one tuning mode and one coupling mode is often the minimal model needed to capture this local topology. :contentReference[oaicite:4]{index=4}
 
 ---
 
