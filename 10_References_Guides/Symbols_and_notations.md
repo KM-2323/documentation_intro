@@ -25,6 +25,8 @@ $\G$: non-adiabatic coupling scalar/matrix (also known as the second-order scala
 $\Cmat$: Adiabatic-to-diabatic (ADT) matrix defines as 
 
 $$
-\W = \Cinv \V \Cmat,\\quad \varphivec = \psivec \Cmat
+\begin{align}
+\W = \Cinv \V \Cmat,\quad \varphivec = \psivec \Cmat
+\end{align}
 $$
 
