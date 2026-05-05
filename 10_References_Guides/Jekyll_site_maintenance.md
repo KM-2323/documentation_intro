@@ -207,6 +207,6 @@ click BO "../02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expans
 
 ## What Not to Edit
 
-Do not manually edit or commit `_site/`. It is generated output.
+Do not manually edit or commit `_site/`. It is generated output. This is already been written to .gitignore which should bypass _site folder. 
 
 Do not add navigation links manually to every Markdown file unless a page needs a special one-off link. Prefer `_config.yml`, `_layouts/custom.html`, and `_includes/page-nav.html` for site-wide behavior.

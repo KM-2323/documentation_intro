@@ -25,6 +25,8 @@
 ### Intermediates
 [Grouped Born](intermediates/int01_group_born_approximations.md)
 
+[Conical Intersections(more formal)](intermediates/int02_conical_intersections.md)
+
 
 ### Visualisations
 [QVC conical-intersection visualiser](visuals/different_conical_intersections.md)
