@@ -1,6 +1,6 @@
 $N_s$: Number of electronic states
 $N_{\text{nuc}}$: Number of atoms/nuclei 
-$f$: Nuclear degreee of freedom (tend to refer to internal coordiantes/normal modes  = $3N_{\text{nuc}}-6 & 3N_{\text{nuc}}-5$ for non-linear and linear molecules respetcively)
+$f$: Nuclear degreee of freedom (tend to refer to internal coordiantes/normal modes  = $3N_{\text{nuc}}-6 \text{ or } 3N_{\text{nuc}}-5$ for non-linear and linear molecules respetcively)
 $\ket{\psi_i}$: Adiabatic electronic basis
 $\psivec$: Adiabatic electronic vector (row vector)
 $\ket{\varphi_i}$: Diabatic/quasi-diabatic electronic basis
