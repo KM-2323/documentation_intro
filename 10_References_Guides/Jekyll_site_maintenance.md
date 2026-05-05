@@ -201,7 +201,7 @@ Normal Markdown links can point to `.md` files or final `.html` files, but using
 
 Inside Mermaid diagrams, use final website paths such as `.html`, because Mermaid links are not converted by Jekyll's Markdown link processor:
 
-```mermaid
+```md
 click BO "../02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.html" "View page"
 ```
 
