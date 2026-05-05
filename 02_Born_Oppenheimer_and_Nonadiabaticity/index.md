@@ -18,7 +18,9 @@
 
 [Diabatisation](derivations/derivations_diabatisation.md)
 
-[text](derivations/derivations_two_state_model.md)
+[Uncleaned Two State CI demonstration](derivations/derivations_two_state_model.md)
+
+[QVC model](derivations/derivations_QVC_model.md)
 
 ---
 
