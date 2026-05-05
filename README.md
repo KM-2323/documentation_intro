@@ -14,3 +14,5 @@ Overall structure:
     - The foundational theory section covering the Time-Dependent Schrodinger Equation, the Born-Oppenheimer approximation, and nonadiabaticity.
 * [Jekyll site maintenance](10_References_Guides/Jekyll_site_maintenance.md)
     - How GitHub Pages builds the site, how to preview locally, and how to update shared layouts, navigation, and MathJax config.
+* [Notation and symbols glossary](10_References_Guides/Symbols_and_notations.md)
+    - A glossary detailing the definitions of symbols and notations used in Quantics-Knowledge Base
