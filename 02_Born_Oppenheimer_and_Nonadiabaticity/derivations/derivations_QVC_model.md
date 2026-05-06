@@ -2,7 +2,7 @@
 
 ### 1. The Starting Point: The Conical Intersection (CI)
 
-We want to evaluate the electronic Hamiltonian ($H_{el}$) in the diabatic basis ($\ket \phi_1$ and $|\ket\phi_2$) around a specific point in space: the Conical Intersection geometry ($\vec{R}_0$).
+We want to evaluate the electronic Hamiltonian ($H_{el}$) in the diabatic basis ($\ket{\phi_1}$ and $\ket{\phi_2}$) around a specific point in space: the Conical Intersection geometry ($\vec{R}_0$).
 
 We define our nuclear coordinates as the displacement away from this CI: $q = \vec{R} - \vec{R}_0$. For a branching plane, we use two coordinates: $x$ and $y$. At the exact CI, $x=0$ and $y=0$.
 

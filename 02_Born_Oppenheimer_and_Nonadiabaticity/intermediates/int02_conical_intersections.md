@@ -623,7 +623,7 @@ $$
 
 This form shows that the two-state NACV has a vortex-like structure in the branching plane. Away from the conical intersection, it is locally the gradient of the mixing angle. At the conical intersection, the field is singular because $x=y=0$.
 
-For a positively oriented loop in the $(x,y)$ branching plane, the convention used above gives
+For a positively oriented loop in the $(x,y)$ branching plane, the convention used above gives (see [sign of closed-contour integral of F](../derivations/derivations_signconvention_closedloopf.md) for the origin of the sign convention in this knowledge base)
 
 $$
 \begin{align}

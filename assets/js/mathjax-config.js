@@ -16,6 +16,8 @@ window.MathJax = {
       pdv: ["\\frac{\\partial #1}{\\partial #2}", 2], // \pdv{f}{x} = \partial f/\partial x
       pddv: ["\\frac{\\partial^{2} #1}{\\partial #2^{2}}", 2],// \pddv{f}{x} = \partial^2 f/\partial x^2
       pdvn: ["\\frac{\\partial^{#1} #2}{\\partial #3^{#1}}", 3],// \pdvn[3]{f}{x} = \partial^3 f/\partial x^3
+      pddm:["\\frac{\\partial^{2} #1}{\\partial #2 \\partial #3}", 3], // \pddm{f}{x}{y} = \partial^2 f/\partial x\partial y
+      // pddm is partial 2nd order mixed derivative
       pder: ["\\frac{\\partial}{\\partial #1}", 1],// \pder{x} = \partial/\partial x as a standalone operator
       pdern: ["\\frac{\\partial}{\\partial #2^{#1}}", 2],// \pder{x} = \partial/\partial x as a standalone operator
       V:["\\mat V"],

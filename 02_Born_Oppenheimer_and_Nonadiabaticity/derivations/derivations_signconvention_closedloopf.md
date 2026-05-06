@@ -1,4 +1,4 @@
-### Sign of the \(\pi\) loop integral under the chosen mixing-angle convention
+### Sign of the $\pi$ loop integral under the chosen mixing-angle convention
 
 With the convention adopted here,
 
@@ -21,7 +21,7 @@ $$
 \phi=\operatorname{atan2}(y,x).
 $$
 
-Then \(\phi\) is the ordinary polar angle in the \((x,y)\) plane:
+Then $\phi$ is the ordinary polar angle in the $(x,y)$ plane:
 
 $$
 x=\rho\cos\phi,
@@ -35,7 +35,7 @@ $$
 \theta=-\frac{\phi}{2}.
 $$
 
-A positive loop in the \((x,y)\) plane is taken to mean the standard mathematical positive orientation,
+A positive loop/closed countour integral in the $(x,y)$ plane is taken to mean the standard mathematical positive orientation,
 
 $$
 x=\rho\cos s,
@@ -45,7 +45,7 @@ y=\rho\sin s,
 0\le s\le 2\pi .
 $$
 
-Thus, if \(x\) is drawn to the right and \(y\) is drawn upward, a positive loop is anticlockwise.
+Thus, if $x$ is drawn to the right and $y$ is drawn upward, a positive loop is anticlockwise.
 
 Along this loop,
 
@@ -76,7 +76,7 @@ $$
 =-\pi.
 $$
 
-So, under this convention, the mixing angle decreases by \(\pi\) after one positively oriented circuit.
+So, under this convention, the mixing angle decreases by $\pi$ after one positively oriented circuit.
 
 Now recall the nonadiabatic coupling vector convention
 
@@ -160,7 +160,7 @@ x^2+y^2
 }.
 $$
 
-Taking the dot product with a nuclear displacement \(d\mathbf q\), and using
+Taking the dot product with a nuclear displacement $d\mathbf q$, and using
 
 $$
 dx=\nabla_{\mathbf q}x\cdot d\mathbf q,
@@ -234,7 +234,7 @@ x\,dy-y\,dx
 +\rho^2\sin^2\phi\,d\phi.
 $$
 
-The \(d\rho\) terms cancel, leaving
+The $d\rho$ terms cancel, leaving
 
 $$
 x\,dy-y\,dx
@@ -300,7 +300,7 @@ y=\rho\sin s,
 s:0\to2\pi.
 $$
 
-In the \((x,y)\) coordinate representation,
+In the $(x,y)$ coordinate representation,
 
 $$
 \mathbf F_{12}
@@ -446,7 +446,7 @@ $$
 \mathbf F_{12}=-\nabla\theta,
 $$
 
-because \(\theta\) is not globally single-valued around the conical intersection. Locally, \(\theta\) is a perfectly well-defined scalar function. Globally, after one positive loop,
+because $\theta$ is not globally single-valued around the conical intersection. Locally, $\theta$ is a perfectly well-defined scalar function. Globally, after one positive loop,
 
 $$
 \Delta\theta=-\pi.
@@ -471,7 +471,7 @@ x
 \end{pmatrix},
 $$
 
-whose circulation around the origin is \(2\pi\), even though locally it is the gradient of the angle \(\phi\). The origin is singular, and \(\phi\) cannot be defined as one continuous single-valued function on a loop enclosing the origin.
+whose circulation around the origin is $2\pi$, even though locally it is the gradient of the angle $\phi$. The origin is singular, and $\phi$ cannot be defined as one continuous single-valued function on a loop enclosing the origin.
 
 The corresponding physical statement is that the real adiabatic states change sign after one circuit around the conical intersection. At the start of a positive loop, choose
 
@@ -538,7 +538,7 @@ $$
 s:0\to2\pi,
 $$
 
-which is anticlockwise in the usual \(x\)-right, \(y\)-up plot. Therefore,
+which is anticlockwise in the usual $x$-right, $y$-up plot. Therefore,
 
 $$
 \Delta\phi=+2\pi,
@@ -556,4 +556,4 @@ $$
 }
 $$
 
-Reversing the loop direction, using \(\mathbf F_{21}\) instead of \(\mathbf F_{12}\), or choosing the opposite adiabatic-state rotation convention flips the sign. The convention-independent statement is that one circuit around the conical intersection gives a \(\pi\)-rotation of the two-state adiabatic basis, equivalently a sign change of the real adiabatic eigenvectors.
+Reversing the loop direction, using $\mathbf F_{21}$ instead of $\mathbf F_{12}$, or choosing the opposite adiabatic-state rotation convention flips the sign. The convention-independent statement is that one circuit around the conical intersection gives a $\pi$-rotation of the two-state adiabatic basis, equivalently a sign change of the real adiabatic eigenvectors.

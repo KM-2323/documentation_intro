@@ -556,7 +556,7 @@ This equation is mathematically compact but physically important. It shows that,
 Practical note: this is the point at which the adiabatic representation becomes inconvenient for nonadiabatic dynamics. The NACV can become large, or even singular, near electronic degeneracies. This motivates later discussions of adiabatic approximations, conical intersections, and diabatic or quasi-diabatic representations.
 
 ---
-To read next:
+### To read next:
 [Adiabatic Representation](02_adiabatic_approximations.md)
 
 ---
@@ -565,9 +565,11 @@ To read next:
 
 This page introduces the minimal mathematical framework needed for the beginner-level sections that follow:
 
-- [Adiabatic approximations](02_adiabatic_approximations.md)
-- [Diabatic representations](04_diabatic_representation.md)
-- [Conical intersections](03_conical_intersections.md)
+1. [Born-Huang Expansion](beginer/01_bornhuang_expansion.md)
+2. [Adiabatic Approximations](beginer/02_adiabatic_approximations.md)
+3. [Diabatic Representation](beginer/03_diabatic_representation.md)
+4. [Introduction to Conical Intersection](beginer/04_conical_intersections.md)
+5. [Symmetry of Conical Intersections](beginer/05_symmetry_of_conical_intersections.md) (note it is more of a blend of intermediate and beginer)
 
 These sections provide first-level explanations of the physical meaning of the equations derived above. More detailed intermediate material is given in
 
