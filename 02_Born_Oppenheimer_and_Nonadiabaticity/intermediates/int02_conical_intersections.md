@@ -46,7 +46,7 @@ W_{11}(\mat q)+W_{22}(\mat q)
 \end{align}
 $$
 
-Then Eq. $eqref{eq:two_state_diabatic_matrix}$ can be written as
+Then Eq. $\eqref{eq:two_state_diabatic_matrix}$ can be written as
 
 $$
 \begin{align}
@@ -352,7 +352,19 @@ $$
 which reveals the nonadiabatic derivative coupling vector becomes large when the adiabatic energy gap becomes small, and it is singular at the exact conical intersection.
 
 
-The sign of Eq. $\eqref{eq:nacv_general_two_state_diabatic}$ depends on the convention used for $\Cmat$ and for the ordering of $\psi_1,\psi_2$ (if convention $\Cmat = \Cmat^T$ is used, where the negative sine swaps places, then $\F_{12} = \nabla_{\mat q}\theta$). Changing the sign of one adiabatic eigenvector changes the sign of the corresponding coupling vector. The physically meaningful object is the coupled nuclear equation, or equivalently the globally consistent phase convention.
+The sign of Eq. $\eqref{eq:nacv_general_two_state_diabatic}$ depends on the convention used for $\Cmat$ and for the ordering of $\psi_1,\psi_2$ 
+
+If instead one uses the transposed rotation convention
+
+$$
+\Cmat'=\Cmat^T
+=\begin{pmatrix}
+\cos\theta & -\sin\theta\\
+\sin\theta & \cos\theta
+\end{pmatrix},
+$$
+
+then the sign of the mixing angle and hence the sign assigned to $\F_{12}$ changes.
 
 ---
 
@@ -538,7 +550,7 @@ V_{\pm}
 \end{align}
 $$
 
-If $\Sigma$ is locally flat, this is a symmetric double cone. If $\Sigma$ has a nonzero gradient in the branching plane, the cone is tilted. This gives the usual distinction between peaked and sloped conical intersections. A two-mode LVC Hamiltonian with one tuning mode and one coupling mode is often the minimal model needed to capture this local topology. :contentReference[oaicite:4]{index=4}
+If $\Sigma$ has a nonzero gradient in the branching plane, the cone is tilted. Depending on the size of this tilt relative to the splitting gradients, one obtains the usual distinction between peaked and sloped conical intersections. :contentReference[oaicite:4]{index=4}
 
 ---
 
@@ -572,7 +584,15 @@ $$
 \end{align}
 $$
 
-Equivalently, using the energy-like coordinates $x=\Delta$ and $y=2W_{12}$,
+Equivalently, using the energy-like coordinates
+
+\[
+x=\Delta,
+\qquad
+y=2W_{12},
+\]
+
+one obtains
 
 $$
 \begin{align}
@@ -583,24 +603,38 @@ x\,\nabla_{\mat q}y
 -y\,\nabla_{\mat q}x
 }{
 x^2+y^2
-}. =\frac{1}{2(x^2+y^2)} \begin{pmatrix}-y\\x\end{pmatrix}
+}.
 \label{eq:lvc_nacv_energy_coordinate_form}
+\end{align}
+$$
+
+If \(x\) and \(y\) themselves are used as the local coordinates in the branching plane, this becomes
+
+$$
+\begin{align}
+\F_{12}
+=\frac{1}{2(x^2+y^2)}
+\begin{pmatrix}
+-y\\
+x
+\end{pmatrix}.
 \end{align}
 $$
 
 This form shows that the two-state NACV has a vortex-like structure in the branching plane. Away from the conical intersection, it is locally the gradient of the mixing angle. At the conical intersection, the field is singular because $x=y=0$.
 
-If a closed loop encircles the conical intersection once, the mixing angle changes by $\pi$. Equivalently,
+For a positively oriented loop in the $(x,y)$ branching plane, the convention used above gives
 
 $$
 \begin{align}
 \oint \F_{12}\cdot d\mat q
-=-\oint \nabla_{\mat q}\theta\cdot d\mat q
-=-\pi
+=-\oint \nabla_{\mat q}\theta\cdot d\mat q=+\pi.
 \end{align}
 $$
 
-up to sign convention. This is the local two-state expression of the familiar sign change of real adiabatic eigenvectors around a conical intersection.
+Changing the sign convention for the adiabatic states or reversing the orientation of the loop changes the sign. Thus the convention-independent statement is that the magnitude of the accumulated rotation is $\pi$, corresponding to the familiar sign change of real adiabatic eigenvectors after one circuit around a conical intersection.
+
+
 
 ---
 

@@ -12,9 +12,11 @@
 
 [Dressed kinetic energy operator](derivations/derivation_dressed_term.md)
 
-[Anti-Hermitian property of F](derivations/derivations_antihermitian_F.md)
+[Anti-Hermitian property of nonadiabatic coupling vector F](derivations/derivations_antihermitian_F.md)
 
-[Off-diagonal Hellmann-Feynman](derivations/derivation_offdiagonal_Hellman.md)
+[Off-diagonal Hellmann-Feynman property of nonadiabatic coupling vector F](derivations/derivation_offdiagonal_Hellman.md)
+
+[Vector convention on adiabatic and diabatic electronic basis ](derivations/derivations_adiab_diab_convention.md)
 
 [Diabatisation](derivations/derivations_diabatisation.md)
 

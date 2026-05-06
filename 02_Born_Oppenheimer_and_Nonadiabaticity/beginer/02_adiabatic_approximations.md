@@ -52,7 +52,7 @@ $$
 
 At this stage, no adiabatic approximation has yet been made. We have only rewritten the full molecular problem in the adiabatic electronic basis.
 
-Using the relation between the first- and second-order derivative couplings, the same equation can also be written in the dressed-kinetic form,
+Using the relation between the first- and second-order derivative couplings, the same equation can also be written in the dressed-kinetic form, (derivations see [derivation_dressed_term](../derivations/derivation_dressed_term.md))
 
 $$
 \begin{align}
@@ -181,5 +181,27 @@ $$
 
 where $\Cmat$ is the adiabatic-to-diabatic transformation matrix. Strictly speaking, an exactly diabatic representation is not always available for a finite truncated set of molecular electronic states. In practice, we often construct a quasi-diabatic representation that is smooth enough over the region of nuclear configuration space relevant to the dynamics.
 
-To read next:
+---
+
+### To read next:
 [Diabatic Representation](03_diabatic_representation.md)
+
+---
+
+## Reading path
+
+This page introduces the minimal mathematical framework needed for the beginner-level sections that follow:
+
+- [Adiabatic approximations](02_adiabatic_approximations.md)
+- [Diabatic representations](04_diabatic_representation.md)
+- [Conical intersections](03_conical_intersections.md)
+
+These sections provide first-level explanations of the physical meaning of the equations derived above. More detailed intermediate material is given in
+
+- [Group Born approximations](../intermediates/int01_group_born_approximations.md)
+
+which discusses implicit approximations made when a finite set of adiabatic electronic states is retained. In particular, the Born--Huang expansion is formally exact only for a complete electronic basis, while practical calculations use a finite electronic subspace.
+
+---
+
+

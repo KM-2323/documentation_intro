@@ -28,13 +28,14 @@ flowchart LR
 
     %% 02_Born_Oppenheimer_and_Nonadiabaticity
     root --> d02["02_Born_Oppenheimer_and_Nonadiabaticity/"]
-    d02 --> d02f1["born_oppenheimer_expansion.md"]
-    d02 --> d02f2["born_oppenheimer_expansion_code.md"]
-    d02 --> d02f3["adiabatic_representation.md"]
-    d02 --> d02f4["nonadiabatic_coupling_terms.md"]
+    d02 --> d02f1["bornhuang_expansion.md"]
+    %% d02 --> d02f2["born_oppenheimer_expansion_code.md"]
+    d02 --> d02f2["adiabatic_representation.md"]
+    %%d02 --> d02f4["nonadiabatic_coupling_terms.md"]
+    d02 --> d02f3["diabatic_representation.md"]
+
     d02 --> d02f5["conical_intersections.md"]
-    d02 --> d02f6["topology_and_geometric_phase.md"]
-    d02 --> d02f7["diabatic_representation.md"]
+    d02 --> d02f6["symmetry_of_conical_intersections.md"]
 
     %% 03_MCTDH_Family
     root --> d03["03_MCTDH_Family/"]

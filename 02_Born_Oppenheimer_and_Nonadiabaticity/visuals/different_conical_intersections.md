@@ -24,7 +24,7 @@ $$
 
 The two plotted sheets are $E_+$ and $E_-$. In this simplified model the
 intersection remains at $(x,y)=(0,0)$; the sliders change the opening,
-curvature, and twisting of the surfaces around it.
+curvature, and twisting of the surfaces around it. If you are curious about how the terms are arrived, pleas read [QVC model](../derivations/derivations_QVC_model.md)
 
 <style>
   .ci-page {
