@@ -1384,7 +1384,7 @@ Q_a\\ Q_b
 \end{align}
 $$
 
-have a solution and if their gradients are independent 
+have a solution provided their gradients are independent 
 
 $$
 \begin{align}
@@ -1395,6 +1395,8 @@ c & d
 \neq 0.
 \end{align}
 $$
+
+where the non-zero determinant guarantees that this matrix is invertible, implying its rows are linearly independent. Since the first row corresponds to the gradient of the energy-gap ($\nabla \Delta = (a, b)$) and the second row corresponds to the gradient of the coupling component ($\nabla W_{12} = (c, d)$), this directly implies that the two gradient vectors themselves are linearly independent.
 
 Thus, for accidental CIs,
 
