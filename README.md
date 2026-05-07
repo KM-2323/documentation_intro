@@ -12,6 +12,7 @@ Overall structure:
     - Short refresher on prelimineary mathematical concepts and theory and other related mathematical techniques that are often seen 
 * [02_Born_Oppenheimer_and_TDSE](02_Born_Oppenheimer_and_Nonadiabaticity/index.md)
     - The foundational theory section covering the Time-Dependent Schrodinger Equation, the Born-Oppenheimer approximation, and nonadiabaticity.
+* [03_MCTDH_Family](03_MCTDH_Family)
 * [Jekyll site maintenance](10_References_Guides/Jekyll_site_maintenance.md)
     - How GitHub Pages builds the site, how to preview locally, and how to update shared layouts, navigation, and MathJax config.
 * [Notation and symbols glossary](10_References_Guides/Symbols_and_notations.md)

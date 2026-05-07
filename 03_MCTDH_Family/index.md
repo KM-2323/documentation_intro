@@ -1,0 +1,1 @@
+[ML- MCTDH diagram illustration using Mermaid plugin](diagram_examples/diagram_ML_MCTDH.md)

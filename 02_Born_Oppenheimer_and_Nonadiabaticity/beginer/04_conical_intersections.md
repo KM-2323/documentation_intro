@@ -31,7 +31,7 @@ W_{12}(\mat q) & W_{22}(\mat q)
 \end{align}
 $$
 
-Here \(\mat q\in\mathbb R^f\) is the nuclear coordinate vector. The diagonal elements \(W_{11}\) and \(W_{22}\) are the diabatic potential energy surfaces, while the off-diagonal element \(W_{12}\) is the diabatic coupling between the two states.
+Here $\mat q\in\mathbb R^f$ is the nuclear coordinate vector. The diagonal elements $W_{11}$ and $W_{22}$ are the diabatic potential energy surfaces, while the off-diagonal element $W_{12}$ is the diabatic coupling between the two states.
 
 It is useful to define the average and difference of the two diabatic potentials:
 
@@ -63,13 +63,13 @@ W_{12} & \Delta/2
 \end{align}
 $$
 
-The term \(\Sigma \mat I\) shifts both states equally. The remaining matrix controls the splitting between the two adiabatic energies.
+The term $\Sigma \mat I$ shifts both states equally. The remaining matrix controls the splitting between the two adiabatic energies.
 
 ---
 
 ### Adiabatic energies and the conditions for degeneracy
 
-The adiabatic energies are obtained by diagonalising the diabatic matrix \(\mat W\). This gives
+The adiabatic energies are obtained by diagonalising the diabatic matrix $\mat W$. This gives
 
 $$
 \begin{align}
@@ -125,7 +125,7 @@ The need to satisfy two conditions is the key point.
 
 In a system with only one nuclear coordinate, it is generally not possible to satisfy both conditions at the same time. If the two states have nonzero coupling, they may approach each other, but they usually repel and form an avoided crossing.
 
-A true crossing can still occur in a one-dimensional scan if symmetry forces the coupling \(W_{12}\) to vanish. However, for two states of the same symmetry with nonzero coupling, the usual result is an avoided crossing.
+A true crossing can still occur in a one-dimensional scan if symmetry forces the coupling $W_{12}$ to vanish. However, for two states of the same symmetry with nonzero coupling, the usual result is an avoided crossing.
 
 In a polyatomic molecule, there are many nuclear coordinates. This means there are enough geometric degrees of freedom to satisfy both
 
@@ -143,7 +143,7 @@ at the same time. This is why conical intersections are generic in multidimensio
 
 ### Linear model near a conical intersection
 
-Let \(\mat q_0\) be a chosen point on the conical-intersection seam. We now shift the origin so that displacements from this point are written as
+Let $\mat q_0$ be a chosen point on the conical-intersection seam. We now shift the origin so that displacements from this point are written as
 
 $$
 \mat Q=\mat q-\mat q_0.
@@ -167,7 +167,7 @@ $$
 
 These conditions are not a consequence of orthogonality of the electronic basis. They are the degeneracy conditions for this two-state diabatic matrix.
 
-To describe the local shape of the surfaces, we expand the matrix elements to first order in \(\mat Q\):
+To describe the local shape of the surfaces, we expand the matrix elements to first order in $\mat Q$:
 
 $$
 \begin{align}
@@ -199,7 +199,7 @@ W_{22}-W_{11}
 \end{align}
 $$
 
-The vector \(\boldsymbol{\kappa}\) describes how the diabatic energy gap changes with nuclear geometry. The vector \(\boldsymbol{\lambda}\) describes how the diabatic coupling changes with nuclear geometry.
+The vector $\boldsymbol{\kappa}$ describes how the diabatic energy gap changes with nuclear geometry. The vector $\boldsymbol{\lambda}$ describes how the diabatic coupling changes with nuclear geometry.
 
 With this notation, the first-order two-state model can be written as
 
@@ -236,7 +236,7 @@ W_{11}+W_{22}
 \end{align}
 $$
 
-The common term \(\left[E+\boldsymbol{\sigma}\cdot\mat Q\right]\mat I\) shifts both states equally. It can tilt the cone, but it does not change the condition for degeneracy.
+The common term $\left[E+\boldsymbol{\sigma}\cdot\mat Q\right]\mat I$ shifts both states equally. It can tilt the cone, but it does not change the condition for degeneracy.
 
 If we ignore this common shift for simplicity, the model becomes
 
@@ -390,9 +390,9 @@ $$
 
 therefore define the local branching space, or branching plane.
 
-In the more common \(g\)-\(h\) notation, \(\boldsymbol{\kappa}\) is related to the gradient-difference vector \(g\), while \(\boldsymbol{\lambda}\) is related to the interstate coupling vector \(h\). The precise factors depend on convention, especially on whether one writes the coupling coordinate as \(W_{12}\) or \(2W_{12}\).
+In the more common $g$-$h$ notation, $\boldsymbol{\kappa}$ is related to the gradient-difference vector $g$, while $\boldsymbol{\lambda}$ is related to the interstate coupling vector $h$. The precise factors depend on convention, especially on whether one writes the coupling coordinate as $W_{12}$ or $2W_{12}$.
 
-It is important not to confuse \(\boldsymbol{\lambda}\) with the NACV itself. The vector \(\boldsymbol{\lambda}\) is a smooth diabatic coupling-gradient vector. The NACV,
+It is important not to confuse $\boldsymbol{\lambda}$ with the NACV itself. The vector $\boldsymbol{\lambda}$ is a smooth diabatic coupling-gradient vector. The NACV,
 
 $$
 \F_{12}
@@ -411,7 +411,7 @@ $$
 \end{align}
 $$
 
-These two equations define the local intersection seam. If the molecule has \(f\) nuclear degrees of freedom, and if \(\boldsymbol{\kappa}\) and \(\boldsymbol{\lambda}\) are linearly independent, then the seam has dimension
+These two equations define the local intersection seam. If the molecule has $f$ nuclear degrees of freedom, and if $\boldsymbol{\kappa}$ and $\boldsymbol{\lambda}$ are linearly independent, then the seam has dimension
 
 $$
 f-2.

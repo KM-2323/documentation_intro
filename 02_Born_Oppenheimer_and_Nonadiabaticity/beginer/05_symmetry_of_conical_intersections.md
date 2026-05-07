@@ -22,6 +22,53 @@ W_{12}(\mat q) & W_{22}(\mat q)
 \end{align}
 $$
 
+define:
+
+$$
+\begin{align}
+\Sigma(\mat q)
+&=\frac{1}{2}
+\left[
+W_{11}(\mat q)+W_{22}(\mat q)
+\right],
+\\
+\Delta(\mat q)
+&=W_{22}(\mat q)-W_{11}(\mat q).
+\end{align}
+$$
+
+Such that the diabatic potential matrix can be recast as:
+
+$$
+\begin{align}
+\mat W
+=\Sigma \mat I
++
+\begin{pmatrix}
+-\Delta/2 & W_{12}\\
+W_{12} & \Delta/2
+\end{pmatrix}.
+\label{eq:two_state_pauli_form_beginner}
+\end{align}
+$$
+
+leading to the adiabatic energies:
+
+$$
+\begin{align}
+V_{\pm}(\mat q)
+=\Sigma(\mat q)
+\pm
+\frac{1}{2}
+\sqrt{
+\Delta^2(\mat q)
++
+4W_{12}^2(\mat q)
+}.
+\label{eq:two_state_adiabatic_energies_beginner}
+\end{align}
+$$
+
 a conical intersection requires
 
 $$
@@ -32,18 +79,9 @@ W_{12}(\mat q)=0,
 \end{align}
 $$
 
-where
-
-$$
-\begin{align}
-\Delta(\mat q)
-=W_{22}(\mat q)-W_{11}(\mat q).
-\end{align}
-$$
-
 Thus, one nuclear direction must tune the diabatic energy gap, and another independent nuclear direction must tune the off-diagonal coupling. Symmetry tells us which normal modes can appear in each of those two quantities.
 
-In the local two-state notation used in the previous page,
+In the local two-state energy coordinate notation used in the previous page,
 
 $$
 \begin{align}
@@ -125,6 +163,7 @@ W_{12}^{(0)}
 \lambda_{\alpha}Q_\alpha
 +
 O(Q^2).
+\label{eq:taylor_expand}
 \end{align}
 $$
 
@@ -133,13 +172,10 @@ The scalar coefficients (short derivations on how these expression are obtained 
 $$
 \begin{align}
 \kappa_{i\alpha}
-=\left\langle
-\varphi_i
-\left|
-\pdv{H_{\mathrm{el}}}{Q_\alpha}
-\right|
-\varphi_i
-\right\rangle,
+=\mel
+{\varphi_i
+}{\pdv{H_{\mathrm{el}}}{Q_\alpha}}
+{\varphi_i},
 \end{align}
 $$
 
@@ -148,13 +184,9 @@ and
 $$
 \begin{align}
 \lambda_{\alpha}
-=\left\langle
-\varphi_1
-\left|
-\pdv{H_{\mathrm{el}}}{Q_\alpha}
-\right|
-\varphi_2
-\right\rangle.
+={\varphi_1}
+{\pdv{H_{\mathrm{el}}}{Q_\alpha}
+}{\varphi_2}.
 \end{align}
 $$
 
@@ -387,13 +419,9 @@ For most real molecular point groups used in this context, the bra and ket irrep
 
 $$
 \begin{align}
-\left\langle
-\varphi_i
-\middle|
-\hat O
-\middle|
-\varphi_j
-\right\rangle
+\mel{\varphi_i}
+{\hat O
+}{\varphi_j}
 \end{align}
 $$
 
@@ -438,13 +466,10 @@ At the reference geometry, the zeroth-order diabatic coupling is
 $$
 \begin{align}
 W_{12}^{(0)}
-=\left\langle
-\varphi_1
-\middle|
-H_{\mathrm{el}}
-\middle|
-\varphi_2
-\right\rangle.
+=\mel
+{\varphi_1}
+{H_{\mathrm{el}}
+}{\varphi_2}.
 \end{align}
 $$
 
@@ -515,13 +540,10 @@ The diagonal linear coefficient is
 $$
 \begin{align}
 \kappa_{i\alpha}
-=\left\langle
-\varphi_i
-\left|
-\pdv{H_{\mathrm{el}}}{Q_\alpha}
-\right|
-\varphi_i
-\right\rangle.
+=\mel
+{\varphi_i
+}{\pdv{H_{\mathrm{el}}}{Q_\alpha}}
+{\varphi_i}
 \end{align}
 $$
 
@@ -606,13 +628,10 @@ The linear diabatic coupling coefficient is
 $$
 \begin{align}
 \lambda_{\alpha}
-=\left\langle
-\varphi_1
-\left|
-\pdv{H_{\mathrm{el}}}{Q_\alpha}
-\right|
-\varphi_2
-\right\rangle.
+=\mel{
+\varphi_1}
+{\pdv{H_{\mathrm{el}}}{Q_\alpha}}
+{\varphi_2}.
 \end{align}
 $$
 
@@ -678,7 +697,7 @@ $$
 
 $$
 \boxed{
-\text{A two-state conical intersection requires both directions.}
+\text{A two-state conical intersection requires both directions (tuning and coupling).}
 }
 $$
 
@@ -768,7 +787,7 @@ H_{\mathrm{el}}
 \end{array}
 $$
 
-For ordinary nondegenerate states in Abelian point groups,
+For ordinary nondegenerate states in Abelian point groups, the tuning mode must span the totally symmetric irrep.
 
 $$
 \begin{align}
@@ -780,7 +799,13 @@ $$
 \end{align}
 $$
 
-while
+where we used the property that the direct product of any irreducible representation $\Gamma_i$ with itslef contains the totally symmetric representation
+
+$$
+\Gamma_i \otimes \Gamma_i \supset \Gamma_{\text{tot}}
+$$
+
+while the coupling mode much span the same irrep as the product of the irrep of state 1 and 2
 
 $$
 \begin{align}
@@ -955,15 +980,11 @@ The classification describes why the degeneracy exists.
 
 ## Symmetry-required conical intersections
 
-A symmetry-required conical intersection occurs when the electronic degeneracy is forced by the point group.
+A symmetry-required conical intersection occurs when the electronic degeneracy is forced by the point group. This happens when the electronic state belongs to a multidimensional irreducible representation, such as an $E$ or $T$ representation.
 
-This happens when the electronic state belongs to a multidimensional irreducible representation, such as an $E$ or $T$ representation.
+The classic example is the Jahn--Teller effect. For a nonlinear molecule in a degenerate electronic state, the Jahn--Teller theorem states that the molecule can lower its energy by distorting along suitable nontotally symmetric vibrational coordinates. The high-symmetry geometry is therefore unstable, and the degeneracy is lifted by nuclear distortion.
 
-The classic example is the Jahn--Teller effect.
-
-For a nonlinear molecule in a degenerate electronic state, the Jahn--Teller theorem states that the molecule can lower its energy by distorting along suitable nontotally symmetric vibrational coordinates. The high-symmetry geometry is therefore unstable, and the degeneracy is lifted by nuclear distortion.
-
-The simplest linear model is the $E\otimes e$ Jahn--Teller model. Let $Q_x$ and $Q_y$ be the two components of a doubly degenerate vibrational mode. Then a standard diabatic Hamiltonian is
+The simplest linear model is the $E\otimes e$ (E denotes the degenerate electronic irrep and e denotes the vibrational mode that lift the degeneracy/our branching cooridnates)Jahn--Teller model. Let $Q_x$ and $Q_y$ be the two components of a doubly degenerate vibrational mode. Then a standard diabatic Hamiltonian is
 
 $$
 \begin{align}
@@ -992,6 +1013,12 @@ Q_y=\rho\sin\phi.
 \end{align}
 $$
 
+such that:
+
+$$
+\rho = \sqrt{Q_x^2+Q_y^2}
+$$
+
 The adiabatic energies are
 
 $$
@@ -1007,15 +1034,73 @@ The degeneracy is at
 
 $$
 \begin{align}
-\rho=0.
+\rho=0.\rightarrow Q_x = 0, Q_y=0
 \end{align}
 $$
 
 This is the familiar Mexican-hat potential. The degeneracy at the high-symmetry geometry is not accidental. It is required by the multidimensional electronic irrep.
 
-In this case, the symmetry does more than say which terms are zero. It can also impose relationships between nonzero coefficients. In the common $E\otimes e$ linear Jahn--Teller model, the diagonal splitting and off-diagonal coupling are related by the symmetry of the degenerate electronic and vibrational representations.
+However, a word of caution. Even though the degeneracy is at $\rho=0$, the minimum of the lower Jahn-Teller surface is not at $\rho=0$. The lower branch has energy:
 
-Thus, for a symmetry-required CI,
+$$
+\begin{align}
+V_-(\rho)
+=\frac{\omega}{2}\rho^2
+-\lambda\rho.
+\end{align}
+$$
+
+Minimising gives:
+
+$$
+\pdv{V_-}{\rho} =\omega\rho-\lambda=0
+$$
+
+so
+
+$$
+\rho_{\min} = \frac{\lambda}{\omega}
+$$
+
+assuming, $\lambda, \omega$ > 0. Thus the molecule lowers its energy by distorting away from the high-symmetry point. That is the Jahn–Teller instability.
+
+In other words:
+
+> $$\rho =0 \quad\text{is the degenerate high-symmetry point}$$ 
+$$\rho = \frac{\lambda}{\omega} \quad\text{is the minimum of the lower distorted surface.}$$
+
+
+Further, the symmetry does more than say which terms are zero. It can also impose relationships between nonzero coefficients. In the common $E\otimes e$ linear Jahn--Teller model, the diagonal splitting and off-diagonal coupling are related by the symmetry of the degenerate electronic and vibrational representations.
+
+In the example above, if we match it to out two-state notation:
+
+$$
+\begin{align}
+\mat W
+=\Sigma \mat I
++
+\begin{pmatrix}
+-\Delta/2 & W_{12}\\
+W_{12} & \Delta/2
+\end{pmatrix}.
+\end{align}
+$$
+
+it can be identify, up to sign convention,
+
+$$
+\begin{align}
+\Delta = -2\lambda Q_x,\qquad W_{12} = \lambda Q_y
+\end{align}
+$$
+
+So in this particular electronic basis, $Q_x$ acts like the gap-changing (tunning) coordinate and $Q_y$ acts like the coupling cooridnate. Again, just to emphasise, both $Q_x$ and $Q_y$ transform as components of the same $e$ vibrational irrep. Unlike the symmetry-allowed case, that we will see below, where the tunning coordinate must transform as the $A_1$ irrep and the coupling coordinate transform as the non-totally symmetric coupling coordiante. 
+
+So for the Jahn-Teller model:
+
+> The two component of the $e$ mode form the Jahn-Teller branching plane
+
+Summarising the main idea on symmetry-required intersections, 
 
 $$
 \boxed{
@@ -1035,7 +1120,7 @@ $$
 }
 $$
 
-A useful caveat is the Renner--Teller case in linear molecules. There, a degenerate electronic state is associated with the cylindrical symmetry of the linear molecule. Bending can lift the degeneracy, but the leading splitting may be second order, and the surfaces may meet tangentially rather than as an ordinary first-order cone. Thus it is related to the same symmetry logic, but it is not always an ordinary linear two-state CI in the same sense as the $E\otimes e$ Jahn--Teller model.
+A useful caveat is the Renner--Teller case in linear molecules. There, a degenerate electronic state is associated with the cylindrical symmetry of the linear molecule. Bending can lift the degeneracy, but the leading splitting may be second order, and the surfaces may meet tangentially rather than as an ordinary first-order cone. Thus it is related to the same symmetry logic, but it is not always an ordinary linear two-state CI in the same sense as the $E\otimes e$ Jahn--Teller model. This also ties in later discussion on using topological spin to characterise conical intersections and its effect on the topological matrix D (a closed countour integral surrounding the CI, see [text](../../06_diabatisation_deeperdive/topological_spin.md))
 
 ---
 
@@ -1075,9 +1160,11 @@ W_{12}=0
 \end{align}
 $$
 
-throughout the symmetry-preserving subspace.
+throughout the symmetry-preserving subspace. Thus in a symmetry preserving subspace, $W_{12} = 0$, the adiabatic gap is:
 
-The diagonal energies can still change along totally symmetric modes. Therefore the gap can be tuned:
+$$V_+-V_-=|\Delta|$$
+
+However, the diagonal energies can still change along totally symmetric modes. Therefore the gap can be tuned:
 
 $$
 \begin{align}
@@ -1119,7 +1206,7 @@ $$
 \end{align}
 $$
 
-Then
+Then (where instead of going over all linear coupling terms only the symmetry breaking coordiantes in the taylor expansion in \eqref{eq:taylor_expand} is included)
 
 $$
 \begin{align}
@@ -1147,6 +1234,29 @@ $$
 +
 \cdots.
 \end{align}
+$$
+
+In above, we used the linear approximation so that:
+
+$$
+\begin{align}
+0=\Delta_0 +\kappa_t Q_t^*\rightarrow \Delta_0 = -\kappa_tQ_t^*
+\end{align}
+$$
+
+Which convert the energy gap term (to first order):
+
+$$
+\begin{align}
+\Delta(Q_t)
+=\Delta_0+\kappa_t Q_t+\cdots \approx -\kappa_tQ_t^* + \kappa_t Q_t=\kappa_t(Q_t-Q_t^*)
+\end{align}
+$$
+
+Leading to an adiabatic energy gap of:
+
+$$
+V_+ -V_- = \sqrt{\kappa_t^2(Q_t-Q_t^\ast)^2+4\lambda_c^2 Q_c^2}
 $$
 
 The two CI conditions are
@@ -1227,7 +1337,7 @@ $$
 
 simultaneously.
 
-For example, in two local coordinates $Q_a,Q_b$, suppose
+For example, in two local coordinates $Q_a,Q_b$, suppose (Taylor expand to first order)
 
 $$
 \begin{align}
@@ -1241,6 +1351,15 @@ W_{12}^{(0)}+cQ_a+dQ_b.
 \end{align}
 $$
 
+with:
+
+
+$$
+\begin{align}
+a=\pdv{\Delta}{Q_a},\qquad b=\pdv{\Delta}{Q_b}\nonumber\\
+c=\pdv{\\W_{12}}{Q_a},\qquad d=\pdv{W_{12}}{Q_b}\nonumber\\
+\end{align}
+$$
 A conical intersection exists if the two linear equations
 
 $$
@@ -1251,7 +1370,21 @@ W_{12}(Q_a,Q_b)=0
 \end{align}
 $$
 
-have a solution and if their gradients are independent:
+which in matrix form:
+
+$$
+\begin{align}
+\begin{pmatrix}
+a&b\\ c&d
+\end{pmatrix}\begin{pmatrix}
+Q_a\\ Q_b 
+\end{pmatrix} = -\begin{pmatrix}
+\lambda_0\\ W_{12}^{(0)}
+\end{pmatrix}
+\end{align}
+$$
+
+have a solution and if their gradients are independent 
 
 $$
 \begin{align}
