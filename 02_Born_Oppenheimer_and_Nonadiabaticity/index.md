@@ -27,7 +27,8 @@
 
 [Sign of the $\pi$/ closed contour integral of $\F$ under the chosen mixing-angle convention](derivations/derivations_signconvention_closedloopf.md)
 
-[diabatic linear terms](../derivations/derivations_diabatic_linearterms.md) 
+
+[Diabatic linear terms](derivations/derivations_diabatic_linearterms.md)
 
 ---
 
