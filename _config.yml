@@ -46,9 +46,33 @@ defaults:
       section_url: "/02_Born_Oppenheimer_and_Nonadiabaticity/"
       subsection_title: "Derivations"
   - scope:
+      path: "03_MCTDH_Family" 
+    values:
+      section_title: "MCTDH Family"
+      section_url: "/03_MCTDH_Family/"
+  - scope:
       path: "06_diabatisation_deeperdive"
     values:
       section_title: "Diabatisation Deep Dive"
+      section_url: "/06_diabatisation_deeperdive/"
+  - scope:
+      path: "06_diabatisation_deeperdive/intermediates"
+    values:
+      section_title: "Diabatisation Deep Dive"
+      section_url: "/06_diabatisation_deeperdive/"
+      subsection_title: "Theory and Brief Algorithm Breakdown"
+  - scope:
+      path: "06_diabatisation_deeperdive/diabatisation_code"
+    values:
+      section_title: "Diabatisation Deep Dive"
+      section_url: "/06_diabatisation_deeperdive/"
+      subsection_title: "Code Breakdown"
+  - scope:
+      path: "06_diabatisation_deeperdive/derivations"
+    values:
+      section_title: "Diabatisation Deep Dive"
+      section_url: "/06_diabatisation_deeperdive/"
+      subsection_title: "Derivations"
   - scope:
       path: "10_References_Guides"
     values:

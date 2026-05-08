@@ -40,6 +40,10 @@ window.MathJax = {
       Hdiab:["\\H^{\\text{D}}"],
       Hadiab:["\\H^{\\text{A}}"],
 
+     odag:['{#1}^{\\dagger}',1],
+     rv:['\\mat r'],
+     Rv:['\\mat R'],
+     I:['\\mat 1']
 
 
 
