@@ -12,7 +12,8 @@ window.MathJax = {
       mel: ['\\langle#1|#2|#3\\rangle', 3],
       Fmat: ['\\mat{F}'],
       F : ['\\underline{\\Fmat}'],
-      G: ['\\mat{G}'],
+        "Gmat":['\\mat{G}'],
+        G:["\\underline{\\Gmat}"],
       pdv: ["\\frac{\\partial #1}{\\partial #2}", 2], // \pdv{f}{x} = \partial f/\partial x
       pddv: ["\\frac{\\partial^{2} #1}{\\partial #2^{2}}", 2],// \pddv{f}{x} = \partial^2 f/\partial x^2
       pdvn: ["\\frac{\\partial^{#1} #2}{\\partial #3^{#1}}", 3],// \pdvn[3]{f}{x} = \partial^3 f/\partial x^3
@@ -29,6 +30,15 @@ window.MathJax = {
       varphivec:["\\boldsymbol{\\varphi}"],
       Cinv:["\\Cmat^{\\dagger}"],
         W:["\\mat W"],
+
+      Dmat:["\\mat D"],
+      D:["\\underline{\\Dmat}"],
+      Gdiab:["\\G^{\\text{D}}"],
+      Gadiab:["\\G^{\\text{A}}"],
+      Hmat: ["\\mat H"],
+      H :["\\underline{\\Hmat}"],
+      Hdiab:["\\H^{\\text{D}}"],
+      Hadiab:["\\H^{\\text{A}}"],
 
 
 
