@@ -1,377 +1,885 @@
-# 1D Construction Routine for ADT Propagation
+# `intengap4` and `stepnact4`: 1D Coupling Construction for ADT Propagation
 
-This routine performs a very specific 1D construction to integrate the coupling for ADT propagation. The process follows these steps:
+## Core Objectives
 
-1. **Take adiabatic data** at the old DB point and the current QC point.
-    
-2. **Project vector quantities** onto the straight path between them.
-    
-3. **Build a smooth 1D interpolation** along that path.
-    
-4. **Use that interpolation** to integrate the coupling for ADT propagation.
-    
+`intengap4` and `stepnact4` build the one-dimensional coupling function that is integrated in `diabat4_2` / `diabat4_3` to propagate the adiabatic-to-diabatic transformation matrix.
 
-The routine starts at `diabatmod.f90` (line 2733).
+The routines do **not** construct final diabatic potentials. Their job is narrower:
+
+1. Take endpoint adiabatic data from an old database point and the current QC point.
+2. Project endpoint derivative-coupling numerator vectors onto the straight-line path.
+3. Build a linear interpolation for the projected coupling numerator.
+4. Build a cubic interpolation for each adiabatic energy along the same path.
+5. Evaluate the scalar path coupling
+
+   $$
+   F_{ij}(x)=\frac{D_{ij}^{\parallel}(x)}{E_j(x)-E_i(x)}
+   $$
+
+   whenever `stepnact4` is called.
+6. Return endpoint and interior scalar couplings so the caller can perform a trapezoidal integral for `propadt`.
+
+The main conceptual point is:
+
+> `intengap4` interpolates the **projected derivative-coupling numerator** and the **adiabatic energy gap** separately. `stepnact4` then divides the two at each integration point.
 
 ---
 
-## Where It Is Called
+## Where They Are Called
 
-In `diabat4_2` and `diabat4_3`, it is called only in the branch where states have **not** flipped (e.g., `diabatmod.f90`, line 2586):
+In `diabat4_2`, these routines are used only in the **no-state-flip** branch. That is, after the routine has decided that it can propagate the ADT transformation from the nearest DB point by integrating along a straight path.
 
-Fortran
+The relevant call is:
 
-``` Fortran
+```fortran
 call intengap4(intvec,exppar,nacpar,itpdcp0,itpdcp,&
-               dbadener(:,:,idbloc),&
-               dbadgrad(:,:,:,idbloc),&
-               dbdercp(:,:,idbloc),&
-               av,aderiv1,dercp,steplength)
+     dbadener(1:ns,1:ns,idbloc),&
+     dbadgrad(1:nd,1:ns,1:ns,idbloc),&
+     dbdercp(1:nd,1:nactdim,idbloc),&
+     av(1:ns,1:ns),aderiv1(1:nd,1:ns,1:ns),&
+     dercp(1:nd,1:nactdim),steplength)
 ```
 
-There are two endpoints defining the path:
+The two endpoints are:
 
-- $x = 0$: old database point `idbloc`
-    
-- $x = \text{steplength}$: current geometry `xgpoint`
-    
-
-### State Diagram
-
-Plaintext
-
-``` Fortran
+```text
 old DB point                              current QC point
 x = 0                                     x = L
-dbadener, dbadgrad, dbdercp   ----->      av, aderiv1, dercp
+
+stored DB adiabatic data       ----->     current adiabatic QC data
 ```
 
-_(Where $L = \text{steplength}$)_
+where
+
+$$
+L=\texttt{steplength}=\|\texttt{intvec}\|.
+$$
+
+The path coordinate used in the routines is the scalar arclength coordinate $x$, not the full nuclear-coordinate vector. Thus:
+
+- $x=0$ is the old DB geometry.
+- $x=L$ is the current geometry.
+- $x$ inside `stepnact4(x,...)` is a distance along this straight line.
 
 ---
 
-## Are These Adiabatic Or Diabatic?
-
-**Everything passed into `intengap4` is adiabatic-side data.** The routine is **not** working with diabatic `dbener`, `dbgrad`, or `dbhess`.
-
-**Old/Start Point ($x=0$):**
-
-Fortran
-
-```Fortran
-aden0   = dbadener(:,:,idbloc)
-adgrad0 = dbadgrad(:,:,:,idbloc)
-nac0    = dbdercp(:,:,idbloc)
-```
-
-These are the stored adiabatic energies, adiabatic gradients, and coupling vectors at the nearest database point.
-
-**New/End Point ($x=L$):**
-
-Fortran
-
-```Fortran
-aden   = av
-adgrad = aderiv1
-nac    = dercp
-```
-
-These are the current QC adiabatic energies, gradients, and coupling vectors at `xgpoint`, after any sign-alignment logic.
-
----
-
-## Dimensions and Variables
+## Dimensions
 
 Let:
 
-- $N = \text{ndofddpes}$
-    
-- $S = \text{nddstate}$
-    
-- $P = \text{nactdim}$
-    
+- $N=\texttt{ndofddpes}$: number of DD PES nuclear coordinates.
+- $S=\texttt{nddstate}$: number of electronic states.
+- $P=\texttt{nactdim}$: number of stored unique state-pair vectors, usually $S(S-1)/2$.
 
-Usually, $P = S(S-1)/2$ because there is one coupling vector for each unique state pair. For a pair $(s, s1)$ with $s < s1$, the pair index is:
+For a state pair $(s,s_1)$ with $s<s_1$, the pair index is:
 
-Fortran
-
-```Fortran
-idx = (s1-1)*(s1-2)/2+s
+```fortran
+idx = (s1-1)*(s1-2)/2 + s
 ```
 
-### Inputs
+or equivalently:
 
-- `intvec(N)`: Vector from old DB geometry to current geometry. $\vec{\text{intvec}} = \text{xgpoint} - \text{dbgeo(:,idbloc)}$
-    
-- `steplength`: Length of that vector. $L = |\vec{\text{intvec}}|$
-    
-- `aden0(S,S)`: Adiabatic energy matrix at old DB point. Mostly diagonal: $\text{aden0}(s,s) = E_s(0)$
-    
-- `aden(S,S)`: Adiabatic energy matrix at current point: $\text{aden}(s,s) = E_s(L)$
-    
-- `adgrad0(N,S,S)`: Adiabatic gradients at old DB point: $\text{adgrad0}(:,s,s) = \nabla E_s(0)$
-    
-- `adgrad(N,S,S)`: Adiabatic gradients at current point.
-    
-- `nac0(N,P)`: Coupling vector for each pair at old DB point.
-    
-- `nac(N,P)`: Coupling vector for each pair at current point.
-    
+$$
+k(s,s_1)=\frac{(s_1-1)(s_1-2)}{2}+s.
+$$
 
-### Outputs
+Example mapping:
 
-- `exppar(4,S)`: Cubic energy interpolation coefficients for each state.
-    
-- `nacpar(2,P)`: Linear interpolation coefficients for the projected coupling numerator for each pair.
-    
-- `itpdcp0(P)`, `itpdcp(P)`: Endpoint scalar couplings after projection and energy-gap division. These are later used as the first and last points in the trapezoidal integration.
-    
+- $(1,2) \rightarrow 1$
+- $(1,3) \rightarrow 2$
+- $(2,3) \rightarrow 3$
+- $(1,4) \rightarrow 4$
+- $(2,4) \rightarrow 5$
+- $(3,4) \rightarrow 6$
+
+**Important implementation detail:** unlike the derivative-coupling sign-alignment loop in `diabat4_2`, `intengap4` does **not** skip different spin blocks. It loops over all state pairs:
+
+```fortran
+do s=1,nddstate-1
+   do s1=s+1,nddstate
+```
+
+So this routine assumes that `nactdim` and the `nac0` / `nac` pair arrays are compatible with all pairs generated by this mapping.
 
 ---
 
-## Path Direction & Projection
+## Important Inputs and Outputs of `intengap4`
 
-The routine creates a unit vector along the path:
+### Inputs
 
-Fortran
+- `intvec(N)`:
 
-```Fortran
+  Straight-line displacement from the old DB point to the current geometry:
+
+  $$
+  \vect r = \texttt{xgpoint}-\texttt{dbgeo(:,idbloc)}.
+  $$
+
+- `steplength`:
+
+  Length of that displacement:
+
+  $$
+  L=\|\vect r\|.
+  $$
+
+- `aden0(S,S)`:
+
+  Old DB-point adiabatic energy matrix. The routine uses only diagonal entries:
+
+  $$
+  \texttt{aden0}(s,s)=E_s(0).
+  $$
+
+- `aden(S,S)`:
+
+  Current-point adiabatic energy matrix. The routine uses only diagonal entries:
+
+  $$
+  \texttt{aden}(s,s)=E_s(L).
+  $$
+
+- `adgrad0(N,S,S)`:
+
+  Old DB-point adiabatic first derivative matrix. The routine uses only diagonal gradients:
+
+  $$
+  \texttt{adgrad0}(:,s,s)=\nabla E_s(0).
+  $$
+
+- `adgrad(N,S,S)`:
+
+  Current-point adiabatic first derivative matrix. Again, only diagonal gradients are used:
+
+  $$
+  \texttt{adgrad}(:,s,s)=\nabla E_s(L).
+  $$
+
+- `nac0(N,P)` and `nac(N,P)`:
+
+  Endpoint pair vectors. Despite the variable name `nac`, these are used by the code as **derivative-coupling numerator** vectors, not as already gap-divided NACT vectors.
+
+  In the context of `diabat4_2`, these arrays are:
+
+  ```fortran
+  dbdercp(:,:,idbloc)   ! old point
+  dercp                 ! current point, after sign alignment
+  ```
+
+  The intended mathematical object is the off-diagonal derivative matrix element:
+
+  $$
+  \D_{ij}=\mel{\psi_i}{\nabla H}{\psi_j}.
+  $$
+
+  The true adiabatic derivative-coupling vector / NACT is then, for $i<j$,
+
+  $$
+  \F_{ij}=\braket{\psi_i}{\nabla\psi_j}
+  =\frac{\mel{\psi_i}{\nabla H}{\psi_j}}{E_j-E_i}
+  =\frac{\D_{ij}}{E_j-E_i}.
+  $$
+
+  This is exactly why `intengap4` later divides the projected pair vector by the energy gap.
+
+  **Code detail:** `nac0` and `nac` are declared `intent(inout)`, but this routine does not modify them. Semantically, they behave like inputs.
+
+### Outputs
+
+- `exppar(4,S)`:
+
+  Cubic interpolation coefficients for the adiabatic energy of each state:
+
+  $$
+  E_s(x)=a_s+b_sx+c_sx^2+d_sx^3.
+  $$
+
+  The code stores:
+
+  ```text
+  exppar(1,s) = a_s
+  exppar(2,s) = b_s
+  exppar(3,s) = c_s
+  exppar(4,s) = d_s
+  ```
+
+- `nacpar(2,P)`:
+
+  Linear interpolation coefficients for the **projected derivative-coupling numerator** for each state pair:
+
+  $$
+  D_{ij}^{\parallel}(x)=\alpha_{ij}+\beta_{ij}x.
+  $$
+
+  The code stores:
+
+  ```text
+  nacpar(1,idx) = alpha_ij
+  nacpar(2,idx) = beta_ij
+  ```
+
+- `itpdcp0(P)`:
+
+  Endpoint scalar path coupling at $x=0$, **after** division by the old-point adiabatic energy gap:
+
+  $$
+  \texttt{itpdcp0}(ij)=F_{ij}(0)
+  =\frac{D_{ij}^{\parallel}(0)}{E_j(0)-E_i(0)}.
+  $$
+
+- `itpdcp(P)`:
+
+  Endpoint scalar path coupling at $x=L$, **after** division by the current-point adiabatic energy gap:
+
+  $$
+  \texttt{itpdcp}(ij)=F_{ij}(L)
+  =\frac{D_{ij}^{\parallel}(L)}{E_j(L)-E_i(L)}.
+  $$
+
+---
+
+## Important Inputs and Outputs of `stepnact4`
+
+### Inputs
+
+- `x`:
+
+  Scalar path coordinate. It is a distance along the path, with:
+
+  $$
+  0\le x\le L.
+  $$
+
+- `exppar(4,S)`:
+
+  Cubic energy interpolation coefficients from `intengap4`.
+
+- `nacpar(2,P)`:
+
+  Linear projected-numerator interpolation coefficients from `intengap4`.
+
+### Output
+
+- `stnac(P)`:
+
+  Scalar path coupling for each pair at the requested point $x$:
+
+  $$
+  \texttt{stnac}(ij)=F_{ij}(x)
+  =\frac{D_{ij}^{\parallel}(x)}{E_j(x)-E_i(x)}.
+  $$
+
+This is the quantity added into the trapezoidal integration in `diabat4_2`.
+
+---
+
+## Possible confusion: `nac` Is a Numerator Here
+
+The names `nac0`, `nac`, and `stepnact4` can be misleading.
+
+At entry to `intengap4`, the pair vectors are treated as off-diagonal derivative matrix elements:
+
+$$
+\D_{ij}=\mel{\psi_i}{\nabla H}{\psi_j}.
+$$
+
+They are not yet the gap-divided NACT:
+
+$$
+\F_{ij}=\braket{\psi_i}{\nabla\psi_j}.
+$$
+
+This is clear from the code:
+
+```fortran
+ediff=aden0(s1,s1) - aden0(s,s)
+itpdcp0(idx) = itpdcp0(idx)/ediff
+
+ediff=aden(s1,s1) - aden(s,s)
+itpdcp(idx) = itpdcp(idx)/ediff
+```
+
+If `nac0` and `nac` were already true NACT vectors, this division by the gap would be wrong. Therefore, in this routine, the physical interpretation is:
+
+```text
+input nac0/nac      = derivative-coupling numerator / off-diagonal gradient-like vector
+output itpdcp0      = scalar path NACT at x=0
+output itpdcp       = scalar path NACT at x=L
+output stnac        = scalar path NACT at intermediate x
+```
+
+---
+
+# Routine Walkthrough: `intengap4`
+
+## 1. Initialize Energy Coefficients
+
+The routine starts with:
+
+```fortran
+exppar = 0.0_dop
+```
+
+This clears the cubic energy interpolation coefficient array.
+
+`itpdcp0`, `itpdcp`, and `nacpar` are not explicitly zeroed, but every valid pair generated by the nested pair loop is filled before being used.
+
+---
+
+## 2. Build the Unit Path Vector
+
+The routine normalizes the interval vector:
+
+```fortran
 nintvec = intvec/steplength
 ```
 
-$$\hat{n} = \frac{\vec{\text{intvec}}}{|\vec{\text{intvec}}|}$$
+Mathematically:
 
-Any vector $\vec{A}$ can be projected along the path via the dot product: 
-$$A_{\parallel} = \vec{A} \cdot \hat{n}$$. That is exactly what the `vvtxdd` subroutine does.
+$$
+\hat{\mat n}=\frac{\rv}{L},
+\qquad
+\rv=\texttt{intvec},
+\qquad
+L=\texttt{steplength}.
+$$
 
-### Projecting the Coupling Vector
+This unit vector defines the 1D path direction.
 
-For each state pair `(s,s1)`:
+**Important assumption:** `steplength` must be nonzero. The routine does not guard against division by zero here. In normal use, the caller should only call this routine when the current point is genuinely displaced from the DB point.
 
-Fortran
+---
 
-```
+## 3. Project Endpoint Pair Vectors onto the Path
+
+For each pair $(s,s_1)$ with $s<s_1$, the routine computes:
+
+```fortran
+idx = (s1-1)*(s1-2)/2+s
 call vvtxdd(nac0(1,idx),nintvec,itpdcp0(idx),ndofddpes)
 call vvtxdd(nac(1,idx),nintvec,itpdcp(idx),ndofddpes)
 ```
 
-This computes:
+`vvtxdd` computes a dot product. Therefore:
 
-$$\text{itpdcp0(idx)} = \vec{\text{nac0}}_{\text{pair}} \cdot \hat{n}$$
+$$
+D_{ss_1}^{0,\parallel}=\D_{ss_1}(0)\cdot\hat{\mat n},
+$$
 
-$$\text{itpdcp(idx)} = \vec{\text{nac}}_{\text{pair}} \cdot \hat{n}$$
+$$
+D_{ss_1}^{L,\parallel}=\D_{ss_1}(L)\cdot\hat{\mat n}.
+$$
 
-The full $N$-dimensional coupling vector becomes a **single scalar along the path**. This is critical because the later ADT propagation integrates along a 1D path and needs the coupling along the path direction, not the full vector.
+At this point in the routine:
+
+$$
+\texttt{itpdcp0(idx)}=D_{ss_1}^{0,\parallel},
+$$
+
+$$
+\texttt{itpdcp(idx)}=D_{ss_1}^{L,\parallel}.
+$$
+
+So before the gap division, `itpdcp0` and `itpdcp` temporarily store projected numerator values.
 
 ---
 
-## Why `nacpar` Has Two Rows
+## 4. Build the Linear Interpolation of the Projected Numerator
 
-This explains the specific linear interpolation logic:
+Still inside the pair loop, the code builds `nacpar`:
 
-Fortran
-
-``` Fortran
+```fortran
 nacpar(1,idx) = itpdcp0(idx)
 nacpar(2,idx) = (itpdcp(idx) - itpdcp0(idx)) / steplength
 ```
 
-The code builds a **linear interpolation** for the projected coupling numerator. For each pair, let $N_{ij}(x)$ be the projected coupling numerator along the path.
-
-The code models this as a line:
-
-$$N_{ij}(x) = a + bx$$
-
-We know the values at both endpoints ($x=0$ and $x=L$):
-
-- $N_{ij}(0) = N_0 = \text{itpdcp0(idx)}$ (before gap division)
-    
-- $N_{ij}(L) = N_1 = \text{itpdcp(idx)}$ (before gap division)
-    
-
-Solving for the line parameters:
-
-- **Intercept ($a$):** $N_0$
-    
-- **Slope ($b$):** $\frac{N_1 - N_0}{L}$
-    
-
-This perfectly maps to the Fortran array:
-
-Fortran
-
-```Fortran
-nacpar(1,idx) = N0      ! intercept
-nacpar(2,idx) = slope   ! slope
-```
-
-This is why `nacpar` has dimensions `(2, nactdim)`. The first dimension stores the two coefficients of the line, and the second dimension selects the state pair.
-
-Later, for any point $x$ along the path (in `stepnact4`, line 2832):
-
-Fortran
-
-```Fortran
-stnac(idx) = nacpar(1,idx) + nacpar(2,idx)*x
-```
-
----
-
-## Energy Gap Division
-
-After building `nacpar`, the routine prevents division by zero near degeneracies using a numerical safeguard (`max(ediff, 1.0d-8)`), and divides the projected couplings by the energy gap:
-
-Fortran
-
-``` Fortran
-  do s=1,nddstate-1
-	 do s1=s+1,nddstate
-		idx = (s1-1)*(s1-2)/2+s
-		ediff=aden0(s1,s1) - aden0(s,s)
-		ediff=max(ediff,1.0d-8)
-		itpdcp0(idx) = itpdcp0(idx)/ediff
-		ediff=aden(s1,s1) - aden(s,s)
-		ediff=max(ediff,1.0d-8)
-		itpdcp(idx) = itpdcp(idx)/ediff
-
-	 enddo
-  enddo
-```
-
-_(and similarly for `itpdcp(idx)` at the current point)_
-
-After this point:
-
-- $\text{itpdcp0} = \frac{\text{projected coupling}}{\text{energy gap at } x=0}$
-    
-- $\text{itpdcp} = \frac{\text{projected coupling}}{\text{energy gap at } x=L}$
-    
-
-**Important Detail Regarding Order of Operations:**
-
-Notice that `nacpar` is built _before_ `itpdcp0` / `itpdcp` are divided by the energy gap. Therefore, `nacpar` stores the interpolation of the projected coupling _numerator_, not the final divided quantity.
-
-At interior points, `stepnact4` computes:
-
-$$\text{coupling}(x) = \frac{\text{interpolated numerator}(x)}{\text{interpolated energy gap}(x)}$$
-
-This division of two interpolated functions is more flexible and accurate than simply linearly interpolating the final divided quantity directly.
-
----
-
-## Cubic Energy Interpolation
-
-The routine builds a cubic adiabatic energy + gradient interpolation for each state $s$:
+This defines a straight-line interpolation:
 
 $$
-\begin{align}
-E_s(x) &= a + bx + cx^2 + dx^3
-\\ E'_s&=b+2cx+3dx^2
-\end{align}$$
+D_{ij}^{\parallel}(x)=\alpha_{ij}+\beta_{ij}x.
+$$
 
-This requires four constraints:
+The endpoint constraints are:
 
-1. $E_s(0) = \text{old DB energy}$
-    
-2. $E'_s(0) = \text{old DB energy gradient projected along path}$
-    
-3. $E_s(L) = \text{current QC energy}$
-    
-4. $E'_s(L) = \text{current QC energy gradient projected along path}$
-    
+$$
+D_{ij}^{\parallel}(0)=D_{ij}^{0,\parallel},
+$$
 
-**Solving the Coefficients:**
+$$
+D_{ij}^{\parallel}(L)=D_{ij}^{L,\parallel}.
+$$
 
-- `exppar(1,s)` $\rightarrow a = E_s(0)$
-    
-- `exppar(2,s)` $\rightarrow b = E'_s(0) = \nabla E_s(0) \cdot \hat{n}$
-    
+So:
 
-To find $c$ and $d$, the code defines:
+$$
+\alpha_{ij}=D_{ij}^{0,\parallel},
+$$
 
-$$a_{\text{end}} = E_s(L) - a - bL$$
+$$
+\beta_{ij}=\frac{D_{ij}^{L,\parallel}-D_{ij}^{0,\parallel}}{L}.
+$$
 
-$$b_{\text{end}} = E'_s(L) - b$$
+This maps directly to:
 
-Which yields a system of two equations:
-
-$$cL^2 + dL^3 = a_{\text{end}}$$
-
-$$2cL + 3dL^2 = b_{\text{end}}$$
-
-The routine solves this system and stores $c$ in `exppar(3,s)` and $d$ in `exppar(4,s)`.
-
-### Reconstruction in `stepnact4`
-
-For a chosen intermediate path coordinate $x$, `stepnact4` reconstructs the interpolated energy:
-
-Fortran
-
+```text
+nacpar(1,idx) = alpha_ij
+nacpar(2,idx) = beta_ij
 ```
+
+### Why `nacpar` Has Two Rows
+
+`nacpar` has two rows because it stores the two coefficients of a line:
+
+$$
+D_{ij}^{\parallel}(x)=\text{intercept}+\text{slope}\cdot x.
+$$
+
+Thus:
+
+- `nacpar(1,idx)` is the intercept.
+- `nacpar(2,idx)` is the slope.
+
+**Important:** `nacpar` stores the interpolation of the **projected numerator**, not the gap-divided coupling.
+
+---
+
+## 5. Convert Endpoint Numerators into Endpoint Scalar NACTs
+
+After `nacpar` has been built, the routine divides the endpoint projected numerators by the endpoint energy gaps:
+
+```fortran
+ediff=aden0(s1,s1) - aden0(s,s)
+ediff=max(ediff,1.0d-8)
+itpdcp0(idx) = itpdcp0(idx)/ediff
+
+ediff=aden(s1,s1) - aden(s,s)
+ediff=max(ediff,1.0d-8)
+itpdcp(idx) = itpdcp(idx)/ediff
+```
+
+So the endpoint quantities become:
+
+$$
+\texttt{itpdcp0(idx)}=
+\frac{D_{ij}^{0,\parallel}}{E_j(0)-E_i(0)},
+$$
+
+$$
+\texttt{itpdcp(idx)}=
+\frac{D_{ij}^{L,\parallel}}{E_j(L)-E_i(L)}.
+$$
+
+These are the scalar path-projected NACTs at the two endpoints.
+
+### Energy-Gap Safeguard
+
+The code uses:
+
+```fortran
+ediff=max(ediff,1.0d-8)
+```
+
+This prevents endpoint division by a zero or tiny positive gap.
+
+**Important correction:** this is not `max(abs(ediff),1.0d-8)`. If the gap is negative, the code replaces it by `1.0d-8`. Therefore the routine assumes that the adiabatic energies are ordered so that:
+
+$$
+E_j\ge E_i \quad \text{for } i<j.
+$$
+
+This is consistent with the ordering checks in `diabat4_2`.
+
+---
+
+## 6. Build a Cubic Energy Interpolation for Each State
+
+For each state $s$, the code constructs:
+
+$$
+E_s(x)=a_s+b_sx+c_sx^2+d_sx^3.
+$$
+
+The four constraints are:
+
+$$
+E_s(0)=E_s^0,
+$$
+
+$$
+E_s'(0)=\nabla E_s(0)\cdot\hat{\mat n},
+$$
+
+$$
+E_s(L)=E_s^L,
+$$
+
+$$
+E_s'(L)=\nabla E_s(L)\cdot\hat{\mat n}.
+$$
+
+The code first stores:
+
+```fortran
+exppar(1,s) = aden0(s,s)
+call vvtxdd(adgrad0(1,s,s),nintvec,exppar(2,s),ndofddpes)
+```
+
+So:
+
+$$
+a_s=E_s(0),
+$$
+
+$$
+b_s=E_s'(0)=\nabla E_s(0)\cdot\hat{\mat n}.
+$$
+
+Then it defines:
+
+```fortran
+aend = aden(s,s) - exppar(1,s) - exppar(2,s)*steplength
+call vvtxdd(adgrad(1,s,s),nintvec,bend,ndofddpes)
+bend = bend - exppar(2,s)
+```
+
+Mathematically:
+
+$$
+a_{\text{end}}=E_s(L)-a_s-b_sL,
+$$
+
+$$
+b_{\text{end}}=E_s'(L)-b_s.
+$$
+
+The unknown coefficients $c_s$ and $d_s$ satisfy:
+
+$$
+c_sL^2+d_sL^3=a_{\text{end}},
+$$
+
+$$
+2c_sL+3d_sL^2=b_{\text{end}}.
+$$
+
+The code solves this as:
+
+```fortran
+exppar(4,s) = (bend*steplength - 2.0_dop*aend) / steplength**3
+exppar(3,s) = aend / steplength**2
+exppar(3,s) = exppar(3,s) - exppar(4,s)*steplength
+```
+
+So:
+
+$$
+d_s=\frac{b_{\text{end}}L-2a_{\text{end}}}{L^3},
+$$
+
+$$
+c_s=\frac{a_{\text{end}}}{L^2}-d_sL.
+$$
+
+Equivalently:
+
+$$
+c_s=\frac{3a_{\text{end}}-b_{\text{end}}L}{L^2}.
+$$
+
+### What Gradient Data Are Used?
+
+Only diagonal gradient vectors are used:
+
+```fortran
+adgrad0(1,s,s)
+adgrad(1,s,s)
+```
+
+The off-diagonal entries of `adgrad0` and `adgrad` are not used by `intengap4`.
+
+---
+
+# Routine Walkthrough: `stepnact4`
+
+`stepnact4` evaluates the scalar path coupling at an intermediate point $x$ using the interpolation coefficients produced by `intengap4`.
+
+---
+
+## 1. Reconstruct the Cubic Energies
+
+The routine loops over states and reconstructs:
+
+```fortran
 sten(s) = exppar(1,s) + exppar(2,s)*x
 sten(s) = sten(s) + exppar(3,s)*(x**2)
 sten(s) = sten(s) + exppar(4,s)*(x**3)
 ```
 
-$$\text{sten}(s) = E_s(x)$$
+So:
 
-Then for each pair:
+$$
+\texttt{sten}(s)=E_s(x)=a_s+b_sx+c_sx^2+d_sx^3.
+$$
 
-Fortran
+---
 
-```
+## 2. Reconstruct the Linear Projected Numerator
+
+Inside the same outer loop, the routine fills the numerator value for every pair:
+
+```fortran
 stnac(idx) = nacpar(1,idx) + nacpar(2,idx)*x
+```
+
+So before the gap division:
+
+$$
+\texttt{stnac}(ij)=D_{ij}^{\parallel}(x)
+=\alpha_{ij}+\beta_{ij}x.
+$$
+
+This is still the projected numerator, not the final scalar NACT.
+
+---
+
+## 3. Divide by the Interpolated Energy Gap
+
+The routine then loops again over all pairs:
+
+```fortran
 stnac(idx) = stnac(idx)/(sten(s1) - sten(s))
 ```
 
-Which equates to:
+So the final output is:
 
-$$\text{stnac(idx)} = \frac{\text{interpolated projected coupling numerator}}{\text{interpolated adiabatic energy gap}}$$
+$$
+\texttt{stnac}(ij)=
+\frac{D_{ij}^{\parallel}(x)}{E_j(x)-E_i(x)}.
+$$
+
+This is the path-projected scalar NACT used by the trapezoidal integration in `diabat4_2`.
+
+### Important Interior-Point Correction
+
+Unlike the endpoint division in `intengap4`, `stepnact4` does **not** use a small-gap safeguard.
+
+There is no:
+
+```fortran
+ediff=max(ediff,1.0d-8)
+```
+
+inside `stepnact4`.
+
+Therefore, if the cubic interpolated gap
+
+$$
+E_j(x)-E_i(x)
+$$
+
+becomes zero or very small at an interior integration point, the output `stnac(idx)` can become singular or very large.
+
+In normal use, this routine is called only in the no-state-flip propagation branch. If the path is near an actual degeneracy or crossing, `diabat4_2` is supposed to identify that earlier and use the `optqvc` state-flip branch instead.
 
 ---
 
-## Integration for ADT Propagation
+# How These Routines Feed the ADT Integral
 
-Back in `diabat4_2`/`diabat4_3`, the code performs a trapezoidal integration over the path:
+After `intengap4` has returned, `diabat4_2` performs the integral:
 
-Fortran
-
-```
+```fortran
+nstep = 20
+integral = 0.0_dop
 sumint1d = itpdcp0
-...
-sumint1d = sumint1d + 2.0_dop * nac
-...
+
+ddelx = steplength/nstep
+x = 0.0_dop
+
+do istep = 1, nstep-1
+   x = x + ddelx
+   call stepnact4(x,nac,exppar,nacpar)
+   sumint1d = sumint1d + 2.0_dop * nac
+enddo
+
 sumint1d = sumint1d + itpdcp
-integral = 0.5_dop * sumint1d * ddelx
+
+do jdx = 1, nactdim
+   integral(jdx) = integral(jdx) + sumint1d(jdx)*ddelx
+enddo
+integral = integral * 0.5_dop
 ```
 
-Mathematically, this evaluates:
+This is the trapezoidal rule:
 
-$$\text{integral}_{ij} \approx \int_0^L F_{ij}(x) \, dx$$
+$$
+I_{ij}\approx
+\frac{\Delta x}{2}
+\left[
+F_{ij}(0)
++2\sum_{m=1}^{n_{\text{step}}-1}F_{ij}(m\Delta x)
++F_{ij}(L)
+\right],
+$$
 
-Where:
+where:
 
-$$F_{ij}(x) = \frac{\text{projected coupling numerator}_{ij}(x)}{E_j(x) - E_i(x)}$$
+$$
+\Delta x=\frac{L}{n_{\text{step}}},
+\qquad n_{\text{step}}=20.
+$$
 
-Finally, `call propadt(integral,transtmp,adttrans)` uses those integrated scalar couplings to propagate the ADT matrix.
+The integrand is:
+
+$$
+F_{ij}(x)=\frac{D_{ij}^{\parallel}(x)}{E_j(x)-E_i(x)}.
+$$
+
+The result is a scalar integrated coupling for each pair:
+
+$$
+I_{ij}\approx\int_0^L F_{ij}(x)\,dx.
+$$
+
+This vector of pairwise integrals is then passed to:
+
+```fortran
+call propadt(integral,transtmp,adttrans)
+```
+
+`propadt` uses these integrated pair couplings to propagate the ADT matrix from the old DB point to the current point.
 
 ---
 
-## Summary: Why `nacpar` has two rows
+# Flow Summary
 
-The initialization:
+The overall construction is:
 
-Fortran
+```text
+endpoint pair vectors
+    |
+    | project onto path direction
+    v
+projected DCP numerators at x=0 and x=L
+    |
+    | build linear numerator interpolation
+    v
+D_ij_parallel(x)
 
+endpoint adiabatic energies + endpoint projected gradients
+    |
+    | build cubic Hermite energy interpolation
+    v
+E_i(x), E_j(x)
+
+stepnact4(x)
+    |
+    v
+F_ij(x) = D_ij_parallel(x) / [E_j(x)-E_i(x)]
+
+caller trapezoidal integration
+    |
+    v
+integral_ij ≈ ∫ F_ij(x) dx
+
+propadt
+    |
+    v
+new ADT matrix
 ```
-nacpar(1,idx) = itpdcp0(idx)
-nacpar(2,idx) = (itpdcp(idx) - itpdcp0(idx)) / steplength
-```
 
-Means: For pair `idx`, store the two coefficients of a straight line representing the coupling numerator:
+---
 
-$$\text{coupling\_numerator}(x) = \text{intercept} + \text{slope} \cdot x$$
 
-- `nacpar(1, ...)` = **starting value** (intercept)
-    
-- `nacpar(2, ...)` = **slope** (change from old DB to current point / path length)
+
+# Compact Mathematical Summary
+
+Define the path:
+
+$$
+\Rv(x)=\Rv_0+x\hat{\mat n},
+\qquad 0\le x\le L,
+$$
+
+with:
+
+$$
+\hat{\mat n}=\frac{\Rv_L-\Rv_0}{L}.
+$$
+
+For each state pair $i<j$, project the endpoint derivative-coupling numerators:
+
+$$
+D_{ij}^{0,\parallel}=\D_{ij}(0)\cdot\hat{\mat n},
+$$
+
+$$
+D_{ij}^{L,\parallel}=\D_{ij}(L)\cdot\hat{\mat n}.
+$$
+
+Interpolate the numerator linearly:
+
+$$
+D_{ij}^{\parallel}(x)=D_{ij}^{0,\parallel}
++\frac{D_{ij}^{L,\parallel}-D_{ij}^{0,\parallel}}{L}x.
+$$
+
+For each state $s$, interpolate the adiabatic energy cubically:
+
+$$
+E_s(x)=a_s+b_sx+c_sx^2+d_sx^3,
+$$
+
+with:
+
+$$
+a_s=E_s(0),
+$$
+
+$$
+b_s=\nabla E_s(0)\cdot\hat{\mat n},
+$$
+
+$$
+a_{\text{end}}=E_s(L)-a_s-b_sL,
+$$
+
+$$
+b_{\text{end}}=\nabla E_s(L)\cdot\hat{\mat n}-b_s,
+$$
+
+$$
+d_s=\frac{b_{\text{end}}L-2a_{\text{end}}}{L^3},
+$$
+
+$$
+c_s=\frac{a_{\text{end}}}{L^2}-d_sL.
+$$
+
+Then `stepnact4` evaluates:
+
+$$
+F_{ij}(x)=\frac{D_{ij}^{\parallel}(x)}{E_j(x)-E_i(x)}.
+$$
+
+Finally, the caller integrates:
+
+$$
+I_{ij}\approx\int_0^L F_{ij}(x)\,dx,
+$$
+
+and uses `propadt` to propagate the ADT matrix.
+
+---
+
+# Very Important Takeaway
+
+`intengap4` and `stepnact4` are the bridge between endpoint QC/DB coupling data and the scalar pair rotations used by `propadt`.
+
+They do this by constructing a 1D model along the path:
+
+- cubic Hermite interpolation for each adiabatic energy,
+- linear interpolation for each projected derivative-coupling numerator,
+- gap division to obtain the scalar path NACT,
+- trapezoidal integration in the caller.
+
+So the routines are not “diabatization routines” by themselves. They generate the path-integrated coupling input needed to propagate the ADT transformation in the no-state-flip branch of `diabat4_2`.

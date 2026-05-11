@@ -27,11 +27,11 @@ $$
 The model used in the code is
 
 $$
-\mat V_d(x)
+\mat \W(x)
 =\mat A+\mat Bx+\mat C_{\mathrm{code}}x^2+\mat Kx^3,
 $$
 
-where $\mat A$, $\mat B$, $\mat C_{\mathrm{code}}$, and $\mat K$ are real symmetric matrices in the retained electronic-state space.
+where $\mat A$, $\mat B$, $\mat C_{\mathrm{code}}$, and $\mat K$ are real symmetric matrices in the retained electronic-state space and $\W$ is the diabatic potential matrix.
 
 The standard multidimensional Taylor expansion of a potential $V$ around a reference point $\Rv$ is:
 
@@ -47,24 +47,24 @@ $$ V(x) = V(\Rv) + (\vec{g} \cdot \mat{\hat{n}})x + \left(\frac{1}{2} \mat{\hat{
 The database point fixes
 
 $$
-\mat A = \mat V_d(\Rv_0),
+\mat A = \W(\Rv_0),
 $$
 
 $$
-B_{ij}
-=\hat n\cdot \nabla V_{d,ij}(\Rv_0),
+\mat B_{ij}
+=\hat n\cdot \Gdiab_{ij}(\Rv_0),
 $$
 
 and, in the code convention,
 
 $$
-C_{\mathrm{code},ij}
+\mat C_{\mathrm{code},ij}
 =\hat n^T
 \mat H_{d,ij}(\Rv_0)
 \hat n.
 $$
 
-The code then uses $C_{\mathrm{code},ij}x^2$ directly. If $\mat H_{d,ij}$ is the literal Hessian, this differs from the standard Taylor coefficient $\frac12\hat n^T\mat H_{d,ij}\hat n$. This page follows the code convention.
+The code then uses $\mat C_{\mathrm{code},ij}x^2$ directly. If $\mat H_{d,ij}$ is the literal Hessian, this differs from the standard Taylor coefficient $\frac12\hat n^T\mat H_{d,ij}\hat n$. This page follows the code convention.
 
 Only the cubic matrix $\mat K$ is optimised.
 
@@ -73,24 +73,24 @@ Only the cubic matrix $\mat K$ is optimised.
 At the current geometry $x=L$, the model gives
 
 $$
-\mat V_d(L)
+\mat \W(L)
 =\mat A+\mat BL+\mat C_{\mathrm{code}}L^2+\mat KL^3
 $$
 
 and
 
 $$
-\mat V'_d(L)
+\W'(L)
 =\mat B+2\mat C_{\mathrm{code}}L+3\mat K L^2.
 $$
 
-The model adiabatic energies and eigenvectors are obtained by diagonalising $\mat V_d(L)$:
+The model adiabatic energies and eigenvectors are obtained by diagonalising $\mat \W(L)$:
 
 $$
-\mat S^T\mat V_d(L)\mat S
+\mat S^T\mat \W(L)\mat S
 =\operatorname{diag}
 \left(
-E^{\mathrm{model}}_1,\ldots,E^{\mathrm{model}}_N
+V^{\mathrm{model}}_1,\ldots,V^{\mathrm{model}}_N
 \right).
 $$
 
@@ -98,7 +98,7 @@ The corresponding projected derivative matrix in the model adiabatic basis is
 
 $$
 \mat G^{(a),\mathrm{model}}
-=\mat S^T\mat V'_d(L)\mat S.
+=\mat S^T\W'(L)\mat S.
 $$
 
 ## Endpoint target derivative matrix
@@ -106,22 +106,22 @@ $$
 The target endpoint derivative matrix has diagonal elements
 
 $$
-G^{(a),\mathrm{target}}_{ii}
-=\nabla E_i(\Rv)\cdot\hat n
+\Gmat^{(a),\mathrm{target}}_{ii}
+=\Gadiab_{ii}(\Rv)\cdot\hat n
 $$
 
 and off-diagonal elements
 
 $$
-G^{(a),\mathrm{target}}_{ij}
-=\mathcal D_{ij}(\Rv)\cdot\hat n,
+\Gmat^{(a),\mathrm{target}}_{ij}
+= \D_{ij}(\Rv)\cdot\hat n,
 \qquad i\ne j,
 $$
 
 where
 
 $$
-\mathcal D_{ij}
+\D_{ij}
 =\mel{\psi_i}{\nabla\hat H_{\mathrm{el}}}{\psi_j}
 $$
 
@@ -129,10 +129,10 @@ is the derivative-coupling numerator. For non-degenerate states,
 
 $$
 \mat F_{ij}
-=\frac{\mathcal D_{ij}}{E_j-E_i}
+=\frac{\D_{ij}}{V_j-V_i}
 $$
 
-is the NACV. Thus $\mathcal D_{ij}$ is symmetric for real states, while the NACV is antisymmetric. The `optqvc` objective compares against the symmetric numerator-like object, not directly against the gap-divided NACV.
+is the NACV. Thus $\D_{ij}$ is symmetric for real states, while the NACV is antisymmetric. The `optqvc` objective compares against the symmetric numerator-like object, not directly against the gap-divided NACV.
 
 ## Objective function
 
@@ -143,7 +143,7 @@ $$
 =\left[
 \sum_i
 \left(
-E_i^{\mathrm{model}}-E_i^{\mathrm{target}}
+V_i^{\mathrm{model}}-V_i^{\mathrm{target}}
 \right)^2
 +\sum_{i\le j}
 \left(

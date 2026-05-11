@@ -1,6 +1,6 @@
 ### Main Overviews
 
-[Propagatin Diabatisation](intermediates/int01_propagation_diabatisation.md)
+[Propagatin Diabatisation](intermediates/int01_propagation_diabatisation_main.md)
 
 ### Supporting documents
 [Propagation Diabatisation Safety Guards Breakdown and Fall-backs](intermediates/int01_propagation_diabatisation_safetyguard_breakdown.md)
