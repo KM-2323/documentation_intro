@@ -13,7 +13,9 @@ Overall structure:
 * [02_Born_Oppenheimer_and_TDSE](02_Born_Oppenheimer_and_Nonadiabaticity/index.md)
     - The foundational theory section covering the Time-Dependent Schrodinger Equation, the Born-Oppenheimer approximation, and nonadiabaticity.
 * [03_MCTDH_Family](03_MCTDH_Family)
-* [06_diabatisation](06_diabatisation_deeperdive/index.md)
+* [06_Diabatisation](06_diabatisation_deeperdive/index.md)
+    - Deeper dives on the various implemented diabatisation schemes. Including brief theoretical overview, bird view of the implemented code, flow charts (subroutine orietated and concept targetted),
+      derivations on equations, and specialised topics surrounding the topics (examples are topological spin,and quantization of ADT matrices)
 * [Jekyll site maintenance](10_References_Guides/Jekyll_site_maintenance.md)
     - How GitHub Pages builds the site, how to preview locally, and how to update shared layouts, navigation, and MathJax config.
 * [Notation and symbols glossary](10_References_Guides/Symbols_and_notations.md)
