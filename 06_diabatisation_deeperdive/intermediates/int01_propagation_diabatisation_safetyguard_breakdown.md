@@ -571,7 +571,7 @@ $$
 \frac{\pi}{2}.
 $$
 
-Currently, the code enforces this final phase convention explicitly: the eigenvector phases are changed so that the diagonal elements are positive and the transformation matrix represents a proper rotation.
+Currently, the code enforces this final phase convention explicitly: the eigenvector phases are changed so that the diagonal elements are positive and the transformation matrix represents a proper rotation (by mutliplying the second columns of the ADT matrix by -1 if $\det \Cmat <0$)
 
 ---
 
