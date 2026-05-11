@@ -73,9 +73,13 @@ $$\nabla \Cmat = -\F\Cmat$$
 
 Along a path from an old geometry $\Rv_0$ to a new geometry $\Rv_1$, this is written formally as
 
-$$\Cmat(\Rv_1)  = \mathcal P\exp\left[-\int_{\Rv_0}^{\Rv_1}\F(\Rv)\cdot d\Rv\right]\Cmat(\Rv_0)$$
+$$
+\begin{align}
+\Cmat(\Rv_1)  = \mathcal P\exp\left[-\int_{\Rv_0}^{\Rv_1}\F(\Rv)\cdot d\Rv\right]\Cmat(\Rv_0)
+\end{align}
+$$
 	​
-where $\mathcal p$ denotes path ordering. In the implementation, the path is normally treated as a local path between the nearest useful database point and the new geometry. The derivative coupling along this path is estimated from the available quantum-chemistry and database information. Richings and Worth describe this propagated-ADT idea as the basis of propagation diabatisation in DD-vMCG.
+where $\mathcal P$ denotes path ordering. In the implementation, the path is normally treated as a local path between the nearest useful database point and the new geometry. The derivative coupling along this path is estimated from the available quantum-chemistry and database information. Richings and Worth describe this propagated-ADT idea as the basis of propagation diabatisation in DD-vMCG.
 
 Once the propagated transformation has been obtained, the final stored diabatic quantities are not just the predicted database quantities. In the normal successful branch, the actual quantum-chemistry adiabatic data are transformed into the diabatic representation. This is important: the database prediction is mainly used to choose phases, order states, detect dangerous cases, and build a stable transformation. It is not meant to replace the quantum-chemistry calculation unless the algorithm enters a fallback branch.
 
