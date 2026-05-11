@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The routine `optqvc` uses a one-dimensional diabatic model as a fallback when the usual propagated-ADT branch is considered unreliable. The model is not a full multidimensional QVC Hamiltonian. It is a path-local construction along the straight line from a selected database geometry \(R_0\) to the current geometry \(R\).
+The routine `optqvc` uses a one-dimensional diabatic model as a fallback when the usual propagated-ADT branch is considered unreliable. The model is not a full multidimensional QVC Hamiltonian. It is a path-local construction along the straight line from a selected database geometry $R_0$ to the current geometry $R$.
 
 Let
 
@@ -31,7 +31,7 @@ $$
 =\mat A+\mat Bx+\mat C_{\mathrm{code}}x^2+\mat Kx^3,
 $$
 
-where \(\mat A\), \(\mat B\), \(\mat C_{\mathrm{code}}\), and \(\mat K\) are real symmetric matrices in the retained electronic-state space.
+where $\mat A$, $\mat B$, $\mat C_{\mathrm{code}}$, and $\mat K$ are real symmetric matrices in the retained electronic-state space.
 
 The database point fixes
 
@@ -53,13 +53,13 @@ C_{\mathrm{code},ij}
 \hat n.
 $$
 
-The code then uses \(C_{\mathrm{code},ij}x^2\) directly. If \(\mat H_{d,ij}\) is the literal Hessian, this differs from the standard Taylor coefficient \(\frac12\hat n^T\mat H_{d,ij}\hat n\). This page follows the code convention.
+The code then uses $C_{\mathrm{code},ij}x^2$ directly. If $\mat H_{d,ij}$ is the literal Hessian, this differs from the standard Taylor coefficient $\frac12\hat n^T\mat H_{d,ij}\hat n$. This page follows the code convention.
 
-Only the cubic matrix \(\mat K\) is optimised.
+Only the cubic matrix $\mat K$ is optimised.
 
 ## Endpoint model quantities
 
-At the current geometry \(x=L\), the model gives
+At the current geometry $x=L$, the model gives
 
 $$
 \mat V_d(L)
@@ -73,7 +73,7 @@ $$
 =\mat B+2\mat C_{\mathrm{code}}L+3\mat K L^2.
 $$
 
-The model adiabatic energies and eigenvectors are obtained by diagonalising \(\mat V_d(L)\):
+The model adiabatic energies and eigenvectors are obtained by diagonalising $\mat V_d(L)$:
 
 $$
 \mat S^T\mat V_d(L)\mat S
@@ -121,11 +121,11 @@ $$
 =\frac{\mathcal D_{ij}}{E_j-E_i}
 $$
 
-is the NACV. Thus \(\mathcal D_{ij}\) is symmetric for real states, while the NACV is antisymmetric. The `optqvc` objective compares against the symmetric numerator-like object, not directly against the gap-divided NACV.
+is the NACV. Thus $\mathcal D_{ij}$ is symmetric for real states, while the NACV is antisymmetric. The `optqvc` objective compares against the symmetric numerator-like object, not directly against the gap-divided NACV.
 
 ## Objective function
 
-The optimised cubic matrix \(\mat K\) minimises the endpoint mismatch
+The optimised cubic matrix $\mat K$ minimises the endpoint mismatch
 
 $$
 \epsilon(\mat K)
