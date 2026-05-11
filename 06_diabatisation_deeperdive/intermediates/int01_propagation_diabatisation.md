@@ -59,7 +59,7 @@ Propagation diabatisation is therefore best understood as a practical, on-the-fl
 
 ### Brief algorithmic breakdown of propagation diabatisation implemented in Quantics
 
-The purpose of the propagation diabatisation algorithm is to take new adiabatic quantum-chemistry data and convert it into a locally consistent diabatic representation before storing it in the DD-vMCG database.
+The purpose of the propagation diabatisation algorithm is to take new adiabatic quantum-chemistry data and convert it into a locally consistent diabatic representation before storing it in the DD-vMCG database. For a more mathenatical detailed breakdown see [safetyguard breakdown](int01_propagation_diabatisation_safetyguard_breakdown.md)
 
 The algorithm has two kinds of information available at a new geometry. The first is the raw quantum-chemistry data: adiabatic energies, gradients, Hessians where available, and derivative-coupling information. The second is the existing database model, which contains previously stored diabatic data and can be used to predict what the diabatic and adiabatic quantities should look like near the new point.
 
