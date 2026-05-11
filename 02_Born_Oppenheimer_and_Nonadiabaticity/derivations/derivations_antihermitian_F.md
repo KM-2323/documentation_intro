@@ -20,7 +20,7 @@ $$
 &=0\nonumber\\
 \braket{\psi_j}{\nabla\psi_i}&=-\braket{\nabla\psi_j}{\psi_i}\nonumber\\
 \braket{\psi_j}{\nabla\psi_i}&=-\braket{\psi_i}{\nabla\psi_j}^*\nonumber\\
-\F_{ji} &=\F_{ij}^*
+\F_{ji} &=-\F_{ij}^*
 \label{eq:proof-antihermitian-F}
 \end{align}
 $$
@@ -46,7 +46,7 @@ In practise, the electronic basis functions are chosen to be strictly real-value
 Substituting this into our anti-Hermitian condition yields:
 
 $$
-\F_{ji} =\F_{ij}
+\F_{ji} =-\F_{ij}
 $$
 
 ### Comments:
