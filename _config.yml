@@ -60,9 +60,9 @@ defaults:
     values:
       section_title: "Diabatisation Deep Dive"
       section_url: "/06_diabatisation_deeperdive/"
-      subsection_title: "Theory and Brief Algorithm Breakdown"
+      subsection_title: "Theory and Main Idea"
   - scope:
-      path: "06_diabatisation_deeperdive/diabatisation_code"
+      path: "06_diabatisation_deeperdive/code+breakdown"
     values:
       section_title: "Diabatisation Deep Dive"
       section_url: "/06_diabatisation_deeperdive/"
@@ -73,6 +73,12 @@ defaults:
       section_title: "Diabatisation Deep Dive"
       section_url: "/06_diabatisation_deeperdive/"
       subsection_title: "Derivations"
+  - scope:
+      path: "06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive"
+    values:
+      section_title: "Diabatisation Deep Dive"
+      section_url: "/06_diabatisation_deeperdive/"
+      subsection_title: "Specialised Topics"
   - scope:
       path: "10_References_Guides"
     values:

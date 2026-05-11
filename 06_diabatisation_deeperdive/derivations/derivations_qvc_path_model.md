@@ -2,16 +2,16 @@
 
 ## Purpose
 
-The routine `optqvc` uses a one-dimensional diabatic model as a fallback when the usual propagated-ADT branch is considered unreliable. The model is not a full multidimensional QVC Hamiltonian. It is a path-local construction along the straight line from a selected database geometry $R_0$ to the current geometry $R$.
+The routine `optqvc` uses a one-dimensional diabatic model as a fallback when the usual propagated-ADT branch is considered unreliable. The model is not a full multidimensional QVC Hamiltonian. It is a path-local construction along the straight line from a selected database geometry $R_0$ to the current geometry $\Rv$.
 
 Let
 
 $$
-\Delta R = R-R_0,
+\Delta \Rv = \Rv-\Rv_0,
 \qquad
-L = |\Delta R|,
+L = |\Delta \Rv|,
 \qquad
-\hat n = \frac{\Delta R}{L}.
+\hat n = \frac{\Delta \Rv}{L}.
 $$
 
 The path coordinate is
@@ -19,7 +19,7 @@ The path coordinate is
 $$
 x\in[0,L],
 \qquad
-R(x)=R_0+x\hat n.
+\Rv(x)=\Rv_0+x\hat n.
 $$
 
 ## Cubic diabatic model
@@ -33,15 +33,26 @@ $$
 
 where $\mat A$, $\mat B$, $\mat C_{\mathrm{code}}$, and $\mat K$ are real symmetric matrices in the retained electronic-state space.
 
+The standard multidimensional Taylor expansion of a potential $V$ around a reference point $\Rv$ is:
+
+$$ V(\Rv + \Delta\Rv) = V(\Rv) + \vec{g}^T \Delta\Rv+ \frac{1}{2} \Delta\vec{x}^T \mathbf{H} \Delta\Rv+ \dots $$
+
+If we substitute $\Delta\Rv= x \hat{n}$ into this equation, we can factor out the scalar distance $x$:
+
+$$ V(x) = V(\Rv) + \vec{g}^T (x \mat{\hat{n}}) + \frac{1}{2} (x \mat{\hat{n}})^T \mathbf{H} (x \mat{\hat{n}}) + \dots $$
+
+$$ V(x) = V(\Rv) + (\vec{g} \cdot \mat{\hat{n}})x + \left(\frac{1}{2} \mat{\hat{n}}^T \mathbf{H} \mat{\hat{n}}\right)x^2 + \dots $$
+
+
 The database point fixes
 
 $$
-\mat A = \mat V_d(R_0),
+\mat A = \mat V_d(\Rv_0),
 $$
 
 $$
 B_{ij}
-=\hat n\cdot \nabla V_{d,ij}(R_0),
+=\hat n\cdot \nabla V_{d,ij}(\Rv_0),
 $$
 
 and, in the code convention,
@@ -49,7 +60,7 @@ and, in the code convention,
 $$
 C_{\mathrm{code},ij}
 =\hat n^T
-\mat H_{d,ij}(R_0)
+\mat H_{d,ij}(\Rv_0)
 \hat n.
 $$
 
@@ -96,14 +107,14 @@ The target endpoint derivative matrix has diagonal elements
 
 $$
 G^{(a),\mathrm{target}}_{ii}
-=\nabla E_i(R)\cdot\hat n
+=\nabla E_i(\Rv)\cdot\hat n
 $$
 
 and off-diagonal elements
 
 $$
 G^{(a),\mathrm{target}}_{ij}
-=\mathcal D_{ij}(R)\cdot\hat n,
+=\mathcal D_{ij}(\Rv)\cdot\hat n,
 \qquad i\ne j,
 $$
 
