@@ -1,79 +1,150 @@
-## Brief Theoretical Background
+## Propagation diabatisation in DD-vMCG
 
-For more detailed exploration on this topic ranging from residual coupling, its original refer to [text](propagation_diabatisation_deepdive/analyticity_unique_existence.md), and  [text](propagation_diabatisation_deepdive/topological_spin.md)
+### Brief theoretical background
 
-## Brief algorithmic breakdown of propagation diabatisation implemented in quantics
+Propagation diabatisation is used in DD-vMCG because the nuclear wavefunction is propagated with a local Gaussian basis, and the potential model around each Gaussian centre needs smooth energies, gradients, and Hessians. In the adiabatic representation, this smoothness can fail near a degeneracy: the adiabatic surfaces may form a conical intersection and the derivative coupling can become singular. Moving to a diabatic or quasi-diabatic representation replaces the singular kinetic coupling by smoother potential-like couplings, which are better suited to local harmonic expansion and interpolation.
 
-For a detailed line to line breakdown refer to [code_propagation_diabatisation](diabatisation_code/code_propagation_diabatisation.md)
-
-Given a closest DB point to current geometry, $\mat q$, the adiabatic-to-diabatic matrix $\Cmat(\mat q)$, and the diabatic energy matrix $\W(\mat q)$. diabatic gradient matrix $\G^{\text{D}}$ (matrix of vectors), diabatic Hessian $\Hdiab$ (matrix of matrix). To understand the relationship of adiabatic and diabatic Hessian, read [adiab_diab_relation](../derivations/derivations_adiab_diab_relation.md)  
-
-The current/reference geometry is at $\mat q_+ = \mat q + \Delta \mat q$
-
-If the current geometry falls within a threshold, $\delta\mat q\leq \mat q_{threshold}$, use shifted taylor expansion to second order to obtain the diabatic Hamiltonain $\W_{\text{pred}}(\mat q_+)$ using $\W(\mat q)$ as the reference.
-
-Else, predict the diabatic Hamiltonian at the new point using Shepard interpolation(the code resorts to the closest 10 neighbours), form the diabatic energy $\W_{\text{pred}}(\mat q_+)$ and gradient $\Gdiab$ and Hessian. Then obtain the prediced adiabatic energy and ADT matrix through:
+The basic object is the adiabatic-to-diabatic transformation matrix. With the convention used here, the diabatic electronic basis is written as
 
 $$
- \Cmat_\text{pred}(\mat q_+)\W_{\text{pred}}(\mat q_+)(q_+)\Cmat^\dagger_\text{pred}(\mat q_+)=\V_{\text{pred}}(q_+)
+\ket\varphivec=\ket\psivec\Cmat\nonumber
 $$
 
-Then use $\Cmat_\text{pred}$ on the diabatic gradient matrix to obtain adiabatic gradient and derivative coupling $\D_{ij} = \F_{ij}(\V_{jj}-\V_{ii})$ (for derivation see [adiab_diab_relation](../derivations/derivations_adiab_diab_relation.md) ):
+where $\ket\psivec$ is the vector of adiabatic electronic states and $\Cmat$ is the adiabatic-to-diabatic transformation matrix. The corresponding diabatic potentila matrix is
 
 $$
-\Cmat_\text{pred}(\mat q_+)  \Gdiab(\mat q_+)\Cmat^\dagger_\text{pred}(\mat q_+) = \Gadiab_{\text{pred}} + \D_{\text{pred}}
+\W = \Cinv \V \Cmat
 $$
 
-where $\Gadiab$ is the matrix of adiabiabatic gradient vector (diagonal) and $\D$ is the matrix of derivtive coupling vectors (which has zeroes along its diagonal and symmetric).
+where $\V$ is the diagonal matrix of adiabatgic potential energies.
 
-Then the following Guards are ran:
+The transformation is chosen so that the derivative coupling is removed, or at least made negligible, withint the retianed electronic subspace. THis lead to the differenytail equation
 
-1. **Guard 1 (continuity of $\F$)**
+$$\nabla \Cmat = -\F\Cmat$$
 
-    form:
+where $\F$ is the matrix of nonadiabatic coupling vectors,
 
-    $$
-    \frac{\D_{\text{pred}}(\mat q_+)\cdot\D_{\text{QC}}(\mat q_+)}{|\D_{\text{pred}}(\mat q_+)||\D_{\text{QC}}(\mat q_+)|} = \cos(\phi)
-    $$
+$$\F_{ij}\braket{\psi_i}{\nabla \psi_j}$$
 
-    if $\text{abs}\left({\cos(\phi)}\right)<0.866$ (if $\phi>30^{\circ}$), this imply the vector vield is not continuos and is an intruder state. This is because in a self-consistent 2-state manifold, $\D_{12}$ must vary smoothly with nuclear configuration, a smooth vector field. A change $>30^{\circ}$ between predicted and actual raw QC calcultion indicates the dominant coupling vector has chanegd character. The log this in the output and declare the angle of the intruder state.
+For non-generate adiabatic states, this vector can also be related to the derivative of the electronic Hamiltonin (electronic derivative coupling) by
 
-    If $\cos\phi<0$ and is sufficiently large, pairwise sign fixes are applied:
+$$
+\F_{ij} \frac{\mel{\psi_i}{\nabla\hat H_{el}}{\psi_j}}{V_j-V_i}
+$$
 
-    $$\D_{\text{QC}} -\rightarrow -\D_{\text{QC}}$$. Then resort to normal diabatisation scheme
+This relation explains both why the coupling becomes large near small energy gaps and why sign conventions must be treated carefully. For real electronic states, the numerator
+
+$$\D_{ij}=\mel{\psi_i}{\nabla\hat H_{el}}{\psi_j}$$
+
+is symmetric in the state labels, whereas the nonadiabatic coupling vector $\F_{ij}$ is antisymmetric. These two quantities should therefore not be treated as interchangeable.
+
+In the complete Hilbert space, the adiabatic-to-diabatic transformation is formally exact. In practical direct dynamics, however, only a finite set of electronic states is retained. The propagation diabatisation equation is then used as a finite-subspace approximation: it is reliable when the retained states form a sufficiently isolated subspace and the neglected couplings to external states are small. Baer’s line-integral formulation gives the theoretical background for this finite-subspace view, including the curl condition, the topological matrix, and the quantisation condition associated with closed paths.
+
+Propagation diabatisation is therefore best understood as a practical, on-the-fly construction of a quasi-diabatic basis. It does not require locating a conical intersection before the dynamics begins, and it can be extended to more than two electronic states. Richings and Worth introduced this scheme for DD-vMCG, and later work extended it to multi-state direct dynamics calculations.
+
+### Related notes
+* Residual derivative coupling
+* Split diabatic representations
+* Path-integrated ADT equation
+* QVC path model
+* Baer line-integral theory
+* Curl condition and path dependence
+* NACT sign assignment
+* Three-state ADT angles
+* Main code driver: diabat4_2
+* Database prediction: dddb_rd_gp
+* Path integration: intengap4 and stepnact4
+* Fallback QVC optimisation: optqvc
+* Final transformation of QC data
+
+### Brief algorithmic breakdown of propagation diabatisation implemented in Quantics
+
+The purpose of the propagation diabatisation algorithm is to take new adiabatic quantum-chemistry data and convert it into a locally consistent diabatic representation before storing it in the DD-vMCG database.
+
+The algorithm has two kinds of information available at a new geometry. The first is the raw quantum-chemistry data: adiabatic energies, gradients, Hessians where available, and derivative-coupling information. The second is the existing database model, which contains previously stored diabatic data and can be used to predict what the diabatic and adiabatic quantities should look like near the new point.
+
+The database model acts as a compass. It gives a predicted diabatic potential matrix, which can be diagonalised to obtain predicted adiabatic energies and eigenvectors. These predicted quantities are then compared with the raw quantum-chemistry quantities. This comparison is used to detect phase errors, state-ordering problems, near-degeneracies, and failed quantum-chemistry data before the final transformation is accepted.
+
+The normal branch of the algorithm follows the flowchart in [flowchart_diabat4_2_conceptbased](../diabatisation_code/flowchart_diabat4_2_conceptbased.md) or its code based [flowchart_diabat4_2_subroutinebased](../diabatisation_code/flowchart_diabat4_2_subroutinebased.md)
+
+The key propagation step is the finite-path version of
+
+$$\nabla \Cmat = -\F\Cmat$$
+
+Along a path from an old geometry $\Rv_0$ to a new geometry $\Rv_1$, this is written formally as
+
+$$\Cmat(\Rv_1)  = \mathcal P\exp\left[-\int_{\Rv_0}^{\Rv_1}\F(\Rv)\cdot d\Rv\right]\Cmat(\Rv_0)$$
+	​
+where $\mathcal p$ denotes path ordering. In the implementation, the path is normally treated as a local path between the nearest useful database point and the new geometry. The derivative coupling along this path is estimated from the available quantum-chemistry and database information. Richings and Worth describe this propagated-ADT idea as the basis of propagation diabatisation in DD-vMCG.
+
+Once the propagated transformation has been obtained, the final stored diabatic quantities are not just the predicted database quantities. In the normal successful branch, the actual quantum-chemistry adiabatic data are transformed into the diabatic representation. This is important: the database prediction is mainly used to choose phases, order states, detect dangerous cases, and build a stable transformation. It is not meant to replace the quantum-chemistry calculation unless the algorithm enters a fallback branch.
 
 
-
-2. **Guard 2 (seam crossing and ordering)**
-
-    Compare the ordering index of the new predicted diabatic energy $\W_{\text{pred}}(\mat q_+)$ and the closest point $\W_(\mat q)$. If the order is inconsistent, the conical intersection seam is crossed while taking the step and integration of the transformation matrix cannot account for this. Then the diabatic model at the closest point, $\W(\mat q)$,  $\Gdiab(\mat q)$  and $\Hdiab(\mat q)$,  along with the calculated raw QC calculation, $\V_{\text{QC}}(\mat q_+),\Gadiab_{\text{QC}}(\mat q_+),\Hadiab_{\text{QC}}(\mat q_+), \D_{\text{QC}}(\mat q_+)$ are feed into a cubic vibronic coupling model for optimisation 
-
-    $$
-    \W_{\text{qvc}}(\mat q_+) = \W(\mat q) + \left[\Gdiab(\mat q)\cdot \Delta\mat q\right] \mat q_+\left[(\Delta\mat q)^\text{T}\cdot\Hdiab(\mat q)\cdot\Delta\mat q\right]\mat q_+^2+\mat Z\mat q_+^3
-    $$
-
-    where it aims to minimise the projected adiabatic energy $\V_{\text{proj}}(\mat q_+)$ , adiabatic derivative coupling $\D_{\text{proj}}(\mat q_+)$, and diabatic gradient $\G_{\text{proj}}(\mat q_+)$ through optimising $\mat Z$. (I know it is unlike the normal Taylor model where 1/2x^THx, but it is how it is implemented in code). Then diagnolise the optimised qvc model:
-
-    $$
-    \Cmat_{\text{QVC}}(\mat q_+)\W_{\text{QVC}}(\mat q_+)\Cmat_{\text{QVC}}^\text{T}(\mat q_+)=\V_{\text{QVC}}(\mat q_+)
-    $$
-
-    Form diabatic gradient through:
-
-    $$
-    \Cmat_{\text{QVC}}^\text{T}(\Gadiab_{\text{QC}} + \D_{\text{QC}})\Cmat_{\text{QVC}} = \Gdiab_{\text{QVC}}
-    $$
-
-    and store the $\Cmat_{\text{QVC}}(\mat q_+)$, $\W_{\text{QVC}}$, and $\Gdiab_{\text{QVC}}$ along with the raw QV calculation
-
-3. **Guard 3 (small adiabatic energy gap)**
-    The energy gap of the adiabatic states at the new point is checked. If it is less than a threshold apart (0.05 eV), this is classed as a region of degeneracy where the quantum chemistry is not to be trusted. The predicted diabatic surfaces (using the same QVC optimisation described in Guard 2) are stored in the QC database, along with the adiabatic raw data
+The improved DD-vMCG implementation also refines database handling, interpolation, symmetry usage, and phase conventions. These refinements are part of making the propagated diabatic representation consistent over many on-the-fly quantum-chemistry points rather than just locally correct at a single step.
 
 
-4. **Guard 4 (failed calculations)**
-    If the QC calculation has failed (e.g., CAS has failed to converge), the predicted diabatic surfaces through either second order Taylor expansion from closted data point or Shepard interpolation with nearest 10 neighbour are stored along with the projected adiabatic surfaces.
+## Summary of the guard logic
 
-If none of the above condition is met, the points are in a continuous part of the diabatic space and the propagation diabatisation is used to propagate the transformation matrix from the old to new point, to obtain the new diabatic potentials from the adiabatic data.
+The guard logic can be summarised as
 
-Lastly,  before the final adiabatic-to-diabatic transformation
-is made, the phase of the eigenvectors that forms the transformation is changed to ensure that the diagonal elements are positive. Then the determinant of this matrix is chekced to ensure it is > 0, to ensure a proper rotation between $\frac{\pi}{2}$ and $-\frac{\pi}{2}$, by multiplying the second column of the ADT matrix by -1. 
+$$
+\boxed{
+\text{predict}
+\rightarrow
+\text{compare}
+\rightarrow
+\text{guard}
+\rightarrow
+\text{propagate or fallback}
+\rightarrow
+\text{store}
+}
+$$
+
+More explicitly:
+
+$$
+\mat W(\mat q_0),\mat G^{\mathrm D}(\mat q_0),\mat H^{\mathrm D}(\mat q_0)
+\longrightarrow
+\mat W_{\mathrm{pred}}(\mat q_+)
+\longrightarrow
+\Cmat_{\mathrm{pred}}(\mat q_+),\mat V_{\mathrm{pred}}(\mat q_+),\mat D_{\mathrm{pred}}(\mat q_+).
+$$
+
+Then the predicted quantities are compared with the raw quantum-chemistry quantities,
+
+$$
+\mat V^{\mathrm{QC}},
+\qquad
+\mat G^{\mathrm A}_{\mathrm{QC}},
+\qquad
+\mat D_{\mathrm{QC}}.
+$$
+
+The four guards are:
+
+$$
+\begin{array}{ll}
+\text{Guard 1:} &
+\text{coupling-vector continuity and sign},\\[3pt]
+\text{Guard 2:} &
+\text{diabatic ordering or seam crossing},\\[3pt]
+\text{Guard 3:} &
+\text{small adiabatic energy gap},\\[3pt]
+\text{Guard 4:} &
+\text{failed or unusable QC calculation}.
+\end{array}
+$$
+
+If none of these conditions is triggered, the point is accepted as part of a continuous region of the diabatic representation, and the propagated ADT matrix is used to transform the raw quantum-chemistry data. If any guard is triggered, the algorithm falls back to a predicted or local model so that the database is not contaminated by an unstable transformation.
+
+This is best understood as a practical finite-subspace algorithm. In the complete Hilbert space, the ADT equation can be formulated exactly. In DD-vMCG, only a finite number of electronic states is retained, so the algorithm relies on the retained subspace being sufficiently isolated and on the neglected couplings being small. Baer's finite-subspace ADT theory gives the theoretical background for this quasi-diabatic viewpoint.
+
+---
+
+
+### Practical caveats
+
+Propagation diabatisation is a local and path-dependent construction when applied in a finite electronic subspace. In a complete Hilbert space, the ADT condition can be formulated exactly. In a practical calculation, only a finite number of electronic states is retained, so the neglected couplings must be small for the transformed subspace to behave as a good quasi-diabatic space. Baer’s finite-subspace treatment and curl-condition analysis are the appropriate theoretical background for this point.
+
+The multi-state case is also more delicate than the two-state case. In a three-state system, the ADT matrix can be written as a product of elementary rotations, leading to coupled first-order equations for three ADT angles. Different product orders give different angle equations, although the transformation matrix is fixed once the boundary conditions are fixed. This belongs in a deep-dive page, but the main intermediate page should warn the reader that multi-state propagation is not just several independent two-state transformations.

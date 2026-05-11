@@ -1,6 +1,9 @@
-### Theory and Brief Algorithm Breakdown
+### Main Overviews
 
 [Propagatin Diabatisation](intermediates/int01_propagation_diabatisation.md)
+
+### Supporting documents
+[text](intermediates/int01_propagation_diabatisation_safetyguard_breakdown.md)
 
 ### Code breakdown
 [Code: propagation Diabatisation](diabatisation_code/code_propagation_diabatisation.md)

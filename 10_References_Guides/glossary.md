@@ -1,4 +1,4 @@
-## 15. Short glossary
+## Short glossary
 
 **Adiabatic states:** eigenstates of the electronic Hamiltonian at fixed nuclear geometry.
 
