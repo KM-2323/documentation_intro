@@ -43,7 +43,9 @@ window.MathJax = {
      odag:['{#1}^{\\dagger}',1],
      rv:['\\mat r'],
      Rv:['\\mat R'],
-     I:['\\mat 1']
+     I:['\\mat 1'],
+     qv:['\\mat q'],
+     Qv:['\\mat Q']
 
 
 
