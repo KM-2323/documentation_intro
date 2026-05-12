@@ -111,6 +111,7 @@ defaults:
       path: "10_References_Guides"
     values:
       section_title: "References and Guides"
+      section_url: "/10_References_Guides/"
   - scope:
       path: "derivations"
     values:

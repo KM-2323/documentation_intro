@@ -26,7 +26,7 @@ $$
 \left(
 2\F\cdot\nabla_{\mat q}
 +
-\G
+\Gmat
 \right).
 \label{eq:lambda_operator}
 \end{align}
@@ -41,7 +41,7 @@ $$
 and
 
 $$
-(\G)_{ji} = G_{ji} = \sum_\alpha \braket{\psi_j}  {\frac{\partial^2 \psi_i}{\partial q_\alpha^2} }. \tag{1}
+(\Gmat)_{ji} = G_{ji} = \sum_\alpha \braket{\psi_j}  {\frac{\partial^2 \psi_i}{\partial q_\alpha^2} }. \tag{1}
 $$
 
 The contraction $\F \cdot \nabla_{\mat{q}}$ means
@@ -105,7 +105,7 @@ The adiabatic approximation is the step where we neglect the derivative-coupling
 
 $$
 \begin{align}
-\frac12\sum_{\alpha}\frac{1}{M_\alpha}\left({2\mat F_{\alpha}^{\mat R}\pder{R_{\alpha}}+\G_{\alpha}^{\mat R}}\right)\approx0
+\frac12\sum_{\alpha}\frac{1}{M_\alpha}\left({2\mat F_{\alpha}^{\mat R}\pder{R_{\alpha}}+\Gmat_{\alpha}^{\mat R}}\right)\approx0
 \end{align}
 $$
 

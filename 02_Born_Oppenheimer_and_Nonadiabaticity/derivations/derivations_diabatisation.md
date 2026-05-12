@@ -87,12 +87,12 @@ $$
 \left[
 2\F\cdot\nabla_{\mat q}
 +
-\G
+\Gmat
 \right],
 \end{align}
 $$
 
-where $\G$ is the scalar second-derivative coupling matrix. Acting on $\chivec^{(a)}=\Cmat\chivec^{(d)}$ gives
+where $\Gmat$ is the scalar second-derivative coupling matrix. Acting on $\chivec^{(a)}=\Cmat\chivec^{(d)}$ gives
 
 $$
 \begin{align}
@@ -101,7 +101,7 @@ $$
 \left[
 2\F\cdot\nabla_{\mat q}
 +
-\G
+\Gmat
 \right]
 \left[
 \Cmat\chivec^{(d)}
@@ -117,7 +117,7 @@ $$
 2\left(\F\Cmat\right)\cdot
 \left(\nabla_{\mat q}\chivec^{(d)}\right)
 +
-\G\Cmat\chivec^{(d)}
+\Gmat\Cmat\chivec^{(d)}
 \right]
 \nonumber\\
 &=
@@ -128,7 +128,7 @@ $$
 +
 2\left(\F\Cmat\right)\cdot\nabla_{\mat q}
 +
-\G\Cmat
+\Gmat\Cmat
 \right]
 \chivec^{(d)}.
 \label{eq:lambda_on_transformed_nuclear_wf}
@@ -165,7 +165,7 @@ $$
 2\F\cdot
 \left(\nabla_{\mat q}\Cmat\right)
 +2\left(\F\Cmat\right)\cdot\nabla_{\mat q}
-+\G\Cmat
++\Gmat\Cmat
 \right]
 \Bigg]
 \chivec^{(d)}
@@ -177,7 +177,7 @@ $$
 \left(\nabla_{\mat q}^{2}\Cmat\right)
 +2\F\cdot
 \left(\nabla_{\mat q}\Cmat\right)
-+\G\Cmat
++\Gmat\Cmat
 \right]
 \right.
 \nonumber\\
@@ -219,7 +219,7 @@ If the retained adiabatic electronic functions form a complete set, or an effect
 $$
 \begin{align}
 \nabla_{\mat q}\cdot\F
-=\G-\F\cdot\F.
+=\Gmat-\F\cdot\F.
 \label{eq:divergence_identity_F_G}
 \end{align}
 $$
@@ -249,7 +249,7 @@ $$
 \begin{align}
 \nabla_{\mat q}^{2}\Cmat
 +\left(
-\G-\F\cdot\F
+\Gmat-\F\cdot\F
 \right)\Cmat
 +\F\cdot
 \left(
@@ -257,7 +257,7 @@ $$
 \right)
 &=0\nonumber\\
 \nabla_{\mat q}^{2}\Cmat
-+\G\Cmat
++\Gmat\Cmat
 -\left(\F\cdot\F\right)\Cmat
 +\F\cdot
 \left(
@@ -266,7 +266,7 @@ $$
 &=0
 \nonumber\\
 \nabla_{\mat q}^{2}\Cmat
-+\G\Cmat
++\Gmat\Cmat
 +\F\cdot
 \left[
 \nabla_{\mat q}\Cmat-\F\Cmat
@@ -280,7 +280,7 @@ Substituting Eq. \eqref{eq:ADT_transform_differential}, equivalently $\F\Cmat=-\
 $$
 \begin{align}
 \nabla_{\mat q}^{2}\Cmat
-+\G\Cmat+
++\Gmat\Cmat+
 2\F\cdot
 \left(
 \nabla_{\mat q}\Cmat

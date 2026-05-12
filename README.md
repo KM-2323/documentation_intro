@@ -23,7 +23,7 @@ Welcome to the Worth Group. This site is a modular knowledge base for readers of
   - Implementation notes for direct-dynamics machinery and related code paths.
 
 - [06 Diabatisation Deep Dive](06_diabatisation_deeperdive/)
-  - Theory, implementation notes, flowcharts, derivations, and specialised topics for propagation diabatisation.
+  - Theory, implementation notes, flowcharts, derivations, and specialised topics for implemented diabatisation schemes.
 
 - [Jekyll Site Maintenance](10_References_Guides/Jekyll_site_maintenance.md)
   - How GitHub Pages builds the site, how to preview locally, and how to update shared layouts, navigation, and MathJax config.
