@@ -1,23 +1,32 @@
 # Quantics Knowledge Map
 
-Welcome to the Worth Group. This site serves as a modular knowledge base for readers of all levels to explore the theories, mathematical derivations, physical interpretations, and code implementations central to Quantum Dynamics. Detailed references are also provided for keener readers.
+Welcome to the Worth Group. This site is a modular knowledge base for readers of different levels to explore the theory, derivations, physical interpretation, and code implementation behind quantum dynamics methods.
 
-Overall structure:
+## Overall Structure
 
-* [System Architecture](architecture.md)
-    - An outline of the documentation's structure and a complete table of contents for this guide.
-* [00_project_overview](00_project_overview/index.md)
-    - Essential reading before you begin. This section includes our project aims, a visual knowledge map, and a guide on how to best utilize this textbook.
-* [01_Primer](01_Primer)
-    - Short refresher on prelimineary mathematical concepts and theory and other related mathematical techniques that are often seen 
-* [02_Born_Oppenheimer_and_TDSE](02_Born_Oppenheimer_and_Nonadiabaticity/index.md)
-    - The foundational theory section covering the Time-Dependent Schrodinger Equation, the Born-Oppenheimer approximation, and nonadiabaticity.
-* [03_MCTDH_Family](03_MCTDH_Family)
-* [05_Direct Dynamics](05_Direct_Dynamics)
-* [06_Diabatisation](06_diabatisation_deeperdive/)
-    - Deeper dives on the various implemented diabatisation schemes. Including brief theoretical overview, bird view of the implemented code, flow charts (subroutine orietated and concept targetted),
-      derivations on equations, and specialised topics surrounding the topics (examples are topological spin,and quantization of ADT matrices)
-* [Jekyll site maintenance](10_References_Guides/Jekyll_site_maintenance.md)
-    - How GitHub Pages builds the site, how to preview locally, and how to update shared layouts, navigation, and MathJax config.
-* [Notation and symbols glossary](10_References_Guides/Symbols_and_notations.md)
-    - A glossary detailing the definitions of symbols and notations used in Quantics-Knowledge Base
+- [System Architecture](architecture.md)
+  - A structural map of the documentation and a high-level table of contents for the guide.
+
+- [00 Project Overview](00_project_overview/)
+  - Essential reading before starting: project aims, the knowledge map, and guidance on how to use the textbook.
+
+- [01 Primer](01_Primer/)
+  - Short refreshers on mathematical concepts and background tools used throughout the notes.
+
+- [02 Born-Oppenheimer And Nonadiabaticity](02_Born_Oppenheimer_and_Nonadiabaticity/)
+  - Foundational theory covering the Born-Huang expansion, adiabatic approximations, diabatic representations, nonadiabatic couplings, and conical intersections.
+
+- [03 MCTDH Family](03_MCTDH_Family/)
+  - Notes and diagrams for the MCTDH family of methods.
+
+- [05 Direct Dynamics](05_Direct_Dynamics/)
+  - Implementation notes for direct-dynamics machinery and related code paths.
+
+- [06 Diabatisation Deep Dive](06_diabatisation_deeperdive/)
+  - Theory, implementation notes, flowcharts, derivations, and specialised topics for propagation diabatisation.
+
+- [Jekyll Site Maintenance](10_References_Guides/Jekyll_site_maintenance.md)
+  - How GitHub Pages builds the site, how to preview locally, and how to update shared layouts, navigation, and MathJax config.
+
+- [Notation And Symbols Glossary](10_References_Guides/Symbols_and_notations.md)
+  - Definitions of the symbols and notation used throughout the knowledge base.
