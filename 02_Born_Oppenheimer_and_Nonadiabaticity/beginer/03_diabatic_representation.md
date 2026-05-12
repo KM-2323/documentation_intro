@@ -205,13 +205,13 @@ $$
 \end{align}
 $$
 
-which is not diagonal in general. The price paid for removing the derivative couplings is the appearance of off-diagonal potential couplings.
+which is not diagonal in general. The price paid for removing the nonadiabatic couplings vector is the appearance of off-diagonal potential couplings.
 
-Strictly speaking, Eq. \eqref{eq:ADT_transform_differential} can be satisfied globally only when the chosen electronic space has the required integrability properties. In a complete Hilbert space, or in an isolated finite subspace that behaves as a complete subspace, this condition can be treated exactly. In practical calculations, however, only a finite number of electronic states is retained, so one usually constructs a quasi-diabatic representation: the derivative couplings are not always removed exactly, but are made sufficiently small and smooth that the dominant coupling is represented by the off-diagonal elements of $\W$.
+Strictly speaking, Eq. \eqref{eq:ADT_transform_differential} can be satisfied globally only when the chosen electronic space has the required integrability properties. In a complete Hilbert space, or in an isolated finite subspace that behaves as a complete subspace, this condition can be treated exactly. In practical calculations, however, only a finite number of electronic states is retained, so one usually constructs a quasi-diabatic representation: the nonadiabatic coupling vectors are not always removed exactly, but are made sufficiently small and smooth that the dominant coupling is represented by the off-diagonal elements of $\W$.
 
-This distinction is important. Diabatisation does not remove nonadiabatic physics; it moves the coupling from the nuclear kinetic energy operator into the potential energy matrix. This is especially useful near degeneracies, where the adiabatic derivative couplings may become singular, while the corresponding diabatic potential couplings can remain smooth.
+This distinction is important. Diabatisation does not remove nonadiabatic physics; it moves the coupling from the nuclear kinetic energy operator into the potential energy matrix. This is especially useful near degeneracies, where the adiabatic nonadiabatic coupling vectors may become singular, while the corresponding diabatic potential couplings can remain smooth.
 
-This also prepares the way for the next topic. Around a conical intersection, the adiabatic electronic states can acquire a sign change after encircling the degeneracy. The transformation $\Cmat$ therefore carries not only local information about derivative couplings, but also global topological information. This is why the existence of a smooth local diabatic representation does not automatically guarantee a globally single-valued diabatic representation.
+This also prepares the way for the next topic. Around a conical intersection, the adiabatic electronic states can acquire a sign change after encircling the degeneracy. The transformation $\Cmat$ therefore carries not only local information about nonadiabatic coupling vectors, but also global topological information. This is why the existence of a smooth local diabatic representation does not automatically guarantee a globally single-valued diabatic representation.
 
 
 

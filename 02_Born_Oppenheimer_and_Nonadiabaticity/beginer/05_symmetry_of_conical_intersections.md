@@ -1851,7 +1851,7 @@ This classification is about surface topography, not about the symmetry origin o
 
 The adiabatic representation is natural for electronic-structure calculations, but it is awkward at a conical intersection because the NACV becomes singular.
 
-A diabatic or quasi-diabatic representation moves the singularity out of the derivative coupling and into smooth potential-like couplings. In such a representation, the nuclear dynamics is governed by a smooth diabatic potential matrix $\mat W$.
+A diabatic or quasi-diabatic representation moves the singularity out of the derivative couplings ($\F \texty{ and } \Gmat$) and into smooth potential-like couplings. In such a representation, the nuclear dynamics is governed by a smooth diabatic potential matrix $\mat W$.
 
 This is why the symmetry selection rules are especially useful in diabatic models:
 

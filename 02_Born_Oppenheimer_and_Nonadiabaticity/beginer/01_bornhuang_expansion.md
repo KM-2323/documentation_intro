@@ -341,7 +341,7 @@ $$
 
 Unlike $\F_{ji}$, $G_{ji}$ is a scalar function of the nuclear coordinates for each pair of electronic states. The collection of all $G_{ji}$ forms an $N_{\mathrm s}\times N_{\mathrm s}$ matrix $\mat G$.
 
-Terminology note: $\F_{ji}$ is often called the derivative coupling vector, nonadiabatic coupling vector, or first-order nonadiabatic coupling term. To avoid ambiguity in later sections, this guide will usually use the term *nonadiabatic coupling vector (NACV)* for Eq. $\eqref{eq:first_derivative_coupling}$. The term derivative coupling will be introduced carefully when discussing diabatisation and DD-vMCG.
+Terminology note: $\F_{ji}$ is often called the derivative coupling vector, nonadiabatic coupling vector, or first-order nonadiabatic coupling term. To avoid ambiguity in later sections, this guide will usually use the term *nonadiabatic coupling vector (NACV)* for Eq. $\eqref{eq:first_derivative_coupling}$. The term derivative coupling /electronic derivative coupling will be introduced carefully when discussing diabatisation and DD-vMCG.
 
 For real electronic eigenfunctions, the nonadiabatic coupling matrix (NACM) is antisymmetric,
 
