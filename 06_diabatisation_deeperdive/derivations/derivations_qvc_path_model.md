@@ -1,4 +1,4 @@
-# One-dimensional cubic path model used by `optqvc`
+# One-dimensional cubic path model used by `optqvc`: Math only no code
 
 ## Purpose
 

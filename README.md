@@ -13,6 +13,7 @@ Overall structure:
 * [02_Born_Oppenheimer_and_TDSE](02_Born_Oppenheimer_and_Nonadiabaticity/index.md)
     - The foundational theory section covering the Time-Dependent Schrodinger Equation, the Born-Oppenheimer approximation, and nonadiabaticity.
 * [03_MCTDH_Family](03_MCTDH_Family)
+* [05_Direct Dynamics](05_Direct_Dynamics)
 * [06_Diabatisation](06_diabatisation_deeperdive/index.md)
     - Deeper dives on the various implemented diabatisation schemes. Including brief theoretical overview, bird view of the implemented code, flow charts (subroutine orietated and concept targetted),
       derivations on equations, and specialised topics surrounding the topics (examples are topological spin,and quantization of ADT matrices)

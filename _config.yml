@@ -51,33 +51,38 @@ defaults:
       section_title: "MCTDH Family"
       section_url: "/03_MCTDH_Family/"
   - scope:
-      path: "06_diabatisation_deeperdive"
+      path: "05_Direct_Dynamics"
     values:
-      section_title: "Diabatisation Deep Dive"
-      section_url: "/06_diabatisation_deeperdive/"
+      section_title: "Direct Dynamics"
+      section_url: "/05_Direct_Dynamics/"
   - scope:
-      path: "06_diabatisation_deeperdive/intermediates"
+      path: "06_Diabatisation_Deeperdive"
     values:
       section_title: "Diabatisation Deep Dive"
-      section_url: "/06_diabatisation_deeperdive/"
+      section_url: "/06_Diabatisation_Deeperdive/"
+  - scope:
+      path: "06_Diabatisation_Deeperdive/intermediates"
+    values:
+      section_title: "Diabatisation Deep Dive"
+      section_url: "/06_Diabatisation_Deeperdive/"
       subsection_title: "Theory and Main Idea"
   - scope:
-      path: "06_diabatisation_deeperdive/code+breakdown"
+      path: "06_Diabatisation_Deeperdive/code+breakdown"
     values:
       section_title: "Diabatisation Deep Dive"
-      section_url: "/06_diabatisation_deeperdive/"
+      section_url: "/06_Diabatisation_Deeperdive/"
       subsection_title: "Code Breakdown"
   - scope:
-      path: "06_diabatisation_deeperdive/derivations"
+      path: "06_Diabatisation_Deeperdive/derivations"
     values:
       section_title: "Diabatisation Deep Dive"
-      section_url: "/06_diabatisation_deeperdive/"
+      section_url: "/06_Diabatisation_Deeperdive/"
       subsection_title: "Derivations"
   - scope:
-      path: "06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive"
+      path: "06_Diabatisation_Deeperdive/specialised_propagation_diabatisation_deepdive"
     values:
       section_title: "Diabatisation Deep Dive"
-      section_url: "/06_diabatisation_deeperdive/"
+      section_url: "/06_Diabatisation_Deeperdive/"
       subsection_title: "Specialised Topics"
   - scope:
       path: "10_References_Guides"

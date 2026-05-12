@@ -73,7 +73,7 @@ This is just the upper-triangular state-pair index flattened into a one-dimensio
 
 - `aderiv2(N,N,S,S)` **[intent(in)]**: Actual QC adiabatic Hessians passed into `transform`.
 
-  **Important correction:** although `dddb_rd` produces a predicted diabatic Hessian in `deriv2`, the failed-QC branch does **not** overwrite `aderiv2`, because `aderiv2` is `intent(in)`. Therefore, from the code shown here, the fallback explicitly replaces energies, first derivatives, and pair couplings, but not the input adiabatic Hessian array. The output `deriv2` is later produced by `transform` using whatever `aderiv2` was supplied by the caller.
+
 
 - `dercp(N,P)` **[intent(inout)]**: Actual QC derivative-coupling / NAC-like vectors for state pairs. This is one of the most important inputs. In the normal branch, `diabat4_2` may flip signs in this array to align the QC phase convention with the DB prediction. In the failed-QC branch, `dercp` is overwritten by model-predicted pair vectors.
 
@@ -504,8 +504,7 @@ Since `qqtxdd(A,B,C)` computes $C=A^T B$, this is:
 
 $$
 \G^{A,0}_q
-=
-\Smat^T\G^{D,0}_q\Smat.
+=\Smat^T\G^{D,0}_q\Smat.
 $$
 
 Here:
@@ -669,8 +668,7 @@ Mathematically, for pair $(i,j)$:
 
 $$
 o_{ij}
-=
-\frac{\mat d^{\text{QC}}_{ij}\cdot \mat d^{\text{DB}}_{ij}}
+=\frac{\mat d^{\text{QC}}_{ij}\cdot \mat d^{\text{DB}}_{ij}}
 {\|\mat d^{\text{QC}}_{ij}\|\,\|\mat d^{\text{DB}}_{ij}\|}.
 $$
 
