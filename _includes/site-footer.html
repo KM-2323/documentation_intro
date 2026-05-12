@@ -1,0 +1,20 @@
+<footer class="site-footer-custom" role="contentinfo">
+  <div class="site-footer-custom__meta">
+    Last updated:
+    {% if page.last_updated %}
+      {{ page.last_updated }}
+    {% else %}
+      {{ site.time | date: "%Y-%m-%d" }}
+    {% endif %}
+  </div>
+
+  <nav class="site-footer-custom__links" aria-label="Footer navigation">
+    {% for link in site.footer_links %}
+      <a href="{{ link.url | relative_url }}">{{ link.title }}</a>
+    {% endfor %}
+
+    {% if site.repository_url %}
+      <a href="{{ site.repository_url }}">Repository</a>
+    {% endif %}
+  </nav>
+</footer>

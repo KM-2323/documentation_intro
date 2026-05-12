@@ -1,0 +1,48 @@
+- title: Born-Oppenheimer Reading Path
+  pages:
+    - title: Born-Oppenheimer And Nonadiabaticity
+      url: /02_Born_Oppenheimer_and_Nonadiabaticity/
+    - title: Born-Huang Expansion
+      url: /02_Born_Oppenheimer_and_Nonadiabaticity/beginer/01_bornhuang_expansion.html
+    - title: Adiabatic Approximations
+      url: /02_Born_Oppenheimer_and_Nonadiabaticity/beginer/02_adiabatic_approximations.html
+    - title: Diabatic Representation
+      url: /02_Born_Oppenheimer_and_Nonadiabaticity/beginer/03_diabatic_representation.html
+    - title: Introduction To Conical Intersections
+      url: /02_Born_Oppenheimer_and_Nonadiabaticity/beginer/04_conical_intersections.html
+    - title: Symmetry Of Conical Intersections
+      url: /02_Born_Oppenheimer_and_Nonadiabaticity/beginer/05_symmetry_of_conical_intersections.html
+    - title: Grouped Born Approximations
+      url: /02_Born_Oppenheimer_and_Nonadiabaticity/intermediates/int01_group_born_approximations.html
+    - title: Conical Intersections, More Formal Treatment
+      url: /02_Born_Oppenheimer_and_Nonadiabaticity/intermediates/int02_conical_intersections.html
+
+- title: Direct Dynamics Reading Path
+  pages:
+    - title: Direct Dynamics
+      url: /05_Direct_Dynamics/
+    - title: Subroutine dddb_gp
+      url: /05_Direct_Dynamics/code+breakdown/subroutine_dddb_gp.html
+
+- title: Diabatisation Reading Path
+  pages:
+    - title: Diabatisation Deep Dive
+      url: /06_diabatisation_deeperdive/
+    - title: Propagation Diabatisation
+      url: /06_diabatisation_deeperdive/intermediates/int01_propagation_diabatisation_main.html
+    - title: Propagation Diabatisation Safety-Guard Breakdown
+      url: /06_diabatisation_deeperdive/intermediates/int01_propagation_diabatisation_safetyguard_breakdown.html
+    - title: Specialised Topics
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/
+    - title: Analyticity, Unique Existence, And Path Dependence
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/analyticity_unique_existence.html
+    - title: Curl Condition And Path Dependence
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/curl_condition_path_dependence.html
+    - title: Good Sub-Hilbert Space
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/good_subhilbert_space.html
+    - title: Topological Spin
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/topological_spin.html
+    - title: Split Diabatic Representations And Residual Couplings
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/split_diabatic_representations_and_residual_couplings/
+    - title: Connections Between Split Diabatic Representations And Residual Couplings
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/split_diabatic_representations_and_residual_couplings/split_diabatic_representation_and_residual_coupling.html

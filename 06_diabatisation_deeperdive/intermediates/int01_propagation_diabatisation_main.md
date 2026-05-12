@@ -204,18 +204,19 @@ If a guard is triggered, the algorithm uses a safer predicted or local model so 
 
 ### Related notes
 
-- Residual derivative coupling
-- Split diabatic representations
+- [Residual derivative coupling](../specialised_propagation_diabatisation_deepdive/split_diabatic_representations_and_residual_couplings/split_diabatic_representation_and_residual_coupling.md)
+- [Split diabatic representations](../specialised_propagation_diabatisation_deepdive/split_diabatic_representations_and_residual_couplings/split_diabatic_representation_and_residual_coupling.md)
 - Path-integrated ADT equation
-- QVC path model
+- [QVC path model](../derivations/derivations_qvc_path_model.md)
+- [Transformation between diabatic and adiabatic data](../derivations/derivations_adiab_diab_relation.md)
 - Baer line-integral theory
 - Curl condition and path dependence
 - NACT sign assignment
 - Three-state ADT angles
-- Main code driver: `diabat4_2`
-- Database prediction: `dddb_rd_gp`
-- Path integration: `intengap4` and `stepnact4`
-- Fallback QVC optimisation: `optqvc`
+- Main code driver: [`diabat4_2`](../code+breakdown/subroutine_diabat4_2.md)
+- Database prediction: [`dddb_rd_gp`](../code+breakdown/subroutine_dddb_rd_gp.md)
+- Path integration: [`intengap4` and `stepnact4`](../code+breakdown/subroutine_integap4_stepnact.md)
+- Fallback QVC optimisation: [`optqvc`](../code+breakdown/subroutine_optqvc.md)
 - Final transformation of QC data
 
 ---

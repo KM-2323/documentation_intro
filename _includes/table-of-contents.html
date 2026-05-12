@@ -1,0 +1,8 @@
+{% unless page.toc == false %}
+<aside class="page-toc" aria-label="Table of contents" data-min-headings="{{ page.toc_min_headings | default: site.toc_min_headings | default: 3 }}">
+  <div class="page-toc__inner">
+    <strong class="page-toc__title">On this page</strong>
+    <nav id="page-toc-list" class="page-toc__list"></nav>
+  </div>
+</aside>
+{% endunless %}

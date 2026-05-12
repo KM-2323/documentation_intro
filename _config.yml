@@ -1,5 +1,18 @@
 title: Quantics Knowledge Base
 remote_theme: pages-themes/cayman@v0.2.0
+repository_url: https://github.com/KM-2323/documentation_intro
+toc_min_headings: 3
+footer_links:
+  - title: Home
+    url: /
+  - title: Born-Oppenheimer
+    url: /02_Born_Oppenheimer_and_Nonadiabaticity/
+  - title: Direct Dynamics
+    url: /05_Direct_Dynamics/
+  - title: Diabatisation
+    url: /06_diabatisation_deeperdive/
+  - title: References
+    url: /10_References_Guides/
 plugins:
   - jekyll-remote-theme
 defaults:
@@ -7,6 +20,7 @@ defaults:
       path: "" # An empty string means this applies to all files in the project
     values:
       layout: "custom"
+      toc: true
   - scope:
       path: "00_project_overview"
     values:

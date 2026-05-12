@@ -1,0 +1,59 @@
+{% assign current_url = page.url | replace: 'index.html', '' %}
+{% assign prev_title = '' %}
+{% assign prev_url = '' %}
+{% assign next_title = '' %}
+{% assign next_url = '' %}
+
+{% if site.data.reading_paths %}
+  {% for path in site.data.reading_paths %}
+    {% assign prior_title = '' %}
+    {% assign prior_url = '' %}
+    {% assign pending_next = false %}
+
+    {% for item in path.pages %}
+      {% if pending_next and next_title == '' %}
+        {% assign next_title = item.title %}
+        {% assign next_url = item.url %}
+        {% assign pending_next = false %}
+      {% endif %}
+
+      {% assign item_url = item.url | replace: 'index.html', '' %}
+      {% if item_url == current_url %}
+        {% assign prev_title = prior_title %}
+        {% assign prev_url = prior_url %}
+        {% assign pending_next = true %}
+      {% endif %}
+
+      {% assign prior_title = item.title %}
+      {% assign prior_url = item.url %}
+    {% endfor %}
+  {% endfor %}
+{% endif %}
+
+{% if page.nav_prev %}
+  {% assign prev_title = page.nav_prev.title %}
+  {% assign prev_url = page.nav_prev.url %}
+{% endif %}
+
+{% if page.nav_next %}
+  {% assign next_title = page.nav_next.title %}
+  {% assign next_url = page.nav_next.url %}
+{% endif %}
+
+{% if prev_title != '' or next_title != '' %}
+<nav class="prev-next" aria-label="Previous and next pages">
+  {% if prev_title != '' %}
+    <a class="prev-next__link prev-next__link--prev" href="{{ prev_url | relative_url }}">
+      <span class="prev-next__label">Previous</span>
+      <span class="prev-next__title">{{ prev_title }}</span>
+    </a>
+  {% endif %}
+
+  {% if next_title != '' %}
+    <a class="prev-next__link prev-next__link--next" href="{{ next_url | relative_url }}">
+      <span class="prev-next__label">Next</span>
+      <span class="prev-next__title">{{ next_title }}</span>
+    </a>
+  {% endif %}
+</nav>
+{% endif %}
