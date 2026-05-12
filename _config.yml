@@ -56,34 +56,43 @@ defaults:
       section_title: "Direct Dynamics"
       section_url: "/05_Direct_Dynamics/"
   - scope:
-      path: "06_Diabatisation_Deeperdive"
+      path: "06_diabatisation_deeperdive"
     values:
       section_title: "Diabatisation Deep Dive"
-      section_url: "/06_Diabatisation_Deeperdive/"
+      section_url: "/06_diabatisation_deeperdive/"
   - scope:
-      path: "06_Diabatisation_Deeperdive/intermediates"
+      path: "06_diabatisation_deeperdive/intermediates"
     values:
       section_title: "Diabatisation Deep Dive"
-      section_url: "/06_Diabatisation_Deeperdive/"
+      section_url: "/06_diabatisation_deeperdive/"
       subsection_title: "Theory and Main Idea"
   - scope:
-      path: "06_Diabatisation_Deeperdive/code+breakdown"
+      path: "06_diabatisation_deeperdive/code+breakdown"
     values:
       section_title: "Diabatisation Deep Dive"
-      section_url: "/06_Diabatisation_Deeperdive/"
+      section_url: "/06_diabatisation_deeperdive/"
       subsection_title: "Code Breakdown"
   - scope:
-      path: "06_Diabatisation_Deeperdive/derivations"
+      path: "06_diabatisation_deeperdive/derivations"
     values:
       section_title: "Diabatisation Deep Dive"
-      section_url: "/06_Diabatisation_Deeperdive/"
+      section_url: "/06_diabatisation_deeperdive/"
       subsection_title: "Derivations"
   - scope:
-      path: "06_Diabatisation_Deeperdive/specialised_propagation_diabatisation_deepdive"
+      path: "06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive"
     values:
       section_title: "Diabatisation Deep Dive"
-      section_url: "/06_Diabatisation_Deeperdive/"
+      section_url: "/06_diabatisation_deeperdive/"
       subsection_title: "Specialised Topics"
+      subsection_url: "/06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/"
+  - scope:
+      path: "06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/split_diabatic_representations_and_residual_couplings"
+    values:
+      section_title: "Diabatisation Deep Dive"
+      section_url: "/06_diabatisation_deeperdive/"
+      subsection_title: "Specialised Topics"
+      subsection_url: "/06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/"
+      subsubsection_title: "Connections between residual couplings and split diabatic representations"
   - scope:
       path: "10_References_Guides"
     values:

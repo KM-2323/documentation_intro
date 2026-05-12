@@ -89,6 +89,8 @@ In a complete electronic Hilbert space, Eq. $\eqref{eq:pd_adt_equation}$ can be 
 
 Propagation diabatisation is best understood as a practical, on-the-fly construction of a quasi-diabatic basis. It does not require locating a conical intersection before the dynamics begins, and it can be extended to more than two electronic states. Richings and Worth introduced the scheme for DD-vMCG, and later work extended it to multi-state direct-dynamics calculations.
 
+For keen readers and understanding how the adiabatic and diabatic matrix elements are related. See [deriving the relation between adiabatic and diabatic matrix elements](../derivations/derivations_adiab_diab_relation.md)
+
 ---
 
 ### Algorithmic overview

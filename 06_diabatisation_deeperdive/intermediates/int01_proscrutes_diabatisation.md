@@ -1,70 +1,74 @@
 ## Procrustes diabatization 2020
-## Projection diabatization}
-\textbf{Central idea}: mix
-adiabatic states in such a way that the rate of change of the states
-with respect to the nuclear coordinates is minimized, and hence the
-NACTs are minimized = diabatic representation is one where
-the character of the states (e.g., ionic and covalent) does not change
-as a function of nuclear coordinate.
+## Projection diabatization
+**Central idea**: 
+mix adiabatic states in such a way that the rate of change of the states with respect to the nuclear coordinates is minimized, and hence the NACVs are minimized = diabatic representation is one where the character of the states (e.g., ionic and covalent) does not change as a function of nuclear coordinate.
 
-### Assumption and background}
+### Assumption and background
 The method relies on configuration interaction expansions of the electronic wavefunction (CASSCF and RASSCF) where the adiabatic states are expanded in term of a set of Slater determinants. So for state $s$:
+
 $$\begin{align} 
     \ket{\psi_s} = \sum_{i=1}^{N_{\text{config}}}c_i^s\ket{\phi_i}
     \label{eq:CI_expansion}
 \end{align}$$
+
 with $\{c_i^s\}$  are the coefficients corresponding to each configuration
 represented by the determinant, $\{\phi_i\}$
 
-### Projection diabatisation; Central algorithm}
-1. Choose a reference geometry $\qv_0$
+### Projection diabatisation; Central algorithm
+1. Choose a reference geometry $\qv_0$:
     At $\qv_0$ the adiabatic and and diabatic states are defined to be the same/ $\Cmat(\qv_0)=\I$, so the adiabates at $\qv_0$ define the diabatic manifold. Perform SA-CASSCF with only number of states interested
 2. At other geometry $\qv$: Perform two eletronic-structure calculations
     a.Standard SA-CASSCF with only number of states interested = produces natural orbitals and CI vectors at $\qv$
     b.rotate the active MOs at $\qv$ so that they have maximal overlap with the active MOs at $\qv_0$ (diabatize the MOs). Then perform a CI‑only calculation using these diabatized MOs to get CI vectors in a basis of orbitals that closely match those at $\qv_0$. This calculation should include larger number of states than state of interest. 
 3. Construct a projector in CI space
-    a. Take the CI vectors of the diabatic manifold at $\qv_0$ (first N states)
+    1. Take the CI vectors of the diabatic manifold at $\qv_0$ (first N states)
     b. Build a projector $\hat P$ onto the subspace spanned by these CI vectors.
-    c. Apply $\hat P$ to the CI vectors for all states at $\qv$. This extracts only those components of the CI space at $\qv$ that live in the reference manifold.
-4.Use Procrustes rotation in CI space
-    a. After the projection, you have a set of vectors at $\qv$ that span essentially the same subspace as the reference diabats at $\qv_0$
-, but are not yet optimally aligned with them. 
-    b. Apply the orthogonal Procrustes solution to rotate these CI vectors so that they are as close as possible to the reference CI vectors. This gives you a unitary matrix, and that matrix is taken as the ADT matrix $\Cmat$
+    2. Apply $\hat P$ to the CI vectors for all states at $\qv$. This extracts only those components of the CI space at $\qv$ that live in the reference manifold.
+4. Use Procrustes rotation in CI space
+    1. After the projection, you have a set of vectors at $\qv$ that span essentially the same subspace as the reference diabats at $\qv_0$, but are not yet optimally aligned with them. 
+    2. Apply the orthogonal Procrustes solution to rotate these CI vectors so that they are as close as possible to the reference CI vectors. This gives you a unitary matrix, and that matrix is taken as the ADT matrix $\Cmat$
 
 Intuitively:1. The MO rotation step minimizes the part of the NACTs thatt comes from how the determinants themselves change with geometry. 2. The CI-vector Procrustes step minimizes the remaining part coming frorm changes in CI coefficients. (can been seen is we expand NACT using \ref{eq:CI_expansion} )
+
 $$\begin{align} 
     \F_{ab}&=\braket{\psi_a}{\nabla\psi_b}\\
     &=\sum_{i,j=1}^{N_{\text{config}}}\mel{c_i^{a*}\phi_i}{\nabla}{c_j^{b}\phi_j}\\
     &=\sum_{i,j=1}^{N_{\text{config}}}c_i^{a*}c_j^{b}\braket{\phi_i}{\nabla\phi_j}+\sum_{i,j=1}^{N_{\text{config}}}c_i^{a*}{\nabla}c_j^{b}\underbrace{\braket{\phi_i}{\phi_j}}_{\delta_{ij}}\\
     &=\sum_{i,j=1}^{N_{\text{config}}}c_i^{a*}c_j^{b}\braket{\phi_i}{\nabla\phi_j}+\sum_{i=1}^{N_{\text{config}}}c_i^{a*}{\nabla}c_i^{b}
 \end{align}$$
+
 where the orthonormality of the Slater determinants is used. Above reveals the coordinate dependence of the MOs [consisting of the
 MO coefficients and the atomic orbitals (AOs)] through the gradient
 of the Slater determinants and the CI coefficients
 
-## CASSCF state wavefunction overlap}
+## CASSCF state wavefunction overlap
 For CASSCF wavefunction of electronic state $s,u$ at geometry $\qv_i$ and $\qv_j$ you need
+
 $$\begin{align} 
     \Smat_{su}^{\text{State}}(q_a, q_b)&=\braket{\psi_s(q_a)}{\psi_u(q_b)}\\
     &=\sum_{i,j}c_i^{s*}(q_a)c_j^{u}(q_b)\underbrace{\braket{\phi_i(q_a)}{\phi_j(q_b)}}_{\text{configuration overlap}}
 \end{align}$$
+
 Evidently, the equation can be broken into two parts. 1) Compute all configuration overlaps $\braket{\phi_i(q_a)}{\phi_j(q_b)}$ between Slater determinants at different geometries. 2)Combine them with the CI coefficients to get $\Smat^{\textbf{state}}$
-### Overlap between Slater determinants = determinant of overlap matrix}
-\subsubsection{Background}
+### Overlap between Slater determinants = determinant of overlap matrix
+### Background
 Take two $N$-electron Slater determiannts built from sets of spin-orbitals $\{\chi_p^i\}$ and  $\{\chi_q^j\}$:
+
 $$\begin{align} 
 \ket{\phi_i}=\frac1{\sqrt{N!}}\det\left|\chi_p^i...\chi_r^i\right|=\frac{1}{\sqrt{N!}}\sum_{i\in S_N}\text{sgn}(i)\cdot\chi_p^i(1)\cdot\ldots\cdot\chi_r^i(n)
 \\\ket{\phi_j}=\frac1{\sqrt{N!}}\det\left|\chi_q^j...\chi_s^j\right|=\frac{1}{\sqrt{N!}}\sum_{j\in S_N}\text{sgn}(j)\cdot\chi_q^j(1)\cdot\ldots\cdot\chi_s^j(n)
 \end{align}$$
-\begin{itemize}
-    \item $i$ represent a unique permutation of the spin orbitals belonging to the symmetric group $S_N$ of order $N$, (the set of all permutations of $N$ elements)
-\end{itemize}
+
+*  $i$ represent a unique permutation of the spin orbitals belonging to the symmetric group $S_N$ of order $N$, (the set of all permutations of $N$ elements)
+
 
 Define the elements of one-electron overlap matrix:
 $$\begin{align} 
     \Smat_{pq}=\braket{\chi_p^i}{\chi_q^j}
 \end{align}$$
+
 Then this yields the expression for the overlap 
+
 $$\begin{align} 
     \braket{\phi_i}{\phi_j}&=\frac{1}{N!}\sum_{i\in S_n}\text{sgn}(i)\sum_{j\in S_n}\text{sgn}(j)\braket{\chi_p^i}{\chi_q^j}\cdot\ldots\cdot\braket{\chi_r^i}{\chi_s^j}
 \end{align}$$
@@ -72,13 +76,14 @@ Now recall thee Leibniz formula of determinant for matrix $\Smat$
 $$\begin{align} 
     \det(\Smat)=\sum_{\sigma\in S_n}\text{sgn}(\sigma)\prod_{i=1}^n s_{i,\sigma(i)}
 \end{align}$$
-\begin{itemize}
-    \item Where $S_n$ is the set of all permutations of {1,..n}. 
-    \item $\sigma(i)$ is the permuted columns for row $i$
-    \item $\text{sgn}(\sigma)$ is the sign of the permutation ($\pm1$ for even and odd permutations)
-    \item $\prod_{i=1}^n s_{i,\sigma(i)}$ is thee product of $n$ entries, taking exactly one element from each row and each column e.g. ($s_{1,\sigma(1)}\cdot s_{2,\sigma(2)}\cdot\ldots \cdot s_{n,\sigma(n)}=s_{11}s_{22}\ldots s_{nn}$,$s_{1,\sigma(2)}\cdot s_{2,\sigma(1)}\cdot\ldots \cdot s_{n,\sigma(n)}=-s_{12}s_{21}\ldots s_{nn}$ )
-\end{itemize}
+
+* Where $S_n$ is the set of all permutations of {1,..n}. 
+* $\sigma(i)$ is the permuted columns for row $i$
+* $\text{sgn}(\sigma)$ is the sign of the permutation ($\pm1$ for even and odd permutations)
+* $\prod_{i=1}^n s_{i,\sigma(i)}$ is thee product of $n$ entries, taking exactly one element from each row and each column e.g. ($s_{1,\sigma(1)}\cdot s_{2,\sigma(2)}\cdot\ldots \cdot s_{n,\sigma(n)}=s_{11}s_{22}\ldots s_{nn}$,$s_{1,\sigma(2)}\cdot s_{2,\sigma(1)}\cdot\ldots \cdot s_{n,\sigma(n)}=-s_{12}s_{21}\ldots s_{nn}$ )
+
 Hence:
+
 $$\begin{align} 
     \sum_{j\in S_n}\text{sgn}(j)\braket{\chi_p^i}{\chi_q^j}\cdot\ldots\cdot\braket{\chi_r^i}{\chi_s^j} = 
     \left|\begin{array}{ccc}
@@ -87,28 +92,35 @@ $$\begin{align}
          \braket{\chi^i_r}{\chi_q}&\cdots&\braket{\chi^i_r}{\chi_s}
     \end{array}\right|=\det\Smat
 \end{align}$$
+
 So:
+
 $$\begin{align} 
     \braket{\phi_i}{\phi_j}&=\frac{1}{N!}\sum_{i\in S_N}\text{sgn}(i)\det\Smat=\frac{1}{N!}N!\det\Smat=\det\Smat
 \end{align}$$
 
 Small example:
+
 $$\begin{align} 
     \ket{\phi_i}=\frac{1}{\sqrt{2}}\left[\chi_1^i(1)\chi_2^i(2)-\chi_2^i(1)\chi_1^i(2)\right]\\
     \ket{\phi_j}=\frac{1}{\sqrt{2}}\left[\chi_3^j(1)\chi_4^j(2)-\chi_4^j(1)\chi_3^j(2)\right]
 \end{align}$$
+
 Then
+
 $$\begin{align} 
     \Smat = \begin{pmatrix}
        \braket{\chi_1^i(1)}{\chi_3^j(1)}&\braket{\chi_1^i(2)}{\chi_4^j(2)}\\[10pt]
      \braket{\chi_2^i(1)}{\chi_3^j(1)}&\braket{\chi_2^i(2)}{\chi_4^j(2)}
     \end{pmatrix}
 \end{align}$$
+
 $$\begin{align} 
      \braket{\phi_i}{\phi_j}=\frac12\Big[ \braket{\chi_1^i(1)}{\chi_3^j(1)} \braket{\chi_2^i(2)}{\chi_4^j(2)}+ \braket{\chi_2^i(1)}{\chi_4^j(1)} \braket{\chi_1^i(2)}{\chi_3^j(2)}\\
      -\braket{\chi_1^i(1)}{\chi_4^j(1)} \braket{\chi_2^i(2)}{\chi_3^j(2)}-\braket{\chi_2^i(1)}{\chi_3^j(1)} \braket{\chi_1^i(2)}{\chi_4^j(2)}\Big]\\
      =\braket{\chi_1^i(1)}{\chi_3^j(1)} \braket{\chi_2^i(2)}{\chi_4^j(2)}-\braket{\chi_1^i(2)}{\chi_3^j(1)} \braket{\chi_1^i(2)}{\chi_4^j(2)}
 \end{align}$$
+
 where the indistinguishability of the electrons are used
 
 While:
@@ -127,28 +139,31 @@ which using the fact thatthe determinant of a block-diagonal matrix is the produ
 $$\begin{align} 
     \det(\Smat)=\det\left(\Smat^\alpha\right)\det\left(\Smat^\beta\right)
 \end{align}$$
-\subsubsection{Explanation + Elaboration on CASSCF wavefucntion algorithm provided in the SI on overlaps}
-\begin{enumerate}
-\item AO and MO overlap matrices
-\begin{enumerate}
-    \item MO and CI data at both geometries:
+### Explanation + Elaboration on CASSCF wavefucntion algorithm provided in the SI on overlaps
+
+1. AO and MO overlap matrices
+
+    1. MO and CI data at both geometries:
     Store 1) MO coefficients matrices $\Cmat(\qv_i)$ and $\C(\qv_j)$ 2) CI coefficients 
-    \item Form AO overlap matrix $\Smat^{AO}$
+    2.  Form AO overlap matrix $\Smat^{AO}$
     \[\Smat^{AO}_{ab}(\qv_i,\qv_j)=\braket{\phi_a(q_i)}{\phi_b(q_j)}\]
     where $\phi_a$ are the AO basis functions. 
-    \item Full MO overlap matrix:
-
+    3.  Full MO overlap matrix:
     Any MO is expanded ins AO basis:$\chi_p=\sum_a C_{ap}\phi_a$ (juts a quick link to tensor, So your AO are your basis vector while the C coefficient column vector gives the component of MO in AO bais. And in tensor, the basis vector are more or less in row representation). So the MO overlap matrix is just:
-    \begin{align*}
+
+    $$\begin{align*}
          \Smat^{MO}_{pq}(q_i,q_j)&= \braket{\chi_p(q_i)}{\chi_q(q_j)}
          \\&= \sum_{ab} C_{ap}^*\phi_a^* \phi_b C_{bq}\\
          &=\sum_{ab}  C_{ap}^*\Smat^{AO}_{ab}(\qv_i,\qv_j)C_{bq}
-    \end{align*}
+    \end{align*}$$
+
     Which gives:
-    \[\Smat^{MO}(q_i,q_j)=\Cmat^\dagger(q_i)\Smat^{AO}(q_i,q_j)\Cmat({q_j})\]
+
+    $$\Smat^{MO}(q_i,q_j)=\Cmat^\dagger(q_i)\Smat^{AO}(q_i,q_j)\Cmat({q_j})$$
+
     containing overlap between every MO in closed +active space
-\end{enumerate}
-   \item Construct overlap of configuration from matrix of overlap of MO
+
+   4. Construct overlap of configuration from matrix of overlap of MO
    
    Loop over all pairs of configuration (Slater determinants) $\phi_k(q_i)$ and $\phi_l(q_j)$. For each pair:
    \begin{enumerate}
@@ -201,7 +216,7 @@ I think they might haved cached the determinant values so once you computed $\de
 \end{enumerate}
 ## Set up for Procrustes Diabatisation}
 ### Overlap matrices in adiabatic and diabatic bases}
-\subsubsection{Definitions}
+### Definitions}
 At any geometry $\qv$, there is a row vector of adiabatic states as basis 
 $$\begin{align} 
     \vect{\psi}^A(\qv)=(\ket{\psi_1^A(\qv)},...,\ket{\psi_n^A(\qv)})
@@ -215,7 +230,7 @@ $$\begin{align}
     \Cmat(\qv_0)=\I
 \end{align}$$
 So the adiabatic and diabatic states coincide at the initial geometry
-\subsubsection{Adiabatic and diabatic overlap matrices}
+### Adiabatic and diabatic overlap matrices}
 let 
 $$\begin{align} 
     \Smat^{A}(\qv_a, \qv)_{ij}=\braket{\psi_i^A(\qv_a)}{\psi_j^A(\qv)}
@@ -297,7 +312,7 @@ The Procrustes diabatization does this without ever computing NACs, by:
     \item Solving an orthogonal Procrustes problem to get the best rotation $\Cmat(\qv)$ that makes diabatic states at neighbouring geometries look the same
 \end{itemize}
 ### Notation and object preceeding breakdown of the algorithm}
-\subsubsection{Sets of geometries}
+### Sets of geometries
 \begin{itemize}
     \item $\qv=\{\qv_i:i=1,.. N, N+1, ..N+M\}$: All geometries used in the KRR fit
     \item $\qv_1$: designated reference geometry $\qv_1$ (Fc point). At this geometry set up the gauge such that:
@@ -310,7 +325,7 @@ The Procrustes diabatization does this without ever computing NACs, by:
     \item $\qv''\subseteq\qv =\{\qv_i:i=N+1,.. M\} $: $M$ new geometries that will be added that is not yet diabtized
 \end{itemize}
 
-\subsubsection{Data stored at each geometry}
+### Data stored at each geometry}
 For each $\qv_i$ (after some processing):
 \begin{itemize}
     \item Adiabatic energies $\VA(\qv_i)$
@@ -324,7 +339,7 @@ For geometries that have already been diabatized $\qv'$ you also store:
     \item Diabatic MOs (i.e. the orbitals after the Procrustes-based orthogonal rotations)
 \end{itemize}
 ### Step-by-step Algorithm}
-\subsubsection{Initial Setup}
+### Initial Setup}
 \begin{enumerate}
 
     \item[1.]Pre-compute and store electrornic-structure data
@@ -349,7 +364,7 @@ For geometries that have already been diabatized $\qv'$ you also store:
     \item [3.] Flag all memberd of $\qv'$ those points which have been diabatized during previous
 time-steps
 \end{enumerate}
-\subsubsection{Choosing processing order and proximal anchor}
+### Choosing processing order and proximal anchor}
 For all geometries $\qv_i\in \overline{\qv} \setminus\qv'$ (initially that will be all $\qv_i\neq \qv_1$)
 \begin{enumerate}
 
