@@ -30,3 +30,6 @@ Welcome to the Worth Group. This site is a modular knowledge base for readers of
 
 - [Notation And Symbols Glossary](10_References_Guides/Symbols_and_notations.md)
   - Definitions of the symbols and notation used throughout the knowledge base.
+
+- [Glossary](10_References_Guides/glossary.md)
+    - Definitions of recurrent words,  phrases or code routines

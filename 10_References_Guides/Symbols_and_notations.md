@@ -95,7 +95,7 @@ $$
 | Symbol | Meaning |
 | --- | --- |
 | $\Cmat$ | Adiabatic-to-diabatic transformation (ADT) matrix. |
-| $\Cinv$ | In this site, usually $\Cmat^\dagger$ for a unitary transformation. |
+| $\Cinv$ | In this site, usually $\Cmat^\dagger$ for a unitary transformation (inverse of ADT matrix $\Cmat$). |
 | $\Smat$ | Overlap or eigenvector matrix, depending on context. In code notes, `trans0` is often best interpreted as an eigenvector matrix $\Smat$. |
 | $\Dmat$ | Topological or derivative matrix depending on context. Check the local page definition. |
 | $\Cmat_a$, $\Cmat_b$ | Transformations associated with split retained/excluded coupling components. |

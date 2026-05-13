@@ -1017,8 +1017,17 @@ The first and second derivatives are transformed consistently by `transform`, us
 The sign-corrected `dercp` directly affects the final diabatic first derivatives.
 
 ---
+## 21. Phase setting
 
-## 19. Cleanup
+Note in current implementation, before the ADT matrices are returned by subroutine `propadt` or `optqvc`, subroutine `trmatphase` are called to set the phase of these matrices. To see explanation on this topic, read [prop diabatisation safety guards](../intermediates/int01_propagation_diabatisation_safetyguard_breakdown.md). In brielf, columns of $\Cmat$ may be multiplied by $\pm1$ without changing the underlying adiabatic energies. The implementation fixes this freedom by choosing signs so that the diagonal elements of the transformation matrix are positive where possible. Further, the determinant is then checked so that the transformation is a proper rotation. 
+
+Then if the determinant is negative after the diagonal sign convention has been applied, it corrected by multiplying one column of the ADT matrix, here the second column by default, by $-1$. This is a phase convention, not a physical change and may not be done in the best way as this lead to enforcing one possible solution for the diabatic potential without concerning the toplogy of the adiabatic functions.
+
+
+
+---
+
+## 20. Cleanup
 
 ```fortran
 if(allocated(transtmp)) deallocate(transtmp)

@@ -64,6 +64,8 @@ bundle exec jekyll build
 
 If the remote theme cannot be downloaded, the build may fail with a connection error to GitHub. That is a network/theme-fetch problem, not usually a Markdown problem.
 
+> **Note for local deployment, it is recommned to change all toc to false to speed up local rendering. (see later on how table of contents are rendered and styled)**
+
 ## Important Files
 
 ### `_config.yml`
@@ -159,7 +161,7 @@ toc_min_headings: 5
 ```
 
 The site-wide fallback is `toc_min_headings` in `_config.yml`.
-
+> **Note for local deployment, it is recommned to change all toc to false to speed up local rendering.**
 ### `assets/js/page-toc.js`
 
 This script scans page headings and fills the TOC.
