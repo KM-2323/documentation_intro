@@ -2105,9 +2105,9 @@ can be solved simultaneously with independent gradients.
 
 ---
 
-### Common mistakes
+## Common mistakes
 
-#### Mistake 1: Thinking that different-symmetry crossings are automatically full CIs
+### Mistake 1: Thinking that different-symmetry crossings are automatically full CIs
 
 A crossing of different-symmetry states in a symmetry-preserving one-dimensional scan is not the full branching-plane picture.
 
@@ -2115,7 +2115,7 @@ It becomes a conical intersection only when the symmetry-breaking coupling coord
 
 ---
 
-#### Mistake 2: Thinking that allowed means large
+### Mistake 2: Thinking that allowed means large
 
 A symmetry-allowed term may still be numerically small.
 
@@ -2123,7 +2123,7 @@ Symmetry says whether a term is forced to be zero. It does not determine the mag
 
 ---
 
-#### Mistake 3: Thinking that accidental means rare
+### Mistake 3: Thinking that accidental means rare
 
 Accidental means not symmetry-forced.
 
@@ -2139,7 +2139,7 @@ $$
 
 ---
 
-#### Mistake 4: Thinking that the noncrossing rule forbids conical intersections
+### Mistake 4: Thinking that the noncrossing rule forbids conical intersections
 
 The noncrossing rule is mainly a statement about one-dimensional scans of states with the same symmetry.
 
@@ -2147,7 +2147,7 @@ In a multidimensional nuclear-coordinate space, two scalar conditions can be sat
 
 ---
 
-#### Mistake 5: Forgetting that degenerate electronic irreps are special
+### Mistake 5: Forgetting that degenerate electronic irreps are special
 
 For nondegenerate states, diagonal linear terms are usually only totally symmetric.
 
