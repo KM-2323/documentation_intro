@@ -117,9 +117,10 @@ This array stores the distance from the current GWP geometry to every database g
 
 In plain terms:
 
-``` text
-dist_gpt(i)=d(xgp​,x_{DB,i}​)
-```
+
+$$
+dist\_gpt(i)=d(xgp​,x_{DB,i}​)
+$$
 
 `i` is the full database record index.
 
