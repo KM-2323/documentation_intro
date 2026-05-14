@@ -1,4 +1,4 @@
-## Symmetry of conical intersections
+# Symmetry of conical intersections
 
 This page builds on the two-state conical-intersection model introduced in [Introduction to Conical Intersections: The Two-State Model](03_conical_intersections.md) and derived more fully in [two state model](../derivations/derivations_two_state_model.md) and  [Conical Intersection- intermediate](../intermediates/int02_conical_intersections.md)
 
@@ -459,7 +459,7 @@ $$
 
 ---
 
-## Zeroth-order electronic coupling
+### Zeroth-order electronic coupling
 
 At the reference geometry, the zeroth-order diabatic coupling is
 
@@ -533,7 +533,7 @@ This is the basic reason why states of different symmetry can cross in a symmetr
 
 ---
 
-## Linear diagonal terms: the $\kappa_{i\alpha}$ coefficients
+### Linear diagonal terms: the $\kappa_{i\alpha}$ coefficients
 
 The diagonal linear coefficient is
 
@@ -621,7 +621,7 @@ A useful warning is needed here. The statement above is for isolated nondegenera
 
 ---
 
-## Linear off-diagonal terms: the $\lambda_\alpha$ coefficients
+### Linear off-diagonal terms: the $\lambda_\alpha$ coefficients
 
 The linear diabatic coupling coefficient is
 
@@ -703,7 +703,7 @@ $$
 
 ---
 
-## Summary of allowed linear terms
+### Summary of allowed linear terms
 
 For two nondegenerate electronic states, the linear vibronic-coupling model has the form
 
@@ -904,7 +904,7 @@ can be satisfied by two different kinds of nuclear motion.
 
 ---
 
-## Higher-order terms
+### Higher-order terms
 
 The same selection-rule logic applies to higher-order vibronic terms.
 
@@ -1481,7 +1481,7 @@ The classification tells us where $\Delta$ and $W_{12}$ come from.
 
 ---
 
-# Example: pyrazine
+## Example: pyrazine
 
 Pyrazine is a useful example because the symmetry assignment is clean.
 
@@ -1633,7 +1633,7 @@ Because these subspaces are symmetry-distinct, the two branching directions are 
 
 ---
 
-# Relation to the NACV and geometric phase
+## Relation to the NACV and geometric phase
 
 The adiabatic nonadiabatic coupling vector is
 
@@ -1752,7 +1752,7 @@ Symmetry tells us which physical nuclear modes form the $x$ and $y$ directions. 
 
 ---
 
-# Sloped and peaked conical intersections
+## Sloped and peaked conical intersections
 
 Symmetry determines which terms are allowed, but the numerical values of the allowed terms determine the detailed shape of the cone.
 
@@ -1847,7 +1847,7 @@ This classification is about surface topography, not about the symmetry origin o
 
 ---
 
-# Symmetry and diabatic representations
+## Symmetry and diabatic representations
 
 The adiabatic representation is natural for electronic-structure calculations, but it is awkward at a conical intersection because the NACV becomes singular.
 
@@ -1897,9 +1897,9 @@ If a symmetry-forbidden term appears in a fitted diabatic model, the model has e
 
 ---
 
-# Practical workflow for constructing a symmetry-based two-state model
+## Practical workflow for constructing a symmetry-based two-state model
 
-## Step 1: Choose the reference geometry
+### Step 1: Choose the reference geometry
 
 The reference geometry may be a Franck--Condon geometry, a high-symmetry geometry, or a point on a conical-intersection seam.
 
@@ -1915,7 +1915,7 @@ Identify the point group at $\mat q_0$.
 
 ---
 
-## Step 2: Assign electronic-state irreps
+### Step 2: Assign electronic-state irreps
 
 Assign
 
@@ -1933,7 +1933,7 @@ This must be done at the reference geometry and within the chosen point group.
 
 ---
 
-## Step 3: Assign normal-mode irreps
+### Step 3: Assign normal-mode irreps
 
 For each normal coordinate $Q_\alpha$, assign
 
@@ -1945,7 +1945,7 @@ $$
 
 ---
 
-## Step 4: Determine allowed diagonal linear terms
+### Step 4: Determine allowed diagonal linear terms
 
 Check
 
@@ -1985,7 +1985,7 @@ They are tuning modes.
 
 ---
 
-## Step 5: Determine allowed off-diagonal linear terms
+### Step 5: Determine allowed off-diagonal linear terms
 
 Check
 
@@ -2022,7 +2022,7 @@ They are coupling modes.
 
 ---
 
-## Step 6: Build the local model
+### Step 6: Build the local model
 
 The first-order model is
 
@@ -2077,7 +2077,7 @@ $$
 
 ---
 
-## Step 7: Classify the CI
+### Step 7: Classify the CI
 
 Ask the following questions.
 
@@ -2105,9 +2105,9 @@ can be solved simultaneously with independent gradients.
 
 ---
 
-# Common mistakes
+## Common mistakes
 
-## Mistake 1: Thinking that different-symmetry crossings are automatically full CIs
+### Mistake 1: Thinking that different-symmetry crossings are automatically full CIs
 
 A crossing of different-symmetry states in a symmetry-preserving one-dimensional scan is not the full branching-plane picture.
 
@@ -2115,7 +2115,7 @@ It becomes a conical intersection only when the symmetry-breaking coupling coord
 
 ---
 
-## Mistake 2: Thinking that allowed means large
+### Mistake 2: Thinking that allowed means large
 
 A symmetry-allowed term may still be numerically small.
 
@@ -2123,7 +2123,7 @@ Symmetry says whether a term is forced to be zero. It does not determine the mag
 
 ---
 
-## Mistake 3: Thinking that accidental means rare
+### Mistake 3: Thinking that accidental means rare
 
 Accidental means not symmetry-forced.
 
@@ -2139,7 +2139,7 @@ $$
 
 ---
 
-## Mistake 4: Thinking that the noncrossing rule forbids conical intersections
+### Mistake 4: Thinking that the noncrossing rule forbids conical intersections
 
 The noncrossing rule is mainly a statement about one-dimensional scans of states with the same symmetry.
 
@@ -2147,7 +2147,7 @@ In a multidimensional nuclear-coordinate space, two scalar conditions can be sat
 
 ---
 
-## Mistake 5: Forgetting that degenerate electronic irreps are special
+### Mistake 5: Forgetting that degenerate electronic irreps are special
 
 For nondegenerate states, diagonal linear terms are usually only totally symmetric.
 
@@ -2155,7 +2155,7 @@ For degenerate electronic irreps, nontotally symmetric modes can split the degen
 
 ---
 
-# One-paragraph summary
+## One-paragraph summary
 
 Symmetry controls conical intersections by determining which diabatic Hamiltonian matrix elements are forced to vanish. In the two-state model, the diagonal difference $\Delta=W_{22}-W_{11}$ is controlled by tuning modes, while the off-diagonal coupling $W_{12}$ is controlled by coupling modes. For nondegenerate states, diagonal linear terms are usually allowed only for totally symmetric modes, whereas off-diagonal linear terms are allowed only when $\Gamma_1\otimes\Gamma_\alpha\otimes\Gamma_2$ contains the totally symmetric irrep. A two-state CI requires both $\Delta=0$ and $W_{12}=0$, so the branching plane is formed by the gap-gradient vector $\boldsymbol{\kappa}$ and the coupling vector $\boldsymbol{\lambda}$. Symmetry-required CIs arise from multidimensional electronic irreps, as in Jahn--Teller systems. Symmetry-allowed CIs arise when different-symmetry states cross in a symmetry-preserving subspace and become conical when the correct symmetry-breaking coordinate is included. Accidental CIs are not forced by symmetry but occur when independent nuclear coordinates tune both $\Delta$ and $W_{12}$ to zero. In all cases, the local two-state topology is the same cone described by $x=\Delta$ and $y=2W_{12}$.
 
