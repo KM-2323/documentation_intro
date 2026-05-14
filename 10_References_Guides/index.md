@@ -11,6 +11,7 @@ This section collects site-maintenance notes, writing templates, glossary materi
 
 - [Jekyll site maintenance](Jekyll_site_maintenance.md)
 - [Content authoring guide](content_authoring_guide.md)
+- [Style SCSS guide](style_scss_guide.md)
 - [Code writing template](writing_template.md)
 
 ## Reference Material

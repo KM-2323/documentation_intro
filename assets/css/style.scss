@@ -1,17 +1,23 @@
 ---
 ---
+
+// Jekyll requires the front matter above so this SCSS file is processed.
+// The import loads the Cayman GitHub Pages theme first; custom rules below
+// override or extend that theme.
 @import "{{ site.theme }}";
 
-// This targets standard Markdown bold **text**
+// Stronger bold for normal Markdown bold text, such as **important phrase**.
 strong, b {
     font-weight: 1000 !important;
 }
 
-// This targets the math blocks if you use MathJax for \textbf{}
+// Stronger bold for MathJax text produced by commands such as \textbf{}.
 .mjx-bold {
     font-weight: 1000 !important;
 }
 
+// Breadcrumb row shown above and below page content.
+// The HTML comes from _includes/page-nav.html.
 .page-breadcrumb {
     display: flex;
     flex-wrap: wrap;
@@ -22,10 +28,12 @@ strong, b {
     color: #5f6f7c;
 }
 
+// Adds extra separation when two breadcrumb rows appear near each other.
 .page-breadcrumb + .page-breadcrumb {
     margin-top: 2rem;
 }
 
+// Link styling inside the breadcrumb row.
 .page-breadcrumb a {
     color: #1e6bb8;
     text-decoration: none;
@@ -36,15 +44,20 @@ strong, b {
     text-decoration: underline;
 }
 
+// The slash or separator between breadcrumb links.
 .page-breadcrumb__separator {
     color: #8a98a3;
 }
 
+// Main readable page column. This overrides the Cayman theme's default width
+// and line height for all documentation pages.
 .main-content {
-    max-width: 920px;
+    max-width: 1200px;
     line-height: 1.65;
 }
 
+// Keeps headings from sitting flush against the viewport when reached by
+// anchor links or table-of-contents clicks.
 .main-content h1,
 .main-content h2,
 .main-content h3,
@@ -52,35 +65,42 @@ strong, b {
     scroll-margin-top: 1.25rem;
 }
 
+// Prevents long prose/list tokens from forcing horizontal page overflow.
 .main-content p,
 .main-content li {
     overflow-wrap: break-word;
 }
 
+// Makes normal images responsive inside the content column.
 .main-content img {
     max-width: 100%;
     height: auto;
 }
 
+// Allows wide code blocks to scroll sideways instead of breaking the layout.
 .main-content pre {
     overflow-x: auto;
     padding: 1rem;
 }
 
+// Preserves spacing and indentation inside fenced code blocks.
 .main-content pre code {
     white-space: pre;
 }
 
+// Lets long inline-code tokens wrap when needed.
 .main-content code {
     overflow-wrap: anywhere;
 }
 
+// Makes wide Markdown tables horizontally scrollable on small screens.
 .main-content table {
     display: block;
     width: 100%;
     overflow-x: auto;
 }
 
+// Makes wide MathJax equations scroll cleanly instead of overflowing the page.
 .main-content mjx-container {
     max-width: 100%;
     overflow-x: auto;
@@ -88,10 +108,13 @@ strong, b {
     padding-bottom: 0.2rem;
 }
 
+// Page table of contents. Hidden by default; assets/js/page-toc.js adds
+// .is-ready only when a page has enough headings to justify showing it.
 .page-toc {
     display: none;
 }
 
+// Visible TOC box for pages with enough headings.
 .page-toc.is-ready {
     display: block;
     margin: 0 0 1.5rem;
@@ -101,6 +124,7 @@ strong, b {
     background: #f7fbfc;
 }
 
+// TOC heading text.
 .page-toc__title {
     display: block;
     margin-bottom: 0.5rem;
@@ -108,11 +132,13 @@ strong, b {
     font-size: 1.2rem;
 }
 
+// TOC link list layout.
 .page-toc__list {
     display: grid;
     gap: 0.35rem;
 }
 
+// Base TOC link styling.
 .page-toc__link {
     color: #1e6bb8;
     font-size: 0.9rem;
@@ -126,11 +152,14 @@ strong, b {
     text-decoration: underline;
 }
 
+// Indented subheading links in the TOC.
 .page-toc__link--h3 {
     padding-left: 0.85rem;
     font-size: 1rem;
 }
 
+// Previous/next reading-path navigation shown below pages that are listed in
+// _data/reading_paths.yml.
 .prev-next {
     display: flex;
     flex-wrap: wrap;
@@ -141,6 +170,7 @@ strong, b {
     border-top: 1px solid #d8e4ea;
 }
 
+// Individual previous/next cards.
 .prev-next__link {
     flex: 1 1 14rem;
     min-width: 0;
@@ -152,16 +182,19 @@ strong, b {
     background: #fff;
 }
 
+// Hover/focus state for previous/next cards.
 .prev-next__link:hover,
 .prev-next__link:focus {
     border-color: #1e6bb8;
     text-decoration: none;
 }
 
+// Aligns the "next" card content to the right on wider screens.
 .prev-next__link--next {
     text-align: right;
 }
 
+// Small uppercase "Previous" or "Next" label.
 .prev-next__label {
     display: block;
     margin-bottom: 0.2rem;
@@ -171,12 +204,14 @@ strong, b {
     text-transform: uppercase;
 }
 
+// Title text inside previous/next cards.
 .prev-next__title {
     display: block;
     overflow-wrap: anywhere;
     line-height: 1.35;
 }
 
+// Custom site footer added by _includes/site-footer.html.
 .site-footer-custom {
     margin: 2rem 0 0;
     padding-top: 1.25rem;
@@ -185,16 +220,19 @@ strong, b {
     font-size: 0.9rem;
 }
 
+// Footer metadata, such as the last-updated date.
 .site-footer-custom__meta {
     margin-bottom: 0.65rem;
 }
 
+// Footer link row.
 .site-footer-custom__links {
     display: flex;
     flex-wrap: wrap;
     gap: 0.45rem 0.85rem;
 }
 
+// Footer link styling.
 .site-footer-custom__links a {
     color: #1e6bb8;
     text-decoration: none;
@@ -205,6 +243,35 @@ strong, b {
     text-decoration: underline;
 }
 
+// Page-specific frame for the Mermaid diagram in
+// 00_project_overview/knowledge_map.md. The frame can be wider than the prose
+// column while keeping the rest of the page readable.
+.knowledge-map-frame {
+    position: relative;
+    left: 50%;
+    width: min(1500px, calc(100vw - 3rem));
+    margin: 2rem 0;
+    transform: translateX(-50%);
+    overflow-x: auto;
+}
+
+// Centers the rendered Mermaid graph inside the frame and reserves enough
+// width so the graph does not collapse too tightly.
+.knowledge-map-frame .mermaid {
+    display: flex;
+    justify-content: center;
+    min-width: 1200px;
+}
+
+// Prevents the generated SVG from being scaled down by generic image rules.
+.knowledge-map-frame .mermaid svg {
+    display: block;
+    max-width: none;
+}
+
+
+// Large-screen layout for the generated page table of contents. On wide
+// screens it becomes a left-side sticky rail.
 @media screen and (min-width: 1400px) {
     .page-toc.is-ready {
         position: sticky;
@@ -217,11 +284,13 @@ strong, b {
     }
 }
 
+// Mobile adjustments for narrow screens.
 @media screen and (max-width: 640px) {
     .main-content {
         font-size: 0.98rem;
     }
 
+    // Previous/next cards stack naturally on mobile, so both align left.
     .prev-next__link,
     .prev-next__link--next {
         text-align: left;
