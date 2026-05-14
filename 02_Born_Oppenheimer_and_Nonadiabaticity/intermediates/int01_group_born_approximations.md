@@ -1,4 +1,4 @@
-### The Born--Oppenheimer equation in a finite electronic subspace
+# The Born--Oppenheimer equation in a finite electronic subspace
 
 In practice, the Born--Huang expansion cannot be carried out over the complete electronic Hilbert space. A finite set of $M$ electronic states is therefore retained, while the remaining states are omitted. This separation defines two complementary electronic subspaces:
 
@@ -47,7 +47,7 @@ Practical note: the finite-state approximation is a statement about the region o
 
 ---
 
-#### Projection operators
+## Projection operators
 
 The projection operator onto the retained electronic subspace is
 
@@ -104,7 +104,7 @@ This matrix has dimension $M \times M$ and acts only in the retained electronic-
 
 ---
 
-#### Object shapes and notation
+## Object shapes and notation
 
 Let $f$ denote the number of nuclear degrees of freedom in the coordinate representation being used. For Cartesian coordinates before removing translations and rotations, $f=3N_{\mathrm{nuc}}$.
 
@@ -173,7 +173,7 @@ For each pair of electronic states, $G_{ji}$ is a scalar function of $\mat q$, a
 
 ---
 
-#### Partitioning the scalar coupling
+### Partitioning the scalar coupling
 
 The effect of finite-state truncation is most clearly seen by returning to the exact expression for $G_{ji}$. Differentiating the nonadiabatic coupling vector gives
 
@@ -305,7 +305,7 @@ Equation $\eqref{eq:g_partitioned_final}$ is the key finite-subspace result. In 
 
 ---
 
-#### Dressed kinetic energy operator in the finite subspace
+## Dressed kinetic energy operator in the finite subspace
 
 The coupled nuclear equation in the retained $P$-space has the form
 
@@ -419,7 +419,7 @@ This expression shows explicitly how omitted electronic states affect the retain
 
 ---
 
-#### Strict group Born--Oppenheimer limit
+### Strict group Born--Oppenheimer limit
 
 If the $P$--$Q$ couplings vanish exactly,
 
@@ -462,7 +462,7 @@ This is the group Born--Oppenheimer equation for an isolated $M$-state subspace.
 
 ---
 
-#### Weak coupling to omitted states
+### Weak coupling to omitted states
 
 In realistic molecular systems, the condition $\F_{ia}=0$ is rarely exact. A more useful assumption is
 
@@ -508,7 +508,7 @@ The mass dependence is hidden in Eq. $\eqref{eq:effective_p_space_potential_elem
 
 ---
 
-#### Adiabatic approximation within the retained subspace
+## Adiabatic approximation within the retained subspace
 
 The finite-subspace equation derived above still retains the nonadiabatic coupling vector within the selected $P$-space. Thus, even after the omitted $Q$-space states have been neglected, the retained electronic states may remain coupled through the nuclear kinetic energy operator. In the strict group Born--Oppenheimer limit, the $P$--$Q$ couplings vanish and the residual $Q$-space correction $\mat B^{(Q)}$ is zero, but the internal coupling $\F^{(P)}$ is still present:
 
@@ -647,7 +647,7 @@ References: [@koppel_domcke_cederbaum_1984; @baer_2002_nact]
 
 ---
 
-#### Interpretation
+## Interpretation
 
 Equation $\eqref{eq:finite_subspace_bo_equation}$ separates the effect of finite-state truncation into two parts.
 
@@ -671,7 +671,7 @@ The group Born--Oppenheimer approximation neglects $\mat B^{(Q)}$ when the omitt
 Common pitfall: if the $Q$-space coupling is large, the correct conclusion is not that the residual term should be interpreted qualitatively. Rather, the finite electronic subspace has been chosen too narrowly. The appropriate remedy is to include the relevant omitted state or states in the retained $P$-space.
 
 
-#### Connection to later sections
+### Connection to later sections
 
 This finite-subspace construction is important for later discussions of diabatisation. The adiabatic-to-diabatic transformation is exact only for a complete electronic Hilbert space or for an effectively isolated finite subspace. In practical calculations, the retained electronic states define a quasi-diabatic manifold whose accuracy depends on the neglected coupling to states outside the selected subspace.
 
