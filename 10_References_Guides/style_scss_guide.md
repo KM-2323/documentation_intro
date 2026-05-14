@@ -92,6 +92,86 @@ State selectors target interaction states:
 
 This applies when a breadcrumb link is hovered or keyboard-focused.
 
+## Common CSS And SCSS Syntax
+
+CSS and SCSS are mostly made from selectors, braces, properties, values, and conditions. This table explains the syntax that appears most often in this site.
+
+| Syntax | What it means | Example | Rendering effect |
+| --- | --- | --- | --- |
+| `.class-name` | Select elements with a matching `class=""` | `.page-toc` | Styles only elements marked with `class="page-toc"`. |
+| `element` | Select built-in HTML elements by tag name | `strong` | Styles every `<strong>` element. |
+| `selector-a, selector-b` | Apply the same rule to multiple selectors | `strong, b` | Makes both `<strong>` and `<b>` render the same way. |
+| `.a .b` | Descendant selector: find `.b` somewhere inside `.a` | `.knowledge-map-frame .mermaid` | Affects Mermaid diagrams only inside the knowledge-map frame. |
+| `.a.b` | Compound selector: same element must have both classes | `.page-toc.is-ready` | Styles the TOC only after JavaScript adds `is-ready` to the TOC itself. |
+| `a:hover` | Pseudo-class for mouse hover state | `.page-breadcrumb a:hover` | Underlines breadcrumb links while hovered. |
+| `a:focus` | Pseudo-class for keyboard focus state | `.page-breadcrumb a:focus` | Underlines links when reached by keyboard navigation. |
+| `{ ... }` | Rule body | `.page-toc { display: none; }` | Holds the declarations applied by the selector. |
+| `property: value;` | One styling instruction | `display: flex;` | Changes one visual/layout behaviour. |
+| `// comment` | SCSS-only comment | `// Footer link row.` | Helps maintainers; not emitted as final CSS. |
+| `/* comment */` | CSS comment | `/* note */` | Valid CSS comment; can appear in generated CSS. |
+| `@import` | Load another stylesheet | `@import "{{ site.theme }}";` | Loads the Cayman theme before local overrides. |
+| `@media` | Apply rules only under conditions | `@media screen and (max-width: 640px)` | Changes layout only on matching screen widths. |
+| `!important` | Give a declaration extra priority | `font-weight: 1000 !important;` | Overrides competing theme rules more forcefully. |
+
+### Syntax Examples And Rendering
+
+Class selector:
+
+```scss
+.site-footer-custom {
+    color: #60717d;
+}
+```
+
+In plain English, this code says: "find the element with class `site-footer-custom`, and make its text muted grey."
+
+Element selector:
+
+```scss
+.main-content img {
+    max-width: 100%;
+    height: auto;
+}
+```
+
+In plain English, this code says: "for images inside the main content column, never let them grow wider than their container, and keep their height proportional."
+
+Compound selector:
+
+```scss
+.page-toc.is-ready {
+    display: block;
+}
+```
+
+In plain English, this code says: "show an element only when the same element has both `page-toc` and `is-ready` classes."
+
+Pseudo-class selector:
+
+```scss
+.site-footer-custom__links a:hover,
+.site-footer-custom__links a:focus {
+    text-decoration: underline;
+}
+```
+
+In plain English, this code says: "underline footer links when the reader hovers over them or focuses them with the keyboard."
+
+Media query:
+
+```scss
+@media screen and (max-width: 640px) {
+    .prev-next__link,
+    .prev-next__link--next {
+        text-align: left;
+    }
+}
+```
+
+In plain English, this code says: "on narrow screens, align both previous and next navigation cards to the left."
+
+If a syntax entry does not have a visible rendering effect by itself, it is because it is structural. For example, braces `{}` and semicolons `;` do not create a style on their own; they make the stylesheet readable to the browser so the declarations inside can take effect.
+
 ## Page-Specific Styling
 
 Prefer page-specific wrappers when one page needs special layout. This avoids making all theory pages wider or changing every Mermaid diagram.
@@ -210,6 +290,111 @@ Use this pattern when adding a new styled block:
 ```
 
 The double-underscore pattern, such as `.component-name__title`, means "a named part of this component." It keeps related rules easy to find.
+
+## Five Walkthrough Levels
+
+### Level 1: Style A Built-In HTML Element
+
+```scss
+strong, b {
+    font-weight: 1000 !important;
+}
+```
+
+In plain English, this code says: "find every `<strong>` element and every `<b>` element, then make the text very bold."
+
+Connected pieces:
+
+| Layer | Role |
+| --- | --- |
+| Markdown | `**important**` becomes `<strong>important</strong>`. |
+| SCSS | The `strong, b` selector changes how that generated HTML looks. |
+| Browser | The reader sees heavier bold text. |
+
+### Level 2: Style A Class Added In HTML
+
+```html
+<div class="knowledge-map-frame" markdown="1">
+```
+
+In plain English, this code says: "start a wrapper `div`, give it the class `knowledge-map-frame`, and let Markdown still be processed inside it."
+
+```scss
+.knowledge-map-frame {
+    overflow-x: auto;
+}
+```
+
+In plain English, this code says: "when an element has the class `knowledge-map-frame`, add horizontal scrolling if its content is too wide."
+
+Connected pieces:
+
+| Layer | Role |
+| --- | --- |
+| Markdown page | `00_project_overview/knowledge_map.md` adds the wrapper. |
+| Kramdown | `markdown="1"` keeps the Mermaid fence readable as Markdown. |
+| SCSS | `.knowledge-map-frame` styles only that wrapper. |
+
+### Level 3: Style Something Inside Something Else
+
+```scss
+.knowledge-map-frame .mermaid svg {
+    max-width: none;
+}
+```
+
+In plain English, this code says: "find an `svg` inside a `.mermaid` element, but only when that Mermaid element is inside `.knowledge-map-frame`; do not force that SVG to shrink to the normal content width."
+
+Connected pieces:
+
+| Layer | Role |
+| --- | --- |
+| Markdown | A Mermaid fence defines the diagram text. |
+| JavaScript | Mermaid turns the diagram into an SVG. |
+| SCSS | This descendant selector changes only knowledge-map Mermaid SVGs. |
+
+### Level 4: Let JavaScript Trigger A Style
+
+```scss
+.page-toc {
+    display: none;
+}
+
+.page-toc.is-ready {
+    display: block;
+}
+```
+
+In plain English, this code says: "hide the table of contents at first, then show it only after the same element also has the class `is-ready`."
+
+Connected pieces:
+
+| Layer | Role |
+| --- | --- |
+| HTML include | `_includes/table-of-contents.html` creates `.page-toc`. |
+| JavaScript | `assets/js/page-toc.js` adds `.is-ready` after TOC links exist. |
+| SCSS | The TOC appears only when it is ready to be useful. |
+
+### Level 5: Change Layout Only At Certain Screen Widths
+
+```scss
+@media screen and (min-width: 1400px) {
+    .page-toc.is-ready {
+        position: sticky;
+        top: 1rem;
+    }
+}
+```
+
+In plain English, this code says: "on screens at least 1400 pixels wide, keep the ready table of contents stuck near the top as the reader scrolls."
+
+Connected pieces:
+
+| Layer | Role |
+| --- | --- |
+| SCSS media query | Applies the rule only on wide screens. |
+| TOC JavaScript | Adds `.is-ready` only when enough headings exist. |
+| Browser layout | Wide screens get a sticky side rail; smaller screens keep the simpler flow. |
 
 ## Common Properties
 

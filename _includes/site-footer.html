@@ -1,18 +1,28 @@
+{% comment %}
+Include: site-footer.html
+Purpose: render shared footer metadata and navigation links.
+Inputs: page.last_updated, site.time, site.footer_links, and site.repository_url.
+Output: a footer landmark with custom classes styled in assets/css/style.scss.
+{% endcomment %}
 <footer class="site-footer-custom" role="contentinfo">
   <div class="site-footer-custom__meta">
     Last updated:
+    {% comment %} Prefer a page-maintained date when one is provided. {% endcomment %}
     {% if page.last_updated %}
       {{ page.last_updated }}
     {% else %}
+      {% comment %} Fall back to the Jekyll build date for pages without explicit dates. {% endcomment %}
       {{ site.time | date: "%Y-%m-%d" }}
     {% endif %}
   </div>
 
   <nav class="site-footer-custom__links" aria-label="Footer navigation">
+    {% comment %} Footer links are centrally maintained in _config.yml. {% endcomment %}
     {% for link in site.footer_links %}
       <a href="{{ link.url | relative_url }}">{{ link.title }}</a>
     {% endfor %}
 
+    {% comment %} Show a repository link only when the site config provides one. {% endcomment %}
     {% if site.repository_url %}
       <a href="{{ site.repository_url }}">Repository</a>
     {% endif %}

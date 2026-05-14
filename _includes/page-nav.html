@@ -1,8 +1,19 @@
+{% comment %}
+Include: page-nav.html
+Purpose: render the breadcrumb trail at the top and bottom of each page.
+Inputs: page.section_title/page.section_url, page.subsection_title/page.subsection_url,
+and page.subsubsection_title/page.subsubsection_url. These usually come from
+_config.yml defaults, but an individual page can override them in front matter.
+Output: a semantic <nav> whose custom classes are styled in assets/css/style.scss.
+{% endcomment %}
 <nav class="page-breadcrumb" aria-label="Page navigation">
+  {% comment %} The site root is always the first breadcrumb item. {% endcomment %}
   <a href="{{ '/' | relative_url }}">Home</a>
 
+  {% comment %} Render the section level only when the page has a section label. {% endcomment %}
   {% if page.section_title %}
     <span class="page-breadcrumb__separator">/</span>
+    {% comment %} If a section URL exists, make the breadcrumb clickable; otherwise show text only. {% endcomment %}
     {% if page.section_url %}
       <a href="{{ page.section_url | relative_url }}">{{ page.section_title }}</a>
     {% else %}
@@ -10,8 +21,10 @@
     {% endif %}
   {% endif %}
 
+  {% comment %} Optional second level, usually used for folders such as "Derivations". {% endcomment %}
   {% if page.subsection_title %}
     <span class="page-breadcrumb__separator">/</span>
+    {% comment %} Link only to subsections that have a real index page. {% endcomment %}
     {% if page.subsection_url %}
       <a href="{{ page.subsection_url | relative_url }}">{{ page.subsection_title }}</a>
     {% else %}
@@ -19,8 +32,10 @@
     {% endif %}
   {% endif %}
 
+  {% comment %} Optional third level for deeper specialised folders. {% endcomment %}
   {% if page.subsubsection_title %}
     <span class="page-breadcrumb__separator">/</span>
+    {% comment %} Keep the same clickable-or-text pattern as the higher levels. {% endcomment %}
     {% if page.subsubsection_url %}
       <a href="{{ page.subsubsection_url | relative_url }}">{{ page.subsubsection_title }}</a>
     {% else %}

@@ -215,7 +215,7 @@ Explain what calls it and what it prepares for.
 - [Relevant derivation](../derivations/example.md)
 ```
 
-The older [code writing template](writing_template.md) has a longer checklist for detailed routine pages.
+Refer to [code writing template](code_explanation_template.md) for a checklist.
 
 ## Update Nearby Index Pages
 

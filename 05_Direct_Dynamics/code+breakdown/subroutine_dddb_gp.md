@@ -1,4 +1,4 @@
-# ``dddb_gp``: building the dynamic local database for one GWP
+# subroutine ``dddb_gp``: building the dynamic local database for one GWP
 ## The role of this routine
 
 `dddb_gp` constructs the small, dynamic database associated with one Gaussian wavepacket, indexed by `e`.
@@ -21,7 +21,9 @@ ngp_loc(e)%locpt
 So the purpose is not to create new quantum-chemistry data. It is to create a local lookup list telling later routines which existing database records are closest to this GWP.
 
 $$
-x_{\text{gp}} \rightarrow \{\text{distances to all DB record}\} \rightarrow \rightarrow \{\text{nearest }n_{rec}\text{ to all DB record }\} \rightarrow \verb|ngp_loc(e)%locpt|
+\begin{align}
+x_{\text{gp}} \rightarrow \{\text{distances to all DB record}\} \rightarrow \rightarrow \{\text{nearest }n_{rec}\text{ to all DB record }\} \rightarrow \text{ngp_loc(e)\%locpt}
+\end{align}
 $$
 
 
@@ -48,7 +50,7 @@ flowchart TD
     K --> L["Insert into linked list ngp_loc(e)%locpt"]
     L --> M["Set dbnrec_gp(e) = nrec"]
 ```
-## Inputs and immediate exit
+## 1. Inputs and immediate exit
 
 The routine begins as:
 
@@ -65,15 +67,21 @@ real(dop), dimension(ndofddpes), intent(in)  :: xgp
 
 The three inputs are:
 
-```numdb```
+```fortran
+numdb
+```
 
 the number of records in the full database;
 
-```xgp(ndofddpes)```
+```fortran
+xgp(ndofddpes)
+```
 
 the coordinate vector of the current GWP;
 
-```e```
+```fortran
+e
+```
 
 the GWP index, used to decide which local linked list is being built.
 
@@ -85,7 +93,7 @@ if (numdb .eq. 0) return
 
 This is a guard clause. If the full database contains no records, then there is no local database to build.
 
-##. 2. Distance calculation
+## 2. Distance calculation
 
 The routine then initializes
 
@@ -95,30 +103,27 @@ mindist = 0.0_dop
 
 and calls
 
-``` fortan
+```fortran
 call distdb_nopar(xgp(:),iloc,dist_gpt(:),mindist,mindisp,numdb)
 ```
 
 The important output here is:
 
-```dist_gpt(numdb)```
+```fortran
+dist_gpt(numdb)
+```
 
 This array stores the distance from the current GWP geometry to every database geometry.
 
 In plain terms:
 
-$$dist\_gpt(i)=d(xgp​,x_{DB,i}​)$$
-
-`i `is the full database record index.
-
-The variables
-```
-iloc
-mindist
-mindisp
+``` text
+dist_gpt(i)=d(xgp​,x_{DB,i}​)
 ```
 
-are returned by `distdb_nopar`, but in this routine they are not used after the call. For dddb_gp, the main object is the complete distance array ``dist_gpt(:).``
+`i` is the full database record index.
+
+The variables `iloc`, `mindist`, and `mindisp` are returned by `distdb_nopar`, but in this routine they are not used after the call. For dddb_gp, the main object is the complete distance array `dist_gpt(:).`
 
 ## 3. Choosing the local DB size
 The routine then sets
@@ -129,11 +134,15 @@ nrec = min(dbnrec,numrec)
 
 Here:
 
-```dbnrec```
+```fortran
+dbnrec
+```
 
 is the number of records currently in the full database, while
 
-```numrec```
+```fortran
+numrec
+```
 
 is the requested maximum size of the local database.
 
@@ -266,15 +275,7 @@ enddo
 
 Despite the name, this is not quite the usual adjacent-swap bubble sort. It is more like a simple $\BigO(n^2)$ exchange sort: for every position i, it compares against all later positions j and swaps when a smaller value is found.
 
-The essential point is that it sorts:
-
-`vector`
-
-from smallest to largest, and it applies the same swaps to
-
-`ivector`
-
-so that ivector tracks the original locations of the sorted values.
+The essential point is that it sorts `vector` from smallest to largest, and it applies the same swaps to `ivector` so that `ivector` tracks the original locations of the sorted values.
 
 For the first call,
 
@@ -382,13 +383,7 @@ The reason for using `loc_gp(:,l)` rather than overwriting `loc_gp(:,k)` is to a
 
 ## 8. The ping-pong buffer in loc_gp
 
-The variables
-
-```
-k
-l
-```
-select which column of loc_gp is current and which column is scratch.
+The variables `k` and `l` select which column of loc_gp is current and which column is scratch.
 
 Initially:
 ``` fortran
@@ -424,7 +419,7 @@ Now column 2 is the current valid list, and column 1 becomes scratch.
 
 This is a standard double-buffer pattern:
 
-```
+```text
 read from current column k
 write reordered result to scratch column l
 swap k and l
@@ -447,7 +442,7 @@ k = 1
 l = 2
 ```
 This means:
-```
+```text
 nearest current record  = DB record 2, distance 0.20
 next nearest            = DB record 1, distance 0.50
 current worst candidate = DB record 3, distance 0.90
@@ -457,10 +452,7 @@ Now suppose the next database record is
 i = 4
 dist_gpt(4) = 0.10
 ```
-The test succeeds because:
-```
-0.10 < 0.90
-```
+The test succeeds because `0.10 < 0.90`.
 The code replaces the worst entry:
 ```fortran
 dist_gp(nrec) = dist_gpt(i)
@@ -482,7 +474,7 @@ dist_gp = [0.10, 0.20, 0.50]
 indx    = [3,    1,    2]
 ```
 The permutation says:
-```
+```text
 new sorted element 1 came from old position 3
 new sorted element 2 came from old position 1
 new sorted element 3 came from old position 2
@@ -528,11 +520,7 @@ loc_gp(:,k)
 ```
 contains the selected full database record indices.
 
-The destination is:
-```
-ngp_loc(e)%locpt
-```
-This is the head pointer of the linked list associated with GWP `e`.
+The destination is `ngp_loc(e)%locpt`. This is the head pointer of the linked list associated with GWP `e`.
 
 So the final operation is:
 
@@ -557,11 +545,7 @@ The node type is:
 ```fortran
 type nextptr
 ```
-Each node stores:
-``fortran
-locDB
-``
-the full database record number, and
+Each node stores `locDB`, the full database record number, and
 
 ```fortran
 next
@@ -652,7 +636,7 @@ head => new_node
 This creates a new node, stores the database record index in it, points the new node at the old head, and then makes the new node the new head.
 
 So insertion is:
-```
+```text
 new node -> old head
 head     -> new node
 ```
@@ -660,16 +644,14 @@ This is head insertion, not append-to-end insertion.
 
 
 
-For example, if the code inserts:
-
-```2, then 3, then 5```
+For example, if the code inserts `2, then 3, then 5`,
 
 the linked list becomes:
-```
+```text
 head -> 5 -> 3 -> 2 -> null
 ```
 not:
-```
+```text
 head -> 2 -> 3 -> 5 -> null
 ```
 So if ``loc_gp(:,k)`` is sorted nearest-to-farthest, the linked list will store it in reverse order: farthest-to-nearest.
@@ -711,15 +693,13 @@ The core algorithm is a top-nrec nearest-neighbour selection.
 It does not sort the entire database. Instead, it keeps a small sorted list of the best records found so far.
 
 The invariant after each successful replacement is:
-```
+```text
 dist_gp is sorted ascending
 loc_gp(:,k) contains the matching full DB indices
 dist_gp(nrec) is the current worst accepted distance
 ```
 Then, for every remaining database point, the code asks:
-```
-Is this point better than the worst accepted point?
-```
+`Is this point better than the worst accepted point?`
 If yes, replace the worst point and sort the small list again.
 
 Because nrec is small, this simple repeated sort is acceptable. If `nrec = 10`, the $\BigO(nrec^2)$ sort is cheap. The expensive part is usually the distance evaluation over the full database, not the sorting of the small local list.

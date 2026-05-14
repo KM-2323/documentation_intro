@@ -1,30 +1,56 @@
 ---
 layout: default
 ---
+{% comment %}
+Layout: custom.html
+Purpose: extend the remote Cayman default layout with site-specific navigation,
+page utilities, math rendering, and diagram rendering.
+Input: every Markdown page is converted to HTML and inserted at {{ content }}.
+Output: the complete reader-facing page body inside the theme's default shell.
+{% endcomment %}
+
+{% comment %} Top breadcrumb trail. {% endcomment %}
 {% include page-nav.html %}
 
+{% comment %} Empty TOC shell; assets/js/page-toc.js decides whether to populate or remove it. {% endcomment %}
 {% include table-of-contents.html %}
 
+{% comment %} Main page body generated from the source Markdown file. {% endcomment %}
 {{ content }}
 
+{% comment %} Guided reading links discovered from _data/reading_paths.yml or page front matter. {% endcomment %}
 {% include prev-next.html %}
 
+{% comment %} Repeat breadcrumbs after long pages so readers can climb back up without scrolling. {% endcomment %}
 {% include page-nav.html %}
 
+{% comment %} Shared footer metadata and links. {% endcomment %}
 {% include site-footer.html %}
 
+{% comment %} Local script that builds the in-page heading list for the TOC. {% endcomment %}
 <script src="{{ '/assets/js/page-toc.js' | relative_url }}"></script>
+
+{% comment %} Local MathJax configuration must load before the MathJax library. {% endcomment %}
 <script src="{{ '/assets/js/mathjax-config.js' | relative_url }}"></script>
+
+{% comment %} External libraries used for math rendering in older browser environments. {% endcomment %}
 <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <script type="module">
+  // Mermaid is loaded as an ES module because the CDN package exposes the renderer this way.
   import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+
+  // startOnLoad lets Mermaid render any .mermaid elements once the page is ready.
+  // securityLevel "loose" is needed for clickable links inside Mermaid diagrams.
   mermaid.initialize({ startOnLoad: true , securityLevel: 'loose'});
 
+  // Kramdown emits Mermaid code fences as <pre><code class="language-mermaid">.
+  // Mermaid expects <div class="mermaid">, so this converts the generated markup.
   document.addEventListener("DOMContentLoaded", function() {
     const blocks = document.querySelectorAll("code.language-mermaid, pre.mermaid");
     blocks.forEach(function(block) {
+      // Keep the diagram text exactly as authored, then let Mermaid render it.
       const div = document.createElement("div");
       div.className = "mermaid";
       div.textContent = block.textContent;

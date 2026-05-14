@@ -1,7 +1,19 @@
+{% comment %}
+Include: table-of-contents.html
+Purpose: place an empty table-of-contents container on pages that allow one.
+The browser-side script assets/js/page-toc.js fills this container with links to
+the page's h2/h3 headings and removes it when too few headings exist.
+Inputs: page.toc, page.toc_min_headings, and site.toc_min_headings.
+Output: an <aside> landmark styled by assets/css/style.scss after JS adds .is-ready.
+{% endcomment %}
+
+{% comment %} Pages can opt out with toc: false in front matter. {% endcomment %}
 {% unless page.toc == false %}
+{% comment %} data-min-headings passes Liquid configuration to page-toc.js through HTML. {% endcomment %}
 <aside class="page-toc" aria-label="Table of contents" data-min-headings="{{ page.toc_min_headings | default: site.toc_min_headings | default: 3 }}">
   <div class="page-toc__inner">
     <strong class="page-toc__title">On this page</strong>
+    {% comment %} JS appends generated TOC links into this empty nav element. {% endcomment %}
     <nav id="page-toc-list" class="page-toc__list"></nav>
   </div>
 </aside>

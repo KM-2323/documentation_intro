@@ -35,3 +35,5 @@ Each code page should use a repeated template:
 
 ## Links to related derivations or papers
 ```
+
+Not every page needs every section. For example, a very practical utility routine may not need a theory-to-code map. But major routines such as `diabat4_2`, `dddb_gp`, `optqvc`, `propadt`, and `transform` should normally use most of this structure.

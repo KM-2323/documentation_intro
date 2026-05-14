@@ -1,22 +1,38 @@
+{% comment %}
+Include: prev-next.html
+Purpose: render previous/next reading links for pages that belong to a guided path.
+Primary data source: _data/reading_paths.yml.
+Optional overrides: page.nav_prev and page.nav_next in front matter.
+Output: a <nav> containing one or two link cards, styled by assets/css/style.scss.
+{% endcomment %}
+
+{% comment %} Normalise the current page URL so folder indexes match both "/" and "index.html" forms. {% endcomment %}
 {% assign current_url = page.url | replace: 'index.html', '' %}
+
+{% comment %} Empty strings mean "no previous/next page found yet". {% endcomment %}
 {% assign prev_title = '' %}
 {% assign prev_url = '' %}
 {% assign next_title = '' %}
 {% assign next_url = '' %}
 
+{% comment %} Search each configured reading path for the current page. {% endcomment %}
 {% if site.data.reading_paths %}
   {% for path in site.data.reading_paths %}
+    {% comment %} Track the page immediately before the current item as the loop advances. {% endcomment %}
     {% assign prior_title = '' %}
     {% assign prior_url = '' %}
+    {% comment %} After finding the current page, the next loop item becomes the "next" link. {% endcomment %}
     {% assign pending_next = false %}
 
     {% for item in path.pages %}
+      {% comment %} Capture the first item after the current page as the next page. {% endcomment %}
       {% if pending_next and next_title == '' %}
         {% assign next_title = item.title %}
         {% assign next_url = item.url %}
         {% assign pending_next = false %}
       {% endif %}
 
+      {% comment %} Compare normalised URLs so section index pages match reliably. {% endcomment %}
       {% assign item_url = item.url | replace: 'index.html', '' %}
       {% if item_url == current_url %}
         {% assign prev_title = prior_title %}
@@ -24,24 +40,29 @@
         {% assign pending_next = true %}
       {% endif %}
 
+      {% comment %} Save this item so it can become the previous item on the next iteration. {% endcomment %}
       {% assign prior_title = item.title %}
       {% assign prior_url = item.url %}
     {% endfor %}
   {% endfor %}
 {% endif %}
 
+{% comment %} Page front matter can override the automatically discovered previous link. {% endcomment %}
 {% if page.nav_prev %}
   {% assign prev_title = page.nav_prev.title %}
   {% assign prev_url = page.nav_prev.url %}
 {% endif %}
 
+{% comment %} Page front matter can override the automatically discovered next link. {% endcomment %}
 {% if page.nav_next %}
   {% assign next_title = page.nav_next.title %}
   {% assign next_url = page.nav_next.url %}
 {% endif %}
 
+{% comment %} Avoid printing an empty navigation landmark when neither side exists. {% endcomment %}
 {% if prev_title != '' or next_title != '' %}
 <nav class="prev-next" aria-label="Previous and next pages">
+  {% comment %} Left-side previous card. {% endcomment %}
   {% if prev_title != '' %}
     <a class="prev-next__link prev-next__link--prev" href="{{ prev_url | relative_url }}">
       <span class="prev-next__label">Previous</span>
@@ -49,6 +70,7 @@
     </a>
   {% endif %}
 
+  {% comment %} Right-side next card. {% endcomment %}
   {% if next_title != '' %}
     <a class="prev-next__link prev-next__link--next" href="{{ next_url | relative_url }}">
       <span class="prev-next__label">Next</span>
