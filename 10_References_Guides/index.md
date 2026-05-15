@@ -12,6 +12,7 @@ Many of the contents are created with the help of [https://michaelcurrin.github.
 ## Site And Writing Guides
 
 - [Jekyll site maintenance](Jekyll_site_maintenance.md)
+- [Editorial workflow](editorial_workflow.md)
 - [Content authoring guide](content_authoring_guide.md)
 - [HTML and Liquid template guide](html_liquid_template_guide.md)
 - [JavaScript guide](javascript_guide.md)
