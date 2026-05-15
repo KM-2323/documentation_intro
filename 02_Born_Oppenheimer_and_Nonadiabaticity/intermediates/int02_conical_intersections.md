@@ -1,8 +1,8 @@
 
 
-## Two-state diabatic model, conical intersections, and the Lorentzian form of the NACV
+# Two-state diabatic model, conical intersections, and the Lorentzian form of the NACV
 
-### Real two-state diabatic potential matrix
+## Real two-state diabatic potential matrix
 
 Consider a two-state electronic subspace described in a real diabatic basis
 
@@ -250,7 +250,7 @@ so the mixing angle is undefined. This is not a defect of the algebra; it reflec
 
 ---
 
-## Nonadiabatic coupling vector as the gradient of the mixing angle
+### Nonadiabatic coupling vector as the gradient of the mixing angle
 
 Assume for the moment that the diabatic basis is strictly diabatic in the local region of interest, so that
 
@@ -466,7 +466,7 @@ In many symmetry-induced conical intersections, these two vectors have a simple 
 
 ---
 
-## Branching coordinates
+### Branching coordinates
 
 There are two common ways to define the branching coordinates.
 
@@ -554,7 +554,7 @@ If $\Sigma$ has a nonzero gradient in the branching plane, the cone is tilted. D
 
 ---
 
-## NACV in the LVC model
+### NACV in the LVC model
 
 Substituting the LVC expressions
 
@@ -638,7 +638,7 @@ Changing the sign convention for the adiabatic states or reversing the orientati
 
 ---
 
-## Lorentzian form along a one-dimensional cut
+### Lorentzian form along a one-dimensional cut
 
 The full two-dimensional NACV in Eq. $\eqref{eq:lvc_nacv_vector}$ is not itself a Lorentzian; it is a singular vector field in the branching plane. The Lorentzian form appears when one takes a one-dimensional cut through the branching plane while holding the other branching coordinate fixed.
 

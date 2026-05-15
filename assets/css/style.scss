@@ -129,7 +129,7 @@ strong, b {
     display: block;
     margin-bottom: 0.5rem;
     color: #234;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
 // TOC link list layout.
@@ -141,7 +141,7 @@ strong, b {
 // Base TOC link styling.
 .page-toc__link {
     color: #1e6bb8;
-    font-size: 0.9rem;
+    font-size: 1.0rem;
     line-height: 1.35;
     text-decoration: none;
 }
@@ -156,6 +156,16 @@ strong, b {
 .page-toc__link--h3 {
     padding-left: 0.85rem;
     font-size: 1rem;
+}
+
+.page-toc__lin--h2{
+    padding: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.page-toc__lin--h4{
+    padding-left: 1.2rem;
+    font-size: 0.7rem;
 }
 
 // Previous/next reading-path navigation shown below pages that are listed in
