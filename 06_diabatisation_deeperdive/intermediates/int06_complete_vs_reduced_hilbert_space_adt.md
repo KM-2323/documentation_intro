@@ -37,7 +37,6 @@ Then explain that the retained manifold behaves as an approximately closed elect
 
 ## Correction to notation
 
-Your draft says “perturbed to $O(e-2)$”. I would write this as
 
 $$
 O(\epsilon^2),
@@ -61,7 +60,7 @@ $$
 \W^{(P)}=\Cmat^{(P)\dagger}\V^{(P)}\Cmat^{(P)}
 $$
 
-is a quasi-diabatic potential matrix. It is not the exact projection of a globally strict diabatic potential unless the retained subspace is effectively closed.
+is a quasi-diabatic potential matrix. It is not the exact projection of a globally strict diabatic potential unless the retained subspace is effectively closed. So if each component of the $\Cmat$ 
 
 ## Effect on the curl condition
 
