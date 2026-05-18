@@ -1,10 +1,20 @@
 # Derivation of the curl condition from the ADT equation
 
-## Starting point
+## Starting point 
 
 $$
 \pdv{\Cmat}{q_\alpha}=-\mat F_\alpha \Cmat.
 $$
+
+p
+
+So for the matrix $\Cmat$ to to remain regular throughout the assumed region, it must be invertible and its elements must be analytic within that domain. In the following section, we will first show that if $\F$ is analytic and infitenely differentiable, the in an infinite subhilbert space, then $\Cmat$ indeed satisfies these requirements. Then we will also show for the case of finite-sub-Hilbert space, provided the $P$-subspace is decoupled from the $Q$-subspace, then $\Cmat_P$ also satisfy these conditions.
+
+## Invertibility
+To prove that
+
+
+
 
 ## Take mixed derivatives
 
