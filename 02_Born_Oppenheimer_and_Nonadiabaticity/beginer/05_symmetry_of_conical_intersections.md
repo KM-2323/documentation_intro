@@ -1342,12 +1342,10 @@ For example, in two local coordinates $Q_a,Q_b$, suppose (Taylor expand to first
 $$
 \begin{align}
 \Delta(Q_a,Q_b)
-&=
-\Delta_0+aQ_a+bQ_b,
+&=\Delta_0+aQ_a+bQ_b,
 \\
 W_{12}(Q_a,Q_b)
-&=
-W_{12}^{(0)}+cQ_a+dQ_b.
+&=W_{12}^{(0)}+cQ_a+dQ_b.
 \end{align}
 $$
 
@@ -1360,6 +1358,7 @@ a=\pdv{\Delta}{Q_a},\qquad b=\pdv{\Delta}{Q_b}\nonumber\\
 c=\pdv{\\W_{12}}{Q_a},\qquad d=\pdv{W_{12}}{Q_b}\nonumber\\
 \end{align}
 $$
+
 A conical intersection exists if the two linear equations
 
 $$
@@ -1384,7 +1383,7 @@ Q_a\\ Q_b
 \end{align}
 $$
 
-have a solution provided their gradients are independent 
+have a solution provided their gradients are independent. Symbolically this requires a non-zero determinant (guarantees that this matrix is invertible and its rows or column are linearly independent).
 
 $$
 \begin{align}
@@ -1396,7 +1395,7 @@ c & d
 \end{align}
 $$
 
-where the non-zero determinant guarantees that this matrix is invertible, implying its rows are linearly independent. Since the first row corresponds to the gradient of the energy-gap ($\nabla \Delta = (a, b)$) and the second row corresponds to the gradient of the coupling component ($\nabla W_{12} = (c, d)$), this directly implies that the two gradient vectors themselves are linearly independent.
+Since the first row corresponds to the gradient of the energy-gap ($\nabla \Delta = (a, b)$) and the second row corresponds to the gradient of the coupling component ($\nabla W_{12} = (c, d)$), this directly implies that the two gradient vectors themselves are linearly independent.
 
 Thus, for accidental CIs,
 

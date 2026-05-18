@@ -7,7 +7,7 @@ toc: false
 
 This section collects site-maintenance notes, writing templates, glossary material, and reference tables for the knowledge base.
 
-Many of the contents are created with the help of [https://michaelcurrin.github.io/dev-cheatsheets/](https://michaelcurrin.github.io/dev-cheatsheets/) and [https://www.w3schools.com/](https://www.w3schools.com/)
+Many of the contents are created with the help of [dev cheat sheet by michael on Github](https://michaelcurrin.github.io/dev-cheatsheets/), [dev cheat sheet by devhints](http://devhints.io/) and [w3schools](https://www.w3schools.com/)
 
 ## Site And Writing Guides
 

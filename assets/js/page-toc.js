@@ -22,10 +22,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Liquid writes data-min-headings into HTML; fall back to 3 if it is missing.
   const minHeadings = Number.parseInt(toc.dataset.minHeadings || "3", 10);
 
-  // Collect h2/h3 headings from the main content column only.
+  // Collect h2/h3/h4 headings from the main content column only.
   // Exclude headings that might appear inside navigation, footer, or TOC regions.
   const headings = Array.from(
-    document.querySelectorAll(".main-content h4,.main-content h2, .main-content h3")
+    document.querySelectorAll(".main-content h4, .main-content h2, .main-content h3")
   ).filter(function (heading) {
     return !heading.closest(
       ".page-toc, .prev-next, .site-footer-custom, .page-breadcrumb"
