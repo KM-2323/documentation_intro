@@ -121,8 +121,7 @@ F_{33}=0.
 \end{align}
 $$
 
-With the natural initial condition (decoupling the mixing)
-
+With the natural initial condition that the diabatic and adiabatic representations coincide at the reference geometry $s_0$ (i.e., the ADT matrix is the identity, $\mathbf{C}(s_0) = \mathbf{I}$), the initial mixing between the retained and omitted manifolds is strictly zero:
 $$
 \begin{align}
 C_{3j}(s_0)=0,
@@ -130,10 +129,9 @@ C_{3j}(s_0)=0,
 \end{align}
 $$
 
-we obtain
+Substituting this into the integral equation, we obtain
 
-$$
-\begin{align}
+$$\begin{align}
 C_{3j}(s)
 =-\int_{s_0}^{s}
 ds'\,
@@ -142,26 +140,21 @@ F_{31}(s')C_{1j}(s')
 +F_{32}(s')C_{2j}(s')
 \right].
 \label{eq:c3j_first_order_solution}
-\end{align}
-$$
+\end{align}$$
 
 Now assume that the omitted state is weakly coupled to the retained states:
 
-$$
-\begin{align}
+$$\begin{align}
 F_{31},F_{32},F_{13},F_{23}=O(\epsilon).
 \label{eq:three_state_weak_coupling}
-\end{align}
-$$
+\end{align}$$
 
-Since the elements of a unitary or orthogonal transformation matrix are bounded, the integrand in Eq. $\eqref{eq:c3j_first_order_solution}$ is $O(\epsilon)$ over a finite path. Therefore
+Because the ADT matrix is unitary (or orthogonal for real states), its individual elements are strictly bounded in magnitude, $|C_{ij}(s)| \le 1$. Consequently, the coefficients $C_{1j}(s')$ and $C_{2j}(s')$ in Equation $\eqref{eq:c3j_first_order_solution}$ act only as bounded modulators. Since the integrand consists of a finite sum of $O(\epsilon)$ coupling terms multiplied by bounded $O(1)$ coefficients, the total integrand is strictly $O(\epsilon)$. Integrating this uniformly bounded quantity over a finite path length $\Delta s = s - s_0$ yields an accumulated value proportional to $\Delta s \cdot O(\epsilon)$. Therefore, the leakage into the omitted state scales linearly with the weak coupling,
 
-$$
-\begin{align}
+$$\begin{align}
 C_{3j}(s)=O(\epsilon).
 \label{eq:c3j_order_epsilon}
-\end{align}
-$$
+\end{align}$$
 
 Now examine the retained block. For $i=1,2$ and $j=1,2$,
 
@@ -231,6 +224,9 @@ $$
 
 This is the essential result in its simplest form. If coupling to the omitted state is $O(\epsilon)$, then the error introduced into the retained ADT equation is $O(\epsilon^2)$.
 
+> bounded: Because $\mathbf{C}(s)$ is an orthogonal (or unitary) matrix, the sum of the squares of the elements in any row or column must equal 1. Therefore, no single element can ever have an absolute value greater than 1 ($|C_{ij}(s)| \le 1$). They cannot blow up to infinity or scale as $1/\epsilon$. When you multiply an $O(\epsilon)$ term (the coupling $F$) by a strictly bounded $O(1)$ term (the matrix element $C$), the product remains $O(\epsilon)$.
+
+> Why $O(\epsilon) + O(\epsilon) = O(\epsilon)$: In asymptotic Big-O notation, scalar multipliers are absorbed. A finite sum of terms that scale linearly with $\epsilon$ still scales linearly with $\epsilon$. When you integrate this $O(\epsilon)$ integrand over a finite path length ($\Delta s = s - s_0$), the result is proportional to $\Delta s \cdot O(\epsilon)$, which remains formally $O(\epsilon)$ with respect to the coupling strength.
 ---
 
 ## General block partition
@@ -550,6 +546,8 @@ ds'\,
 \label{eq:p_block_integral_second_order_error}
 \end{align}
 $$
+
+Note that integrating the $O(\epsilon^2)$ error term over the path yields an accumulated error of $\int_{s_0}^{s} O(\epsilon^2) ds' \propto (s - s_0) O(\epsilon^2)$. Provided the integration path length $\Delta s = s - s_0$ is finite, the accumulated leakage error remains strictly second-order in the weak coupling parameter $\epsilon$.
 
 This is the general version of the three-state result.
 
