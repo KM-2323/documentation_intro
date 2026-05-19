@@ -73,8 +73,7 @@ Let the full electronic Hilbert space be divided into several sub-Hilbert spaces
 $$
 \begin{align}
 \mathcal H_{\mathrm{el}}
-=
-\bigoplus_{P=1}^{L}\mathcal H_P.
+=\bigoplus_{P=1}^{L}\mathcal H_P.
 \end{align}
 $$
 
@@ -83,8 +82,7 @@ Suppose the \(P\)-th subspace contains \(N_P\) states,
 $$
 \begin{align}
 \mathcal H_P
-=
-\operatorname{span}
+=\operatorname{span}
 \left\{
 \psi^{(P)}_1,\ldots,\psi^{(P)}_{N_P}
 \right\}.
@@ -96,8 +94,7 @@ The nonadiabatic coupling terms inside this subspace are
 $$
 \begin{align}
 \F^{(P)}_{ij}
-=
-\braket{\psi_i^{(P)}}{\nabla_{\mat q}\psi_j^{(P)}},
+=\braket{\psi_i^{(P)}}{\nabla_{\mat q}\psi_j^{(P)}},
 \qquad
 i,j=1,\ldots,N_P.
 \label{eq:intra_shs_couplings}
@@ -111,8 +108,7 @@ The couplings between the \(P\)-space and a neighbouring \(Q\)-space are
 $$
 \begin{align}
 \F^{(P,Q)}_{ij}
-=
-\braket{\psi_i^{(P)}}{\nabla_{\mat q}\psi_j^{(Q)}}.
+=\braket{\psi_i^{(P)}}{\nabla_{\mat q}\psi_j^{(Q)}}.
 \label{eq:inter_shs_couplings}
 \end{align}
 $$
@@ -140,8 +136,7 @@ $$
 \text{may be large},
 \qquad
 \F^{(P,Q)}_{ij}
-=
-O(\epsilon).
+=O(\epsilon).
 \end{align}
 $$
 
@@ -187,12 +182,10 @@ If the \(P\)-th subspace lies between a lower subspace \(P-1\) and an upper subs
 $$
 \begin{align}
 \F^{(P-1,P)}
-=
-O(\epsilon),
+=O(\epsilon),
 \qquad
 \F^{(P,P+1)}
-=
-O(\epsilon).
+=O(\epsilon).
 \label{eq:baer_boundary_coupling_condition}
 \end{align}
 $$
@@ -286,14 +279,12 @@ Symbolically,
 $$
 \begin{align}
 \F^{(\mathrm{interesting},\mathrm{external})}
-=
-O(\epsilon)
+=O(\epsilon)
 \quad
 \Longrightarrow
 \quad
 \Delta \Cmat_{\mathrm{interesting}}
-=
-O(\epsilon^2).
+=O(\epsilon^2).
 \end{align}
 $$
 
