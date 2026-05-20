@@ -53,7 +53,7 @@
     # - title: ADT Topology Worked Examples
     #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/
     # - title: Two-State Loop And Sign Change
-    #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/two_state_loop_and_sign_change.html
+    #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/example01_two_state_loop_and_sign_change.html
     - title: Complete Versus Reduced Hilbert Space ADT
       url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec06_complete_vs_reduced_hilbert_space_adt.html
     # - title: Derivation Of Reduced Sub-Hilbert-Space ADT Errors
@@ -61,7 +61,7 @@
     - title: Constructing A Good Sub-Hilbert Space
       url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec07_constructing_a_good_subhilbert_space.html
     # - title: Three-State Sign Flips And The Topological Matrix
-    #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/three_state_sign_flips_and_D_matrix.html
+    #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.html
     - title: Multistate Topology, Sign Changes, And Degeneracies
       url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs_and_degeneracies.html
     # - title: Finite-Subspace Failure Modes

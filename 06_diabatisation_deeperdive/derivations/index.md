@@ -18,6 +18,8 @@ These notes collect the mathematical derivations that support the diabatisation 
 - [Integral formulation and path dependence of the ADT matrix](derivation_path_ordered_adt_and_closed_contours.md)
 - [Condition for single-valued diabatic potentials from the topological matrix](derivation_topological_matrix_condition_for_W.md)
 
+## Multistate
+- [Mutli-state ADT angles and topological sign](<derivations_multistate_ADT_angle_equations and_topological_sign_matrices.md>)
 ## Reduced Subspace Analysis
 
 - [Derivation of reduced sub-Hilbert-space ADT errors](derivation_reduced_subhilbert_space_errors.md)

@@ -15,13 +15,13 @@ These notes expand on the mathematical and physical subtleties behind propagatio
 4. [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md)
 5. [Integral formulation and path dependence of the ADT matrix](../derivations/derivation_path_ordered_adt_and_closed_contours.md)
 6. [Condition for single-valued diabatic potentials from the topological matrix](../derivations/derivation_topological_matrix_condition_for_W.md)
-7. [Two-state loop and sign change](../worked_examples/adt_topology/two_state_loop_and_sign_change.md)
+7. [Two-state loop and sign change](../worked_examples/adt_topology/example01_two_state_loop_and_sign_change.md)
 8. [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md)
 9. [Derivation of reduced sub-Hilbert-space ADT errors](../derivations/derivation_reduced_subhilbert_space_errors.md)
 10. [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md)
-11. [Three-state sign flips and the topological matrix](../worked_examples/adt_topology/three_state_sign_flips_and_D_matrix.md)
+11. [Three-state sign flips and the topological matrix](../worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)
 12. [Multistate topology, sign changes, and degeneracies](spec08_multistate_topology_signs_and_degeneracies.md)
-13. [Finite-subspace failure modes](../worked_examples/adt_topology/finite_subspace_failure_modes.md)
+<!-- 13. [Finite-subspace failure modes](../worked_examples/adt_topology/finite_subspace_failure_modes.md) -->
 
 ## ADT Integrability And Topology
 
@@ -45,9 +45,9 @@ These notes expand on the mathematical and physical subtleties behind propagatio
 ## Worked Examples
 
 - [ADT topology worked examples](../worked_examples/adt_topology/)
-- [Two-state loop and sign change](../worked_examples/adt_topology/two_state_loop_and_sign_change.md)
-- [Three-state sign flips and the topological matrix](../worked_examples/adt_topology/three_state_sign_flips_and_D_matrix.md)
-- [Finite-subspace failure modes](../worked_examples/adt_topology/finite_subspace_failure_modes.md)
+- [Two-state loop and sign change](../worked_examples/adt_topology/example01_two_state_loop_and_sign_change.md)
+- [Three-state sign flips and the topological matrix](../worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)
+<!-- - [Finite-subspace failure modes](../worked_examples/adt_topology/finite_subspace_failure_modes.md) -->
 
 ## Related Series
 

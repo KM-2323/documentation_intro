@@ -58,5 +58,5 @@ True multistate degeneracies involve higher-codimension conditions and non-Abeli
 
 ## Link to examples
 
-- [Three-state sign flips and $\mat D$ matrix](../worked_examples/adt_topology/three_state_sign_flips_and_D_matrix.md)
+- [Three-state sign flips and $\mat D$ matrix](../worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)
 - [Finite subspace failure modes](../worked_examples/adt_topology/finite_subspace_failure_modes.md)

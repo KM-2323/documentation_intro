@@ -485,7 +485,7 @@ Thus the ADT matrix may carry nontrivial topological sign information, while the
 - [Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs_and_degeneracies.md)
 - [Derivation: topological matrix condition for single-valued diabatic potentials](../derivations/derivation_topological_matrix_condition_for_W.md)
 - [Derivation: path-ordered ADT and closed contours](../derivations/derivation_path_ordered_adt_and_closed_contours.md)
-- [Worked example: two-state loop and sign change](../worked_examples/adt_topology/two_state_loop_and_sign_change.md)
+- [Worked example: two-state loop and sign change](../worked_examples/adt_topology/example01_two_state_loop_and_sign_change.md)
 
 ---
 
