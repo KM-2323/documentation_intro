@@ -32,16 +32,40 @@
       url: /06_diabatisation_deeperdive/intermediates/int01_propagation_diabatisation_main.html
     - title: Propagation Diabatisation Safety-Guard Breakdown
       url: /06_diabatisation_deeperdive/intermediates/int01_propagation_diabatisation_safetyguard_breakdown.html
+    - title: Procrustes Diabatisation
+      url: /06_diabatisation_deeperdive/intermediates/int02_proscrutes_diabatisation.html
     - title: Specialised Topics
       url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/
-    - title: Analyticity, Unique Existence, And Path Dependence
-      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/analyticity_unique_existence.html
-    - title: Curl Condition And Path Dependence
-      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/curl_condition_path_dependence.html
-    - title: Good Sub-Hilbert Space
-      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/good_subhilbert_space.html
-    - title: Topological Spin
-      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/topological_spin.html
+    - title: ADT Integrability, Topology, And Finite Electronic Subspaces Overview
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec03_adt_integrability_and_topology_overview.html
+    - title: Curl Condition, Analyticity, And Uniqueness Of The ADT Matrix
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec04_curl_condition_analyticity_and_uniqueness.html
+    # - title: Derivation Of The Curl Condition From The ADT Equation
+    #   url: /06_diabatisation_deeperdive/derivations/derivation_curl_condition_from_adt.html
+    # - title: Integral Formulation And Path Dependence Of The ADT Matrix
+    #   url: /06_diabatisation_deeperdive/derivations/derivation_path_ordered_adt_and_closed_contours.html
+    - title: Topological Matrix And Single-Valued Diabatic Potentials
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec05_topological_matrix_and_single_valued_diabatic_potentials.html
+    # - title: Condition For Single-Valued Diabatic Potentials From The Topological Matrix
+    #   url: /06_diabatisation_deeperdive/derivations/derivation_topological_matrix_condition_for_W.html
+    # # - title: Worked Examples
+    #   url: /06_diabatisation_deeperdive/worked_examples/
+    # - title: ADT Topology Worked Examples
+    #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/
+    # - title: Two-State Loop And Sign Change
+    #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/two_state_loop_and_sign_change.html
+    - title: Complete Versus Reduced Hilbert Space ADT
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec06_complete_vs_reduced_hilbert_space_adt.html
+    # - title: Derivation Of Reduced Sub-Hilbert-Space ADT Errors
+    #   url: /06_diabatisation_deeperdive/derivations/derivation_reduced_subhilbert_space_errors.html
+    - title: Constructing A Good Sub-Hilbert Space
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec07_constructing_a_good_subhilbert_space.html
+    # - title: Three-State Sign Flips And The Topological Matrix
+    #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/three_state_sign_flips_and_D_matrix.html
+    - title: Multistate Topology, Sign Changes, And Degeneracies
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs_and_degeneracies.html
+    # - title: Finite-Subspace Failure Modes
+    #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/finite_subspace_failure_modes.html
     - title: Split Diabatic Representations And Residual Couplings
       url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/split_diabatic_representations_and_residual_couplings/
     - title: Connections Between Split Diabatic Representations And Residual Couplings

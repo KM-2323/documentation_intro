@@ -481,11 +481,11 @@ Thus a finite electronic subspace can support a controlled quasi-diabatic repres
 
 ## Links to related notes
 
-- [The Born--Oppenheimer equation in a finite electronic subspace](int01_group_born_approximations.md)
-- [Curl condition, analyticity, and uniqueness](int04_curl_condition_analyticity_and_uniqueness.md)
-- [Topological matrix and single-valued diabatic potentials](int05_topological_matrix_and_single_valued_diabatic_potentials.md)
-- [Constructing a good sub-Hilbert space](int07_constructing_a_good_subhilbert_space.md)
-- [Residual coupling and split diabatic representations](../derivations/derivations_residual_coupling.md)
+- [The Born--Oppenheimer equation in a finite electronic subspace](../../02_Born_Oppenheimer_and_Nonadiabaticity/intermediates/int01_group_born_approximations.md)
+- [Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md)
+- [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md)
+- [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md)
+- [Residual coupling and split diabatic representations](split_diabatic_representations_and_residual_couplings/)
 - [Derivation: reduced sub-Hilbert-space errors](../derivations/derivation_reduced_subhilbert_space_errors.md)
 
 ---

@@ -496,9 +496,9 @@ Important caveat: this local curl-free condition can hold away from a conical in
 ---
 ## Exactly closed finite subspace
 
-The derivation above was written as if the retained electronic basis were complete. In practical calculations, however, one usually keeps only a finite set of \(M\) adiabatic states. It is therefore useful to show explicitly when the same curl condition remains valid inside the retained subspace.
+The derivation above was written as if the retained electronic basis were complete. In practical calculations, however, one usually keeps only a finite set of $M$ adiabatic states. It is therefore useful to show explicitly when the same curl condition remains valid inside the retained subspace.
 
-Let the retained \(P\)-space be
+Let the retained $P$-space be
 
 $$
 \begin{align}
@@ -557,13 +557,13 @@ $$
 \end{align}
 $$
 
-The question is whether the retained matrices \(\mat F_\mu^{(P)}\) satisfy the same curl condition as the full coupling matrices.
+The question is whether the retained matrices $\mat F_\mu^{(P)}$ satisfy the same curl condition as the full coupling matrices.
 
 ---
 
 ### Exact closure assumption
 
-The retained \(P\)-space is exactly closed under nuclear differentiation if the derivative of every retained state has no component in the omitted \(Q\)-space:
+The retained $P$-space is exactly closed under nuclear differentiation if the derivative of every retained state has no component in the omitted $Q$-space:
 
 $$
 \begin{align}
@@ -603,7 +603,7 @@ k\le M,\quad a>M.
 \end{align}
 $$
 
-This assumption is stronger than merely selecting \(M\) states. It says that nuclear differentiation does not take the retained manifold outside itself.
+This assumption is stronger than merely selecting $M$ states. It says that nuclear differentiation does not take the retained manifold outside itself.
 
 Under this condition, the retained subspace behaves as a complete Hilbert space for the purpose of the ADT equation.
 
@@ -611,7 +611,7 @@ Under this condition, the retained subspace behaves as a complete Hilbert space 
 
 ### Left-hand side of the reduced curl condition
 
-Choose two nuclear coordinates \(p\) and \(q\). For retained states \(j,k\le M\),
+Choose two nuclear coordinates $p$ and $q$. For retained states $j,k\le M$,
 
 $$
 \begin{align}
@@ -624,7 +624,7 @@ $$
 \end{align}
 $$
 
-Differentiate with respect to \(p\):
+Differentiate with respect to $p$:
 
 $$
 \begin{align}
@@ -817,7 +817,7 @@ $$
 \end{align}
 $$
 
-If the \(P\)-space is exactly closed, then
+If the $P$-space is exactly closed, then
 
 $$
 \begin{align}
@@ -827,7 +827,7 @@ $$
 \end{align}
 $$
 
-and the \(Q\)-space term vanishes. Thus
+and the $Q$-space term vanishes. Thus
 
 $$
 \begin{align}
@@ -843,7 +843,7 @@ $$
 \end{align}
 $$
 
-Repeating the same calculation with \(p\) and \(q\) interchanged gives
+Repeating the same calculation with $p$ and $q$ interchanged gives
 
 $$
 \begin{align}
@@ -897,7 +897,7 @@ $$
 \end{align}
 $$
 
-Since this holds for all retained-state indices \(j,k\le M\),
+Since this holds for all retained-state indices $j,k\le M$,
 
 $$
 \begin{align}
@@ -917,9 +917,9 @@ This is the curl condition in an exactly closed finite subspace.
 
 ### Interpretation
 
-The derivation shows why exact subspace closure is the finite-dimensional analogue of completeness. If the derivatives of the retained states remain inside the retained subspace, then the \(P\)-space projector acts like the identity on those derivatives. The same cancellation that occurs in the full Hilbert space then occurs inside \(P\), and the retained NACM satisfies the same curl condition.
+The derivation shows why exact subspace closure is the finite-dimensional analogue of completeness. If the derivatives of the retained states remain inside the retained subspace, then the $P$-space projector acts like the identity on those derivatives. The same cancellation that occurs in the full Hilbert space then occurs inside $P$, and the retained NACM satisfies the same curl condition.
 
-If the \(P\)-space is not exactly closed, the \(Q\)-space terms in Eq. $\eqref{eq:FqFp_with_Q_derivation}$ do not vanish. Those terms are the source of the reduced-space curl defect. They are not analysed here because this page is concerned only with the exactly closed case. The size and consequences of the omitted-state terms are treated in [Reduced sub-Hilbert-space errors](derivation_reduced_subhilbert_space_errors.md).
+If the $P$-space is not exactly closed, the $Q$-space terms in Eq. $\eqref{eq:FqFp_with_Q_derivation}$ do not vanish. Those terms are the source of the reduced-space curl defect. They are not analysed here because this page is concerned only with the exactly closed case. The size and consequences of the omitted-state terms are treated in [Reduced sub-Hilbert-space errors](derivation_reduced_subhilbert_space_errors.md).
 
 
 ## Summary

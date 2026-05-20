@@ -20,6 +20,10 @@ The live source of truth for assignments, deadlines, review status, and to-do it
 | MCTDH family | Planned | Develop method summaries, comparisons, and diagrams. |
 | Glossary and notation | Ongoing | Keep symbols, conventions, and terminology consistent across the site. |
 
+## Recently Expanded Areas
+
+- The diabatisation deep dive now has a longer ADT integrability and topology sequence covering curl conditions, topological matrices, reduced Hilbert spaces, subspace construction, multistate signs, derivations, and worked examples.
+
 ## How Work Is Tracked
 
 Use GitHub Issues for individual work items such as:
@@ -57,4 +61,3 @@ This roadmap should be updated when:
 - The collaboration workflow changes.
 
 Day-to-day task movement should happen on the GitHub Project board rather than on this page.
-

@@ -615,7 +615,7 @@ $$
 
 If the retained subspace is not exactly closed, then Eq. $\eqref{eq:p_space_curl_condition_int04}$ is generally not exact. Couplings to omitted states produce residual curvature in the projected connection. This is the finite-subspace obstruction to a globally exact diabatic representation.
 
-The detailed finite-subspace corrections are not introduced here. They are treated in [Complete versus reduced Hilbert spaces in ADT theory](int06_complete_vs_reduced_hilbert_space_adt.md).
+The detailed finite-subspace corrections are not introduced here. They are treated in [Complete versus reduced Hilbert spaces in ADT theory](spec06_complete_vs_reduced_hilbert_space_adt.md).
 
 ---
 

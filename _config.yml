@@ -92,6 +92,14 @@ defaults:
       section_title: "Diabatisation Deep Dive"
       section_url: "/06_diabatisation_deeperdive/"
       subsection_title: "Derivations"
+      subsection_url: "/06_diabatisation_deeperdive/derivations/"
+  - scope:
+      path: "06_diabatisation_deeperdive/worked_examples"
+    values:
+      section_title: "Diabatisation Deep Dive"
+      section_url: "/06_diabatisation_deeperdive/"
+      subsection_title: "Worked Examples"
+      subsection_url: "/06_diabatisation_deeperdive/worked_examples/"
   - scope:
       path: "06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive"
     values:

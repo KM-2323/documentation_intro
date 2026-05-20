@@ -480,7 +480,7 @@ $$
 
 This is why Baer's topological condition is usually stated in terms of the topological matrix and the single-valuedness of the diabatic potentials, not merely in terms of whether $\Cmat$ itself returns to the identical matrix.
 
-The detailed derivation is given in [Topological matrix and single-valued diabatic potentials](../intermediates/int05_topological_matrix_and_single_valued_diabatic_potentials.md).
+The detailed derivation is given in [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md).
 
 ---
 

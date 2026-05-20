@@ -480,9 +480,9 @@ Thus the ADT matrix may carry nontrivial topological sign information, while the
 
 ## Links to related notes
 
-- [Curl condition, analyticity, and uniqueness](int04_curl_condition_analyticity_and_uniqueness.md)
-- [Complete versus reduced Hilbert space ADT](int06_complete_vs_reduced_hilbert_space_adt.md)
-- [Multistate topology, signs, and degeneracies](int08_multistate_topology_signs_and_degeneracies.md)
+- [Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md)
+- [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md)
+- [Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs_and_degeneracies.md)
 - [Derivation: topological matrix condition for single-valued diabatic potentials](../derivations/derivation_topological_matrix_condition_for_W.md)
 - [Derivation: path-ordered ADT and closed contours](../derivations/derivation_path_ordered_adt_and_closed_contours.md)
 - [Worked example: two-state loop and sign change](../worked_examples/adt_topology/two_state_loop_and_sign_change.md)

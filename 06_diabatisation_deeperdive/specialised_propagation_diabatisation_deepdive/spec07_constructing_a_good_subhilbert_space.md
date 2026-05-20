@@ -25,7 +25,7 @@ $$
 \end{align}
 $$
 
-This equation uses only the nonadiabatic coupling matrix inside the selected subspace \(P\). It is a good approximation only when the couplings to omitted states are small,
+This equation uses only the nonadiabatic coupling matrix inside the selected subspace $P$. It is a good approximation only when the couplings to omitted states are small,
 
 $$
 \begin{align}
@@ -38,9 +38,9 @@ $$
 \end{align}
 $$
 
-If this condition is satisfied, the retained ADT matrix, the reduced curl condition, and the diabatic potential matrix are perturbed only to order \(O(\epsilon^2)\). This was the main result of the previous page.
+If this condition is satisfied, the retained ADT matrix, the reduced curl condition, and the diabatic potential matrix are perturbed only to order $O(\epsilon^2)$. This was the main result of the previous page.
 
-If the condition is not satisfied, the chosen subspace is too small. In that case, the ADT constructed inside \(P\) may become path-dependent, the curl condition may fail, and the resulting diabatic matrix may not represent the correct electronic topology.
+If the condition is not satisfied, the chosen subspace is too small. In that case, the ADT constructed inside $P$ may become path-dependent, the curl condition may fail, and the resulting diabatic matrix may not represent the correct electronic topology.
 
 Thus, the quality of a diabatisation is strongly tied to the quality of the electronic subspace.
 
@@ -54,7 +54,7 @@ The first type is a strong interaction associated with a near-degeneracy or dege
 
 The second type is a weaker interaction, often described in Baer's discussion as Demkov-type. Here the states interact, but they do not form the same kind of strong crossing structure. Such interactions may still affect the dynamics, but they are assumed to be weak enough to define boundaries between subspaces.
 
-In the notation used here, the retained subspace \(P\) contains states that are strongly coupled to each other. The neighbouring subspaces contain states that are only weakly coupled to \(P\).
+In the notation used here, the retained subspace $P$ contains states that are strongly coupled to each other. The neighbouring subspaces contain states that are only weakly coupled to $P$.
 
 This gives the practical rule:
 
@@ -77,7 +77,7 @@ $$
 \end{align}
 $$
 
-Suppose the \(P\)-th subspace contains \(N_P\) states,
+Suppose the $P$-th subspace contains $N_P$ states,
 
 $$
 \begin{align}
@@ -101,9 +101,9 @@ i,j=1,\ldots,N_P.
 \end{align}
 $$
 
-These are the **intra-subspace** couplings. They are retained in the ADT equation for the \(P\)-space.
+These are the **intra-subspace** couplings. They are retained in the ADT equation for the $P$-space.
 
-The couplings between the \(P\)-space and a neighbouring \(Q\)-space are
+The couplings between the $P$-space and a neighbouring $Q$-space are
 
 $$
 \begin{align}
@@ -113,7 +113,7 @@ $$
 \end{align}
 $$
 
-These are the **inter-subspace** couplings. They are omitted when one constructs the ADT only inside \(P\). Therefore, they must be small over the region of interest.
+These are the **inter-subspace** couplings. They are omitted when one constructs the ADT only inside $P$. Therefore, they must be small over the region of interest.
 
 A useful way to summarise the construction is
 
@@ -148,7 +148,7 @@ Baer's construction can be expressed as two requirements.
 
 ### 1. Strong internal connectivity
 
-All states inside the \(P\)-th sub-Hilbert space should be connected by strong interactions. In Baer's formulation, each pair of consecutive states inside the subspace should form at least one Landau--Zener-type interaction somewhere in the nuclear configuration space. In two-dimensional language, this corresponds to a conical intersection or parabolic intersection between the relevant consecutive states.
+All states inside the $P$-th sub-Hilbert space should be connected by strong interactions. In Baer's formulation, each pair of consecutive states inside the subspace should form at least one Landau--Zener-type interaction somewhere in the nuclear configuration space. In two-dimensional language, this corresponds to a conical intersection or parabolic intersection between the relevant consecutive states.
 
 In notation, for a subspace containing states
 
@@ -171,13 +171,13 @@ $$
 
 Equivalently, the chain of strong couplings should connect the whole retained subspace.
 
-This does not mean that every possible pair of states inside \(P\) must form a conical intersection. It means that the retained states form one connected strongly interacting manifold.
+This does not mean that every possible pair of states inside $P$ must form a conical intersection. It means that the retained states form one connected strongly interacting manifold.
 
 ### 2. Weak boundary coupling
 
 The boundary of the subspace should be weakly coupled to neighbouring subspaces.
 
-If the \(P\)-th subspace lies between a lower subspace \(P-1\) and an upper subspace \(P+1\), then the boundary couplings should satisfy
+If the $P$-th subspace lies between a lower subspace $P-1$ and an upper subspace $P+1$, then the boundary couplings should satisfy
 
 $$
 \begin{align}
@@ -190,7 +190,7 @@ $$
 \end{align}
 $$
 
-More explicitly, the lowest state of \(P\) should be weakly coupled to the highest state of the lower neighbouring subspace, and the highest state of \(P\) should be weakly coupled to the lowest state of the upper neighbouring subspace.
+More explicitly, the lowest state of $P$ should be weakly coupled to the highest state of the lower neighbouring subspace, and the highest state of $P$ should be weakly coupled to the lowest state of the upper neighbouring subspace.
 
 The physical meaning is that the retained block is internally strongly connected but externally only weakly connected.
 
@@ -238,7 +238,7 @@ $$
 \end{align}
 $$
 
-suggests a three-state subspace. Even if state \(1\) and state \(3\) do not directly form a strong pairwise crossing, they belong to the same connected manifold through state \(2\).
+suggests a three-state subspace. Even if state $1$ and state $3$ do not directly form a strong pairwise crossing, they belong to the same connected manifold through state $2$.
 
 In contrast,
 
@@ -252,7 +252,7 @@ $$
 \end{align}
 $$
 
-suggests a two-state subspace plus an omitted third state, provided the coupling between \(\{1,2\}\) and \(3\) is weak.
+suggests a two-state subspace plus an omitted third state, provided the coupling between $\{1,2\}$ and $3$ is weak.
 
 This graph picture is not a replacement for the mathematical conditions, but it is useful for deciding which states should be included before checking the curl condition, topological matrix, and boundary couplings.
 
@@ -272,7 +272,7 @@ $$
 }
 $$
 
-The answer is again controlled by coupling strength. If the non-interesting or external couplings are \(O(\epsilon)\) along the relevant contours in the region, then their effect on the ADT matrix for the interesting subspace is \(O(\epsilon^2)\).
+The answer is again controlled by coupling strength. If the non-interesting or external couplings are $O(\epsilon)$ along the relevant contours in the region, then their effect on the ADT matrix for the interesting subspace is $O(\epsilon^2)$.
 
 Symbolically,
 
@@ -352,7 +352,7 @@ For example, an intruder state is precisely a failure of the assumed sub-Hilbert
 
 ### Choosing states only by energy
 
-It is tempting to choose the lowest \(M\) electronic states and assume that they form a good subspace. This may work, but it is not the defining criterion. The defining criterion is coupling: important strongly coupled states should be included, and omitted-state couplings should be small.
+It is tempting to choose the lowest $M$ electronic states and assume that they form a good subspace. This may work, but it is not the defining criterion. The defining criterion is coupling: important strongly coupled states should be included, and omitted-state couplings should be small.
 
 ### Treating a strongly coupled group state by state
 
@@ -386,9 +386,9 @@ The reduced ADT is then quasi-diabatic rather than strictly diabatic.
 
 ## Summary
 
-A good sub-Hilbert space is a retained electronic manifold that is internally strongly coupled and externally weakly coupled. In Baer's construction, the internal strong interactions are associated with consecutive states forming Landau--Zener-type crossings, conical intersections, or parabolic intersections. The boundaries of the subspace are chosen so that couplings to neighbouring subspaces are weak, usually written as \(O(\epsilon)\).
+A good sub-Hilbert space is a retained electronic manifold that is internally strongly coupled and externally weakly coupled. In Baer's construction, the internal strong interactions are associated with consecutive states forming Landau--Zener-type crossings, conical intersections, or parabolic intersections. The boundaries of the subspace are chosen so that couplings to neighbouring subspaces are weak, usually written as $O(\epsilon)$.
 
-Once such a subspace is chosen, it should be treated as a whole. The ADT matrix is a transformation of the retained manifold, not of isolated states. If the coupling to omitted states remains small over the relevant region of nuclear configuration space, the retained ADT, curl condition, and diabatic potential matrix are accurate to \(O(\epsilon^2)\). If the omitted-state coupling is not small, the subspace must be enlarged.
+Once such a subspace is chosen, it should be treated as a whole. The ADT matrix is a transformation of the retained manifold, not of isolated states. If the coupling to omitted states remains small over the relevant region of nuclear configuration space, the retained ADT, curl condition, and diabatic potential matrix are accurate to $O(\epsilon^2)$. If the omitted-state coupling is not small, the subspace must be enlarged.
 
 This page therefore completes the practical logic begun in the previous page:
 
@@ -406,16 +406,16 @@ $$
 
 ## Links to related notes
 
-- [Complete versus reduced Hilbert space ADT](int06_complete_vs_reduced_hilbert_space_adt.md)
-- [Curl condition, analyticity, and uniqueness](int04_curl_condition_analyticity_and_uniqueness.md)
-- [Topological matrix and single-valued diabatic potentials](int05_topological_matrix_and_single_valued_diabatic_potentials.md)
-- [Multistate topology, signs, and degeneracies](int08_multistate_topology_signs_and_degeneracies.md)
-- [The Born--Oppenheimer equation in a finite electronic subspace](int01_group_born_approximations.md)
-- [Residual coupling and split diabatic representations](../derivations/derivations_residual_coupling.md)
+- [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md)
+- [Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md)
+- [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md)
+- [Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs_and_degeneracies.md)
+- [The Born--Oppenheimer equation in a finite electronic subspace](../../02_Born_Oppenheimer_and_Nonadiabaticity/intermediates/int01_group_born_approximations.md)
+- [Residual coupling and split diabatic representations](split_diabatic_representations_and_residual_couplings/)
 - [Derivation: reduced sub-Hilbert-space errors](../derivations/derivation_reduced_subhilbert_space_errors.md)
 
 ---
 
 ## References
 
-This page follows Baer's construction of sub-Hilbert spaces and sub-sub-Hilbert spaces, especially the distinction between intra-subspace and inter-subspace NACTs, the use of strong Landau--Zener/conical-intersection-type interactions to define the retained manifold, and the weak Demkov-type boundary condition used to separate neighbouring subspaces [@baer_2002_nact]. The connection to reduced ADT errors and quasi-diabatic representations follows the finite-subspace discussion in [Complete versus reduced Hilbert space ADT](int06_complete_vs_reduced_hilbert_space_adt.md).
+This page follows Baer's construction of sub-Hilbert spaces and sub-sub-Hilbert spaces, especially the distinction between intra-subspace and inter-subspace NACTs, the use of strong Landau--Zener/conical-intersection-type interactions to define the retained manifold, and the weak Demkov-type boundary condition used to separate neighbouring subspaces [@baer_2002_nact]. The connection to reduced ADT errors and quasi-diabatic representations follows the finite-subspace discussion in [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md).
