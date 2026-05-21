@@ -24,3 +24,4 @@ Many of the contents are created with the help of [dev cheat sheet by michael on
 - [Symbols and notations](Symbols_and_notations.md)
 - [Glossary](glossary.md)
 - [Method comparison table](Method_comparison_table.md)
+ [text](bashguide.md)
