@@ -28,12 +28,15 @@ These notes expand on the mathematical and physical subtleties behind propagatio
 - [ADT integrability, topology, and finite electronic subspaces](spec03_adt_integrability_and_topology_overview.md)
 - [Curl condition, analyticity, and uniqueness of the ADT matrix](spec04_curl_condition_analyticity_and_uniqueness.md)
 - [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md)
+- [Geometric interpretation of sign flips](spec10_geometric_interpretation_signflip.md)
+
 
 ## Reduced Spaces And Multistate Structure
 
 - [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md)
 - [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md)
-- [Multistate topology, sign changes, and degeneracies](spec08_multistate_topology_signs.md)
+- [Multistate topology, and sign changes](spec08_multistate_topology_signs.md)
+- [Multistate degeneracy and sign](spec11_degeneracy.md)
 
 ## Companion Derivations
 

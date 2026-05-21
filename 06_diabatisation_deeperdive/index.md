@@ -43,6 +43,8 @@ This section collects the theory, implementation notes, flowcharts, derivations,
 - [Complete versus reduced Hilbert space ADT](specialised_propagation_diabatisation_deepdive/spec06_complete_vs_reduced_hilbert_space_adt.md)
 - [Constructing a good sub-Hilbert space](specialised_propagation_diabatisation_deepdive/spec07_constructing_a_good_subhilbert_space.md)
 - [Multistate topology, sign changes, and degeneracies](specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs.md)
+- [text](specialised_propagation_diabatisation_deepdive/spec10_geometric_interpretation_signflip.md)
+- [text](specialised_propagation_diabatisation_deepdive/spec11_degeneracy.md)
 - [Connections between split diabatic representations and residual couplings](specialised_propagation_diabatisation_deepdive/split_diabatic_representations_and_residual_couplings/)
 
 ## Derivations

@@ -62,8 +62,12 @@
       url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec07_constructing_a_good_subhilbert_space.html
     # - title: Three-State Sign Flips And The Topological Matrix
     #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.html
-    - title: Multistate Topology, Sign Changes, And Degeneracies
+    - title: Multistate Topology, And Sign Changes
       url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs.html
+    - title: Geometric Interpretation of Sign Changes
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec10_geometric_interpretation_signflip.html
+    - title: Multistate Degeneracy
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec11_degeneracy.html
     # - title: Finite-Subspace Failure Modes
     #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/finite_subspace_failure_modes.html
     - title: Split Diabatic Representations And Residual Couplings
