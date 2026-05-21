@@ -11,15 +11,22 @@ This page records the main notation used across the Born-Oppenheimer, nonadiabat
 | Symbol | Meaning |
 | --- | --- |
 | $N_{\mathrm{s}}$, $N_s$, $S$ | Number of retained electronic states. In code notes, $S$ often corresponds to `nddstate`. |
+| $M$ | Number of electronic states in many finite-subspace and ADT-topology derivations. Often plays the same role as $N_s$, but follows the notation of those pages. |
 | $N_{\mathrm{nuc}}$ | Number of nuclei. |
 | $f$ | Number of nuclear degrees of freedom, often $3N_{\mathrm{nuc}}-6$ for nonlinear molecules or $3N_{\mathrm{nuc}}-5$ for linear molecules. |
 | $N$ | In code walkthroughs, often the number of DD-PES nuclear coordinates, corresponding to `ndofddpes`. |
-| $P$ | Number of stored unique state-pair couplings, usually $S(S-1)/2$, corresponding to `nactdim`. |
+| $P$ | In code notes, number of stored unique state-pair couplings, usually $S(S-1)/2$, corresponding to `nactdim`. In finite-subspace notes, $P$ also labels a retained electronic subspace. |
+| $Q$ | Complementary omitted electronic subspace in finite-subspace ADT notes. |
+| $N_P$ | Number of states in the $P$-th sub-Hilbert space. |
+| $\mathcal H_{\mathrm{el}}$ | Electronic Hilbert space. |
+| $\mathcal H_P$ | The $P$-th sub-Hilbert space in a partition of $\mathcal H_{\mathrm{el}}$. |
 | $i,j,k$ | Electronic-state indices. |
-| $\alpha,\beta$ | Nuclear-coordinate indices. |
+| $\alpha,\beta,\mu,\nu$ | Nuclear-coordinate indices. In topological-loop pages, $\beta$ may also denote the final value of a loop parameter; check local definitions. |
 | $a,b$ | Labels for a split retained/excluded coupling partition, especially in residual-coupling notes. |
 | $\I$ | Identity matrix. |
+| $\mat I$, $\mathbb I$ | Identity matrix, with typography varying by page. |
 | $\BigO(\cdot)$ | Asymptotic order notation. |
+| $\epsilon$ | Small parameter measuring weak retained-omitted or boundary coupling. |
 
 ## Coordinates And Operators
 
@@ -31,10 +38,15 @@ This page records the main notation used across the Born-Oppenheimer, nonadiabat
 | $\mat Q$ | Displacement coordinate in a local vibronic-coupling or conical-intersection model. |
 | $q_\alpha$, $R_\alpha$ | A single nuclear coordinate. |
 | $\mat R_0$, $\mat q_0$ | Reference geometry, often a database geometry or conical-intersection geometry. |
+| $\mat q_a$, $\mat q_b$ | Initial and final geometries of an open ADT path. |
 | $\Delta\mat R$ | Displacement from a reference geometry. |
 | $x$ | One-dimensional path coordinate used in propagation diabatisation or QVC fallback models. |
 | $L$ | Length of the straight path from a database geometry to the current geometry. |
+| $s$, $s_0$, $s_f$ | Path parameter and its initial/final values in ADT line-integral derivations. |
+| $\gamma$ | Open path in nuclear configuration space; also a quadratic vibronic coefficient in local model pages, depending on context. |
+| $\Gamma$ | Closed loop or closed contour used to define a topological matrix. |
 | $\hat{\mat n}$ | Unit vector along the straight path. |
+| $p,q$ | Generic nuclear coordinates used when deriving the two-coordinate curl condition. |
 | $\nabla_{\mat q}$, $\nabla_{\mat R}$ | Nuclear gradient operators. |
 | $\hat T_{\mathrm n}$ | Nuclear kinetic-energy operator. |
 | $\hat H_{\mathrm{el}}$ | Clamped-nuclei electronic Hamiltonian. |
@@ -59,9 +71,12 @@ This page records the main notation used across the Born-Oppenheimer, nonadiabat
 | --- | --- |
 | $V_i(\mat R)$ | Adiabatic potential-energy surface for state $i$. |
 | $\V$ | Adiabatic potential matrix. Usually diagonal in the adiabatic electronic basis. |
+| $\V^{(P)}$, $\V^{(Q)}$ | Retained and omitted blocks of the diagonal adiabatic potential matrix. |
 | $\W$ | Diabatic potential matrix. Generally smooth but not diagonal. |
-| $\Gadiab$ | Adiabatic gradient martic of vector. |
-| $\Gdiab$ | Diabatic gradient martic of vector. |
+| $\W^{(P)}_{\mathrm{full}}$ | Retained block of the diabatic potential that would be obtained from the full-space ADT. |
+| $\W^{(P)}_{\mathrm{red}}$ | Reduced $P$-space diabatic potential obtained using only the retained ADT equation. |
+| $\Gadiab$ | Adiabatic gradient matrix or vector, depending on page context. |
+| $\Gdiab$ | Diabatic gradient matrix or vector, depending on page context. |
 | $\Hadiab$ | Adiabatic Hessians. |
 | $\Hdiab$ | Diabatic Hessians. |
 | $W_{ij}$ | Diabatic potential matrix element. |
@@ -76,13 +91,24 @@ This page records the main notation used across the Born-Oppenheimer, nonadiabat
 | --- | --- |
 | $\F_{ij}$ | Nonadiabatic coupling vector (NACV), often $\braket{\psi_i}{\nabla\psi_j}$. |
 | $\mat F_\alpha$ | Coordinate-resolved nonadiabatic coupling matrix for coordinate $q_\alpha$ or $R_\alpha$. |
+| $\mat F_\mu$, $\mat F_p$, $\mat F_q$ | Coordinate-resolved NACMs used in curl-condition derivations. |
+| $\mat F_s(s)$ | Path-contracted NACM, $\F(\mat q(s))\cdot d\mat q/ds$. |
+| $F_{ij}(s)$ | Scalar coefficient of the elementary generator $\mat J_{ij}$ in a path-contracted real NACM. |
 | $\F$ | Vector/tensor of first-order nonadiabatic coupling matrices. Shape is often $N_s \times N_s \times f$. |
+| $\F^{(P)}$, $\F^{(Q)}$ | Retained and omitted diagonal blocks of the nonadiabatic coupling matrix. |
+| $\F^{(P,Q)}$, $\F^{(Q,P)}$ | Cross-block couplings between retained and omitted electronic subspaces. |
+| $\F^{(\varphi)}$ | Derivative-coupling matrix after transformation into the $\varphi$ basis. |
+| $\F^{\mathrm{res}}$ | Residual derivative coupling that remains after a chosen transformation. |
+| $\F^{\mathrm{new}}$ | Generic transformed derivative-coupling connection. |
 | $\F\cdot\nabla_{\mat q}$ | Contraction of derivative-coupling matrices with the nuclear gradient. |
 | $\Gmat_{ij}$ | Second-order scalar coupling matrix element, often $\sum_\alpha \braket{\psi_i}{\partial^2\psi_j/\partial q_\alpha^2}$. |
 | $\Gmat$ | Matrix of second-order scalar couplings. |
 | $\D_{ij}$ | Numerator-like derivative matrix element, often $\mel{\psi_i}{\nabla \hat H_{\mathrm{el}}}{\psi_j}$. This is not the same as the gap-divided NACV. |
 | $\Dmat$ | Matrix form of derivative/numerator-like quantities. |
 | $\Lambda$ | Nonadiabatic coupling operator in older derivations. |
+| $[\mat A,\mat B]$ | Matrix commutator, $\mat A\mat B-\mat B\mat A$. |
+| $\mat\Omega_{\mu\nu}$ | Non-Abelian curvature or field strength of the retained ADT connection. |
+| $\mathcal D_A$ | Adiabatic covariant derivative, often $\partial_R+\F$ in one-dimensional split-diabatic derivations. |
 
 For real adiabatic electronic states, the NACM is antisymmetric:
 
@@ -95,13 +121,25 @@ $$
 | Symbol | Meaning |
 | --- | --- |
 | $\Cmat$ | Adiabatic-to-diabatic transformation (ADT) matrix. |
+| $\Cmat_P$, $\Cmat^{(P)}$ | ADT matrix or ADT block restricted to a retained $P$-space. |
+| $\Cmat^{(Q,P)}$ | Leakage block of the full ADT matrix, mapping retained columns into the omitted $Q$-space. |
 | $\Cinv$ | In this site, usually $\Cmat^\dagger$ for a unitary transformation (inverse of ADT matrix $\Cmat$). |
 | $\Smat$ | Overlap or eigenvector matrix, depending on context. In code notes, `trans0` is often best interpreted as an eigenvector matrix $\Smat$. |
-| $\Dmat$ | Topological or derivative matrix depending on context. Check the local page definition. |
-| $\Cmat_a$, $\Cmat_b$ | Transformations associated with split retained/excluded coupling components. |
+| $\mat D(\Gamma)$, $\Dmat$ | Topological matrix or closed-loop ADT propagator in topology pages. The symbol $\Dmat$ can also mean derivative/numerator-like quantities in implementation notes, so check the local definition. |
+| $\Cmat_a$, $\Cmat_b$ | Transformations associated with split retained/excluded coupling components. In split-diabatic notes, $\Cmat_a$ removes the selected component $\F_a$. |
 | $\F_a$, $\F_b$ | Removable and residual/non-removable coupling components in split representations. |
 | $\widetilde{\F}_b$ | Residual coupling after transformation into a partially diabatic representation. |
 | $\theta$ | Two-state mixing angle or ADT angle. |
+| $\gamma_{ij}$ | Path-dependent multistate ADT angle for the elementary rotation in the $(i,j)$ plane. |
+| $\alpha_{ij}$ | Endpoint value of $\gamma_{ij}$ after a closed loop. |
+| $n_{ij}$ | Integer used in endpoint quantisation conditions, $\alpha_{ij}=n_{ij}\pi$. |
+| $c_{ij}$, $s_{ij}$ | Shorthand for $\cos\gamma_{ij}$ and $\sin\gamma_{ij}$, or endpoint versions when $\gamma_{ij}=\alpha_{ij}$. |
+| $\mat Q_{ij}(\gamma_{ij})$ | Elementary rotation matrix acting in the $(i,j)$ state plane. |
+| $\mat J_{ij}$ | Antisymmetric generator of an elementary rotation in the $(i,j)$ plane. |
+| $\mathcal P$ | Path-ordering operator in ADT path-ordered exponentials. |
+| $\mat U_Q(s,s_0)$ | Propagator inside the omitted $Q$-space in reduced-subspace error derivations. |
+| $\delta_{ij}$ | Kronecker delta. |
+| $K$ | Number of negative diagonal entries in a diagonal real topological matrix. |
 | $\Omega$ | Orthogonal Procrustes rotation matrix in the Procrustes notes. |
 
 Common transformation relations:

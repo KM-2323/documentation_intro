@@ -20,7 +20,7 @@ These notes expand on the mathematical and physical subtleties behind propagatio
 9. [Derivation of reduced sub-Hilbert-space ADT errors](../derivations/derivation_reduced_subhilbert_space_errors.md)
 10. [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md)
 11. [Three-state sign flips and the topological matrix](../worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)
-12. [Multistate topology, sign changes, and degeneracies](spec08_multistate_topology_signs_and_degeneracies.md)
+12. [Multistate topology, sign changes, and degeneracies](spec08_multistate_topology_signs.md)
 <!-- 13. [Finite-subspace failure modes](../worked_examples/adt_topology/finite_subspace_failure_modes.md) -->
 
 ## ADT Integrability And Topology
@@ -33,7 +33,7 @@ These notes expand on the mathematical and physical subtleties behind propagatio
 
 - [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md)
 - [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md)
-- [Multistate topology, sign changes, and degeneracies](spec08_multistate_topology_signs_and_degeneracies.md)
+- [Multistate topology, sign changes, and degeneracies](spec08_multistate_topology_signs.md)
 
 ## Companion Derivations
 

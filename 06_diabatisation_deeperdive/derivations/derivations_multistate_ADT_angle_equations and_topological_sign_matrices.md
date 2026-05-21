@@ -1,6 +1,6 @@
 # Derivation: multistate ADT angle equations and topological sign matrices
 
-This derivation supports [Multistate topology, signs, and degeneracies](../specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs_and_degeneracies.md).
+This derivation supports [Multistate topology, signs, and degeneracies](../specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs.md).
 
 The purpose is to show explicitly how the multistate ADT equation leads to coupled angle equations, and how the endpoint values of those angles determine the diagonal sign structure of the topological matrix.
 
@@ -1354,7 +1354,7 @@ Since $\mat D^{(M)}$ is a product of proper rotations, it has determinant $+1$. 
 
 ## Links to related notes
 
-- [Multistate topology, signs, and degeneracies](../specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs_and_degeneracies.md)
+- [Multistate topology, signs, and degeneracies](../specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs.md)
 - [Topological matrix and single-valued diabatic potentials](../specialised_propagation_diabatisation_deepdive/spec05_topological_matrix_and_single_valued_diabatic_potentials.md)
 - [Complete versus reduced Hilbert-space ADT](../specialised_propagation_diabatisation_deepdive/spec06_complete_vs_reduced_hilbert_space_adt.md)
 - [Two-state loop and sign change](../worked_examples/adt_topology/example01_two_state_loop_and_sign_change.md)

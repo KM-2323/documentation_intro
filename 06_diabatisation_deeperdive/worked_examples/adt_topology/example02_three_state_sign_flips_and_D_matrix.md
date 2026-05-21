@@ -838,7 +838,7 @@ When $\eta=0$, state $3$ is a spectator. The model then reduces to the ordinary 
 - [Curl condition, analyticity, and uniqueness](../../specialised_propagation_diabatisation_deepdive/spec04_curl_condition_analyticity_and_uniqueness.md)
 - [Topological matrix and single-valued diabatic potentials](../../specialised_propagation_diabatisation_deepdive/spec05_topological_matrix_and_single_valued_diabatic_potentials.md)
 - [Complete versus reduced Hilbert-space ADT](../../specialised_propagation_diabatisation_deepdive/spec06_complete_vs_reduced_hilbert_space_adt.md)
-- [Multistate topology, signs, and degeneracies](../../specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs_and_degeneracies.md)
+- [Multistate topology, signs, and degeneracies](../../specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs.md)
 - [Two-state loop and sign change](example01_two_state_loop_and_sign_change.md)
 - [Derivation: path-ordered ADT and closed contours](../../derivations/derivation_path_ordered_adt_and_closed_contours.md)
 - [Derivation: topological matrix condition for diabatic potentials](../../derivations/derivation_topological_matrix_condition_for_W.md)

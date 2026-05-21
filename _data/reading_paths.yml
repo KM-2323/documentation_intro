@@ -63,7 +63,7 @@
     # - title: Three-State Sign Flips And The Topological Matrix
     #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.html
     - title: Multistate Topology, Sign Changes, And Degeneracies
-      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs_and_degeneracies.html
+      url: /06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs.html
     # - title: Finite-Subspace Failure Modes
     #   url: /06_diabatisation_deeperdive/worked_examples/adt_topology/finite_subspace_failure_modes.html
     - title: Split Diabatic Representations And Residual Couplings

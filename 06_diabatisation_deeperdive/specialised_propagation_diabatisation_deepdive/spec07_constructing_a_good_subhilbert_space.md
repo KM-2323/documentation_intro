@@ -409,7 +409,7 @@ $$
 - [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md)
 - [Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md)
 - [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md)
-- [Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs_and_degeneracies.md)
+- [Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs.md)
 - [The Born--Oppenheimer equation in a finite electronic subspace](../../02_Born_Oppenheimer_and_Nonadiabaticity/intermediates/int01_group_born_approximations.md)
 - [Residual coupling and split diabatic representations](split_diabatic_representations_and_residual_couplings/)
 - [Derivation: reduced sub-Hilbert-space errors](../derivations/derivation_reduced_subhilbert_space_errors.md)

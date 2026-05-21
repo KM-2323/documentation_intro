@@ -45,6 +45,7 @@ bundle install
 ```
 
 Preview locally:
+option1: 
 
 ```bash
 bundle exec jekyll serve
@@ -64,6 +65,7 @@ bundle exec jekyll build
 
 If the remote theme cannot be downloaded, the build may fail with a connection error to GitHub. That is a network/theme-fetch problem, not usually a Markdown problem.
 
+option2: 
 Alternatively, local server can be hosted through python. To start a server (optionally set port to 80):
 
 ```bash
@@ -73,6 +75,14 @@ python -m http.server 80
 ```
 Now open the browser at:
 [http://localhost/](http://localhost/)
+
+option3:
+
+To start the local development server, run the included script from the project root:
+
+```bash
+bash serve
+```
 
 > **Note for local deployment, it is recommned to change all toc to false to speed up local rendering. (see later on how table of contents are rendered and styled)**
 
