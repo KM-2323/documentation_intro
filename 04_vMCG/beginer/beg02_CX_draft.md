@@ -1,20 +1,20 @@
-## The $C\mat{X}$ Formalism and the Local Harmonic Approximation
+## The $\Cmat\mat{X}$ Formalism and the Local Harmonic Approximation
 
 ### 1. Overlap Derivatives and Gaussian Moments
 
-The $C\mat{X}$ Formalism and the Local Harmonic Approximation1. Overlap Derivatives and Gaussian MomentsBefore modifying the equations of motion, we must examine the structure of the overlap matrix derivatives. Let us define the first and second derivatives of the overlap matrix with respect to the GWP parameters $\alpha$ and $\beta$:
+The $\Cmat\mat{X}$ Formalism and the Local Harmonic Approximation1. Overlap Derivatives and Gaussian MomentsBefore modifying the equations of motion, we must examine the structure of the overlap matrix derivatives. Let us define the first and second derivatives of the overlap matrix with respect to the GWP parameters $\alpha$ and $\beta$:
 
-$$S_{je}^{(\alpha \beta)} = \braket{\pdv{\gj}{\lambda_{j\alpha}}  }{\pdv{g_e}{\lambda_{e\beta}}}$$
+$$S_{jl}^{(\alpha \beta)} = \braket{\pdv{\gj}{\lambda_{j\alpha}}  }{\pdv{g_l}{\lambda_{l\beta}}}$$
 
-$$S_{je}^{(\alpha 0)} = \braket{\pdv{\gj}{\lambda_{j\alpha}} }{ g_e}$$
+$$S_{jl}^{(\alpha 0)} = \braket{\pdv{\gj}{\lambda_{j\alpha}} }{ g_l}$$
 
 These derivative integrals depend intimately on the nature of the parameters $\alpha$ and $\beta$. Specifically, they correspond to the Gaussian moments of different polynomial orders. We define the zeroth, first, and second-order Gaussian moments as:
 
-$$M_{je}^{(0)} = \braket{\gj }{ g_e}$$
+$$M_{jl}^{(0)} = \braket{\gj }{ g_l}$$
 
-$$M_{je}^{(\kappa)} = \mel{\gj}{x_\kappa}{g_e}$$
+$$M_{jl}^{(\kappa)} = \mel{\gj}{x_\kappa}{g_l}$$
 
-$$M_{je}^{(\kappa \mu)} = \mel{\gj}{x_\kappa x_\mu}{g_e}$$
+$$M_{jl}^{(\kappa \mu)} = \mel{\gj}{x_\kappa x_\mu}{g_l}$$
 
 For a standard Gaussian wavepacket defined as $\gj = \exp(x^T \vect{\zeta}_j x + \vect{\epsilon}_j \cdot x + \eta_j)$, we can evaluate the partial derivatives with respect to each parameter type:
 * Scalar (0th order): $\pdv{\gj}{\eta_j} = \gj$
@@ -23,11 +23,11 @@ For a standard Gaussian wavepacket defined as $\gj = \exp(x^T \vect{\zeta}_j x +
 
 Note: Each derivative with respect to a parameter raises the polynomial order of the resulting integral by 0, 1, or 2 depending on the nature of $\alpha$ or $\beta$. For Frozen Gaussians, where the width matrix $\vect{\zeta}$ is fixed, only $\vect{\epsilon}$ and $\eta$ appear, leading to zero or linear polynomial increases. For Thawed Gaussians, all orders up to the second are present.
 
-Consequently, the single-derivative overlap matrix $S_{je}^{(\alpha 0)}$ is directly equivalent to a specific Gaussian moment:
+Consequently, the single-derivative overlap matrix $S_{jl}^{(\alpha 0)}$ is directly equivalent to a specific Gaussian moment:
 
-$$S_{je}^{(\alpha 0)} = \braket{\gj  }{\pdv{g_e}{\lambda_{e\alpha}}} \equiv \text{Gaussian Moment}$$
+$$S_{jl}^{(\alpha 0)} = \braket{\gj  }{\pdv{g_l}{\lambda_{l\alpha}}} \equiv \text{Gaussian Moment}$$
 
-Where $\alpha = \eta \implies \braket{\gj}{g_e}$, $\alpha = \epsilon_k \implies \mel{\gj}{x_k}{g_e}$, and so on.
+Where $\alpha = \eta \implies \braket{\gj}{g_l}$, $\alpha = \epsilon_k \implies \mel{\gj}{x_k}{g_l}$, and so on.
 
 ### 2. The $C\mat{X}$ Formalism Derivation
 
@@ -37,40 +37,40 @@ Suppose the Hamiltonian can be separated into a "separable" part that can be exp
 
 $$H = H^0 + H^R$$
 
-We define the action of the separable Hamiltonian $H^0$ on a basis function $\ket{g_e}$ such that it yields a linear combination of the basis function and its parameter derivatives:
+We define the action of the separable Hamiltonian $H^0$ on a basis function $\ket{g_l}$ such that it yields a linear combination of the basis function and its parameter derivatives:
 
-$$H^0 \ket{g_e} = X_e^{(c)} \ket{g_e} + \sum_\beta \ket{\pdv{g_e}{\lambda_{e\beta}}} X_e^{(\beta)}$$
+$$H^0 \ket{g_l} = X_l^{(c)} \ket{g_l} + \sum_\beta \ket{\pdv{g_l}{\lambda_{l\beta}}} X_l^{(\beta)}$$
 
-Here, $X_e^{(c)}$ and $X_e^{(\beta)}$ are coefficients to be determined. Taking the inner product with $\bra{\gj}$ gives the matrix elements for $H^0$:
+Here, $X_l^{(c)}$ and $X_l^{(\beta)}$ are coefficients to be determined. Taking the inner product with $\bra{\gj}$ gives the matrix elements for $H^0$:
 
-$$(H^0)_{je} = S_{je} X_e^{(c)} + \sum_\beta S_{je}^{(0 \beta)} X_e^{(\beta)}$$
+$$(H^0)_{jl} = S_{jl} X_l^{(c)} + \sum_\beta S_{jl}^{(0 \beta)} X_l^{(\beta)}$$
 
 Similarly, taking the inner product with the derivative bra $\bra{\pdv{\gj}{\lambda_{j\alpha}}}$ gives:
 
-$$(H^0)_{je}^{(\alpha 0)} = S_{je}^{(\alpha 0)} X_e^{(c)} + \sum_\beta S_{je}^{(\alpha \beta)} X_e^{(\beta)}$$
+$$(H^0)_{jl}^{(\alpha 0)} = S_{jl}^{(\alpha 0)} X_l^{(c)} + \sum_\beta S_{jl}^{(\alpha \beta)} X_l^{(\beta)}$$
 
 We now substitute this separated Hamiltonian ($H = H^0 + H^R$) back into our previously derived $\mat{Y}$ vector definition:
 
-$$Y_{j\alpha} = \sum_e \rho_{je} \left[ H_{je}^{(\alpha 0)} - \sum_k [\Smat^{(\alpha 0)} \Smat^{-1}]_{jk} H_{ke} \right]$$
+$$Y_{j\alpha} = \sum_l \rho_{jl} \left[ H_{jl}^{(\alpha 0)} - \sum_k [\Smat^{(\alpha 0)} \Smat^{-1}]_{jk} H_{ke} \right]$$
 
-Expanding $H$ into $H^0$ and $H^R$, and substituting our expanded forms for the $H^0$ matrix elements, we group the terms associated with $X_e^{(c)}$ and $X_e^{(\beta)}$:
+Expanding $H$ into $H^0$ and $H^R$, and substituting our expanded forms for the $H^0$ matrix elements, we group the terms associated with $X_l^{(c)}$ and $X_l^{(\beta)}$:
 
 $$\begin{aligned}
-Y_{j\alpha} = \sum_e \rho_{je} \Bigg[ & \left( S_{je}^{(\alpha 0)} X_e^{(c)} + \sum_\beta S_{je}^{(\alpha \beta)} X_e^{(\beta)} + (H^R)_{je}^{(\alpha 0)} \right) \\
-&- \sum_k [\Smat^{(\alpha 0)} \Smat^{-1}]_{jk} \left( S_{ke} X_e^{(c)} + \sum_\beta S_{ke}^{(0 \beta)} X_e^{(\beta)} + H^R_{ke} \right) \Bigg]
+Y_{j\alpha} = \sum_l \rho_{jl} \Bigg[ & \left( S_{jl}^{(\alpha 0)} X_l^{(c)} + \sum_\beta S_{jl}^{(\alpha \beta)} X_l^{(\beta)} + (H^R)_{jl}^{(\alpha 0)} \right) \\
+&- \sum_k [\Smat^{(\alpha 0)} \Smat^{-1}]_{jk} \left( S_{ke} X_l^{(c)} + \sum_\beta S_{ke}^{(0 \beta)} X_l^{(\beta)} + H^R_{ke} \right) \Bigg]
 \end{aligned}$$
 
-By isolating the scalar coefficients $X_e^{(c)}$, we can observe a critical cancellation:
+By isolating the scalar coefficients $X_l^{(c)}$, we can observe a critical cancellation:
 
-$$X_e^{(c)} \text{ terms: } \sum_e \rho_{je} \left[ S_{je}^{(\alpha 0)} - \sum_k [\Smat^{(\alpha 0)} \Smat^{-1}]_{jk} S_{ke} \right] X_e^{(c)}$$
+$$X_l^{(c)} \text{ terms: } \sum_l \rho_{jl} \left[ S_{jl}^{(\alpha 0)} - \sum_k [\Smat^{(\alpha 0)} \Smat^{-1}]_{jk} S_{ke} \right] X_l^{(c)}$$
 
-Because $\sum_k \Smat^{-1}_{jk} S_{ke} = \delta_{je}$, the bracketed term exactly cancels to zero: $\left( S_{je}^{(\alpha 0)} - S_{je}^{(\alpha 0)} \right) = 0$. Therefore, $X_e^{(c)}$ does not affect the parameter equations of motion.
+Because $\sum_k \Smat^{-1}_{jk} S_{ke} = \delta_{jl}$, the bracketed term exactly cancels to zero: $\left( S_{jl}^{(\alpha 0)} - S_{jl}^{(\alpha 0)} \right) = 0$. Therefore, $X_l^{(c)}$ does not affect the parameter equations of motion.
 
-Collecting the remaining $X_e^{(\beta)}$ terms, we recognize the definition of our $\mat{C}$ matrix ($C_{j\alpha, e\beta}$):
+Collecting the remaining $X_l^{(\beta)}$ terms, we recognize the definition of our $\mat{C}$ matrix ($C_{j\alpha, e\beta}$):
 
-$$Y_{j\alpha} = \sum_{e,\beta} \rho_{je} \left( S_{je}^{(\alpha \beta)} - [\Smat^{(\alpha 0)} \Smat^{-1} \Smat^{(0 \beta)}]_{je} \right) X_e^{(\beta)} + Y_{R, j\alpha}$$
+$$Y_{j\alpha} = \sum_{e,\beta} \rho_{jl} \left( S_{jl}^{(\alpha \beta)} - [\Smat^{(\alpha 0)} \Smat^{-1} \Smat^{(0 \beta)}]_{jl} \right) X_l^{(\beta)} + Y_{R, j\alpha}$$
 
-$$Y_{j\alpha} = \sum_{e,\beta} C_{j\alpha, e\beta} X_e^{(\beta)} + Y_{R, j\alpha}$$
+$$Y_{j\alpha} = \sum_{e,\beta} C_{j\alpha, e\beta} X_l^{(\beta)} + Y_{R, j\alpha}$$
 
 In matrix notation, $Y = C X + Y_R$.
 
