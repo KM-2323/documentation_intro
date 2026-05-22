@@ -1,0 +1,2 @@
+WRKDIR=/c/Users/AW/Documents/github/documentation_intro
+alias goto_proj="cd $WRKDIR"
