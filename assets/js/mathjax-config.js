@@ -62,6 +62,15 @@ window.MathJax = {
       Hdiab: ["\\H^{\\text{D}}"],
       Hadiab: ["\\H^{\\text{A}}"],
 
+      // dd-vMCG related short cuts
+      gj: ["g_j"], // gwp j
+      gk: ["g_k"],
+      gl: ["g_l"],
+      gjdot: ["\\dot{\\gj}"],
+      gkdot: ["\\dot{\\gk}"],
+      gldot: ["\\dot{\\gl}"],
+
+
       // Miscellaneous symbols and short aliases.
       odag: ["{#1}^{\\dagger}", 1],
       rv: ["\\mat r"],

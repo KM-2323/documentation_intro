@@ -60,6 +60,17 @@ defaults:
       section_url: "/02_Born_Oppenheimer_and_Nonadiabaticity/"
       subsection_title: "Derivations"
   - scope:
+      path:"04_vMCG"
+    values:
+      section_title: "vMCG Family"
+      section_url: "/04_vMCH/"
+  - scope:
+      path:"04_vMCG/derivations"
+    values:
+      section_title: "vMCG Family"
+      section_url: "/04_vMCH/"
+      subsection_title: "Derivations"
+  - scope:
       path: "03_MCTDH_Family" 
     values:
       section_title: "MCTDH Family"
