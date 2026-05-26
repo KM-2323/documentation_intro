@@ -44,11 +44,19 @@ The [References Guides](10_References_Guides)directory contains essential guidel
 - [03 MCTDH Family](03_MCTDH_Family/)
   - Notes and diagrams for the MCTDH family of methods.
 
+- [04 vMCG family](04_vMCG/)
+  - Note and diagras for the vMCG family of methods
+
 - [05 Direct Dynamics](05_Direct_Dynamics/)
   - Implementation notes for direct-dynamics machinery and related code paths.
 
 - [06 Diabatisation Deep Dive](06_diabatisation_deeperdive/)
   - Theory, implementation notes, flowcharts, derivations, and specialised topics for implemented diabatisation schemes.
+
+- [Electronc Methods](09_electronic_methods)
+
+
+- [Site Maintenance Guide](10_References_Guides/)
 
 - [Jekyll Site Maintenance](10_References_Guides/Jekyll_site_maintenance.md)
   - How GitHub Pages builds the site, how to preview locally, and how to update shared layouts, navigation, and MathJax config.

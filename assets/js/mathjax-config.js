@@ -26,6 +26,8 @@ window.MathJax = {
       bra: ["\\langle#1|", 1],
       braket: ["\\langle#1|#2\\rangle", 2],
       mel: ["\\langle#1|#2|#3\\rangle", 3],
+      lrp: ["\\left(#1\\right)", 1],
+
 
       // Common coupling matrices and underlined matrix objects.
       Fmat: ["\\mat{F}"],

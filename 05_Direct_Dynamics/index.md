@@ -6,6 +6,9 @@ title: Direct Dynamics
 
 This section collects notes on direct-dynamics machinery and the code paths used to read and prepare geometry-dependent quantities for propagation.
 
+## Explanation on the analysis/functions used for analysis
+- [GGP analysis](theory/01_GGP.md)
+
 ## Implementation Notes
 
 - [Subroutine dddb_gp](code+breakdown/subroutine_dddb_gp.md)
