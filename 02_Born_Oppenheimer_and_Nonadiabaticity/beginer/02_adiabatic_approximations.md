@@ -1,4 +1,4 @@
-# Adiabatic Appoximations:
+## Adiabatic Appoximations:
 
 Previously in [01_bornhuang_expansion](01_bornhuang_expansion.md), we expressed the nuclear TDSE in the adiabatic electronic basis as:
 
@@ -145,7 +145,7 @@ This is the equation usually meant when we say that the nuclei move on a single 
 
 A more advanced version of this idea keeps a group of strongly relevant electronic states before deciding which couplings can be neglected. That block-state version is discussed in the grouped-Born note. For the present beginner-level discussion, the key point is simply that the usual adiabatic approximation removes the derivative couplings and leaves independent nuclear motion on adiabatic PESs.
 
-#### Why neglecting $\F$ can fail
+### Why neglecting $\F$ can fail
 
 The approximation above is reliable only when the derivative couplings are small. However, using the off-diagonal Hellmann-Feynman relation (detailed in [off-diagonal Hellmann-Feynman](../derivations/derivation_offdiagonal_Hellman.md) ), the non-adiabatic coupling vector between two different adiabatic states $j$ and $i$ is
 

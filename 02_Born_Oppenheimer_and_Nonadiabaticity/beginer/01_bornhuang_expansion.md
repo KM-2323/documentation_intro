@@ -164,7 +164,7 @@ i=1,\ldots,N_{\mathrm s},
 \end{align}
 $$
 
-where $V_i(\mat R)$ is the $i$-th adiabatic potential energy surface and $\psi_i(\mat r;\mat R)$ is the corresponding electronic eigenfunction. The number $N_{\mathrm s}$ denotes the number of electronic states retained in the expansion. Formally, the complete electronic Hilbert space is infinite-dimensional, but practical calculations use a finite subset of states.
+where $V_i(\mat R)$ is the $i$-th adiabatic potential energy surface and $\psi_i(\mat r;\mat R)$ is the corresponding electronic eigenfunction. 
 
 At each nuclear geometry, the electronic eigenfunctions are taken to be orthonormal with respect to integration over the electronic coordinates,
 
@@ -230,7 +230,7 @@ $$
 \end{pmatrix}.
 $$
 
-The Born--Huang expansion should be distinguished from the Born--Oppenheimer approximation. The expansion in Eq. $\eqref{eq:born_huang_expansion}$ is a sum over electronic states and is formally exact in a complete electronic basis. The Born--Oppenheimer approximation is obtained only after making additional assumptions, typically by retaining one electronic state and neglecting the couplings induced by nuclear motion.
+The Born--Huang expansion should be distinguished from the Born--Oppenheimer expansion. The expansion in Eq. $\eqref{eq:born_huang_expansion}$ is a sum over electronic states and is formally exact in a complete electronic basis. The Born--Oppenheimer expansion is obtained only after making additional assumptions, typically by retaining one electronic state and neglecting the couplings induced by nuclear motion.
 
 Practical note: the electronic basis functions $\psi_i(\mat r;\mat R)$ depend on $\mat R$. Therefore, the nuclear kinetic energy operator does not act only on $\chi_i(\mat R,t)$; it also acts on the electronic basis. This is the origin of derivative coupling terms.
 
@@ -565,11 +565,11 @@ Practical note: this is the point at which the adiabatic representation becomes 
 
 This page introduces the minimal mathematical framework needed for the beginner-level sections that follow:
 
-1. [Born-Huang Expansion](beginer/01_bornhuang_expansion.md)
-2. [Adiabatic Approximations](beginer/02_adiabatic_approximations.md)
-3. [Diabatic Representation](beginer/03_diabatic_representation.md)
-4. [Introduction to Conical Intersection](beginer/04_conical_intersections.md)
-5. [Symmetry of Conical Intersections](beginer/05_symmetry_of_conical_intersections.md) (note it is more of a blend of intermediate and beginer)
+1. [Born-Huang Expansion](01_bornhuang_expansion.md)
+2. [Adiabatic Approximations](02_adiabatic_approximations.md)
+3. [Diabatic Representation](03_diabatic_representation.md)
+4. [Introduction to Conical Intersection](04_conical_intersections.md)
+5. [Symmetry of Conical Intersections](05_symmetry_of_conical_intersections.md) (note it is more of a blend of intermediate and beginer)
 
 These sections provide first-level explanations of the physical meaning of the equations derived above. More detailed intermediate material is given in
 

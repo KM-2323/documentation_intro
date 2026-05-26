@@ -224,11 +224,11 @@ This also prepares the way for the next topic. Around a conical intersection, th
 
 This page introduces the minimal mathematical framework needed for the beginner-level sections that follow:
 
-1. [Born-Huang Expansion](beginer/01_bornhuang_expansion.md)
-2. [Adiabatic Approximations](beginer/02_adiabatic_approximations.md)
-3. [Diabatic Representation](beginer/03_diabatic_representation.md)
-4. [Introduction to Conical Intersection](beginer/04_conical_intersections.md)
-5. [Symmetry of Conical Intersections](beginer/05_symmetry_of_conical_intersections.md) (note it is more of a blend of intermediate and beginer)
+1. [Born-Huang Expansion](01_bornhuang_expansion.md)
+2. [Adiabatic Approximations](02_adiabatic_approximations.md)
+3. [Diabatic Representation](03_diabatic_representation.md)
+4. [Introduction to Conical Intersection](04_conical_intersections.md)
+5. [Symmetry of Conical Intersections](05_symmetry_of_conical_intersections.md) (note it is more of a blend of intermediate and beginer)
 
 These sections provide first-level explanations of the physical meaning of the equations derived above. More detailed intermediate material is given in
 
