@@ -1,4 +1,4 @@
-# Diabatic representation
+## Diabatic representation
 
 Before introducing conical intersections and the topology associated with them, it is useful to clarify what is meant by changing from an adiabatic to a diabatic representation.
 
@@ -140,12 +140,15 @@ $$
 $$
 
 then:
+
 $$
+\begin{align}
 \Cinv\left[
 -\frac{1}{2}\nabla_{\mat q}^{2}\mat I
 -\mat\Lambda
 \right]
 \Cmat=-\frac{1}{2}\nabla_{\mat q}^2
+\end{align}
 $$
 
 

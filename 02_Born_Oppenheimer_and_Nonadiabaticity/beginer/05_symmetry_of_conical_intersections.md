@@ -617,7 +617,7 @@ $$
 \end{align}
 $$
 
-A useful warning is needed here. The statement above is for isolated nondegenerate electronic states. For a degenerate electronic irrep, such as an $E$ state, the electronic subspace is multidimensional. Then nontotally symmetric modes contained in the appropriate symmetrized product of the electronic irrep can split the degeneracy. This is the Jahn--Teller case discussed below.
+As a word of caution, the statement above is for isolated nondegenerate electronic states. For a degenerate electronic irrep, such as an $E$ state, the electronic subspace is multidimensional. Then nontotally symmetric modes contained in the appropriate symmetrized product of the electronic irrep can split the degeneracy. This is the Jahn--Teller case discussed below.
 
 ---
 
@@ -1850,7 +1850,7 @@ This classification is about surface topography, not about the symmetry origin o
 
 The adiabatic representation is natural for electronic-structure calculations, but it is awkward at a conical intersection because the NACV becomes singular.
 
-A diabatic or quasi-diabatic representation moves the singularity out of the derivative couplings ($\F \texty{ and } \Gmat$) and into smooth potential-like couplings. In such a representation, the nuclear dynamics is governed by a smooth diabatic potential matrix $\mat W$.
+A diabatic or quasi-diabatic representation moves the singularity out of the derivative couplings ($\F \text{ and } \Gmat$) and into smooth potential-like couplings. In such a representation, the nuclear dynamics is governed by a smooth diabatic potential matrix $\mat W$.
 
 This is why the symmetry selection rules are especially useful in diabatic models:
 
@@ -1896,7 +1896,7 @@ If a symmetry-forbidden term appears in a fitted diabatic model, the model has e
 
 ---
 
-## Practical workflow for constructing a symmetry-based two-state model
+## Practical workflow for constructing a symmetry-based two-state model to understand the PES
 
 ### Step 1: Choose the reference geometry
 
@@ -2162,14 +2162,11 @@ Symmetry controls conical intersections by determining which diabatic Hamiltonia
 
 ## Source notes for this page
 
-The local two-state branching-plane notation follows the notation used in the two-state model pages of this knowledge base.
+Citations needed:
+1. classification of conical intersections, the symmetry selection rule, and the distinction between symmetry-required, symmetry-allowed, and accidental cases, see Worth and Cederbaum, *Beyond Born--Oppenheimer: Molecular Dynamics Through a Conical Intersection*.
+2. For the vibronic-coupling Hamiltonian, the $\kappa$ and $\lambda$ notation, and the role of tuning and coupling modes, see Köppel, Domcke, and Cederbaum, *Multimode Molecular Dynamics Beyond the Born--Oppenheimer Approximation*.
 
-For the classification of conical intersections, the symmetry selection rule, and the distinction between symmetry-required, symmetry-allowed, and accidental cases, see Worth and Cederbaum, *Beyond Born--Oppenheimer: Molecular Dynamics Through a Conical Intersection*.
 
-For the vibronic-coupling Hamiltonian, the $\kappa$ and $\lambda$ notation, and the role of tuning and coupling modes, see Köppel, Domcke, and Cederbaum, *Multimode Molecular Dynamics Beyond the Born--Oppenheimer Approximation*.
 
-For the ADT, topological matrix, line-integral, and quantization discussion, see Baer, *Introduction to the Theory of Electronic Non-Adiabatic Coupling Terms in Molecular Systems* and related ADT/topological-effect papers.
 
-For direct-dynamics diabatisation and the use of smooth diabatic potential matrices in DD-vMCG, see Richings and Worth, *A Practical Diabatisation Scheme for Use with the Direct-Dynamics Variational Multi-Configuration Gaussian Method*.
 
-For the pyrazine LVC example with $A_g$ tuning modes and the $B_{1g}$ coupling mode, see the vMCG/DD-vMCG and pyrazine model discussions in the uploaded Worth/Richings materials.

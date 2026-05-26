@@ -43,7 +43,7 @@ $$
 
 Thus, a large energy denominator tends to suppress the coupling. However, energetic separation alone is not a proof of negligible coupling, because the numerator also depends on how strongly the electronic Hamiltonian changes along the nuclear coordinate.
 
-Practical note: the finite-state approximation is a statement about the region of configuration space sampled by the calculation. A set of states that is well isolated near the Franck--Condon region may cease to be isolated if the wavepacket later reaches an intruder state or an additional intersection seam.
+> Practical note: the finite-state approximation is a statement about the region of configuration space sampled by the calculation. A set of states that is well isolated near the Franck--Condon region may cease to be isolated if the wavepacket later reaches an intruder state or an additional intersection seam.
 
 ---
 
@@ -680,5 +680,3 @@ This point becomes essential in propagation diabatisation and DD-vMCG. The propa
 ---
 
 #### References
-
-The projection-operator derivation of the finite sub-Hilbert-space Born--Oppenheimer equation follows Baer's treatment of nonadiabatic coupling terms and the construction of sub-Hilbert spaces [@baer_2002_nact]. The group interpretation of the adiabatic approximation, in which a set of strongly coupled electronic states is retained while external states are neglected, is closely related to the multimode vibronic-coupling framework of Köppel, Domcke, and Cederbaum [@koppel_domcke_cederbaum_1984]. The consequences for adiabatic-to-diabatic transformations and topological effects are discussed in Baer's work on molecular topological effects [@baer_2000_topological_effects].

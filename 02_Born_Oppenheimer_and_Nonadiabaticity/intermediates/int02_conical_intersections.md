@@ -586,11 +586,12 @@ $$
 
 Equivalently, using the energy-like coordinates
 
-\[
+
+$$
 x=\Delta,
 \qquad
 y=2W_{12},
-\]
+$$
 
 one obtains
 

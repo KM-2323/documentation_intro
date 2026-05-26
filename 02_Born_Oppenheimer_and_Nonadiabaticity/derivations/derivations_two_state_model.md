@@ -185,7 +185,8 @@ $$
 \ket{\psi_2} = \begin{pmatrix}-\sin\theta \\ \cos{\theta}\end{pmatrix}
 \end{align}
 $$
-### The derivative coupling identity in two state model + 1D?
+
+### The derivative coupling identity in two state model + 1D
 
 The NACV $\F_{12}$
 
@@ -259,22 +260,38 @@ $$
 
 In the LVC framework near a Conical Intersection, the diabatic potential energies are linearized. We define two characteristic vectors that map to the two degrees of freedom that lift the degeneracy (the branching plane):
 
-The Tuning Vector ($\boldsymbol{\kappa}$): Represents the gradient of the energy difference.$$ \boldsymbol{\kappa} = \nabla_{\mathbf{q}} (W_{22} - W_{11}) $$
+The Tuning Vector ($\boldsymbol{\kappa}$): Represents the gradient of the energy difference.
 
-The Coupling Vector ($\boldsymbol{\lambda}$): Represents the gradient of the diabatic coupling.$$ \boldsymbol{\lambda} = \nabla_{\mathbf{q}} W_{12} $$
+$$ \boldsymbol{\kappa} = \nabla_{\mathbf{q}} (W_{22} - W_{11}) $$
 
-Assuming a conical intersection at the origin ($\mathbf{q}=0$), the matrix elements in the branching plane are approximated as:
+The Coupling Vector ($\boldsymbol{\lambda}$): Represents the gradient of the diabatic coupling.
 
-$W_{22} - W_{11} = \boldsymbol{\kappa} \cdot \mathbf{q}$
+$$ \boldsymbol{\lambda} = \nabla_{\mathbf{q}} W_{12} $$
 
-$W_{12} = \boldsymbol{\lambda} \cdot \mathbf{q}$
+Assuming a conical intersection at the origin ($\mathbf{q}=0$), the matrix elements, to first order, in the branching plane are approximated as:
 
-Substituting these directly into our invariant $\mathbf{F}_{12}$ equation gives:$$\mathbf{F}_{12}(\mathbf{q}) = \frac{\boldsymbol{\lambda}(\boldsymbol{\kappa} \cdot \mathbf{q}) - \boldsymbol{\kappa}(\boldsymbol{\lambda} \cdot \mathbf{q})}{(\boldsymbol{\kappa} \cdot \mathbf{q})^2 + 4(\boldsymbol{\lambda} \cdot \mathbf{q})^2}$$
+$$W_{22} - W_{11} = \boldsymbol{\kappa} \cdot \mathbf{q}$$
+
+$$W_{12} = \boldsymbol{\lambda} \cdot \mathbf{q}$$
+
+Substituting these directly into our invariant $\mathbf{F}_{12}$ equation gives:
+
+$$\mathbf{F}_{12}(\mathbf{q}) = \frac{\boldsymbol{\lambda}(\boldsymbol{\kappa} \cdot \mathbf{q}) - \boldsymbol{\kappa}(\boldsymbol{\lambda} \cdot \mathbf{q})}{(\boldsymbol{\kappa} \cdot \mathbf{q})^2 + 4(\boldsymbol{\lambda} \cdot \mathbf{q})^2}$$
 
 
 ### 4. The Lorentzian Form
 
 The Lorentzian form emerges when you look at a 1D slice of this multidimensional space, specifically an avoided crossing trajectory.
 
-Imagine a coordinate $q$ that moves parallel to the tuning vector $\boldsymbol{\kappa}$ (so the energy gap changes linearly, $\Delta W = kq$), but it has a constant offset in the coupling direction such that $W_{12} = V$ (a constant).Because $W_{12}$ is a constant, its derivative $\nabla_{\mathbf{q}} W_{12} = 0$. Plugging this into the NACV magnitude equation:$$F_{12}(q) = \frac{(0)(kq) - V \frac{\partial (kq)}{\partial q}}{(kq)^2 + 4V^2}$$$$F_{12}(q) = \frac{-kV}{k^2 q^2 + 4V^2}$$Dividing the top and bottom by $k^2$ yields the classic Lorentzian profile:$$F_{12}(q) = -\frac{V/k}{q^2 + 4(V/k)^2}$$This dictates that at the avoided crossing ($q=0$), the derivative coupling spikes to a maximum of $-\frac{k}{4V}$. If the coupling $V$ is small, the spike is extremely sharp (a highly non-adiabatic transition). If $V$ is large, the spike is broad, and the system behaves more adiabatically.
+Imagine a coordinate $q$ that moves parallel to the tuning vector $\boldsymbol{\kappa}$ (so the energy gap changes linearly, $\Delta W = kq$), but it has a constant offset in the coupling direction such that $W_{12} = V$ (a constant).Because $W_{12}$ is a constant, its derivative $\nabla_{\mathbf{q}} W_{12} = 0$. Plugging this into the NACV magnitude equation:
+
+$$F_{12}(q) = \frac{(0)(kq) - V \frac{\partial (kq)}{\partial q}}{(kq)^2 + 4V^2}$$
+
+$$F_{12}(q) = \frac{-kV}{k^2 q^2 + 4V^2}$$
+
+Dividing the top and bottom by $k^2$ yields the classic Lorentzian profile:
+
+$$F_{12}(q) = -\frac{V/k}{q^2 + 4(V/k)^2}$$
+
+This dictates that at the avoided crossing ($q=0$), the derivative coupling spikes to a maximum of $-\frac{k}{4V}$. If the coupling $V$ is small, the spike is extremely sharp (a highly non-adiabatic transition). If $V$ is large, the spike is broad, and the system behaves more adiabatically.
 
