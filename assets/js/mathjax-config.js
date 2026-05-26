@@ -80,7 +80,8 @@ window.MathJax = {
       I: ["\\mat 1"],
       qv: ["\\mat q"],
       Qv: ["\\mat Q"],
-      BigO: ["\\mathcal{O}"]
+      BigO: ["\\mathcal{O}"],
+      real:["\\operatorname{Re}"]
     }
   }
 };

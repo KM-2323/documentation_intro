@@ -2,10 +2,10 @@
 MCTDH generates delocalized wavepackets. In contrast, Gaussian functions used in the DD-vMCG approach are localised around their centres and can be seen as following quantum trajectories. Each one will contribute to some extent to the global wavepacket. The problem here is that the basis set is not orthogonal, which makes the definition of individual contributions ambiguous. We propose here a solution in the form of a new analysis derived from the Mulliken analysis of orbital populations.
 
 ## Normalization condition
-For a given electronic state $s$ the nuclear wavepacket is expanded in a basis set of time-dependent parametrized Gaussian functions, the GBFs, $g_j(\Q,t)$:
+For a given electronic state $s$ the nuclear wavepacket is expanded in a basis set of time-dependent parametrized Gaussian functions, the GBFs, $g_j(\mat Q,t)$:
 $$
 \begin{align}
-    \psi^{s}(\Q,t)=\sum_j A_j^{(s)}(t)g_j(\Q,t)
+    \psi^{s}(\mat Q,t)=\sum_j A_j^{(s)}(t)g_j(\mat Q,t)
 \end{align}
 $$
 
@@ -13,7 +13,7 @@ where $j$ is the label of the GBF that are non-orthogonal:
 
 $$
 \begin{align}
-    \Smat_{jj'}=\int{g_j^*(\Q,t)g_{j'}(\Q,t)d\Q}
+    \Smat_{jj'}=\int{g_j^*(\mat Q,t)g_{j'}(\mat Q,t)d\mat Q}
 \end{align}
 $$
 
@@ -21,7 +21,7 @@ So, the total molecular wavepacket is thus:
 
 $$
 \begin{align}
-    \ket{\Psi(\Q,t)}=\sum_s\psi^{(s)}(\Q,t)\ket{s;\Q} = \sum_j g_j(\Q,t)\sum_sA_j^{(s)}(t)\ket{s;\Q}\label{eq:born-huang}
+    \ket{\Psi(\mat Q,t)}=\sum_s\psi^{(s)}(\mat Q,t)\ket{s;\mat Q} = \sum_j g_j(\mat Q,t)\sum_sA_j^{(s)}(t)\ket{s;\mat Q}\label{eq:born-huang}
 \end{align}
 $$
 
@@ -31,7 +31,7 @@ The population on electronic state $s$ is just the total probability in that nuc
 
 $$
 \begin{align}
-    P^{(s)}(t)&=\int | \psi^{s}(\Q,t)|^2 d\Q\\&=\sum_{jj'}A_j^{(s)*}A_{j'}^{(s)}\int{g_j^*(\Q,t)g_{j'}(\Q,t)d\Q}\\
+    P^{(s)}(t)&=\int | \psi^{s}(\mat Q,t)|^2 d\mat Q\\&=\sum_{jj'}A_j^{(s)*}A_{j'}^{(s)}\int{g_j^*(\mat Q,t)g_{j'}(\mat Q,t)d\mat Q}\\
     &=\sum_{jj'}A_j^{(s)*}A_{j'}^{(s)}\Smat_{jj'}(t)
 \end{align}
 $$
@@ -40,7 +40,7 @@ Consequently, the normalization reads (braket is used to denotes integration ove
 
 $$
 \begin{align}
-    \int \braket{\Psi(\Q,t)} d\Q &= \sum_{ss'}\delta_{ss'}\int | \psi^{s}(\Q,t)|^2 d\Q\\
+    \int \braket{\Psi(\mat Q,t)} d\mat Q &= \sum_{ss'}\delta_{ss'}\int | \psi^{s}(\mat Q,t)|^2 d\mat Q\\
     &=\sum_s P^{(s)}(t)=1
 \end{align}
 $$
@@ -94,7 +94,8 @@ $$
 \end{align}
 $$
 
-Which we could see it has a structure of ''sum over dummy index of ($\text{coef}_{\text{dummy}}\times\text{coef}_{\text{of interest}}\times\text{overlap}$).
+Which we could see it has a structure of sum over dummy index of ($\text{coef}_{\text{dummy}}\times\text{coef}_{\text{of interest}}\times\text{overlap}$).
+
 ## PGP vs GGP
 The pseudo Gaussian population (PGP) is just:
 
@@ -123,7 +124,7 @@ $$
 \end{align}
 $$
 
-This in fact also has the structure of ''sum over dummy index of ($\text{coef}_{\text{dummy}}\times\text{coef}_{\text{of interest}}\times\text{overlap}$).
+This in fact also has the structure of sum over dummy index of ($\text{coef}_{\text{dummy}}\times\text{coef}_{\text{of interest}}\times\text{overlap}$).
 
 In eq\ref{eq:ggp}, only the real part is taken as quoted ''The imaginary parts can be
 ignored as they sum up to zero. In our calculations, the
@@ -135,7 +136,7 @@ set of four GBF,
 
 $$
 \begin{align}
-    \psi(\Q,t)=\sum_j^4 A_j(t)g_j(\Q,t)
+    \psi(\mat Q,t)=\sum_j^4 A_j(t)g_j(\mat Q,t)
 \end{align}
 $$
 
@@ -143,24 +144,25 @@ Then the global density of probability is:
 
 $$
 \begin{align}
-    | \psi(\Q,t)|^2=\sum_{j.j'=1}^4A_j(t)^*A_j(t)g_j^*(\Q,t)g_j(\Q,t)
+    | \psi(\mat Q,t)|^2=\sum_{j.j'=1}^4A_j(t)^*A_j(t)g_j^*(\mat Q,t)g_j(\mat Q,t)
 \end{align}
 $$
 
-which are represented by black curves in the figure beloww
+which are represented by black curves in the figure below
+
 ![GGP density](image.png)
 
-The four gray Gaussian curves are the weighted densities of probability of each Gaussian functions $|A_j(t)g(\Q,t)|^2$. Clearly, the global density is not the sum of these, since nonzero overlaps  create interference terms (as when overlapping atomic orbitals create bonding or antibonding molecular orbitals).
+The four gray Gaussian curves are the weighted densities of probability of each Gaussian functions $\vert A_j(t)g(\mat Q,t)\vert^2$. Clearly, the global density is not the sum of these, since nonzero overlaps  create interference terms (as when overlapping atomic orbitals create bonding or antibonding molecular orbitals).
 
 Assume each GWPs is normalized and real with width $1/\sqrt2$ in mass-frequency scaled normal coordinates (non-recentred)
 
 $$
 \begin{align}
-    g_j(\Q,t)=\frac{\ee^{-\frac{1}{2}\lrp{\Q-\Q_j}^2}}{\pi^{1/4}}
+    g_j(\mat Q,t)=\frac{\ee^{-\frac{1}{2}\lrp{\mat Q-\mat Q_j}^2}}{\pi^{1/4}}
 \end{align}
 $$
 
-and all coefficient A real. In the figure, the centres are chosen $\{\Q_j(t)\}=\{3,6,9,12\}$ and coefficients $\{A_j\}\propto\{1,3,5,2\}$. The overlap between two neighboring
+and all coefficient A real. In the figure, the centres are chosen $\{\mat Q_j(t)\}=\{3,6,9,12\}$ and coefficients $\{A_j\}\propto\{1,3,5,2\}$. The overlap between two neighboring
 Gaussian basis functions is approximately 11\% and is virtually
 zero between functions further apart. The PGP and the GGP
 are $\{\text{PGP}_j(t)=\{2\%,20\%,56\%,9\%\}\}$
@@ -226,7 +228,7 @@ $$
 \end{align}
 $$
 
-In the original text ''Results will be called nonlocal in space if the population transfer involves a correlated decrease of $\text{GGP}_j^{(1)}(t)$ and increase of $\text{GGP}_{j'}^{(0)}(t)$ with $j\neq j'$. This is quantum nonlocality (quantum trajectories communicate with each other at all times) as the different trajectories ''talk to each other'' because the basis is non-orthogonal and the coefficients are coupled. A piece of the wavepacket that was spatially centred around one geometry can re‑appear attached to another geometry.
+In the original text *Results will be called nonlocal in space if the population transfer involves a correlated decrease of $\text{GGP}_j^{(1)}(t)$ and increase of $\text{GGP}_{j'}^{(0)}(t)$ with $j\neq j'$. This is quantum nonlocality (quantum trajectories communicate with each other at all times) as the different trajectories talk to each other because the basis is non-orthogonal and the coefficients are coupled. A piece of the wavepacket that was spatially centred around one geometry can re‑appear attached to another geometry.*
 
 This can be seen figuratively in fig non-local vs local. Left panel shows local transfer. In top pannel, two Gaussian on S1 at different x and no population on S0. At the bottom, one of the S1 Gaussian has lost weight and the S0 Gaussian diretly underneath it at same x has hained weight showed by vertical arrow. So for that GBF index $j$; $\text{GGP}_j^{(1)}(t)$ decreased and $\text{GGP}_j^{(0)}(t)$ increased while the other GBFs unaffected. So the hop happend locally in space at that trajectory's geometry
 
@@ -238,4 +240,4 @@ But in general, this paper found that nonadiabatic events are rather local in sp
 ![locality transfer](image-1.png)
 
 ### How the GGP changes depending on the nature of the transfer
-Since the GBFs are localized in coordinate space, $\Smat_{jj'}$ is close to 1 when $\Q_j=\Q_j'$(when they overlap)
+Since the GBFs are localized in coordinate space, $\Smat_{jj'}$ is close to 1 when $\mat Q_j=\mat Q_j'$(when they overlap)
