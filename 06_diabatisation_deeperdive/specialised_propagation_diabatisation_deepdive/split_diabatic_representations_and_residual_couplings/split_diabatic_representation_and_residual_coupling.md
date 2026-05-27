@@ -135,7 +135,7 @@ $$
 \end{align}
 $$
 
-Under the electronic basis rotation $\Cmat$, this operator transforms as
+Under the electronic basis rotation $\Cmat$, this operator transforms as (for detailed derivations on how the gauge-covariant operator transforms [guage covariant operator transformation derivations](../../derivations/derivation_gauge_covariant_operator_transformation.md))
 
 $$
 \begin{align}
@@ -279,37 +279,7 @@ $$
 \end{align}
 $$
 
-Using
-
-$$
-\begin{align}
-\ket{\varphi_j}
-=\sum_k
-\ket{\psi_k}\Cmat_{kj},
-\qquad
-\bra{\varphi_i}
-=\sum_l
-\Cmat^*_{li}
-\bra{\psi_l},
-\end{align}
-$$
-
-one obtains
-
-$$
-\begin{align}
-(\F^{\mathrm{res}})_{ij}
-&=\sum_{lk}
-\Cmat^*_{li}
-\braket{\psi_l}{\nabla_{\mat R}\psi_k}
-\Cmat_{kj}
-+\sum_l
-\Cmat^*_{li}
-(\nabla_{\mat R}\Cmat)_{lj}.
-\end{align}
-$$
-
-Therefore
+After substituting the relation between quasi-diabatic basis and adiabatic basis ($\ket\varphivec = \ket\psivec \Cmat$, for detailed derivtaion see [residual coupling derivations](../../derivations/derivations_residual_coupling.md)), one obtain:
 
 $$
 \begin{align}
@@ -376,11 +346,13 @@ $$
 
 The transformed coupling then becomes
 
+
 $$
 \begin{align}
-\F^{\mathrm{res}}
-=\Cmat_a^{-1}\F_b\Cmat_a
-+\Cmat_a^{-1}\boldsymbol{\epsilon}_{\Cmat}.
+\F^{\mathrm{res}} &=\Cmat_a^{-1}
+(\F_a+\F_b)\Cmat_a+\Cmat_a^{-1}
+(-\F_a\Cmat_a+\boldsymbol{\epsilon}_{\Cmat})\nonumber\\
+&=\Cmat_a^{-1}\F_b\Cmat_a +\Cmat_a^{-1}\boldsymbol{\epsilon}_{\Cmat}
 \end{align}
 $$
 
@@ -450,47 +422,9 @@ $$
 \end{align}
 $$
 
-If $\F_a$ is anti-Hermitian and $\Cmat_a(R_0)$ is unitary, then $\Cmat_a(R)$ remains unitary. To see this, differentiate $\Cmat_a^\dagger\Cmat_a$:
+For the proof that $\Cmat_a$ remain unitary along the reaction path provided $\F_a$ is anti-Hermitian, see [ADT matrix unitary derivations](../../derivations/derivations_unitary_split_diabatic_transformation.md)
 
-$$
-\begin{align}
-\frac{\partial \Cmat_a^\dagger}{\partial R}
-&=\left(
--\F_a\Cmat_a
-\right)^\dagger
-\nonumber\\
-&=-\Cmat_a^\dagger\F_a^\dagger
-\nonumber\\
-&=\Cmat_a^\dagger\F_a,
-\end{align}
-$$
 
-where anti-Hermiticity, $\F_a^\dagger=-\F_a$, has been used. Therefore
-
-$$
-\begin{align}
-\frac{\partial}{\partial R}
-\left(
-\Cmat_a^\dagger\Cmat_a
-\right)
-&=\left(
-\frac{\partial \Cmat_a^\dagger}{\partial R}
-\right)
-\Cmat_a
-+
-\Cmat_a^\dagger
-\left(
-\frac{\partial \Cmat_a}{\partial R}
-\right)
-\nonumber\\
-&=\Cmat_a^\dagger\F_a\Cmat_a
--\Cmat_a^\dagger\F_a\Cmat_a
-\nonumber\\
-&=0.
-\end{align}
-$$
-
-Thus, if $\Cmat_a^\dagger\Cmat_a=\mathbb I$ at the reference point, it remains equal to $\mathbb I$ along the path.
 
 The split or quasi-diabatic electronic basis is
 
@@ -534,66 +468,9 @@ $$
 \end{align}
 $$
 
-Now apply the adiabatic covariant derivative to $\Cmat_a\boldsymbol{\chi}^{\mathrm{quasi}}$:
+For step-by-step application of the covariant derivative/dressed kinetic operator to the transformed nuclear amplitudes, see [transformation of the covariant deirative using split diabatic representation](../../derivations/derivation_transformation_split_diab_covariant_derivative.md). 
 
-$$
-\begin{align}
-\mathcal D_A
-\left(
-\Cmat_a\boldsymbol{\chi}^{\mathrm{quasi}}
-\right)
-&=\left(
-\frac{\partial}{\partial R}
-+
-\F_a+\F_b
-\right)
-\left(
-\Cmat_a\boldsymbol{\chi}^{\mathrm{quasi}}
-\right)
-\nonumber\\
-&=\left(
-\frac{\partial \Cmat_a}{\partial R}
-\right)
-\boldsymbol{\chi}^{\mathrm{quasi}}
-+
-\Cmat_a
-\frac{\partial \boldsymbol{\chi}^{\mathrm{quasi}}}{\partial R}
-+
-\F_a\Cmat_a
-\boldsymbol{\chi}^{\mathrm{quasi}}
-+
-\F_b\Cmat_a
-\boldsymbol{\chi}^{\mathrm{quasi}}
-\nonumber\\
-&=-\F_a\Cmat_a
-\boldsymbol{\chi}^{\mathrm{quasi}}
-+
-\Cmat_a
-\frac{\partial \boldsymbol{\chi}^{\mathrm{quasi}}}{\partial R}
-+
-\F_a\Cmat_a
-\boldsymbol{\chi}^{\mathrm{quasi}}
-+
-\F_b\Cmat_a
-\boldsymbol{\chi}^{\mathrm{quasi}}
-\nonumber\\
-&=\Cmat_a
-\frac{\partial \boldsymbol{\chi}^{\mathrm{quasi}}}{\partial R}
-+
-\F_b\Cmat_a
-\boldsymbol{\chi}^{\mathrm{quasi}}
-\nonumber\\
-&=\Cmat_a
-\left(
-\frac{\partial}{\partial R}
-+
-\Cmat_a^{-1}\F_b\Cmat_a
-\right)
-\boldsymbol{\chi}^{\mathrm{quasi}}.
-\end{align}
-$$
-
-Define the transformed residual coupling
+By defining the transformed residual coupling
 
 $$
 \begin{align}
@@ -603,77 +480,7 @@ $$
 \end{align}
 $$
 
-Then
-
-$$
-\begin{align}
-\boxed{
-\mathcal D_A
-\left(
-\Cmat_a\boldsymbol{\chi}^{\mathrm{quasi}}
-\right)
-=\Cmat_a
-\left(
-\frac{\partial}{\partial R}
-+
-\widetilde{\F}_b
-\right)
-\boldsymbol{\chi}^{\mathrm{quasi}}.
-}
-\label{eq:first_derivative_split_identity}
-\end{align}
-$$
-
-Because Eq. $\eqref{eq:first_derivative_split_identity}$ holds for any vector in the transformed representation, it may be applied a second time:
-
-let 
-
-$$\chivec^\text{new}\equiv\left(\frac{\partial}{\partial R}+\tilde \F_b\right)\chivec^{\text{quasi}}$$
-
-Then:
-
-$$
-\begin{align}
-\mathcal D_A^2(\Cmat_a\chivec^{\text{quasi}})
-&=\mathcal D_A\left[\Cmat_a\left(\frac{\partial}{\partial R}+\tilde \F_b\right)\chivec^{\text{quasi}}\right]\nonumber\\
-&=\mathcal D_A\left[\Cmat_a\chivec^\text{new}\right]\nonumber\\
-&=\Cmat_a\left(\frac{\partial}{\partial R}+\tilde \F_b\right)\chivec^{\text{new}}\nonumber\\
-&=\Cmat_a\left(\frac{\partial}{\partial R}+\tilde \F_b\right)^2\chivec^{\text{quasi}}\nonumber
-\end{align}
-$$
-
-Hence:
-
-$$
-\begin{align}
-\boxed{
-\mathcal D_A^2
-\left(
-\Cmat_a\boldsymbol{\chi}^{\mathrm{quasi}}
-\right)
-=\Cmat_a
-\left(
-\frac{\partial}{\partial R}
-+
-\widetilde{\F}_b
-\right)^2
-\boldsymbol{\chi}^{\mathrm{quasi}}.
-}
-\label{eq:squared_split_identity}
-\end{align}
-$$
-
-Substituting
-
-$$
-\begin{align}
-\boldsymbol{\chi}^{\mathrm{Adiab}}
-=\Cmat_a
-\boldsymbol{\chi}^{\mathrm{quasi}}
-\end{align}
-$$
-
-into Eq. $\eqref{eq:adiabatic_covariant_1d}$, using Eq. $\eqref{eq:squared_split_identity}$, and left multiplying by $\Cmat_a^{-1}$ gives
+and applying the basis transformation to the original adiabatic equation, we obtain the split-diabatic nuclear equations:
 
 $$
 \begin{align}
@@ -695,7 +502,7 @@ $$
 \end{align}
 $$
 
-where
+where the transformed potential is
 
 $$
 \begin{align}

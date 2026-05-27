@@ -262,7 +262,7 @@ $$
 \end{align}
 $$
 
-In practice, for polyatomic molecules one usually works with local or quasi-diabatic states, so Eq. $\eqref{eq:strict_diabatic_basis_condition}$ is an idealisation. It is nevertheless the correct assumption for deriving the standard two-state model and explains why diabatic representations are useful: the singular derivative coupling is transferred into smooth potential-like couplings. This is also the reason DD-vMCG and related approaches prefer smooth quasi-diabatic potential surfaces near degeneracies. :contentReference[oaicite:1]{index=1}
+In practice, for polyatomic molecules one usually works with local or quasi-diabatic states, so Eq. $\eqref{eq:strict_diabatic_basis_condition}$ is an idealisation. It is nevertheless the correct assumption for deriving the standard two-state model and explains why diabatic representations are useful: the singular derivative coupling is transferred into smooth potential-like couplings. This is also the reason DD-vMCG and related approaches prefer smooth quasi-diabatic potential surfaces near degeneracies. 
 
 Using Eq. $\eqref{eq:adiabatic_states_from_diabatic_basis}$,
 

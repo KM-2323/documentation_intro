@@ -11,7 +11,7 @@ These examples show how loop topology, sign changes, and finite-subspace failure
 
 1. [Two-state loop and sign change](example01_two_state_loop_and_sign_change.md)
 2. [Three-state sign flips and the topological matrix](example02_three_state_sign_flips_and_D_matrix.md)
-3. [Finite-subspace failure modes](finite_subspace_failure_modes.md)
+3. [Four-state sign flips and the toplogical matrix](example03_four_state_loop_and_D_matrix.md)
 
 ## Companion Material
 

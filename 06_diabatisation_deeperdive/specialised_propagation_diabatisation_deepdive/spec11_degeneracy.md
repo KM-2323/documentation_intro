@@ -1,4 +1,9 @@
+## Foreword
+While compiling this section, it became clear that the current theoretical distinction between "breakable" and "unbreakable" degeneracies remains somewhat phenomenological and ultimately unsatisfying.
 
+The transition from a simple two-state sign-flip rule to a genuine multistate $\mat D$ matrix leaves a noticeable gap: how do we rigorously identify an unbreakable degeneracy a priori? 
+
+My current interpretation is that a degeneracy is truly unbreakable when the branching coordinates are strictly the only coordinates available to lift the degeneracy, meaning the surrounding intersection seam lacks the external dimensionality required to unfold the states into separated conical intersections.I have presented the standard arguments below for completeness, along with my own interpretations to help bridge the gaps. However, this remains an open area for discussion. If anyone reading this has deeper insights or alternative interpretations, please contribute by sending an email or submitting a pull request. Because I think this will aid our understanding and sign-assignment of non-adiabatic coupling vector in forming the ADT matrices in any reduced-dimension propagation diabatisation.
 
 ## Genuine multistate degeneracies and the apparent contradiction
 

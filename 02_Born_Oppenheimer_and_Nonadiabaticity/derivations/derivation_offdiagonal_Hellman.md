@@ -97,7 +97,7 @@ $$
 \end{align}
 $$
 
-This form reveals a critical physical consequence: as the adiabatic potential energy surfaces become degenerate ($V_i \to V_j$), the denominator approaches zero, and the nonadiabatic coupling matrix elements become singular. These localized singularities (such as conical intersections) drastically break the Born-Oppenheimer approximation, and drive the necessity to seek a transformation into a diabatic representation, where such derivative couplings are systematically removed or minimized.
+This form reveals that as the adiabatic potential energy surfaces become degenerate ($V_i \to V_j$), the denominator approaches zero, and the nonadiabatic coupling matrix elements become singular. These localized singularities (such as conical intersections) drastically break the Born-Oppenheimer approximation, and drive the necessity to seek a transformation into a diabatic representation, where such derivative couplings are systematically removed or minimized.
 
 
 

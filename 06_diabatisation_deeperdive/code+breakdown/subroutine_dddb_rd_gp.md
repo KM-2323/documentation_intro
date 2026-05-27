@@ -341,7 +341,7 @@ $$
 
 So the routine does not merely interpolate stored energies. It first shifts each local harmonic model to the requested geometry, then either uses one shifted model or averages several shifted models.
 
-This is the same local-harmonic database idea used in DD-vMCG: quantum-chemistry data at database points give energies, gradients, and Hessians, and the potential near a Gaussian centre is represented by a second-order Taylor expansion. fileciteturn12file38
+This is the same local-harmonic database idea used in DD-vMCG: quantum-chemistry data at database points give energies, gradients, and Hessians, and the potential near a Gaussian centre is represented by a second-order Taylor expansion.
 
 ---
 

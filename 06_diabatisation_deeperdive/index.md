@@ -12,21 +12,6 @@ This section collects the theory, implementation notes, flowcharts, derivations,
 2. [Propagation diabatisation safety-guard breakdown](intermediates/int01_propagation_diabatisation_safetyguard_breakdown.md)
 3. [Procrustes diabatisation](intermediates/int02_proscrutes_diabatisation.md)
 4. [Specialised topics overview](specialised_propagation_diabatisation_deepdive/index.md)
-5. [ADT integrability, topology, and finite electronic subspaces](specialised_propagation_diabatisation_deepdive/spec03_adt_integrability_and_topology_overview.md)
-6. [Curl condition, analyticity, and uniqueness of the ADT matrix](specialised_propagation_diabatisation_deepdive/spec04_curl_condition_analyticity_and_uniqueness.md)
-7. [Derivation of the curl condition from the ADT equation](derivations/derivation_curl_condition_from_adt.md)
-8. [Integral formulation and path dependence of the ADT matrix](derivations/derivation_path_ordered_adt_and_closed_contours.md)
-9. [Topological matrix and single-valued diabatic potentials](specialised_propagation_diabatisation_deepdive/spec05_topological_matrix_and_single_valued_diabatic_potentials.md)
-10. [Condition for single-valued diabatic potentials from the topological matrix](derivations/derivation_topological_matrix_condition_for_W.md)
-11. [Complete versus reduced Hilbert space ADT](specialised_propagation_diabatisation_deepdive/spec06_complete_vs_reduced_hilbert_space_adt.md)
-12. [Derivation of reduced sub-Hilbert-space ADT errors](derivations/derivation_reduced_subhilbert_space_errors.md)
-13. [Constructing a good sub-Hilbert space](specialised_propagation_diabatisation_deepdive/spec07_constructing_a_good_subhilbert_space.md)
-14. [Multistate topology, sign changes, and degeneracies](specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs.md)
-15. [Two-state loop and sign change](worked_examples/adt_topology/example01_two_state_loop_and_sign_change.md)
-16. [Three-state sign flips and the topological matrix](worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)
-17. [Four-state sign flips and the topological matrix](worked_examples/adt_topology/example03_four_state_loop_and_D_matrix.md)
-18. [text](specialised_propagation_diabatisation_deepdive/spec10_geometric_interpretation_signflip.md)
-19. [text](specialised_propagation_diabatisation_deepdive/spec11_degeneracy.md)
 
 ## Core Propagation Notes
 
@@ -36,16 +21,23 @@ This section collects the theory, implementation notes, flowcharts, derivations,
 
 ## Specialised Topics
 
-- [Specialised topics overview](specialised_propagation_diabatisation_deepdive/)
+- [Specialised topics overview](specialised_propagation_diabatisation_deepdive/index.md)
 - [ADT integrability, topology, and finite electronic subspaces](specialised_propagation_diabatisation_deepdive/spec03_adt_integrability_and_topology_overview.md)
 - [Curl condition, analyticity, and uniqueness of the ADT matrix](specialised_propagation_diabatisation_deepdive/spec04_curl_condition_analyticity_and_uniqueness.md)
+- [Derivation of the curl condition from the ADT equation](derivations/derivation_curl_condition_from_adt.md)
+- [Integral formulation and path dependence of the ADT matrix](derivations/derivation_path_ordered_adt_and_closed_contours.md)
 - [Topological matrix and single-valued diabatic potentials](specialised_propagation_diabatisation_deepdive/spec05_topological_matrix_and_single_valued_diabatic_potentials.md)
+- [Condition for single-valued diabatic potentials from the topological matrix](derivations/derivation_topological_matrix_condition_for_W.md)
 - [Complete versus reduced Hilbert space ADT](specialised_propagation_diabatisation_deepdive/spec06_complete_vs_reduced_hilbert_space_adt.md)
+- [Derivation of reduced sub-Hilbert-space ADT errors](derivations/derivation_reduced_subhilbert_space_errors.md)
 - [Constructing a good sub-Hilbert space](specialised_propagation_diabatisation_deepdive/spec07_constructing_a_good_subhilbert_space.md)
 - [Multistate topology, sign changes, and degeneracies](specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs.md)
-- [text](specialised_propagation_diabatisation_deepdive/spec10_geometric_interpretation_signflip.md)
-- [text](specialised_propagation_diabatisation_deepdive/spec11_degeneracy.md)
-- [Connections between split diabatic representations and residual couplings](specialised_propagation_diabatisation_deepdive/split_diabatic_representations_and_residual_couplings/)
+- [Two-state loop and sign change](worked_examples/adt_topology/example01_two_state_loop_and_sign_change.md)
+- [Three-state sign flips and the topological matrix](worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)
+- [Four-state sign flips and the topological matrix](worked_examples/adt_topology/example03_four_state_loop_and_D_matrix.md)
+- [Geometric interpretation of sign flips](specialised_propagation_diabatisation_deepdive/spec10_geometric_interpretation_signflip.md)
+- [Multistate-degeneracy](specialised_propagation_diabatisation_deepdive/spec11_degeneracy.md)
+
 
 ## Derivations
 

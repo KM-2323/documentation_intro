@@ -19,10 +19,18 @@ These notes collect the mathematical derivations that support the diabatisation 
 - [Condition for single-valued diabatic potentials from the topological matrix](derivation_topological_matrix_condition_for_W.md)
 
 ## Multistate
-- [Mutli-state ADT angles and topological sign](<derivations_multistate_ADT_angle_equations and_topological_sign_matrices.md>)
+- [Multli-state ADT angles and topological sign](<derivations_multistate_ADT_angle_equations and_topological_sign_matrices.md>)
 ## Reduced Subspace Analysis
 
 - [Derivation of reduced sub-Hilbert-space ADT errors](derivation_reduced_subhilbert_space_errors.md)
+
+## Residual coupling
+- [Transformation of the gauge covariant derivative operator](derivation_gauge_covariant_operator_transformation.md)
+- [Derivations of the residual coupling](derivations_residual_coupling.md)
+
+## Split-diabatic representation
+- [Transformation of the gauge-covariant kinetic operator in the split-diabatic framework ](derivation_transformation_split_diab_covariant_derivative.md)
+- [Proof on the unitary property of split-diabatic transformation](derivations_unitary_split_diabatic_transformation.md)
 
 ## Companion Material
 

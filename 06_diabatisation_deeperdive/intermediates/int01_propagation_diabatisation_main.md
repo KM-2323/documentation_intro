@@ -136,7 +136,9 @@ $$
 
 where $\mathcal P$ denotes path ordering. In the practical DD-vMCG implementation, this path is local: the transformation is propagated from a nearby useful database point to the new geometry. The derivative coupling along the path is estimated from the available quantum-chemistry and database information.
 
-The normal branch follows the flowcharts in [flowchart_diabat4_2_conceptbased](../diabatisation_code/flowchart_diabat4_2_conceptbased.md) and [flowchart_diabat4_2_subroutinebased](../diabatisation_code/flowchart_diabat4_2_subroutinebased.md).
+The normal branch follows the flowcharts in [flowchart_diabat4_2_conceptbased](../code+breakdown/flowchart_diabat4_2_conceptbased.md) 
+and [flowchart_diabat4_2_subroutinebased](../code+breakdown/flowchart_diabat4_2_subroutinebased.md)
+
 
 A compact view of the guard logic is
 
@@ -231,7 +233,7 @@ Important caveat: sign and phase conventions are part of the algorithm, not cosm
 
 ---
 
-### References to keep near this section
+### References 
 
 - G. W. Richings and G. A. Worth, **A Practical Diabatisation Scheme for Use with the Direct-Dynamics Variational Multi-Configuration Gaussian Method**, *Journal of Physical Chemistry A* **119**, 12457--12470 (2015).
 - G. W. Richings and G. A. Worth, **Multi-state non-adiabatic direct-dynamics on propagated diabatic potential energy surfaces**, *Chemical Physics Letters* **683**, 606--612 (2017).

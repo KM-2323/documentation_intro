@@ -2,7 +2,7 @@
 
 ### 1. Overlap Derivatives and Gaussian Moments
 
-The $\Cmat\mat{X}$ Formalism and the Local Harmonic Approximation1. Overlap Derivatives and Gaussian MomentsBefore modifying the equations of motion, we must examine the structure of the overlap matrix derivatives. Let us define the first and second derivatives of the overlap matrix with respect to the GWP parameters $\alpha$ and $\beta$:
+Before modifying the equations of motion, we must examine the structure of the overlap matrix derivatives. Let us define the first and second derivatives of the overlap matrix with respect to the GWP parameters $\alpha$ and $\beta$:
 
 $$S_{jl}^{(\alpha \beta)} = \braket{\pdv{\gj}{\lambda_{j\alpha}}  }{\pdv{g_l}{\lambda_{l\beta}}}$$
 

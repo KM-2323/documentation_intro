@@ -2,7 +2,7 @@
 
 Welcome to the living internal textbook and code manual for the Graham Worth group. 
 
-This repository is designed to bridge the gap between rigorous quantum dynamics theory and its practical implementation within the Quantics suite. It serves as a comprehensive, modular, and pedagogical resource tailored for researchers at all levels—from incoming master's students to experienced postdoctoral researchers. 
+This repository documents the connection between quantum dynamics theory and its implementation in the Quantics suite. It includes explanatory notes, practical examples, and implementation details intended to help researchers understand not only the underlying methods, but also how they are used in actual Quantics calculations.
 
 ## Project Aims
 

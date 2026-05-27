@@ -102,7 +102,7 @@ $$
 
 
 
-Substituting this perfect square back into Equation \ref{eq:sub-explicit-G} yields the familiar, elegant "dressed" form of the non-adiabatic kinetic energy operator:
+Substituting this back into Equation \ref{eq:sub-explicit-G} yields the familiar "dressed" form of the non-adiabatic kinetic energy operator:
 
 
 $$
@@ -116,4 +116,4 @@ $$
 ---
 
 ### Comments:
-When implementing these equations in practical computational chemistry or molecular dynamics codes, a vital distinction must be made regarding the matrix $\G$.The elegant relation $\G = \nabla\F + \F\cdot\F$ derived above relies heavily on Equation \ref{eq:electronic_completeness}, the exact resolution of the identity. This is only strictly true for an infinite, complete basis set. In practice, computations always employ a truncated, finite basis set. Consequently, the resolution of the identity is incomplete, and the exact equivalence breaks down. If one attempts to construct $\G$ purely from $\F$ using $\nabla\F + \F\cdot\F$ in a finite basis, it will introduce non-negligible errors into the simulation. Therefore, for rigorous numerical implementations, one must generally avoid this substitution and compute the raw scalar couplings directly via $G_{ji}=\nabla\F_{ji}-\braket{\nabla\psi_j}{\nabla\psi_i}$, or explicitly evaluate the sum over the available finite states.
+When implementing these equations in practical computational chemistry or molecular dynamics codes, a distinction must be made regarding the matrix $\G$.The relation $\G = \nabla\F + \F\cdot\F$ derived above relies heavily on Equation \ref{eq:electronic_completeness}, the exact resolution of the identity. This is only strictly true for an infinite, complete basis set. In practice, computations always employ a truncated, finite basis set. Consequently, the resolution of the identity is incomplete, and the exact equivalence breaks down. If one attempts to construct $\G$ purely from $\F$ using $\nabla\F + \F\cdot\F$ in a finite basis, it will introduce non-negligible errors into the simulation. Therefore, for rigorous numerical implementations, one must generally avoid this substitution and compute the raw scalar couplings directly via $G_{ji}=\nabla\F_{ji}-\braket{\nabla\psi_j}{\nabla\psi_i}$, or explicitly evaluate the sum over the available finite states.
