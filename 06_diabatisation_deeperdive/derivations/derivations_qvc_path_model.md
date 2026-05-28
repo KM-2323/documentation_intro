@@ -35,7 +35,7 @@ where $\mat A$, $\mat B$, $\mat C_{\mathrm{code}}$, and $\mat K$ are real symmet
 
 The standard multidimensional Taylor expansion of a potential $V$ around a reference point $\Rv$ is:
 
-$$ V(\Rv + \Delta\Rv) = V(\Rv) + \vec{g}^T \Delta\Rv+ \frac{1}{2} \Delta\vec{x}^T \mathbf{H} \Delta\Rv+ \dots $$
+$$ V(\Rv + \Delta\Rv) = V(\Rv) + \vec{g}^T \Delta\Rv+ \frac{1}{2} \Delta\Rv^T \mathbf{H} \Delta\Rv+ \dots $$
 
 If we substitute $\Delta\Rv= x \hat{n}$ into this equation, we can factor out the scalar distance $x$:
 
