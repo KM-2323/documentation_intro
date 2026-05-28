@@ -537,7 +537,7 @@ $$
 
 provided the retained space is otherwise well behaved. This is the same hierarchy that appeared in the finite-subspace Born--Oppenheimer discussion: omitted-state effects are not absent, but they may be controlled if the retained electronic manifold is sufficiently isolated.
 
-Practical note: this is why propagation diabatisation in DD-vMCG must monitor intruder states, phase consistency, and state ordering. These are not merely numerical details. They are symptoms of whether the retained finite electronic subspace is behaving like a good quasi-diabatic manifold.
+> this is why propagation diabatisation in DD-vMCG must monitor intruder states, phase consistency, and state ordering. These are not merely numerical details. They are symptoms of whether the retained finite electronic subspace is behaving like a good quasi-diabatic manifold.
 
 ---
 

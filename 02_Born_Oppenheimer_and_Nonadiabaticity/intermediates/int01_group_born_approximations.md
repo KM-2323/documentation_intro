@@ -43,7 +43,7 @@ $$
 
 Thus, a large energy denominator tends to suppress the coupling. However, energetic separation alone is not a proof of negligible coupling, because the numerator also depends on how strongly the electronic Hamiltonian changes along the nuclear coordinate.
 
-> Practical note: the finite-state approximation is a statement about the region of configuration space sampled by the calculation. A set of states that is well isolated near the Franck--Condon region may cease to be isolated if the wavepacket later reaches an intruder state or an additional intersection seam.
+> the finite-state approximation is a statement about the region of configuration space sampled by the calculation. A set of states that is well isolated near the Franck--Condon region may cease to be isolated if the wavepacket later reaches an intruder state or an additional intersection seam.
 
 ---
 

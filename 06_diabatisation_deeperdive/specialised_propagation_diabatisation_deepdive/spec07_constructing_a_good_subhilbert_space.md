@@ -290,7 +290,7 @@ $$
 
 If this condition holds for the contours relevant to the dynamics, then the outside intersections may be ignored for the local calculation. If it does not hold, the local subspace must be enlarged.
 
-Practical note: this is a local statement in nuclear configuration space. A subspace that is adequate near one Franck--Condon region may cease to be adequate if the wavepacket later reaches another intersection seam or an intruder state.
+> this is a local statement in nuclear configuration space. A subspace that is adequate near one Franck--Condon region may cease to be adequate if the wavepacket later reaches another intersection seam or an intruder state.
 
 ---
 

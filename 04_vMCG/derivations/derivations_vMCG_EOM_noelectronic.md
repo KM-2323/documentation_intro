@@ -55,7 +55,7 @@ $$i \dot{A}_j = \sum_{m,l} S^{-1}_{jl} \left[ H_{lm} - i\tau_{lm} \right] A_m$$
 
 In compact matrix notation, this is written as:
 
-$$i \dot{\vec{A}} = \Smat^{-1} \cdot (\Hmat - i\vect{\tau}) \vec{A}$$
+$$i \dot{\mat{A}} = \Smat^{-1} \cdot (\Hmat - i\vect{\tau}) \mat{A}$$
 
 ### 2. EoM for the GWP Parameters ($\lambda_{j\alpha}$)
 
@@ -99,7 +99,7 @@ $$-i \sum_l A_j^* \dot{A}_l S_{jl}^{(\alpha 0)} = -\sum_{l,m,n} A_j^* A_n [S^{-1
 
 Applying $\rho_{jn} = A_j^* A_n$ and expanding the time-derivative overlap matrix element 
 
-$$\tau_{mn} =\braket{\gj}{\tdot{\gl}} = \sum_{\beta}\braket{\gj}{\gl}\ \sum_\beta S_{mn}^{(0\beta)} \dot{\lambda}_{n\beta}$$
+$$\tau_{mn} =\braket{\gj}{\dot{\gl}} = \sum_{\beta}\braket{\gj}{\gl}\ \sum_\beta S_{mn}^{(0\beta)} \dot{\lambda}_{n\beta}$$
 
 such that
 
@@ -117,27 +117,36 @@ Notice that we can group the summed matrices on both sides. Specifically, the su
 
 $$\sum_{l,m} S_{jl}^{(\alpha 0)} [S^{-1}]_{lm} S_{mn}^{(0\beta)} = [\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Smat^{(0\beta)}]_{jn}$$
 
-By changing the dummy index $l \to n$ in the first terms on both sides to factor out $\rho_{jn}$, we can cleanly group the equation:Left Hand Side:
+$$ \sum_{l,m} S_{jl}^{(\alpha 0)} [S^{-1}]_{lm} H_{mn} = [\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Hmat]_{jn} $$
 
-$$i \sum_{n,\beta} \rho_{jn} \left( S_{jn}^{(\alpha \beta)} - [\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Smat^{(0\beta)}]_{jn} \right) \dot{\lambda}_{n\beta}$$
 
-Right Hand Side:
 
-$$\sum_n \rho_{jn} \left( H_{jn}^{(\alpha 0)} - [\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Hmat]_{jn} \right)$$
+Such then:
+
+$$i \sum_l \rho_{jl} \sum_\beta S_{jl}^{(\alpha \beta)} \dot{\lambda}_{l\beta} - i \sum_{n,\beta} \rho_{jn}[\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Smat^{(0\beta)}]_{jn}\dot{\lambda}_{n\beta} = \sum_l \rho_{jl} H_{jl}^{(\alpha 0)} - \sum_{n} \rho_{jn} [\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Hmat]_{jn}$$
+
+By changing the dummy index $n \to l$ in the second term on both left and right hand side
+
+$$i \sum_l \rho_{jl} \sum_\beta S_{jl}^{(\alpha \beta)} \dot{\lambda}_{l\beta} - i \sum_{l,\beta} \rho_{jl}[\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Smat^{(0\beta)}]_{jl}\dot{\lambda}_{l\beta} = \sum_l \rho_{jl} H_{jl}^{(\alpha 0)} - \sum_{l} \rho_{jl} [\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Hmat]_{jl}$$
+
+ and combine the terms by factoring out the $\rho_{jl}$
+
+$$i \sum_l \rho_{jl} \sum_\beta \left [S_{jl}^{(\alpha \beta)}-[\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Smat^{(0\beta)}]_{jl}\right]
+\dot{\lambda}_{l\beta} = \sum_l \rho_{jl} \left [ H_{jl}^{(\alpha 0)} - [\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Hmat]_{jl}\right ]$$
 
 To finalize the derivation, we define the $\mat{C}$ matrix and the $\mat{Y}$ vector to capture these grouped terms:
 
-$$C_{j\alpha, n\beta} = \rho_{jn} \left( S_{jn}^{(\alpha \beta)} - [\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Smat^{(0\beta)}]_{jn} \right)$$
+$$C_{j\alpha, l\beta} = \rho_{jl} \left( S_{jl}^{(\alpha \beta)} - [\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Smat^{(0\beta)}]_{jl} \right)$$
 
-$$Y_{j\alpha} = \sum_n \rho_{jn} \left( H_{jn}^{(\alpha 0)} - [\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Hmat]_{jn} \right)$$
+$$Y_{j\alpha} = \sum_l \rho_{jl} \left( H_{jl}^{(\alpha 0)} - [\Smat^{(\alpha 0)} \cdot \Smat^{-1} \cdot \Hmat]_{jl} \right)$$
 
 This allows us to write the parameter EoM simply as:
 
-$$i \sum_{n,\beta} C_{j\alpha, n\beta} \dot{\lambda}_{n\beta} = Y_{j\alpha}$$
+$$i \sum_{n,\beta} C_{j\alpha, l\beta} \dot{\lambda}_{l\beta} = Y_{j\alpha}$$
 
-Bringing both derived equations together in matrix form gives the complete, boxed vMCG Equations of Motion:
+Bringing both derived equations together in matrix form gives the complete, vMCG Equations of Motion:
 
 $$\begin{aligned}
   i \dot{\mat{\Lambda}} &= \mat{C}^{-1} \mat{Y} \\
-  i \dot{\vec{A}} &= \Smat^{-1} \cdot (\Hmat - i\vect{\tau}) \vec{A}
+  i \dot{\mat{A}} &= \Smat^{-1} \cdot (\Hmat - i\vect{\tau}) \mat{A}
 \end{aligned}$$

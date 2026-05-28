@@ -8,7 +8,9 @@ $$S_{jl}^{(\alpha \beta)} = \braket{\pdv{\gj}{\lambda_{j\alpha}}  }{\pdv{g_l}{\l
 
 $$S_{jl}^{(\alpha 0)} = \braket{\pdv{\gj}{\lambda_{j\alpha}} }{ g_l}$$
 
-These derivative integrals depend intimately on the nature of the parameters $\alpha$ and $\beta$. Specifically, they correspond to the Gaussian moments of different polynomial orders. We define the zeroth, first, and second-order Gaussian moments as:
+In fact one may show that these derivative integrals, depending on the nature of the parameters $\alpha$ and $\beta$, correspond to the Gaussian moments of different polynomial orders. 
+
+Let's define the zeroth, first, and second-order Gaussian moments as:
 
 $$M_{jl}^{(0)} = \braket{\gj }{ g_l}$$
 
@@ -16,14 +18,20 @@ $$M_{jl}^{(\kappa)} = \mel{\gj}{x_\kappa}{g_l}$$
 
 $$M_{jl}^{(\kappa \mu)} = \mel{\gj}{x_\kappa x_\mu}{g_l}$$
 
-For a standard Gaussian wavepacket defined as $\gj = \exp(x^T \vect{\zeta}_j x + \vect{\epsilon}_j \cdot x + \eta_j)$, we can evaluate the partial derivatives with respect to each parameter type:
+For a standard Gaussian wavepacket defined as 
+
+$$\gj = \exp(x^T \vect{\zeta}_j x + \vect{\epsilon}_j \cdot x + \eta_j)$$
+
+we can evaluate the partial derivatives with respect to each parameter type:
 * Scalar (0th order): $\pdv{\gj}{\eta_j} = \gj$
 * Linear: $\pdv{\gj}{\epsilon_{j\kappa}} = x_\kappa \gj$
 * Quadratic (Thawed Gaussians): $\pdv{\gj}{\zeta_{j\kappa\mu}} = x_\kappa x_\mu \gj$
 
-Note: Each derivative with respect to a parameter raises the polynomial order of the resulting integral by 0, 1, or 2 depending on the nature of $\alpha$ or $\beta$. For Frozen Gaussians, where the width matrix $\vect{\zeta}$ is fixed, only $\vect{\epsilon}$ and $\eta$ appear, leading to zero or linear polynomial increases. For Thawed Gaussians, all orders up to the second are present.
+So we could see, each derivative with respect to a parameter raises the polynomial order of the resulting integral by 0, 1, or 2 (scalar, linear or quadratic). 
 
-Consequently, the single-derivative overlap matrix $S_{jl}^{(\alpha 0)}$ is directly equivalent to a specific Gaussian moment:
+For Frozen Gaussians, where the width matrix $\vect{\zeta}$ is fixed, only $\vect{\epsilon}$ and $\eta$ appear, leading to zero or linear polynomial increases. While, for thawed Gaussians, all orders up to the second are present.
+
+Consequently, the derivative-type overlap matrix $S_{jl}^{(\alpha 0)}$ is directly equivalent to a specific Gaussian moment:
 
 $$S_{jl}^{(\alpha 0)} = \braket{\gj  }{\pdv{g_l}{\lambda_{l\alpha}}} \equiv \text{Gaussian Moment}$$
 

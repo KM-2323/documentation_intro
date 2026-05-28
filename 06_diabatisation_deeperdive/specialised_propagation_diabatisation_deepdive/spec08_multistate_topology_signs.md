@@ -642,7 +642,7 @@ $$
 
 These are Baer's three coupled first-order equations for this rotation ordering.
 
-Practical note: the denominator $\cos\gamma_{23}$ reflects the coordinate chart used for the rotation angles. If $\cos\gamma_{23}=0$, this angle parameterisation becomes singular, similar to a gimbal-lock singularity in Euler angles. That does not necessarily imply a physical singularity in the ADT matrix; it may only mean that this particular set of angles is a poor coordinate chart there.
+> the denominator $\cos\gamma_{23}$ reflects the coordinate chart used for the rotation angles. If $\cos\gamma_{23}=0$, this angle parameterisation becomes singular, similar to a gimbal-lock singularity in Euler angles. That does not necessarily imply a physical singularity in the ADT matrix; it may only mean that this particular set of angles is a poor coordinate chart there.
 
 ---
 
