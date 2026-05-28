@@ -418,4 +418,4 @@ $$
 
 ## References
 
-This page follows Baer's construction of sub-Hilbert spaces and sub-sub-Hilbert spaces, especially the distinction between intra-subspace and inter-subspace NACTs, the use of strong Landau--Zener/conical-intersection-type interactions to define the retained manifold, and the weak Demkov-type boundary condition used to separate neighbouring subspaces [@baer_2002_nact]. The connection to reduced ADT errors and quasi-diabatic representations follows the finite-subspace discussion in [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md).
+This page follows Baer's construction of sub-Hilbert spaces and sub-sub-Hilbert spaces, especially the distinction between intra-subspace and inter-subspace NACTs, the use of strong Landau--Zener/conical-intersection-type interactions to define the retained manifold, and the weak Demkov-type boundary condition used to separate neighbouring subspaces. The connection to reduced ADT errors and quasi-diabatic representations follows the finite-subspace discussion in [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md).

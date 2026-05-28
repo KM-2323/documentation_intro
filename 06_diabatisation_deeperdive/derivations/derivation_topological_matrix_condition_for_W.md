@@ -600,4 +600,4 @@ Thus the topological matrix may be nontrivial while the diabatic potential matri
 
 ## References
 
-This derivation follows Baer's line-integral treatment of the ADT matrix and the topological matrix condition for single-valued diabatic potentials [@baer_2000_topological_effects; @baer_2002_nact].
+This derivation follows Baer's line-integral treatment of the ADT matrix and the topological matrix condition for single-valued diabatic potentials.

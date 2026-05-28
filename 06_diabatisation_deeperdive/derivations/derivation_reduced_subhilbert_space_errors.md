@@ -873,4 +873,4 @@ This is Baer’s finite sub-Hilbert-space result in practical form: a finite set
 
 ## References
 
-This derivation follows Baer’s reduced sub-Hilbert-space analysis of the ADT equation, the projected curl condition, and the error induced by weak coupling to omitted electronic states [@baer_2002_nact; @baer_2000_topological_effects]. It is also closely connected to the finite-subspace Born--Oppenheimer and group Born--Oppenheimer discussion in these notes.
+This derivation follows Baer’s reduced sub-Hilbert-space analysis of the ADT equation, the projected curl condition, and the error induced by weak coupling to omitted electronic states. It is also closely connected to the finite-subspace Born--Oppenheimer and group Born--Oppenheimer discussion in these notes.

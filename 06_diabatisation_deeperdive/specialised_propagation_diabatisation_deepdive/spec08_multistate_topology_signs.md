@@ -1145,4 +1145,4 @@ Thus, for real electronic functions, the allowed closed-loop effect is a diagona
 
 ## References
 
-This page follows Baer's treatment of the multistate ADT matrix, topological matrix, and quantisation conditions for real electronic functions [@baer_2002_nact; @baer_2000_topological_effects]. The use of elementary rotations for a three-state ADT matrix is also closely related to the three-state ADT-angle construction discussed by Alijah and Baer [@alijah_baer_2000_three_state_adt].
+This page follows Baer's treatment of the multistate ADT matrix, topological matrix, and quantisation conditions for real electronic functions. The use of elementary rotations for a three-state ADT matrix is also closely related to the three-state ADT-angle construction discussed by Alijah and Baer.

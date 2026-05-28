@@ -663,6 +663,6 @@ A retained finite state manifold is not automatically closed. If couplings to om
 
 ## References
 
-The ADT equation, curl condition, and topological interpretation follow Baer's treatment of electronic nonadiabatic coupling terms and molecular topological effects [@baer_2002_nact; @baer_2000_topological_effects].
+The ADT equation, curl condition, and topological interpretation follow Baer's treatment of electronic nonadiabatic coupling terms and molecular topological effects. 
 
-The finite-subspace interpretation connects to the group Born--Oppenheimer construction discussed earlier and to practical propagation diabatisation in DD-vMCG [@richings_worth_2015_propagation_diabatisation; @christopoulou_freibert_worth_2021_improved_dd_vmcg].
+The finite-subspace interpretation connects to the group Born--Oppenheimer construction discussed earlier and to practical propagation diabatisation in DD-vMCG.

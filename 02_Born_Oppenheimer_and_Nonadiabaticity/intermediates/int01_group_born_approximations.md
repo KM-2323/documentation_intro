@@ -643,7 +643,6 @@ Important caveat: neglecting $\F^{(P)}$ is not justified near degeneracies, avoi
 
 In some treatments, only the off-diagonal nonadiabatic coupling operators are neglected, while diagonal Born--Huang-type corrections are retained in the effective potentials. The simpler equation above corresponds to the cruder adiabatic approximation in which these corrections are also omitted. Whether this is acceptable depends on the desired accuracy and on the region of nuclear configuration space sampled by the wavepacket.
 
-References: [@koppel_domcke_cederbaum_1984; @baer_2002_nact]
 
 ---
 

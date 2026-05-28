@@ -21,7 +21,7 @@ This page gives the conceptual overview. The detailed derivations are deferred t
 4. Why can the diabatic potential matrix be single-valued even if the ADT matrix itself changes sign?
 5. What changes when only a finite electronic subspace is retained?
 
-The discussion follows Baer's formulation of nonadiabatic coupling terms, ADT matrices, line integrals, topological matrices, and finite sub-Hilbert spaces [@baer_2002_nact; @baer_2000_topological_effects].
+The discussion follows Baer's formulation of nonadiabatic coupling terms, ADT matrices, line integrals, topological matrices, and finite sub-Hilbert spaces.
 
 ---
 

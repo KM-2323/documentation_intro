@@ -1367,4 +1367,4 @@ Since $\mat D^{(M)}$ is a product of proper rotations, it has determinant $+1$. 
 
 ## References
 
-This derivation follows Baer's multistate ADT-angle construction and the associated topological-matrix quantisation conditions [@baer_2002_nact; @baer_2000_topological_effects]. The three-state rotation-angle formalism is also related to the ADT angle equations discussed by Alijah and Baer [@alijah_baer_2000_three_state_adt].
+This derivation follows Baer's multistate ADT-angle construction and the associated topological-matrix quantisation conditions [@baer_2002_nact; @baer_2000_topological_effects]. The three-state rotation-angle formalism is also related to the ADT angle equations discussed by Alijah and Baer

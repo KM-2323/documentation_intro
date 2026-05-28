@@ -581,8 +581,8 @@ which discusses implicit approximations made when a finite set of adiabatic elec
 
 ## References
 
-The Born--Huang expansion and the resulting nonadiabatic coupling terms are discussed in standard treatments of beyond-Born--Oppenheimer molecular dynamics [@born_oppenheimer_1927; @born_huang_1954; @baer_2002_nact]. 
+The Born--Huang expansion and the resulting nonadiabatic coupling terms are discussed in standard treatments of beyond-Born--Oppenheimer molecular dynamics (I need to cite born-oppenheimer, born-huang, the excited state quantum chemistry paper, physical review paper) 
 
-The mass-scaled coordinate convention and direct-dynamics notation used here are consistent with the conventions adopted in direct molecular dynamics treatments [@worth_robb_2002_direct_md]. 
+The mass-scaled coordinate convention and direct-dynamics notation used here are consistent with the conventions adopted in direct molecular dynamics treatments (cite the paper on role of conical intersection in nonadiabatic dynamics by Michael Robb and Graham Worth)
 
-The same adiabatic nuclear equations provide the starting point for the diabatisation methods used in DD-vMCG [@richings_worth_2015_propagation_diabatisation].
+The same adiabatic nuclear equations provide the starting point for the diabatisation methods used in DD-vMCG [cite the propagation diabatisation paper].

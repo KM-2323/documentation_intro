@@ -492,7 +492,7 @@ Thus a finite electronic subspace can support a controlled quasi-diabatic repres
 
 ## References
 
-The reduced sub-Hilbert-space ADT analysis follows Baer’s treatment of nonadiabatic coupling terms, sub-Hilbert spaces, curl conditions, and topological effects [@baer_2002_nact; @baer_2000_topological_effects]. The connection to finite-state nuclear equations follows the group Born--Oppenheimer discussion in these notes and the multimode vibronic-coupling framework of Köppel, Domcke, and Cederbaum [@koppel_domcke_cederbaum_1984].
+The reduced sub-Hilbert-space ADT analysis follows Baer’s treatment of nonadiabatic coupling terms, sub-Hilbert spaces, curl conditions, and topological effects. The connection to finite-state nuclear equations follows the group Born--Oppenheimer discussion in these notes and the multimode vibronic-coupling framework of Köppel, Domcke, and Cederbaum.
 
 
 

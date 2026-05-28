@@ -491,4 +491,4 @@ Thus the ADT matrix may carry nontrivial topological sign information, while the
 
 ## References
 
-The topological matrix and closed-loop ADT formulation follow Baer's treatment of nonadiabatic coupling terms, line integrals, and molecular topological effects [@baer_2000_topological_effects; @baer_2002_nact]. The sign-change interpretation around conical intersections is closely related to the Longuet-Higgins/Berry-phase picture of real adiabatic electronic states [@longuet_higgins_1975; @berry_1984].
+The topological matrix and closed-loop ADT formulation follow Baer's treatment of nonadiabatic coupling terms, line integrals, and molecular topological effects. The sign-change interpretation around conical intersections is closely related to the Longuet-Higgins/Berry-phase picture of real adiabatic electronic states.
