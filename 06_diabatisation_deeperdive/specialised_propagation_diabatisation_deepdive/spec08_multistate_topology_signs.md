@@ -1012,7 +1012,7 @@ A nonzero $K$ indicates a nontrivial topological effect, usually associated with
 
 This statement should be interpreted with care. In a reduced electronic subspace, a nontrivial or non-diagonal $\mat D$ may also signal that important external states have been omitted, so that the retained subspace is not a good closed sub-Hilbert space over the region sampled by the loop.
 
----
+<!-- ---
 
 ## 13. Geometric interpretation of sign flips
 
@@ -1056,7 +1056,7 @@ Third, some apparent multistate degeneracies may be special model constructions.
 
 Finally, in a finite retained electronic subspace, the topological result depends on whether the selected states form a good sub-Hilbert space. If important states are omitted, the computed $\mat D$ may fail to be diagonal or may show unstable sign behaviour. In that case, the issue is not merely topological; the retained electronic manifold itself may be incomplete.
 
----
+--- -->
 
 ## 15. Common pitfalls
 

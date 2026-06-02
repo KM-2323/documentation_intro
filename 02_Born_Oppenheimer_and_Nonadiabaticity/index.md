@@ -17,7 +17,7 @@ This section introduces the Born-Oppenheimer approximation, the origin of nonadi
 ## Intermediate Notes
 
 - [Grouped Born approximations](intermediates/int01_group_born_approximations.md)
-- [Conical intersections, more formal treatment](intermediates/int02_conical_intersections.md)
+- [Conical intersections, connection to NACV and topology of conical intersections](intermediates/int02_conical_intersections.md)
 
 ## Derivations
 

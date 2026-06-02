@@ -33,8 +33,7 @@ Output: the complete reader-facing page body inside the theme's default shell.
 {% comment %} Local MathJax configuration must load before the MathJax library. {% endcomment %}
 <script src="{{ '/assets/js/mathjax-config.js' | relative_url }}"></script>
 
-{% comment %} External libraries used for math rendering in older browser environments. {% endcomment %}
-<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+{% comment %} External library used for math rendering. {% endcomment %}
 <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
 <script type="module">

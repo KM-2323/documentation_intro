@@ -139,7 +139,7 @@ W_{12}(\mat q)=0.
 \end{align}
 $$
 
-These are two independent scalar conditions. In an $f$-dimensional nuclear coordinate (here $f= 3N-6$ or $3N-5$ internal coordiantes for non-linear and linear molcules respectively) space, their simultaneous solution generally defines an $(f-2)$-dimensional intersection seam, provided the two conditions are independent. The two directions that lift the degeneracy form the **branching space**, also called the $g$-$h$ plane. The remaining directions form the **intersection space**, along which the degeneracy is retained to first order. This is the standard local picture of a two-state conical intersection: near the degeneracy, the adiabatic surfaces form a double cone in the branching plane.
+These are two independent scalar conditions. In an $f$-dimensional internal nuclear coordinate space, their simultaneous solution generally defines an $(f-2)$-dimensional intersection seam, provided the two conditions are independent. For a nonlinear molecule $f=3N_{\mathrm{nuc}}-6$, while for a linear molecule $f=3N_{\mathrm{nuc}}-5$. The two directions that lift the degeneracy form the **branching space**, also called the $g$-$h$ plane. The remaining directions form the **intersection space**, along which the degeneracy is retained to first order. This is the standard local picture of a two-state conical intersection: near the degeneracy, the adiabatic surfaces form a double cone in the branching plane.
 
 ---
 
@@ -370,71 +370,152 @@ then the sign of the mixing angle and hence the sign assigned to $\F_{12}$ chang
 
 ## Linear vibronic coupling model near a conical intersection
 
-Now expand the diabatic potential matrix around a point on the intersection seam. Let $\mat q=\mat 0$ denote the chosen conical-intersection point. To first order,
+Now expand the diabatic potential matrix around a point on the conical-intersection seam. Let this point be denoted by
 
 $$
 \begin{align}
-\Delta(\mat q)
-&=W_{22}(\mat q)-W_{11}(\mat q)
-=\boldsymbol{\kappa}\cdot\mat q
-+
-O(q^2),
+\mat q_{\mathrm{CI}},
+\end{align}
+$$
+
+and define the displacement from it as
+
+$$
+\begin{align}
+\mat Q
+=
+\mat q-\mat q_{\mathrm{CI}}.
+\end{align}
+$$
+
+At the conical intersection,
+
+$$
+\begin{align}
+W_{11}(\mat q_{\mathrm{CI}})
+=
+W_{22}(\mat q_{\mathrm{CI}})
+=
+E^\times,
+\qquad
+W_{12}(\mat q_{\mathrm{CI}})=0.
+\end{align}
+$$
+
+Equivalently,
+
+$$
+\begin{align}
+\Delta(\mat q_{\mathrm{CI}})=0,
+\qquad
+W_{12}(\mat q_{\mathrm{CI}})=0.
+\end{align}
+$$
+
+To first order in $\mat Q$, the two quantities that control the splitting are
+
+$$
+\begin{align}
+\Delta(\mat Q)
+&=
+W_{22}(\mat Q)-W_{11}(\mat Q)
+=\boldsymbol{\kappa}\cdot\mat Q
++O(Q^2),
 \\[4pt]
-W_{12}(\mat q)
-&=\boldsymbol{\lambda}\cdot\mat q
-+O(q^2).
+W_{12}(\mat Q)
+&=\boldsymbol{\lambda}\cdot\mat Q
++O(Q^2),
 \label{eq:lvc_delta_and_coupling}
 \end{align}
 $$
 
-Here
+where
 
 $$
 \begin{align}
 \boldsymbol{\kappa}
-=\nabla_{\mat q}
+&=
+\nabla_{\mat q}
 \left(
 W_{22}-W_{11}
-\right)_{\mat q=\mat 0},
-\qquad
+\right)_{\mat q=\mat q_{\mathrm{CI}}},
+\\[4pt]
 \boldsymbol{\lambda}
-=\nabla_{\mat q}W_{12}\big|_{\mat q=\mat 0}.
+&=
+\nabla_{\mat q}W_{12}\big|_{\mat q=\mat q_{\mathrm{CI}}}.
 \label{eq:kappa_lambda_definitions}
 \end{align}
 $$
 
-Both $\boldsymbol{\kappa}$ and $\boldsymbol{\lambda}$ are $f$-dimensional vectors in nuclear coordinate space. The vector $\boldsymbol{\kappa}$ is the diabatic energy-gap gradient. It is proportional to the usual gradient-difference vector. The vector $\boldsymbol{\lambda}$ is the linear diabatic coupling vector. In the notation often used in vibronic-coupling treatments, one defines
+Both $\boldsymbol{\kappa}$ and $\boldsymbol{\lambda}$ are vectors in nuclear coordinate space. The vector $\boldsymbol{\kappa}$ describes how the diabatic energy gap changes with nuclear displacement. The vector $\boldsymbol{\lambda}$ describes how the off-diagonal diabatic coupling changes with nuclear displacement.
+
+It is also useful to keep the average energy to first order. Define
 
 $$
 \begin{align}
-\boldsymbol{\delta}
-=\frac{1}{2}
-\boldsymbol{\kappa}.
+\boldsymbol{\sigma}
+=
+\frac{1}{2}
+\nabla_{\mat q}
+\left(
+W_{11}+W_{22}
+\right)_{\mat q=\mat q_{\mathrm{CI}}}.
+\label{eq:sigma_average_gradient_definition}
 \end{align}
 $$
 
-so that $\Delta/2=\boldsymbol{\delta}\cdot\mat q$. The linear vibronic coupling expansion and the identification of the gradient-difference and coupling vectors are standard in vibronic-coupling descriptions of conical intersections. :contentReference[oaicite:2]{index=2}
-
-Substituting Eq. $\eqref{eq:lvc_delta_and_coupling}$ into Eq. $\eqref{eq:two_state_adiabatic_energies}$ gives
+Then the local two-state diabatic matrix may be written as
 
 $$
 \begin{align}
-V_{\pm}(\mat q)
-=\Sigma(\mat q)
+\mat W(\mat Q)
+=
+\left[
+E^\times
++
+\boldsymbol{\sigma}\cdot\mat Q
+\right]\mat I
++
+\begin{pmatrix}
+-\boldsymbol{\kappa}\cdot\mat Q/2
+&
+\boldsymbol{\lambda}\cdot\mat Q
+\\
+\boldsymbol{\lambda}\cdot\mat Q
+&
+\boldsymbol{\kappa}\cdot\mat Q/2
+\end{pmatrix}
++
+O(Q^2).
+\label{eq:lvc_model_with_average_slope}
+\end{align}
+$$
+
+The common term $[E^\times+\boldsymbol{\sigma}\cdot\mat Q]\mat I$ shifts both states equally. It can tilt the conical intersection, but it does not lift the degeneracy.
+
+Diagonalising Eq. $\eqref{eq:lvc_model_with_average_slope}$ gives
+
+$$
+\begin{align}
+V_{\pm}(\mat Q)
+=
+E^\times
++
+\boldsymbol{\sigma}\cdot\mat Q
 \pm
 \frac{1}{2}
 \sqrt{
 \left(
-\boldsymbol{\kappa}\cdot\mat q
+\boldsymbol{\kappa}\cdot\mat Q
 \right)^2
 +
 4
 \left(
-\boldsymbol{\lambda}\cdot\mat q
+\boldsymbol{\lambda}\cdot\mat Q
 \right)^2
 }
 +
-O(q^2).
+O(Q^2).
 \label{eq:lvc_adiabatic_surfaces}
 \end{align}
 $$
@@ -443,67 +524,284 @@ The degeneracy is lifted only by displacements for which at least one of the two
 
 $$
 \begin{align}
-\boldsymbol{\kappa}\cdot\mat q,
+\boldsymbol{\kappa}\cdot\mat Q,
 \qquad
-\boldsymbol{\lambda}\cdot\mat q
+\boldsymbol{\lambda}\cdot\mat Q
 \end{align}
 $$
 
-is nonzero. Therefore, the branching plane is spanned by $\boldsymbol{\kappa}$ and $\boldsymbol{\lambda}$. The intersection seam consists of displacements satisfying
+is nonzero. Therefore the branching plane is spanned by $\boldsymbol{\kappa}$ and $\boldsymbol{\lambda}$. The intersection seam, to first order, consists of displacements satisfying
 
 $$
 \begin{align}
-\boldsymbol{\kappa}\cdot\mat q=0,
+\boldsymbol{\kappa}\cdot\mat Q=0,
 \qquad
-\boldsymbol{\lambda}\cdot\mat q=0.
+\boldsymbol{\lambda}\cdot\mat Q=0.
 \label{eq:lvc_seam_conditions}
 \end{align}
 $$
 
 For a system with $f$ nuclear degrees of freedom, this seam has dimension $f-2$, provided $\boldsymbol{\kappa}$ and $\boldsymbol{\lambda}$ are linearly independent.
 
-In many symmetry-induced conical intersections, these two vectors have a simple physical interpretation. The diagonal energy gap is modulated by a totally symmetric tuning coordinate, while the off-diagonal coupling is generated by a non-totally symmetric coupling coordinate. This is the standard tuning-mode/coupling-mode picture of linear vibronic coupling. :contentReference[oaicite:3]{index=3}
+In many symmetry-induced conical intersections, these two vectors have a simple physical interpretation. The diagonal energy gap is modulated by a tuning coordinate, while the off-diagonal coupling is generated by a coupling coordinate. This is the standard tuning-mode/coupling-mode picture of the linear vibronic coupling model.
 
----
-
-### Branching coordinates
-
-There are two common ways to define the branching coordinates.
-
-First, one may define **energy-like branching coordinates**
+In vibronic-coupling notation one often defines
 
 $$
 \begin{align}
-x(\mat q)
-=\boldsymbol{\kappa}\cdot\mat q,
+\boldsymbol{\delta}
+=
+\frac{1}{2}\boldsymbol{\kappa},
+\end{align}
+$$
+
+so that
+
+$$
+\begin{align}
+\frac{\Delta}{2}
+=
+\boldsymbol{\delta}\cdot\mat Q.
+\end{align}
+$$
+
+This is the same local model written with a half-gap vector rather than the full gap-gradient vector $\boldsymbol{\kappa}$.
+
+---
+
+## Branching coordinates, $g$-$h$ notation, and seam coordinates
+
+The previous section already identifies the two first-order directions that lift the degeneracy: $\boldsymbol{\kappa}$ and $\boldsymbol{\lambda}$. This section only changes the language used to describe them. It connects the local diabatic notation to the more common $g$-$h$ notation and then separates three related ideas:
+
+1. the two branching coordinates, which lift the degeneracy;
+2. the $f-2$ seam coordinates, which retain the degeneracy to first order;
+3. the average-gradient vector, which tilts or shifts the degenerate pair but does not split it.
+
+This distinction is useful because the phrase “branching space” is sometimes used loosely. Strictly, for a two-state conical intersection, the branching space is two-dimensional. The seam coordinates and the average-gradient vector are additional geometric objects, not additional branching directions.
+
+---
+
+### Relation to the $g$-$h$ branching-space notation
+
+In the common $g$-$h$ notation, the branching plane is described by two vectors
+
+$$
+\begin{align}
+\boldsymbol g_{ij},
 \qquad
-y(\mat q)
-=2\boldsymbol{\lambda}\cdot\mat q.
+\boldsymbol h_{ij}.
+\end{align}
+$$
+
+These are the gradient-difference vector and the interstate coupling vector, respectively.
+
+For two states $i$ and $j$, the gradient-difference vector is commonly written as
+
+$$
+\begin{align}
+\boldsymbol g_{ij}
+=
+\frac{1}{2}
+\nabla_{\mat q}
+\left[
+V_j(\mat q)-V_i(\mat q)
+\right]_{\mat q=\mat q_{\mathrm{CI}}},
+\label{eq:g_vector_definition_intermediate}
+\end{align}
+$$
+
+up to the sign convention used for ordering the two states. Reversing the labels $i$ and $j$ changes the sign of $\boldsymbol g_{ij}$, but not the branching plane.
+
+> at an exact conical intersection, the individual adiabatic eigenvectors are not uniquely defined and the adiabatic energy surfaces are not differentiable in the usual single-surface sense. Equation $\eqref{eq:g_vector_definition_intermediate}$ should therefore be understood as a local branching-space definition within a chosen two-state degenerate subspace. Different choices of electronic gauge within that subspace can change signs or rotate the pair of branching vectors, but they do not change the two-dimensional branching plane.
+
+The second branching-space vector is
+
+$$
+\begin{align}
+\boldsymbol h_{ij}
+=
+\mel{\psi_i}
+{
+\nabla_{\mat q}\hat H_{\mathrm{el}}
+}
+{\psi_j}_{\mat r}
+\bigg|_{\mat q=\mat q_{\mathrm{CI}}}.
+\label{eq:h_vector_definition_intermediate}
+\end{align}
+$$
+
+This vector is often called the derivative-coupling vector in the conical-intersection literature. In these notes it is better to call it the interstate coupling vector, or the derivative-coupling numerator, because the nonadiabatic coupling vector itself is
+
+$$
+\begin{align}
+\F_{ij}
+=
+\braket{\psi_i}{\nabla_{\mat q}\psi_j}_{\mat r}
+=
+\frac{
+\mel{\psi_i}
+{
+\nabla_{\mat q}\hat H_{\mathrm{el}}
+}
+{\psi_j}_{\mat r}
+}{
+V_j-V_i
+},
+\qquad
+ i\neq j.
+\label{eq:h_vector_nacv_relation_intermediate}
+\end{align}
+$$
+
+Thus $\boldsymbol h_{ij}$ remains finite in the local branching-space model, while the NACV $\F_{ij}$ becomes singular as $V_j-V_i\rightarrow 0$.
+
+The connection with the local diabatic notation is now direct. Since
+
+$$
+\begin{align}
+\Delta(\mat Q)
+=
+W_{22}(\mat Q)-W_{11}(\mat Q)
+=
+\boldsymbol{\kappa}\cdot\mat Q
++O(Q^2),
+\end{align}
+$$
+
+and
+
+$$
+\begin{align}
+W_{12}(\mat Q)
+=
+\boldsymbol{\lambda}\cdot\mat Q
++O(Q^2),
+\end{align}
+$$
+
+we have
+
+$$
+\begin{align}
+\nabla_{\mat q}\Delta\big|_{\mat q=\mat q_{\mathrm{CI}}}
+=\boldsymbol{\kappa},
+\qquad
+\nabla_{\mat q}W_{12}\big|_{\mat q=\mat q_{\mathrm{CI}}}
+=\boldsymbol{\lambda}.
+\end{align}
+$$
+
+With the convention $\Delta=W_{22}-W_{11}$, the local correspondence is
+
+$$
+\begin{align}
+\boldsymbol g_{ij}
+&\leftrightarrow
+\frac{1}{2}\boldsymbol{\kappa},
+\\[4pt]
+\boldsymbol h_{ij}
+&\leftrightarrow
+\boldsymbol{\lambda},
+\label{eq:gh_kappa_lambda_correspondence_intermediate}
+\end{align}
+$$
+
+again up to signs set by the ordering of the electronic states and the local electronic gauge. Therefore the two scalar quantities that lift the degeneracy can be written either as
+
+$$
+\begin{align}
+\boldsymbol{\kappa}\cdot\mat Q,
+\qquad
+\boldsymbol{\lambda}\cdot\mat Q,
+\end{align}
+$$
+
+or, equivalently, in $g$-$h$ notation as
+
+$$
+\begin{align}
+2\boldsymbol g_{ij}\cdot\mat Q,
+\qquad
+\boldsymbol h_{ij}\cdot\mat Q.
+\end{align}
+$$
+
+Both descriptions define the same branching plane.
+
+---
+
+### Energy-like branching coordinates
+
+One way to introduce coordinates in the branching plane is to use energy-like coordinates,
+
+$$
+\begin{align}
+x_{\mathrm E}(\mat Q)
+&=
+\Delta(\mat Q)
+=
+\boldsymbol{\kappa}\cdot\mat Q
+=
+2\boldsymbol g_{ij}\cdot\mat Q,
+\\[4pt]
+y_{\mathrm E}(\mat Q)
+&=
+2W_{12}(\mat Q)
+=2\boldsymbol{\lambda}\cdot\mat Q
+=2\boldsymbol h_{ij}\cdot\mat Q.
 \label{eq:energy_like_branching_coordinates}
 \end{align}
 $$
 
-Then the local adiabatic gap is simply
+Then the local adiabatic gap becomes
 
 $$
 \begin{align}
-V_{+}-V_{-}
-=\sqrt{x^2+y^2}.
+V_+-V_-
+=
+\sqrt{x_{\mathrm E}^2+y_{\mathrm E}^2}.
 \label{eq:lvc_gap_energy_coordinates}
 \end{align}
 $$
 
-In these coordinates the conical topology is immediate.
+This coordinate choice is useful because the local double-cone topology is immediate. The degeneracy is retained only when both energy-like branching coordinates vanish,
 
-Second, one may define **orthonormal geometric branching coordinates**. If $\boldsymbol{\kappa}$ and $\boldsymbol{\lambda}$ are orthogonal, set
 
 $$
 \begin{align}
-q_{\kappa}
-=\hat{\boldsymbol{\kappa}}\cdot\mat q,
+x_{\mathrm E}=0,
 \qquad
-q_{\lambda}
-=\hat{\boldsymbol{\lambda}}\cdot\mat q,
+y_{\mathrm E}=0.
+\end{align}
+$$
+
+These coordinates are useful because they are directly tied to the energy splitting. They are not necessarily orthonormal geometric coordinates in nuclear configuration space.
+
+---
+
+### Intersection-adapted geometric coordinates
+A second approach is to choose an orthonormal coordinate system adapted to the conical intersection. The first two coordinates span the branching plane, while the remaining coordinates span the seam space.
+
+Let
+$$
+\begin{align}
+\hat{\boldsymbol x}_{ij},
+\qquad
+\hat{\boldsymbol y}_{ij}.
+\end{align}
+$$
+
+These may be constructed from orthogonalised versions of $\boldsymbol g_{ij}$ and $\boldsymbol h_{ij}$. For example, after orthogonalising the two branching vectors, write
+
+$$
+\begin{align}
+\hat{\boldsymbol x}_{ij}
+=
+\frac{\overline{\boldsymbol g}_{ij}}{\overline g},
+\qquad
+\hat{\boldsymbol y}_{ij}
+=
+\frac{\overline{\boldsymbol h}_{ij}}{\overline h},
 \end{align}
 $$
 
@@ -511,50 +809,443 @@ where
 
 $$
 \begin{align}
-\hat{\boldsymbol{\kappa}}
-=\frac{\boldsymbol{\kappa}}{\lVert\boldsymbol{\kappa}\rVert},
+\overline g
+=
+\left\|\overline{\boldsymbol g}_{ij}\right\|,
 \qquad
-\hat{\boldsymbol{\lambda}}
-=\frac{\boldsymbol{\lambda}}{\lVert\boldsymbol{\lambda}\rVert}.
+\overline h
+=
+\left\|\overline{\boldsymbol h}_{ij}\right\|.
 \end{align}
 $$
 
-Then
+The corresponding geometric branching coordinates are
 
 $$
 \begin{align}
-\Delta
-=\lVert\boldsymbol{\kappa}\rVert q_{\kappa},
+x
+=
+\hat{\boldsymbol x}_{ij}\cdot\mat Q,
 \qquad
-W_{12}
-=\lVert\boldsymbol{\lambda}\rVert q_{\lambda}.
+y
+=
+\hat{\boldsymbol y}_{ij}\cdot\mat Q.
 \end{align}
 $$
 
-If $\boldsymbol{\kappa}$ and $\boldsymbol{\lambda}$ are not orthogonal, one can orthonormalise the two-dimensional space they span, for example by Gram-Schmidt orthogonalisation. The branching space is unchanged; only the coordinate representation changes.
-
-In this orthogonal branching-plane representation, Eq. $\eqref{eq:lvc_adiabatic_surfaces}$ becomes
+Now choose an orthonormal basis for the seam space,
 
 $$
 \begin{align}
-V_{\pm}
-=\Sigma
-\pm
-\frac{1}{2}
-\sqrt{
-\lVert\boldsymbol{\kappa}\rVert^2 q_{\kappa}^{2}
+\hat{\boldsymbol z}_1,
+\hat{\boldsymbol z}_2,
+\ldots,
+\hat{\boldsymbol z}_{f-2},
+\end{align}
+$$
+
+where each seam direction is orthogonal to the branching plane:
+
+$$
+\begin{align}
+\hat{\boldsymbol z}_a\cdot\boldsymbol{\kappa}=0,
+\qquad
+\hat{\boldsymbol z}_a\cdot\boldsymbol{\lambda}=0,
+\qquad
+a=1,\ldots,f-2.
+\end{align}
+$$
+
+Equivalently, in $g$-$h$ notation,
+
+$$
+\begin{align}
+\hat{\boldsymbol z}_a\cdot\boldsymbol g_{ij}=0,
+\qquad
+\hat{\boldsymbol z}_a\cdot\boldsymbol h_{ij}=0.
+\end{align}
+$$
+
+A general displacement from the chosen conical-intersection point can then be written as
+
+$$
+\begin{align}
+\mat Q
+=
+x\,\hat{\boldsymbol x}_{ij}
 +
-4\lVert\boldsymbol{\lambda}\rVert^2 q_{\lambda}^{2}
-}.
-\label{eq:lvc_surfaces_orthogonal_branching_coords}
+y\,\hat{\boldsymbol y}_{ij}
++
+\sum_{a=1}^{f-2}
+z_a\,\hat{\boldsymbol z}_a.
+
 \end{align}
 $$
 
-If $\Sigma$ has a nonzero gradient in the branching plane, the cone is tilted. Depending on the size of this tilt relative to the splitting gradients, one obtains the usual distinction between peaked and sloped conical intersections. :contentReference[oaicite:4]{index=4}
+The coordinates $x$ and $y$ are branching coordinates. They move the system away from the seam and lift the degeneracy to first order. The coordinates
+
+$$
+\begin{align}
+z_1,z_2,\ldots,z_{f-2}
+\end{align}
+$$
+
+are seam coordinates. Motion along these directions does not lift the degeneracy to first order because it is orthogonal to both branching vectors.
+
+
+
+
 
 ---
 
-### NACV in the LVC model
+### The average-gradient vector and cone tilt
+
+The branching vectors determine the energy splitting. A separate vector determines the common slope of the two-state pair. Define the average-gradient vector
+
+$$
+\begin{align}
+\boldsymbol s_{ij}
+=
+\frac{1}{2}
+\nabla_{\mat q}
+\left[
+V_i(\mat q)+V_j(\mat q)
+\right]_{\mat q=\mat q_{\mathrm{CI}}}.
+\label{eq:average_gradient_vector_sij}
+\end{align}
+$$
+
+In the local diabatic notation, this corresponds to
+
+$$
+\begin{align}
+\boldsymbol s_{ij}
+\leftrightarrow
+\boldsymbol{\sigma}
+=
+\frac{1}{2}
+\nabla_{\mat q}
+\left(
+W_{11}+W_{22}
+\right)_{\mat q=\mat q_{\mathrm{CI}}}.
+\end{align}
+$$
+
+The vector in Eq. $\eqref{eq:average_gradient_vector_sij}$ does not split the two states. It shifts both adiabatic energies by the same amount because it contributes to the part of the two-state Hamiltonian proportional to the identity matrix.
+
+Its projections onto the intersection-adapted coordinate system are
+
+$$
+\begin{align}
+s_x
+=
+\boldsymbol s_{ij}\cdot\hat{\boldsymbol x}_{ij},
+\qquad
+s_y
+=
+\boldsymbol s_{ij}\cdot\hat{\boldsymbol y}_{ij},
+\end{align}
+$$
+
+and
+
+$$
+\begin{align}
+s_a
+=
+\boldsymbol s_{ij}\cdot\hat{\boldsymbol z}_a,
+\qquad
+a=1,\ldots,f-2.
+\end{align}
+$$
+
+The projections $s_x$ and $s_y$ tilt the cone in the branching plane. The projections $s_a$ describe how the common energy of the degenerate pair changes as one moves along the seam.
+
+Important caveat: saying that $\boldsymbol s_{ij}$ does not lift the degeneracy does not mean that a displacement parallel to $\boldsymbol s_{ij}$ is automatically a seam displacement. If $\boldsymbol s_{ij}$ has components in the branching plane, then moving along $\boldsymbol s_{ij}$ also changes $x$ and $y$, and the degeneracy is lifted by the branching terms. The point is only that $\boldsymbol s_{ij}$ itself enters the Hamiltonian as a common energy shift, not as a splitting term.
+
+---
+
+### Local Hamiltonian in intersection-adapted coordinates
+
+With these definitions, the first-order local Hamiltonian can be written as
+
+$$
+\begin{align}
+\mat W_{\mathrm{IA}}(x,y,\{z_a\})
+=
+\left[
+E^\times
++
+s_x x
++
+s_y y
++
+\sum_{a=1}^{f-2}
+s_a z_a
+\right]\mat I
++
+\begin{pmatrix}
+-\overline g x
+&
+\overline h y
+\\
+\overline h y
+&
+\overline g x
+\end{pmatrix}
++
+O(Q^2).
+\label{eq:intersection_adapted_hamiltonian_full}
+\end{align}
+$$
+
+Here $E^\times$ is the energy at the chosen conical-intersection point. The first term is proportional to the identity matrix and therefore shifts both states equally. The second term is the part that splits the two states.
+
+The corresponding adiabatic energies are
+
+$$
+\begin{align}
+V_{\pm}(x,y,\{z_a\})
+=
+E^\times
++
+s_x x
++
+s_y y
++
+\sum_{a=1}^{f-2}
+s_a z_a
+\pm
+\sqrt{
+(\overline g x)^2
++
+(\overline h y)^2
+}
++
+O(Q^2).
+\label{eq:intersection_adapted_eigenvalues_full}
+\end{align}
+$$
+
+Therefore the adiabatic energy gap is
+
+$$
+\begin{align}
+V_+-V_-
+=
+2
+\sqrt{
+(\overline g x)^2
++
+(\overline h y)^2
+}
++
+O(Q^2).
+\label{eq:intersection_adapted_gap}
+\end{align}
+$$
+
+The gap depends only on the branching coordinates to first order. It does not depend on $s_x$, $s_y$, or $s_a$, because these coefficients appear only in the common energy shift.
+
+If
+
+$$
+\begin{align}
+x=0,
+\qquad
+y=0,
+\end{align}
+$$
+
+then the splitting vanishes to first order for arbitrary seam coordinates $z_a$. Along the seam,
+
+$$
+\begin{align}
+V_+
+=
+V_-
+=
+E^\times
++
+\sum_{a=1}^{f-2}
+s_a z_a
++
+O(z^2).
+\label{eq:energy_along_seam}
+\end{align}
+$$
+
+Thus the seam coordinates move the system along the intersection seam, while the branching coordinates move the system away from the seam and lift the degeneracy.
+
+---
+
+### Branching-plane restriction
+
+If one restricts attention to the branching plane itself, then all seam coordinates are set to zero:
+
+$$
+\begin{align}
+z_a=0,
+\qquad
+a=1,\ldots,f-2.
+\end{align}
+$$
+
+Equation $\eqref{eq:intersection_adapted_hamiltonian_full}$ then reduces to
+
+$$
+\begin{align}
+\mat W_{\mathrm{bs}}(x,y)
+=
+\left[
+E^\times
++
+s_x x
++
+s_y y
+\right]\mat I
++
+\begin{pmatrix}
+-\overline g x
+&
+\overline h y
+\\
+\overline h y
+&
+\overline g x
+\end{pmatrix}.
+\label{eq:branching_space_hamiltonian_gh}
+\end{align}
+$$
+
+The corresponding energies are
+
+$$
+\begin{align}
+V_{\pm}(x,y)
+=
+E^\times
++
+s_x x
++
+s_y y
+\pm
+\sqrt{
+(\overline g x)^2
++
+(\overline h y)^2
+}.
+\label{eq:branching_space_eigenvalues_gh}
+\end{align}
+$$
+
+This is the familiar double-cone form, tilted by the common term $s_x x+s_y y$. The parameters $\overline g$ and $\overline h$ control the slopes of the cone in the two branching directions, while $s_x$ and $s_y$ control the tilt of the cone.
+
+The relation between the energy-like coordinates and these geometric coordinates is, in this canonical representation,
+
+$$
+\begin{align}
+x_{\mathrm E}
+=
+2\overline g x,
+\qquad
+y_{\mathrm E}
+=
+2\overline h y.
+\end{align}
+$$
+
+Thus the energy-like and geometric descriptions differ only by scale factors and by the chosen orthonormal basis in the branching plane.
+
+---
+
+### Summary
+
+The local two-state conical-intersection model can therefore be described in three related languages.
+
+In the diabatic LVC notation,
+
+$$
+\begin{align}
+\boldsymbol{\kappa}
+=
+\nabla_{\mat q}
+(W_{22}-W_{11})_{\mat q=\mat q_{\mathrm{CI}}},
+\qquad
+\boldsymbol{\lambda}
+=
+\nabla_{\mat q}W_{12}\big|_{\mat q=\mat q_{\mathrm{CI}}}.
+\end{align}
+$$
+
+In the $g$-$h$ notation,
+
+$$
+\begin{align}
+\boldsymbol g_{ij}
+\leftrightarrow
+\frac{1}{2}\boldsymbol{\kappa},
+\qquad
+\boldsymbol h_{ij}
+\leftrightarrow
+\boldsymbol{\lambda}.
+\end{align}
+$$
+
+In intersection-adapted coordinates,
+
+$$
+\begin{align}
+\mat Q
+=
+x\,\hat{\boldsymbol x}_{ij}
++
+y\,\hat{\boldsymbol y}_{ij}
++
+\sum_{a=1}^{f-2}
+z_a\,\hat{\boldsymbol z}_a.
+\end{align}
+$$
+
+The two coordinates $x$ and $y$ form the branching plane. The remaining $f-2$ coordinates $z_a$ form the seam space.
+
+The average-gradient vector
+
+$$
+\begin{align}
+\boldsymbol s_{ij}
+=
+\frac{1}{2}
+\nabla_{\mat q}
+(V_i+V_j)_{\mat q=\mat q_{\mathrm{CI}}}
+\end{align}
+$$
+
+is not an additional branching vector. It controls the common slope of the two surfaces. Its projections $s_x$ and $s_y$ tilt the cone in the branching plane, while its projections $s_a$ describe how the common energy changes along the seam.
+
+The essential distinction is
+
+$$
+\boxed{
+\text{branching coordinates lift the degeneracy;}
+}
+$$
+
+$$
+\boxed{
+\text{seam coordinates retain the degeneracy to first order;}
+}
+$$
+
+$$
+\boxed{
+\text{the average-gradient vector shifts or tilts the degenerate pair but does not split it.}
+}
+$$
+
+--- 
+
+## NACV in the LVC model
 
 Substituting the LVC expressions
 
@@ -609,7 +1300,7 @@ x^2+y^2
 \end{align}
 $$
 
-If \(x\) and \(y\) themselves are used as the local coordinates in the branching plane, this becomes
+If $x$ and $y$ themselves are used as the local coordinates in the branching plane, this becomes
 
 $$
 \begin{align}
@@ -773,9 +1464,9 @@ $$
 
 is the essential reason a two-state conical intersection has a two-dimensional branching plane and an $(f-2)$-dimensional seam.
 
-In direct-dynamics contexts, this local picture explains why smooth diabatic or quasi-diabatic surfaces are preferred. In the adiabatic representation, the surfaces are not differentiable at the degeneracy and the nonadiabatic coupling diverges; in the diabatic representation, the singular derivative coupling is replaced by smooth potential couplings. DD-vMCG implementations therefore use diabatisation schemes to generate smooth diabatic potential surfaces suitable for local harmonic approximations and propagation. :contentReference[oaicite:5]{index=5}
+In direct-dynamics contexts, this local picture explains why smooth diabatic or quasi-diabatic surfaces are preferred. In the adiabatic representation, the surfaces are not differentiable at the degeneracy and the nonadiabatic coupling diverges; in the diabatic representation, the singular derivative coupling is replaced by smooth potential couplings. DD-vMCG implementations therefore use diabatisation schemes to generate smooth diabatic potential surfaces suitable for local harmonic approximations and propagation. 
 
-A final convention warning is important. If the rotation matrix is chosen as
+However, if the rotation matrix is chosen as
 
 $$
 \begin{pmatrix}

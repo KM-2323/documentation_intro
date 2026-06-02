@@ -388,18 +388,130 @@ $$
 \boldsymbol{\lambda}
 $$
 
-therefore define the local branching space, or branching plane.
-
-In the more common $g$-$h$ notation, $\boldsymbol{\kappa}$ is related to the gradient-difference vector $g$, while $\boldsymbol{\lambda}$ is related to the interstate coupling vector $h$. The precise factors depend on convention, especially on whether one writes the coupling coordinate as $W_{12}$ or $2W_{12}$.
-
-It is important not to confuse $\boldsymbol{\lambda}$ with the NACV itself. The vector $\boldsymbol{\lambda}$ is a smooth diabatic coupling-gradient vector. The NACV,
+therefore define the local branching space, or branching plane. It is important not to confuse $\boldsymbol{\lambda}$ with the NACV itself. The vector $\boldsymbol{\lambda}$ is a smooth diabatic coupling-gradient vector. The NACV,
 
 $$
-\F_{12}
-=\braket{\psi_1}{\nabla_{\mat q}\psi_2},
+\begin{align}
+\F_{ij}
+=\braket{\psi_i}{\nabla_{\mat q}\psi_j}_{\mat r}
+=\frac{
+\mel{\psi_i}{\nabla_{\mat q}\hat H_{\mathrm{el}}}{\psi_j}_{\mat r}
+}{
+V_j-V_i
+},
+\qquad i\neq j.
+\end{align}
 $$
 
 is a derivative coupling between adiabatic states and becomes singular at the conical intersection. That more detailed relation is discussed in the intermediate-level derivation.
+
+
+
+In the more common $g-h$ notation, often associated with Yarkony's branching-space notation, the two branching vectors are written in terms of adiabatic electronic-state quantities rather than diabatic matrix elements. This is useful because the diabatic basis is not unique, whereas the branching space itself is a physically meaningful local object.
+
+For two adiabatic states $i$ and $j$, the gradient-difference vector is usually defined as
+
+$$
+\begin{align}
+\boldsymbol g_{ij}
+=\frac{1}{2}
+\nabla_{\mat q}
+\left[
+V_j(\mat q)-V_i(\mat q)
+\right]_{\mat q=\mat q_{\mathrm{CI}}},
+\label{eq:g_vector_yarkony_notation}
+\end{align}
+$$
+
+up to the sign convention used for ordering the two states. Reversing the order of $i$ and $j$ changes the sign of $\boldsymbol g_{ij}$, but not the branching plane.
+
+The second branching-space vector is the interstate coupling vector,
+
+$$
+\begin{align}
+\boldsymbol h_{ij}
+=\mel{\psi_i}
+{\nabla_{\mat q}\hat H_{\mathrm{el}}}
+{\psi_j}_{\mat r}
+\bigg|_{\mat q=\mat q_{\mathrm{CI}}}.
+\label{eq:h_vector_yarkony_notation}
+\end{align}
+$$
+
+In some conical-intersection literature this is also called the derivative-coupling vector. In the notation used in these notes, however, it is better to regard $\boldsymbol h_{ij}$ as the derivative-coupling numerator or interstate coupling vector. Such that $\boldsymbol h_{ij}$ remains finite in the local branching-space description, while the NACV $\F_{ij}$ becomes singular as $V_j-V_i\rightarrow 0$.
+
+To connect this notation with the two-state diabatic model used above, recall that near the conical-intersection point
+
+$$
+\begin{align}
+\Delta(\mat Q)
+=W_{22}(\mat Q)-W_{11}(\mat Q)
+=\boldsymbol{\kappa}\cdot\mat Q
++O(Q^2),
+\end{align}
+$$
+
+and
+
+$$
+\begin{align}
+W_{12}(\mat Q)
+=\boldsymbol{\lambda}\cdot\mat Q
++O(Q^2).
+\end{align}
+$$
+
+Therefore,
+
+$$
+\begin{align}
+\nabla_{\mat q}\Delta\big|_{\mat q=\mat q_{\mathrm{CI}}}
+=\boldsymbol{\kappa},
+\qquad
+\nabla_{\mat q}W_{12}\big|_{\mat q=\mat q_{\mathrm{CI}}}
+=\boldsymbol{\lambda}.
+\end{align}
+$$
+
+With the present convention $\Delta=W_{22}-W_{11}$, the local correspondence is
+
+$$
+\begin{align}
+\boldsymbol g_{ij}
+\leftrightarrow
+\frac{1}{2}\boldsymbol{\kappa},
+\qquad
+\boldsymbol h_{ij}
+\leftrightarrow
+\boldsymbol{\lambda},
+\label{eq:gh_kappa_lambda_correspondence}
+\end{align}
+$$
+
+up to signs set by the ordering of the electronic states and by the chosen local diabatic gauge. If one instead defines the energy-like coupling coordinate as $y=2W_{12}$, then the corresponding branching coordinate has gradient $2\boldsymbol{\lambda}$. This is only a convention; the branching plane is the same.
+
+The important point is that the branching space is spanned by the two independent directions
+
+$$
+\begin{align}
+\boldsymbol g_{ij},
+\qquad
+\boldsymbol h_{ij},
+\end{align}
+$$
+
+or equivalently, in the local diabatic LVC notation used here,
+
+$$
+\begin{align}
+\boldsymbol{\kappa},
+\qquad
+\boldsymbol{\lambda}.
+\end{align}
+$$
+
+
+#### Dimension of the intersection seam
 
 The degeneracy is retained, to first order, for displacements satisfying
 

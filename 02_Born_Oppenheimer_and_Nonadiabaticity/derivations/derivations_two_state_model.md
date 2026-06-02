@@ -186,7 +186,7 @@ $$
 \end{align}
 $$
 
-### The derivative coupling identity in two state model + 1D
+### The derivative coupling identity in a 1-dimenional two state model 
 
 The NACV $\F_{12}$
 

@@ -10,7 +10,7 @@ To find the gradient of this term, we take the derivative with respect to the nu
 
 $$ \pder{q_\alpha} V_i = \mel{\psi_i^{(a)}}{\pdv{H_{el}}{q_\alpha}}{\psi_i^{(a)}} $$
 
-Putting the equalities together yields Equation (57):
+Putting the equalities together yields:
 
 $$ \kappa_{\alpha,i} = \pder{q_\alpha} \mel{\varphi_i}{H_{el}}{\varphi_i} = \pder{q_\alpha} V_i = \mel{\psi_i^{(a)}}{\pdv{H_{el}}{q_\alpha}}{\psi_i^{(a)}} $$
 

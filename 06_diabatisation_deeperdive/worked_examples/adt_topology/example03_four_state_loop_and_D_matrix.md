@@ -293,6 +293,7 @@ $$
 Baer introduces two normalisation constants,
 
 $$
+\begin{align}
 \boxed{
 \lambda_p
 =\left[
@@ -305,6 +306,7 @@ $$
 \right]^{1/2}.
 }
 \label{eq:lambdap_lambdaq}
+\end{align}
 $$
 
 These constants arise when the eigenvectors of $\mat g$ are normalised. They are not new physical parameters. They ensure that the eigenvector matrix used to diagonalise $\mat g$ is unitary.
