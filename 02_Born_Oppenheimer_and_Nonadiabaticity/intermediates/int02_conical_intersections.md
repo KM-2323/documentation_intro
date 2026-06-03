@@ -141,232 +141,10 @@ $$
 
 These are two independent scalar conditions. In an $f$-dimensional internal nuclear coordinate space, their simultaneous solution generally defines an $(f-2)$-dimensional intersection seam, provided the two conditions are independent. For a nonlinear molecule $f=3N_{\mathrm{nuc}}-6$, while for a linear molecule $f=3N_{\mathrm{nuc}}-5$. The two directions that lift the degeneracy form the **branching space**, also called the $g$-$h$ plane. The remaining directions form the **intersection space**, along which the degeneracy is retained to first order. This is the standard local picture of a two-state conical intersection: near the degeneracy, the adiabatic surfaces form a double cone in the branching plane.
 
----
+> The discussion surrouding the dimension of intersection seam only hold true if the degeneracy occur between two states. For the general $M$ state degeneracy see 
 
-## Mixing-angle representation of the adiabatic states
+----
 
-Since $\mat W$ is real symmetric, it can be diagonalised by a real orthogonal matrix. We write
-
-$$
-\begin{align}
-\Cmat(\theta)
-=\begin{pmatrix}
-\cos\theta & \sin\theta\\
--\sin\theta & \cos\theta
-\end{pmatrix},
-\qquad
-\Cmat^{-1}=\Cmat^{T}.
-\label{eq:two_state_rotation_matrix}
-\end{align}
-$$
-
-With this convention,
-
-$$
-\begin{align}
-\Cmat\mat W\Cmat^T
-=\begin{pmatrix}
-V_1 & 0\\
-0 & V_2
-\end{pmatrix}.
-\label{eq:two_state_diagonalisation}
-\end{align}
-$$
-
-Equivalently, the adiabatic states are expressed in the diabatic basis as (see [row vecctor convention](../derivations/derivations_adiab_diab_convention.md) )
-
-$$
-\begin{align}
-\ket{\psi_1}
-&=\cos\theta\,\ket{\varphi_1}
-+\sin\theta\,\ket{\varphi_2},\\
-\ket{\psi_2}
-&=-\sin\theta\,\ket{\varphi_1}
-+\cos\theta\,\ket{\varphi_2}.
-\label{eq:adiabatic_states_from_diabatic_basis}
-\end{align}
-$$
-
-The off-diagonal element of $\Cmat\mat W\Cmat^T$ is
-
-$$
-\begin{align}
-(\Cmat\mat W\Cmat^T)_{12}
-&=W_{12}(\cos^2\theta-\sin^2\theta)
-+(W_{22}-W_{11})\sin\theta\cos\theta
-\nonumber\\
-&=W_{12}\cos(2\theta)
-+\frac{\Delta}{2}\sin(2\theta).
-\end{align}
-$$
-
-Diagonalisation requires this expression to vanish:
-
-$$
-\begin{align}
-W_{12}\cos(2\theta)
-+\frac{\Delta}{2}\sin(2\theta)
-=0.
-\end{align}
-$$
-
-Therefore,
-
-$$
-\begin{align}
-\tan(2\theta)
-=-\frac{2W_{12}}{\Delta}
-=-\frac{2W_{12}}{W_{22}-W_{11}}.
-\label{eq:two_state_mixing_angle_tangent}
-\end{align}
-$$
-
-Equivalently,
-
-$$
-\begin{align}
-\theta(\mat q)
-=-\frac{1}{2}
-\operatorname{atan2}
-\left(
-2W_{12}(\mat q),
-\Delta(\mat q)
-\right),
-\label{eq:two_state_mixing_angle_atan2}
-\end{align}
-$$
-
-where $\operatorname{atan2}(y,x)$ is preferable to $\arctan(y/x)$ because it retains the correct quadrant. This matters near a conical intersection, where the mixing angle is multivalued and the electronic eigenvectors cannot be made globally single-valued without introducing a phase convention.
-
-At the exact degeneracy,
-
-$$
-\Delta=0,
-\qquad
-W_{12}=0,
-$$
-
-so the mixing angle is undefined. This is not a defect of the algebra; it reflects the fact that the two adiabatic eigenvectors are not uniquely defined at a degeneracy.
-
----
-
-### Nonadiabatic coupling vector as the gradient of the mixing angle
-
-Assume for the moment that the diabatic basis is strictly diabatic in the local region of interest, so that
-
-$$
-\begin{align}
-\braket{\varphi_i}{\nabla_{\mat q}\varphi_j}
-=\mat 0.
-\label{eq:strict_diabatic_basis_condition}
-\end{align}
-$$
-
-In practice, for polyatomic molecules one usually works with local or quasi-diabatic states, so Eq. $\eqref{eq:strict_diabatic_basis_condition}$ is an idealisation. It is nevertheless the correct assumption for deriving the standard two-state model and explains why diabatic representations are useful: the singular derivative coupling is transferred into smooth potential-like couplings. This is also the reason DD-vMCG and related approaches prefer smooth quasi-diabatic potential surfaces near degeneracies. 
-
-Using Eq. $\eqref{eq:adiabatic_states_from_diabatic_basis}$,
-
-$$
-\begin{align}
-\nabla_{\mat q}\ket{\psi_2}
-&=\nabla_{\mat q}
-\left[
--\sin\theta\,\ket{\varphi_1}
-+
-\cos\theta\,\ket{\varphi_2}
-\right]
-\nonumber\\
-&=(\nabla_{\mat q}\theta)
-\left[
--\cos\theta\,\ket{\varphi_1}
--\sin\theta\,\ket{\varphi_2}
-\right]
-\nonumber\\
-&=-(\nabla_{\mat q}\theta)
-\ket{\psi_1}.
-\end{align}
-$$
-
-Therefore, the first-order nonadiabatic coupling vector is
-
-$$
-\begin{align}
-\F_{12}
-=\braket{\psi_1}{\nabla_{\mat q}\psi_2}
-=-\nabla_{\mat q}\theta.
-\label{eq:nacv_as_gradient_theta}
-\end{align}
-$$
-
-By antisymmetry,
-
-$$
-\begin{align}
-\F_{21}
-=-\F_{12}.
-\end{align}
-$$
-
-Taking the gradient of Eq. $\eqref{eq:two_state_mixing_angle_atan2}$ gives
-
-$$
-\begin{align}
-\F_{12}
-=-\nabla_{\mat q}\theta
-=\frac{
-\Delta\,\nabla_{\mat q} W_{12}
--W_{12}\,\nabla_{\mat q}\Delta
-}{
-\Delta^2+4W_{12}^{2}
-}.
-\label{eq:nacv_general_two_state_diabatic}
-\end{align}
-$$
-
-In component form,
-
-$$
-\begin{align}
-F_{12,\alpha}
-=\frac{
-\Delta\,\pdv{W_{12}}{q_\alpha}
--W_{12}\,\pdv{\Delta}{q_\alpha}
-}{
-\Delta^2+4W_{12}^{2}
-},
-\qquad
-\alpha=1,\ldots,f.
-\label{eq:nacv_general_two_state_diabatic_component}
-\end{align}
-$$
-
-Thus $\F_{12}\in\mathbb R^f$ is a vector in nuclear coordinate space. The denominator is the square of the adiabatic energy gap,
-
-$$
-\begin{align}
-\Delta^2+4W_{12}^{2}
-=(V_{+}-V_{-})^2.
-\end{align}
-$$
-
-which reveals the nonadiabatic derivative coupling vector becomes large when the adiabatic energy gap becomes small, and it is singular at the exact conical intersection.
-
-
-The sign of Eq. $\eqref{eq:nacv_general_two_state_diabatic}$ depends on the convention used for $\Cmat$ and for the ordering of $\psi_1,\psi_2$ 
-
-If instead one uses the transposed rotation convention
-
-$$
-\Cmat'=\Cmat^T
-=\begin{pmatrix}
-\cos\theta & -\sin\theta\\
-\sin\theta & \cos\theta
-\end{pmatrix},
-$$
-
-then the sign of the mixing angle and hence the sign assigned to $\F_{12}$ changes.
-
----
 
 ## Linear vibronic coupling model near a conical intersection
 
@@ -937,11 +715,11 @@ Its projections onto the intersection-adapted coordinate system are
 
 $$
 \begin{align}
-s_x
+s_x^{\mathrm{dim}}
 =
 \boldsymbol s_{ij}\cdot\hat{\boldsymbol x}_{ij},
 \qquad
-s_y
+s_y^{\mathrm{dim}}
 =
 \boldsymbol s_{ij}\cdot\hat{\boldsymbol y}_{ij},
 \end{align}
@@ -951,7 +729,7 @@ and
 
 $$
 \begin{align}
-s_a
+s_a^{\mathrm{dim}}
 =
 \boldsymbol s_{ij}\cdot\hat{\boldsymbol z}_a,
 \qquad
@@ -959,9 +737,9 @@ a=1,\ldots,f-2.
 \end{align}
 $$
 
-The projections $s_x$ and $s_y$ tilt the cone in the branching plane. The projections $s_a$ describe how the common energy of the degenerate pair changes as one moves along the seam.
+The superscript “dim” is used because these quantities are dimensional slopes of the average energy surface. They have the same units as $\overline g$ and $\overline h$. Physically, the projections $s_x^{\mathrm{dim}}$ and $s_y^{\mathrm{dim}}$ tilt the cone in the branching plane. And they do not change the energy gap directly, because they appear only in the common energy term. The projections $s_a$ describe how the common energy of the degenerate pair changes as one moves along the seam.
 
-Important caveat: saying that $\boldsymbol s_{ij}$ does not lift the degeneracy does not mean that a displacement parallel to $\boldsymbol s_{ij}$ is automatically a seam displacement. If $\boldsymbol s_{ij}$ has components in the branching plane, then moving along $\boldsymbol s_{ij}$ also changes $x$ and $y$, and the degeneracy is lifted by the branching terms. The point is only that $\boldsymbol s_{ij}$ itself enters the Hamiltonian as a common energy shift, not as a splitting term.
+> saying that $\boldsymbol s_{ij}$ does not lift the degeneracy does not mean that a displacement parallel to $\boldsymbol s_{ij}$ is automatically a seam displacement. If $\boldsymbol s_{ij}$ has components in the branching plane, then moving along $\boldsymbol s_{ij}$ also changes $x$ and $y$, and the degeneracy is lifted by the branching terms. The point is only that $\boldsymbol s_{ij}$ itself enters the Hamiltonian as a common energy shift, not as a splitting term.
 
 ---
 
@@ -976,12 +754,12 @@ $$
 \left[
 E^\times
 +
-s_x x
+s_x^{\mathrm{dim}} x
 +
-s_y y
+s_y^{\mathrm{dim}} y
 +
 \sum_{a=1}^{f-2}
-s_a z_a
+s_a^{\mathrm{dim}} z_a
 \right]\mat I
 +
 \begin{pmatrix}
@@ -999,7 +777,7 @@ O(Q^2).
 \end{align}
 $$
 
-Here $E^\times$ is the energy at the chosen conical-intersection point. The first term is proportional to the identity matrix and therefore shifts both states equally. The second term is the part that splits the two states.
+Here $E^\times$ is the energy at the chosen conical-intersection point. While $x$ and $y$ are the projected direction along $\mat g_{ij}$ and $\mat h_{ij}$The first term is proportional to the identity matrix and therefore shifts both states equally. The second term is the part that splits the two states. 
 
 The corresponding adiabatic energies are
 
@@ -1009,12 +787,12 @@ V_{\pm}(x,y,\{z_a\})
 =
 E^\times
 +
-s_x x
+s_x^{\mathrm{dim}} x
 +
-s_y y
+s_y^{\mathrm{dim}} y
 +
 \sum_{a=1}^{f-2}
-s_a z_a
+s_a^{\mathrm{dim}} z_a
 \pm
 \sqrt{
 (\overline g x)^2
@@ -1068,7 +846,7 @@ V_-
 E^\times
 +
 \sum_{a=1}^{f-2}
-s_a z_a
+s_a^{\mathrm{dim}} z_a
 +
 O(z^2).
 \label{eq:energy_along_seam}
@@ -1096,13 +874,12 @@ Equation $\eqref{eq:intersection_adapted_hamiltonian_full}$ then reduces to
 $$
 \begin{align}
 \mat W_{\mathrm{bs}}(x,y)
-=
-\left[
+=\left[
 E^\times
 +
-s_x x
+s_x^{\mathrm{dim}} x
 +
-s_y y
+s_y^{\mathrm{dim}} y
 \right]\mat I
 +
 \begin{pmatrix}
@@ -1126,9 +903,9 @@ V_{\pm}(x,y)
 =
 E^\times
 +
-s_x x
+s_x^{\mathrm{dim}} x
 +
-s_y y
+s_y^{\mathrm{dim}} y
 \pm
 \sqrt{
 (\overline g x)^2
@@ -1243,9 +1020,241 @@ $$
 }
 $$
 
+---
+## NACV in LVC model
+
+
+
+
+### Mixing-angle representation of the adiabatic states
+
+Before, expressing the NACV using the LVC model. It is seldom to introduce the mixing angle representation of adiabatic states. 
+
+Since $\mat W$ is real symmetric, it can be diagonalised by a real orthogonal matrix. We write
+
+$$
+\begin{align}
+\Cmat(\theta)
+=\begin{pmatrix}
+\cos\theta & \sin\theta\\
+-\sin\theta & \cos\theta
+\end{pmatrix},
+\qquad
+\Cmat^{-1}=\Cmat^{T}.
+\label{eq:two_state_rotation_matrix}
+\end{align}
+$$
+
+With this convention,
+
+$$
+\begin{align}
+\Cmat\mat W\Cmat^T
+=\begin{pmatrix}
+V_1 & 0\\
+0 & V_2
+\end{pmatrix}.
+\label{eq:two_state_diagonalisation}
+\end{align}
+$$
+
+Equivalently, the adiabatic states are expressed in the diabatic basis as (see [row vecctor convention](../derivations/derivations_adiab_diab_convention.md) )
+
+$$
+\begin{align}
+\ket{\psi_1}
+&=\cos\theta\,\ket{\varphi_1}
++\sin\theta\,\ket{\varphi_2},\\
+\ket{\psi_2}
+&=-\sin\theta\,\ket{\varphi_1}
++\cos\theta\,\ket{\varphi_2}.
+\label{eq:adiabatic_states_from_diabatic_basis}
+\end{align}
+$$
+
+The off-diagonal element of $\Cmat\mat W\Cmat^T$ is
+
+$$
+\begin{align}
+(\Cmat\mat W\Cmat^T)_{12}
+&=W_{12}(\cos^2\theta-\sin^2\theta)
++(W_{22}-W_{11})\sin\theta\cos\theta
+\nonumber\\
+&=W_{12}\cos(2\theta)
++\frac{\Delta}{2}\sin(2\theta).
+\end{align}
+$$
+
+Diagonalisation requires this expression to vanish:
+
+$$
+\begin{align}
+W_{12}\cos(2\theta)
++\frac{\Delta}{2}\sin(2\theta)
+=0.
+\end{align}
+$$
+
+Therefore,
+
+$$
+\begin{align}
+\tan(2\theta)
+=-\frac{2W_{12}}{\Delta}
+=-\frac{2W_{12}}{W_{22}-W_{11}}.
+\label{eq:two_state_mixing_angle_tangent}
+\end{align}
+$$
+
+Equivalently,
+
+$$
+\begin{align}
+\theta(\mat q)
+=-\frac{1}{2}
+\operatorname{atan2}
+\left(
+2W_{12}(\mat q),
+\Delta(\mat q)
+\right),
+\label{eq:two_state_mixing_angle_atan2}
+\end{align}
+$$
+
+where $\operatorname{atan2}(y,x)$ is preferable to $\arctan(y/x)$ because it retains the correct quadrant. This matters near a conical intersection, where the mixing angle is multivalued and the electronic eigenvectors cannot be made globally single-valued without introducing a phase convention.
+
+At the exact degeneracy,
+
+$$
+\Delta=0,
+\qquad
+W_{12}=0,
+$$
+
+so the mixing angle is undefined. This is not a defect of the algebra; it reflects the fact that the two adiabatic eigenvectors are not uniquely defined at a degeneracy.
+
+---
+
+### Nonadiabatic coupling vector as the gradient of the mixing angle
+
+Assume for the moment that the diabatic basis is strictly diabatic in the local region of interest, so that
+
+$$
+\begin{align}
+\braket{\varphi_i}{\nabla_{\mat q}\varphi_j}
+=\mat 0.
+\label{eq:strict_diabatic_basis_condition}
+\end{align}
+$$
+
+In practice, for polyatomic molecules one usually works with local or quasi-diabatic states, so Eq. $\eqref{eq:strict_diabatic_basis_condition}$ is an idealisation. It is nevertheless the correct assumption for deriving the standard two-state model and explains why diabatic representations are useful: the singular derivative coupling is transferred into smooth potential-like couplings. This is also the reason DD-vMCG and related approaches prefer smooth quasi-diabatic potential surfaces near degeneracies. 
+
+Using Eq. $\eqref{eq:adiabatic_states_from_diabatic_basis}$,
+
+$$
+\begin{align}
+\nabla_{\mat q}\ket{\psi_2}
+&=\nabla_{\mat q}
+\left[
+-\sin\theta\,\ket{\varphi_1}
++
+\cos\theta\,\ket{\varphi_2}
+\right]
+\nonumber\\
+&=(\nabla_{\mat q}\theta)
+\left[
+-\cos\theta\,\ket{\varphi_1}
+-\sin\theta\,\ket{\varphi_2}
+\right]
+\nonumber\\
+&=-(\nabla_{\mat q}\theta)
+\ket{\psi_1}.
+\end{align}
+$$
+
+Therefore, the first-order nonadiabatic coupling vector is
+
+$$
+\begin{align}
+\F_{12}
+=\braket{\psi_1}{\nabla_{\mat q}\psi_2}
+=-\nabla_{\mat q}\theta.
+\label{eq:nacv_as_gradient_theta}
+\end{align}
+$$
+
+By antisymmetry,
+
+$$
+\begin{align}
+\F_{21}
+=-\F_{12}.
+\end{align}
+$$
+
+Taking the gradient of Eq. $\eqref{eq:two_state_mixing_angle_atan2}$ gives
+
+$$
+\begin{align}
+\F_{12}
+=-\nabla_{\mat q}\theta
+=\frac{
+\Delta\,\nabla_{\mat q} W_{12}
+-W_{12}\,\nabla_{\mat q}\Delta
+}{
+\Delta^2+4W_{12}^{2}
+}.
+\label{eq:nacv_general_two_state_diabatic}
+\end{align}
+$$
+
+In component form,
+
+$$
+\begin{align}
+F_{12,\alpha}
+=\frac{
+\Delta\,\pdv{W_{12}}{q_\alpha}
+-W_{12}\,\pdv{\Delta}{q_\alpha}
+}{
+\Delta^2+4W_{12}^{2}
+},
+\qquad
+\alpha=1,\ldots,f.
+\label{eq:nacv_general_two_state_diabatic_component}
+\end{align}
+$$
+
+Thus $\F_{12}\in\mathbb R^f$ is a vector in nuclear coordinate space. The denominator is the square of the adiabatic energy gap,
+
+$$
+\begin{align}
+\Delta^2+4W_{12}^{2}
+=(V_{+}-V_{-})^2.
+\end{align}
+$$
+
+which reveals the nonadiabatic derivative coupling vector becomes large when the adiabatic energy gap becomes small, and it is singular at the exact conical intersection.
+
+
+The sign of Eq. $\eqref{eq:nacv_general_two_state_diabatic}$ depends on the convention used for $\Cmat$ and for the ordering of $\psi_1,\psi_2$ 
+
+If instead one uses the transposed rotation convention
+
+$$
+\Cmat'=\Cmat^T
+=\begin{pmatrix}
+\cos\theta & -\sin\theta\\
+\sin\theta & \cos\theta
+\end{pmatrix},
+$$
+
+then the sign of the mixing angle and hence the sign assigned to $\F_{12}$ changes.
+
+
 --- 
 
-## NACV in the LVC model
+### Parametersation of NACV in the LVC model
 
 Substituting the LVC expressions
 

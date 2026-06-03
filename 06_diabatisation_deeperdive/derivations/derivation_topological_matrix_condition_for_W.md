@@ -417,7 +417,7 @@ $$
 \end{align}
 $$
 
-Important caveat: this is one reason why topological discussions usually choose a base point away from the degeneracy. At the exact degeneracy, the adiabatic eigenvectors are not uniquely defined, and state-by-state phase statements become ambiguous.
+> this is one reason why topological discussions usually choose a base point away from the degeneracy. At the exact degeneracy, the adiabatic eigenvectors are not uniquely defined, and state-by-state phase statements become ambiguous.
 
 ---
 

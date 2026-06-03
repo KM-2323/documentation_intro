@@ -257,17 +257,8 @@ $$
 \end{align}
 $$
 
-Here the dot denotes contraction over nuclear-coordinate components, while the summation over $k$ is the usual matrix multiplication over electronic-state indices. Explicitly,
+Here the dot denotes contraction over nuclear-coordinate components, while the usual matrix multiplication over electronic-state indices is used to simplify the summation over $k$.
 
-$$
-\begin{align}
-\left(
-\F^{(P)}\cdot\F^{(P)}
-\right)_{ji}
-=\sum_{k=1}^{M}
-\F_{jk}\cdot\F_{ki}.
-\end{align}
-$$
 
 The $Q$-space contribution is
 
@@ -285,7 +276,7 @@ B_{ji}^{(Q)}
 \end{align}
 $$
 
-This term contains the nonadiabatic coupling to omitted electronic states. It cannot be reconstructed from the retained $M\times M$ coupling object $\F^{(P)}$ alone.
+This term contains the nonadiabatic coupling to omitted electronic states and thus cannot be reconstructed from the retained $M\times M$ coupling object $\F^{(P)}$ alone.
 
 Combining Eqs. $\eqref{eq:g_from_f_and_gradient_inner_product}$--$\eqref{eq:q_space_residual_b}$ gives
 
@@ -489,7 +480,7 @@ Thus, neglecting $\mat B^{(Q)}$ introduces a second-order error in the finite-su
 
 This situation commonly arises when an intruder state enters the energy window explored by the nuclear wavepacket. In that case, the retained $P$-space must be enlarged, or the calculation must be reformulated using a larger multistate model.
 
-Important caveat: the diagonal elements of $\mat B^{(Q)}$ are non-negative because they are squared norms of the omitted components of $\nabla_{\mat q}\psi_j$. They therefore act as positive Born--Huang-type corrections to the retained adiabatic potentials. The off-diagonal elements, however, are coupling terms between retained states and should not generally be described as repulsive.
+> the diagonal elements of $\mat B^{(Q)}$ are non-negative because they are squared norms of the omitted components of $\nabla_{\mat q}\psi_j$. They therefore act as positive Born--Huang-type corrections to the retained adiabatic potentials. The off-diagonal elements, however, are coupling terms between retained states and should not generally be described as repulsive.
 
 In unscaled Cartesian coordinates, the same correction contains explicit inverse-mass factors,
 
@@ -639,7 +630,7 @@ $$
 
 where $M_\alpha$ is the mass associated with coordinate $R_\alpha$. In mass-scaled coordinates, these inverse-mass factors have already been absorbed into the definition of $\mat{q}$. The physically meaningful assumption is that the full nonadiabatic coupling operator $\mat\Lambda^{(P)}$ is negligible on the nuclear wavefunctions of interest.
 
-Important caveat: neglecting $\F^{(P)}$ is not justified near degeneracies, avoided crossings with small energy gaps, or conical intersections. In such regions, the nonadiabatic coupling vector can become large or singular, and Eq. $\eqref{eq:p_space_adiabatic_equation}$ no longer provides an adequate description of the nuclear dynamics. Population transfer between electronic states then requires either retaining the coupling terms in the adiabatic representation or transforming to a diabatic or quasi-diabatic representation.
+> neglecting $\F^{(P)}$ is not justified near degeneracies, avoided crossings with small energy gaps, or conical intersections. In such regions, the nonadiabatic coupling vector can become large or singular, and Eq. $\eqref{eq:p_space_adiabatic_equation}$ no longer provides an adequate description of the nuclear dynamics. Population transfer between electronic states then requires either retaining the coupling terms in the adiabatic representation or transforming to a diabatic or quasi-diabatic representation.
 
 In some treatments, only the off-diagonal nonadiabatic coupling operators are neglected, while diagonal Born--Huang-type corrections are retained in the effective potentials. The simpler equation above corresponds to the cruder adiabatic approximation in which these corrections are also omitted. Whether this is acceptable depends on the desired accuracy and on the region of nuclear configuration space sampled by the wavepacket.
 

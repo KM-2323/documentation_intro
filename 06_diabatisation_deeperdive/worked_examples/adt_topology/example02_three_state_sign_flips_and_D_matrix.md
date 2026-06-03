@@ -156,7 +156,7 @@ $$
 \end{align}
 $$
 
-Important caveat: this simplification is special to the present model. In a general multistate problem, different pairwise coupling matrices need not commute, and the path-ordering symbol cannot be dropped.
+> this simplification is special to the present model. In a general multistate problem, different pairwise coupling matrices need not commute, and the path-ordering symbol cannot be dropped.
 
 ---
 

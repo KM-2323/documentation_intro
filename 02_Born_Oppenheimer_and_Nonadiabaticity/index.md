@@ -18,7 +18,8 @@ This section introduces the Born-Oppenheimer approximation, the origin of nonadi
 
 - [Grouped Born approximations](intermediates/int01_group_born_approximations.md)
 - [Conical intersections, connection to NACV and topology of conical intersections](intermediates/int02_conical_intersections.md)
-
+- [Characterisation of conical intersection by Topography](intermediates/int03_topography_conical_intersection.md)
+- [Diemsnion of $M$-state degeneracy intersection seam](intermediates/int04_M_state_degeneracy_dimension.md)
 ## Derivations
 
 - [Adiabatic TDSE using the Born-Huang expansion](derivations/derivation_adiabatic_tdse.md)

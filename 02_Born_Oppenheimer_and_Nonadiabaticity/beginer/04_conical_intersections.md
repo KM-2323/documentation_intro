@@ -543,6 +543,8 @@ $$
 
 In the full nuclear coordinate space, the conical intersection is therefore usually a seam rather than a single point. However, if we take a two-dimensional slice through the branching plane, the seam appears as a single point, and the two adiabatic surfaces form the familiar double-cone shape.
 
+> It should be noted in the discussion of the dimension of the intersection seam, it is assumed that the degeneracy occurs between two states only. For state of $M$ degeneracy, it is in general $f-\eta$ with $\eta$ defined as $\eta=\frac{(M-1)(M-2)}{2}$
+
 ---
 
 ### Tuning and coupling coordinates

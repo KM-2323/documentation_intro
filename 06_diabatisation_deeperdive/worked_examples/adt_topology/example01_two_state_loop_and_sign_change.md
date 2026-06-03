@@ -159,7 +159,7 @@ $$
 
 This is the reason Baer emphasises the condition that $\mat D(\Gamma)$ should be diagonal with elements of modulus one. For real states, those elements are simply $+1$ or $-1$.
 
-Important caveat: the base point of the loop should be chosen away from the degeneracy. At the exact degeneracy the adiabatic eigenvectors are not uniquely defined, so the nondegenerate diagonal argument above does not apply directly.
+> the base point of the loop should be chosen away from the degeneracy. At the exact degeneracy the adiabatic eigenvectors are not uniquely defined, so the nondegenerate diagonal argument above does not apply directly.
 
 ---
 

@@ -148,7 +148,7 @@ dipole(3,nddstate,nddstate)
 
 The dipole matrix components.
 
-Important caveat: in the current code path, the dipole handling appears incomplete. In the nearest-point branch, a local array `dip` is filled from `dbdipmom`, but it is never copied into `dipole`. In the interpolation branch, `diptmp` is initialised to zero and then accumulated, but it is never loaded from `dbdipmom`. Therefore, as written, `dipole` remains zero even when `ldipdb` is true.
+> in the current code path, the dipole handling appears incomplete. In the nearest-point branch, a local array `dip` is filled from `dbdipmom`, but it is never copied into `dipole`. In the interpolation branch, `diptmp` is initialised to zero and then accumulated, but it is never loaded from `dbdipmom`. Therefore, as written, `dipole` remains zero even when `ldipdb` is true.
 
 ---
 

@@ -491,7 +491,7 @@ $$
 
 This is the ordinary curl-free condition for the two-state NACV away from singularities.
 
-Important caveat: this local curl-free condition can hold away from a conical intersection even though a closed loop around the conical intersection gives a nontrivial sign change. The singular point invalidates the regular-region argument.
+> this local curl-free condition can hold away from a conical intersection even though a closed loop around the conical intersection gives a nontrivial sign change. The singular point invalidates the regular-region argument.
 
 ---
 ## Exactly closed finite subspace

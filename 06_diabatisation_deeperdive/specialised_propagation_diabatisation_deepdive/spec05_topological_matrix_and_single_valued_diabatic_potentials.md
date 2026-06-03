@@ -258,7 +258,7 @@ The diagonal condition above assumes that the adiabatic energies at the base poi
 
 In that case, the condition is not that $\mat D(\Gamma)$ must be fully diagonal, but that it must be block diagonal with respect to the degenerate eigenspaces of $\V(0)$.
 
-Important caveat: for topological analysis, it is usually cleaner to choose the base point away from the degeneracy. At an exact degeneracy, the adiabatic eigenvectors themselves are not uniquely defined, so the interpretation of state-by-state phases becomes ambiguous.
+> for topological analysis, it is usually cleaner to choose the base point away from the degeneracy. At an exact degeneracy, the adiabatic eigenvectors themselves are not uniquely defined, so the interpretation of state-by-state phases becomes ambiguous.
 
 ---
 

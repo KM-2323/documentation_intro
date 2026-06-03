@@ -181,7 +181,7 @@ $$
 
 This is the multistate version of the two-state sign-change condition. The ADT matrix itself may be multivalued around the loop, but the diabatic potential matrix remains single-valued if the loop-induced change is only a diagonal sign matrix.
 
-Important caveat: if the base point is degenerate, then $\mat V$ contains a degenerate block. In that case, $\mat D$ may mix states inside the degenerate subspace while still commuting with $\mat V$. The diagonal-sign statement is the usual nondegenerate-base-point case.
+> if the base point is degenerate, then $\mat V$ contains a degenerate block. In that case, $\mat D$ may mix states inside the degenerate subspace while still commuting with $\mat V$. The diagonal-sign statement is the usual nondegenerate-base-point case.
 
 ---
 

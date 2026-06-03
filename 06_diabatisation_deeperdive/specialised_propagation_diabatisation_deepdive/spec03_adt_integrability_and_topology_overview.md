@@ -158,7 +158,7 @@ $$
 
 This is the central ADT equation.
 
-Important caveat: Eq. $\eqref{eq:adt_equation_overview}$ is exact only when the electronic space considered is complete, or when the retained finite subspace behaves as an effectively isolated subspace. In practical calculations, the transformation is usually quasi-diabatic rather than exactly diabatic.
+> Eq. $\eqref{eq:adt_equation_overview}$ is exact only when the electronic space considered is complete, or when the retained finite subspace behaves as an effectively isolated subspace. In practical calculations, the transformation is usually quasi-diabatic rather than exactly diabatic.
 
 ---
 

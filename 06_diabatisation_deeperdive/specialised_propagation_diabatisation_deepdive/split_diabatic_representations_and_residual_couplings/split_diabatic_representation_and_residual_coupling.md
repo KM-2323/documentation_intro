@@ -388,7 +388,7 @@ $$
 
 Here $\V$ is diagonal in the adiabatic basis and $\F$ is the first-order derivative-coupling matrix.
 
-Important caveat: Eq. $\eqref{eq:adiabatic_covariant_1d}$ assumes that the retained electronic subspace is complete or effectively isolated, so that the scalar second-order coupling can be written in the covariant-square form. In a truncated electronic subspace with non-negligible omitted-state couplings, additional Born--Huang-type scalar corrections may be present.
+> Eq. $\eqref{eq:adiabatic_covariant_1d}$ assumes that the retained electronic subspace is complete or effectively isolated, so that the scalar second-order coupling can be written in the covariant-square form. In a truncated electronic subspace with non-negligible omitted-state couplings, additional Born--Huang-type scalar corrections may be present.
 
 Define the adiabatic covariant derivative
 

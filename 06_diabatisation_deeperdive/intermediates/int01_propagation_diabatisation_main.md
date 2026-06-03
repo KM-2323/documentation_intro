@@ -229,7 +229,7 @@ Propagation diabatisation is local and path-dependent when applied in a finite e
 
 The multi-state case is also more delicate than the two-state case. In a three-state system, the ADT matrix can be written as a product of elementary rotations, leading to coupled first-order equations for three ADT angles. Different product orders give different angle equations. The transformation matrix is fixed once the boundary conditions and convention are fixed, but the individual angles are not independent physical observables. The main page should therefore warn the reader that multi-state propagation is not just several independent two-state transformations.
 
-Important caveat: sign and phase conventions are part of the algorithm, not cosmetic details. A sign flip of a real adiabatic eigenvector changes the sign of the corresponding derivative-coupling vector. A propagated diabatic representation is only meaningful if the coupling-vector field is made phase-consistent across the database.
+> sign and phase conventions are part of the algorithm, not cosmetic details. A sign flip of a real adiabatic eigenvector changes the sign of the corresponding derivative-coupling vector. A propagated diabatic representation is only meaningful if the coupling-vector field is made phase-consistent across the database.
 
 ---
 

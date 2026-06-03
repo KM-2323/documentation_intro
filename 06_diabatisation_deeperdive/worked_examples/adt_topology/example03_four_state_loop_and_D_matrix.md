@@ -88,7 +88,7 @@ $$
 \end{align}
 $$
 
-Important caveat: this simplification is not available in a general multistate problem. If the loop samples several noncommuting coupling generators, the order in which they are encountered matters, and the full path-ordered exponential must be retained.
+> this simplification is not available in a general multistate problem. If the loop samples several noncommuting coupling generators, the order in which they are encountered matters, and the full path-ordered exponential must be retained.
 
 ---
 
