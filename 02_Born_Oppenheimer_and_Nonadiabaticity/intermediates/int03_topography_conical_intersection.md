@@ -336,7 +336,7 @@ $$
 
 
 
-Diagonalising Eq. $\eqref{eq:branching_space_hamiltonian_topography} gives
+Diagonalising Eq. \eqref{eq:branching_space_hamiltonian_topography} gives
 
 $$
 \begin{align}
@@ -407,7 +407,7 @@ This energy-like form is useful for displaying the conical topology, while the g
 
 ## Topography parameters
 
-In the following section, the topographical parameters that are used to define the conical intersections will be introduced. Enabling one to gain further insights and visualise the surfaces within the branching space.
+Building upon this coordinate framework, the following section introduces the topographical parameters that characterise the local environment of the conical intersection. Formalising these parameters provides the mathematical machinery to classify and visualise the surfaces within the branching coordiantes.
 
 ### Pitch and asymmetry of the cone
 
@@ -597,7 +597,7 @@ $$
 \end{align}
 $$
 
-which is a dimensionless measure of how strongly the average surface is tilted relative to the cone pitch. If we then define the tilt heading as the polar angle of the tilt direction in the branching plane:
+which is a dimensionless measure of how strongly the average surface is tilted relative to the cone pitch. If we then define the tilt heading as the polar angle of the tilt direction in the branching plane for whcih the average energy of the two PES is maximum (see [text](../derivations/derivations_tilt_heading_CX_topography.md) ):
 
 $$
 \begin{align}
@@ -763,7 +763,7 @@ $$
 
 The physical interpretation is as follows. In a peaked conical intersection, the intersection point remains an extremal point of the two surfaces within the branching plane: the upper surface rises away from the intersection and the lower surface falls away from it. In a sloped conical intersection, the average-energy tilt is strong enough that, along some directions in the branching plane, the upper surface can lie below its value at the intersection point, or the lower surface can lie above its value at the intersection point.
 
-Important caveat: a peaked conical intersection is not a stationary point in the ordinary sense. The gradient of an adiabatic surface at the conical-intersection point is not well-defined because the surface is conical and non-differentiable there. Peaked means extremal in the local conical topography, not stationary in the smooth single-surface sense.
+> a peaked conical intersection is not a stationary point in the ordinary sense. The gradient of an adiabatic surface at the conical-intersection point is not well-defined because the surface is conical and non-differentiable there. Peaked means extremal in the local conical topography, not stationary in the smooth single-surface sense.
 
 ---
 
@@ -852,7 +852,7 @@ $$
 
 A bifurcating conical intersection has two preferred downhill paths on the lower surface. A single-path conical intersection has one dominant downhill path. This classification is useful because two conical intersections may both be peaked or both be sloped but still differ in how the lower surface guides the nuclear wavepacket away from the intersection.
 
-Practical caveat: the expression for $\mathcal B$ contains $\Delta_{gh}$ in the denominator, so the perfectly symmetric limit $\Delta_{gh}=0$ should be treated with care. In that limit, the geometric distinction between single-path and bifurcating behaviour must be interpreted directly from the local surface shape rather than from Eq. \eqref{eq:B_parameter_dimensionless} alone.
+> the expression for $\mathcal B$ contains $\Delta_{gh}$ in the denominator, so the perfectly symmetric limit $\Delta_{gh}=0$ should be treated with care. In that limit, the geometric distinction between single-path and bifurcating behaviour must be interpreted directly from the local surface shape rather than from Eq. \eqref{eq:B_parameter_dimensionless} alone.
 
 ---
 

@@ -32,6 +32,7 @@ This section introduces the Born-Oppenheimer approximation, the origin of nonadi
 - [Quadratic vibronic coupling model notation](derivations/derivations_QVC_model.md)
 - [Sign of the $\pi$ closed-contour integral of $\F$](derivations/derivations_signconvention_closedloopf.md)
 - [Diabatic linear terms](derivations/derivations_diabatic_linearterms.md)
+- [text](derivations/derivations_tilt_heading_CX_topography.md)
 
 ## Advanced Notes
 

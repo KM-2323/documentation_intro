@@ -53,7 +53,7 @@ The [References Guides](10_References_Guides)directory contains essential guidel
 - [06 Diabatisation Deep Dive](06_diabatisation_deeperdive/)
   - Theory, implementation notes, flowcharts, derivations, and specialised topics for implemented diabatisation schemes.
 
-- [Electronc Methods](09_electronic_methods)
+- [Electronc Methods](09_electronic_structure_methods)
 
 
 - [Site Maintenance Guide](10_References_Guides/)

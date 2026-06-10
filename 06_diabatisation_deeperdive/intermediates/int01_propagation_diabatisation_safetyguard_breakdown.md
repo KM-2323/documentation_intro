@@ -235,7 +235,7 @@ $$
 \end{align}
 $$
 
-The current code branch being documented here uses
+The code currently uses the threshold:
 
 $$
 \begin{align}
@@ -245,9 +245,9 @@ $$
 
 as the criterion that the vector field is no longer continuous. This corresponds to an angle larger than $30^\circ$ from parallel or antiparallel alignment.
 
-Implementation note: the 2021 algorithm paper describes the same idea with a threshold of $1/\sqrt{2}$ or $\theta=45^\circ$. The code now uses $0.866$. 
+> the original 2021 algorithm paper describes the same idea with a threshold of $1/\sqrt{2}$ or $\theta=45^\circ$. The code now uses $0.866$. 
 
-If this condition is met, the calculated coupling is treated as unreliable. A typical reason is that the local two-state or few-state character has changed, for example because an intruder state has entered the relevant energy window. In that case, the propagated ADT branch is not trusted. Instead, the predicted transformation matrix is used to place the calculated adiabatic energies into a controlled diabatic representation.
+This tend to reflect that the local two-state or few-state character has changed, for example because an intruder state has entered the the reduced-hilbert space. In that case, it is logged as an "Intruder state" in the log file and is usually a sign to enlarge the states selection or due to an instability of the selected CAS space where orbitals that were outside the CAS space were rotated in.
 
 If the overlap is large in magnitude but negative,
 
@@ -279,13 +279,10 @@ $$
 \end{align}
 $$
 
-This is not a physical change to the molecule. It is a gauge correction caused by the arbitrary sign of real adiabatic electronic eigenvectors.
+However, it should be noted that such sign flip in current implementation is done pair-wise. Further, it does not distinguish the origin of the sign flip. It could be a gauge correction caused by the arbitrary sign of real adiabatic electronic eigenvectors when external quantum chemistr software is called. Or it could be a topological effect from encircling a conical intersection.
 
-A useful interpretation is:
 
-> If the predicted and computed coupling vectors are nearly parallel but point in opposite directions, the code flips the sign and continues. If they are not close to parallel at all, the problem is not just a sign convention; the local state character may have changed.
-
-Sign assignment for nonadiabatic couplings is a real issue in multistate systems. Continuity is useful, but continuity alone can fail when several conical intersections or several state pairs interact.
+The code aims to only enforce the local gauge at each step, (as it will be explored). Though it is prudent to emphasize that sign assignment for nonadiabatic couplings is a real issue in multistate systems. Continuity of NACV is useful, but continuity alone can fail when several conical intersections or several state pairs interact.
 
 ---
 
@@ -309,7 +306,7 @@ W_{NN}(\mat q)
 \end{align}
 $$
 
-The guard compares
+The guard compares the order of the diabatic states of the closed point and the current point (using the predicted diabatic model)
 
 $$
 \begin{align}
@@ -338,9 +335,9 @@ $$
 \end{align}
 $$
 
-may not give a reliable transformation across that step.
+may not give a reliable transformation across that step as the value of NACV will tend to be discontinuos. 
 
-In the conceptual/original guard logic, the normal propagation branch is bypassed. The predicted transformation matrix,
+In the conceptual/original guard logic from the 2021 paper, the normal propagation branch is bypassed. The predicted transformation matrix,
 
 $$
 \begin{align}
@@ -376,7 +373,7 @@ $$
 \end{align}
 $$
 
-> However, the current code then routes into `optqvc` which is a Cubic path-model fallback
+> However, the current code then routes into `optqvc` which is a Cubic path-model fallback. For its description see code breakdown ([optqvc](../code+breakdown/subroutine_optqvc.md)) and [math breakdown](../derivations/derivations_qvc_path_model.md) and below for brief overview.
 
 ---
 
@@ -412,20 +409,10 @@ $$
 \end{align}
 $$
 
-then the point is treated as lying in a near-degenerate region where the raw quantum-chemistry data are not trusted for the normal propagation branch. The improved DD-vMCG algorithm describes this as a region where the quantum chemistry is not numerically reliable for constructing the propagated transformation. In this branch, the predicted diabatic surfaces are stored in the QC database, together with the raw adiabatic data.
+then the point is treated as lying in a near-degenerate region where the raw quantum-chemistry data are not trusted for the normal propagation branch. In this branch, the predicted diabatic surfaces are stored in the QC database, together with the raw adiabatic data.
 
-The numerical reason is clear from
 
-$$
-\begin{align}
-\F_{ij}
-=\frac{\D_{ij}}{V_j-V_i}.
-\end{align}
-$$
-
-When $V_j-V_i$ is very small, direct division by the gap can produce an unstable coupling vector. This is not a statement that small gaps are unphysical. Small gaps are exactly where nonadiabatic effects are important. The guard only says that the direct numerical construction of $\F_{ij}$ from raw quantum-chemistry data is unsafe at that step.
-
-Symbolically, the stored diabatic model is therefore taken from a predicted or local fallback model,
+Symbolically, the stored diabatic model is therefore taken from a predicted model.
 
 $$
 \begin{align}
@@ -435,14 +422,14 @@ $$
 \end{align}
 $$
 
-while the raw adiabatic data are retained as diagnostic information.
+while the raw adiabatic data are retained as diagnostic information and optimisation parameters.
 
-> In current implementation, the prediced diabatic model are further tuned with the fall back QVC model as described later on this page
+> In current implementation, the prediced diabatic model are again tuned with the fall back QVC model 
 ---
 
-## Guard 4: failed or unusable quantum-chemistry calculation
+## Guard 4: failed or unusable quantum-chemistry calculation (chronologically the first guard)
 
-The fourth guard handles cases where the quantum-chemistry calculation fails or returns unusable data. Examples include failed CASSCF convergence, inconsistent electronic-state ordering, missing derivative-coupling data, or numerical output that cannot be reconciled with the local database prediction.
+The fourth guard handles cases where the quantum-chemistry calculation fails or returns unusable data. Examples include failed CASSCF convergence, or missing derivative-coupling data. 
 
 If the quantum-chemistry calculation fails, the algorithm does not store the failed raw data as valid ab initio data. Instead, it stores the predicted diabatic surfaces and the corresponding predicted adiabatic surfaces:
 
@@ -466,18 +453,13 @@ $$
 \end{align}
 $$
 
-This guard separates two different problems:
 
-1. physical nonadiabatic behaviour, where the electronic states are genuinely close or strongly coupled;
-2. unusable electronic-structure output, where the calculation itself cannot be trusted.
-
-Only the first should influence the physical interpretation of the dynamics. The second is an implementation and data-quality issue.
 
 ---
 
 ## Cubic path-model fallback
 
-The normal branch of propagation diabatisation obtains the local adiabatic-to-diabatic transformation by integrating the derivative-coupling field along a path in nuclear configuration space. In the DD-vMCG implementation this is motivated by
+The normal branch of propagation diabatisation obtains the local adiabatic-to-diabatic transformation by integrating the nonadiabatci coupling vector $\F$ field along a path in nuclear configuration space. In the DD-vMCG implementation this is motivated by
 
 $$
 \begin{align}
@@ -585,7 +567,7 @@ $$
 \end{align}
 $$
 
-so that
+so that numerically it is obtained through
 
 $$
 \begin{align}
@@ -598,7 +580,7 @@ $$
 \end{align}
 $$
 
-This is the numerical form of the propagated ADT idea used in practical DD-vMCG calculations.
+
 
 The final diabatic energy matrix is then obtained from the raw quantum-chemistry adiabatic energies,
 
@@ -612,7 +594,7 @@ $$
 \end{align}
 $$
 
-The final diabatic gradient matrix is similarly obtained from the adiabatic gradients and derivative-coupling numerators,
+The final diabatic gradient matrix is similarly obtained from the adiabatic gradients and derivative-coupling numerators/interstate-coupling $\D$,
 
 $$
 \begin{align}
@@ -628,7 +610,6 @@ $$
 \end{align}
 $$
 
-This equation is important because it makes clear that the database prediction does not replace the quantum-chemistry calculation in the normal branch. The prediction is used to choose a stable transformation and to check for unsafe cases. Once the normal branch is accepted, the raw quantum-chemistry data are transformed into the diabatic representation.
 
 ---
 
@@ -752,7 +733,7 @@ This is a practical finite-subspace algorithm. In the complete Hilbert space, th
 
 ---
 
-## References to keep near this section
+## References
 
 - G. W. Richings and G. A. Worth, **A Practical Diabatisation Scheme for Use with the Direct-Dynamics Variational Multi-Configuration Gaussian Method**, *Journal of Physical Chemistry A* **119**, 12457--12470 (2015).
 - G. Christopoulou, A. Freibert, and G. A. Worth, **Improved algorithm for the direct dynamics variational multi-configurational Gaussian method**, *Journal of Chemical Physics* **154**, 124127 (2021).

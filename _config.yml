@@ -127,6 +127,11 @@ defaults:
       subsection_url: "/06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/"
       subsubsection_title: "Connections between residual couplings and split diabatic representations"
   - scope:
+      path: "09_electronic_structure_methods"
+    values:
+      section_title: "Electronic Structure Methods"
+      section_url: "/09_electronic_structure_methods"
+  - scope:
       path: "10_References_Guides"
     values:
       section_title: "References and Guides"
