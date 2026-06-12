@@ -1,6 +1,6 @@
 # Multistate topology, signs, and degeneracies
 
-The preceding pages introduced the ADT equation, the curl condition, the topological matrix, and the distinction between complete and reduced electronic Hilbert spaces. This page now focuses on the multistate case.
+[Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md), [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md), [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md), and [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md) established the chain from local integrability to closed-loop topology and finite-subspace validity. This page now asks how the closed-loop condition is expressed in a genuinely multistate retained space.
 
 The central question is:
 
@@ -10,7 +10,7 @@ For a two-state conical intersection, the familiar answer is simple: a loop arou
 
 This page follows the logic of Baer's general discussion of $M$-state ADT matrices. The worked examples for two-, three-, and four-state model generators are treated separately; here the aim is to explain the general construction and its interpretation.
 
-For the detailed derivations that is used to support this page, please read [derivations: multistate ADT angles and topological sign](<../derivations/derivations_multistate_ADT_angle_equations and_topological_sign_matrices.md>)
+For the detailed derivations supporting this page, see [Derivation: multistate ADT angles and topological sign matrices](<../derivations/derivations_multistate_ADT_angle_equations and_topological_sign_matrices.md>).
 
 
 ---
@@ -1135,9 +1135,12 @@ Thus, for real electronic functions, the allowed closed-loop effect is a diagona
 - [Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md)
 - [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md)
 - [Complete versus reduced Hilbert-space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md)
+- [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md)
+- [Geometric interpretation of sign flips](spec10_geometric_interpretation_signflip.md)
+- [Degeneracy](spec11_degeneracy.md)
 - [Two-state loop and sign change](../worked_examples/adt_topology/example01_two_state_loop_and_sign_change.md)
 - [Three-state sign flips and topological matrix](../worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)
-- [Four-state topological matrix and quantisation conditions](../worked_examples/adt_topology/example03_four_state_topological_matrix.md)
+- [Four-state topological matrix and quantisation conditions](../worked_examples/adt_topology/example03_four_state_loop_and_D_matrix.md)
 - [Derivation: path-ordered ADT and closed contours](../derivations/derivation_path_ordered_adt_and_closed_contours.md)
 - [Derivation: topological matrix condition for diabatic potentials](../derivations/derivation_topological_matrix_condition_for_W.md)
 

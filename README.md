@@ -1,68 +1,103 @@
-# Quantics Dynamics Knowledge Base & Code Manual
+# Quantics Dynamics Knowledge Base and Code Manual
 
-Welcome to the living internal textbook and code manual for the Graham Worth group. 
+This repository is an internal knowledge base for quantum dynamics theory, Quantics usage, and selected Quantics implementation notes within the Graham Worth group.
 
-This repository documents the connection between quantum dynamics theory and its implementation in the Quantics suite. It includes explanatory notes, practical examples, and implementation details intended to help researchers understand not only the underlying methods, but also how they are used in actual Quantics calculations.
+The aim is to record how the mathematical objects used in quantum dynamics are defined, derived, interpreted, and represented in calculations. The notes are intended to support both learning and development: they should help new users understand the theory behind the methods, and help experienced users or developers trace how those ideas enter practical Quantics workflows.
 
-## Project Aims
+The site is written as a modular textbook and code manual. Some pages introduce physical concepts and derivations. Others document algorithms, input/output quantities, implementation choices, or source-code mappings. Where a code mapping has not yet been checked against the source, this should be stated explicitly.
 
-The primary objective of this project is to provide a cohesive knowledge base that demystifies both the underlying physics and the underlying code architecture. This resource aims to:
-* **Explain from First Principles:** Break down complex mathematical theories, including standard MCTDH, rho-MCTDH, ML-MCTDH, G-MCTDH, vMCG, and DD-vMCG, alongside methods like trajectory surface hopping and ab initio multiple spawning.
-* **Connect Theory to Implementation:** Directly map theoretical objects, equations, and derivations to their specific representations, subroutines, and variables within the Quantics source code.
-* **Foster Reproducibility and Development:** Provide robust, citation-rich documentation to assist users in running reliable simulations and to guide developers in confidently modifying or expanding the codebase.
+---
 
-## What the Site Entails
+## Project aims
 
-To maintain clarity, the repository logically separates conceptual physics from software engineering by utilising a paired-file structure for major topics:
+This project has three main aims.
 
-* **Theory Documentation (e.g., `propagation_diabatisation.md`):** Focuses on the physical picture, mathematical formulation, complete derivations, dimensional checks, and toy models. 
-* **Code Mapping Documentation (e.g., `propagation_diabatisation_code.md`):** Details algorithmic flow, relevant input keywords, output quantities, and explicit equation-to-code mapping. Where deep source-code inspection is pending, structured placeholders are clearly maintained.
+First, it provides structured notes on the theory used in quantum dynamics. Topics include the Born--Huang expansion, adiabatic and diabatic representations, nonadiabatic coupling terms, conical intersections, MCTDH-family methods, vMCG, DD-vMCG, trajectory surface hopping, ab initio multiple spawning, and related methods.
 
-## Reference & Local Development Guide
+Second, it connects theory to implementation where possible. Mathematical objects such as wavefunction coefficients, potential matrices, derivative couplings, adiabatic-to-diabatic transformation matrices, and database quantities should be linked to the corresponding variables, routines, or data structures in Quantics when the source code has been inspected.
 
-The [References Guides](10_References_Guides)directory contains essential guidelines and infrastructure documentation for contributing to and maintaining this site:
+Third, it provides a maintainable reference for users and developers. The notes should help with setting up calculations, interpreting outputs, checking assumptions, understanding numerical safeguards, and modifying implementation details without losing sight of the underlying theory.
 
-* **Glossary and Notation Guide:** A centralised reference for the mathematical notation, variable naming conventions, and terminology used throughout the textbook.
-* **Site Customisation:** Detailed guides covering how to modify the site's layout and styling using HTML, SCSS, and JavaScript.
-* **Local Testing with Jekyll:** While basic Markdown editors are highly forgiving of formatting anomalies, static site generators require strict syntax. This section provides instructions for using Jekyll to build and test the site locally, ensuring structural integrity before deployment. It includes a guide on how to serve the Jekyll-built site locally using a standard Python HTTP server.
-* **Version Control:** Explanations of the repository's `.gitignore` configuration, ensuring that build artefacts, local test outputs, and temporary files remain out of the version history.
+---
 
-## Overall Structure
+## How the site is organised
 
-- [System Architecture](architecture.md)
-  - A structural map of the documentation and a high-level table of contents for the guide.
+The repository separates conceptual explanation, derivation, and code documentation.
 
-- [00 Project Overview](00_project_overview/)
-  - Essential reading before starting: project aims, the knowledge map, and guidance on how to use the textbook.
+- **Theory notes**  
+  These files introduce the physical picture, notation, mathematical formulation, assumptions, dimensional checks, examples, and interpretation.  
+  Example: `int01_propagation_diabatisation_main.md`.
 
-- [01 Primer](01_Primer/)
-  - Short refreshers on mathematical concepts and background tools used throughout the notes.
+- **Derivation notes**  
+  These files contain longer algebraic derivations that would interrupt the flow of the main text.  
+  Example: `derivation_gauge_covariant_operator_transformation.md`.
 
-- [02 Born-Oppenheimer And Nonadiabaticity](02_Born_Oppenheimer_and_Nonadiabaticity/)
-  - Foundational theory covering the Born-Huang expansion, adiabatic approximations, diabatic representations, nonadiabatic couplings, and conical intersections.
+- **Code notes**  
+  These files describe algorithmic flow, relevant routines, important variables, input/output quantities, numerical safeguards, and equation-to-code mappings.  
+  Example: `subroutine_diabat4_2.md`.
 
-- [03 MCTDH Family](03_MCTDH_Family/)
-  - Notes and diagrams for the MCTDH family of methods.
+- **Specialised deep dives**  
+  These files collect topics that require more detailed discussion, such as finite-subspace assumptions, ADT topology, sign conventions, path dependence, or multistate diabatisation.
 
-- [04 vMCG family](04_vMCG/)
-  - Note and diagras for the vMCG family of methods
+This separation is intentional. The main theory pages should remain readable, while derivation and code pages provide the additional detail needed for verification or implementation work.
 
-- [05 Direct Dynamics](05_Direct_Dynamics/)
-  - Implementation notes for direct-dynamics machinery and related code paths.
+---
 
-- [06 Diabatisation Deep Dive](06_diabatisation_deeperdive/)
-  - Theory, implementation notes, flowcharts, derivations, and specialised topics for implemented diabatisation schemes.
+## Reference and local development guide
 
-- [Electronc Methods](09_electronic_structure_methods)
+The [Reference Guides](10_References_Guides/) directory contains material for maintaining and extending the site.
 
+- **Glossary and notation guide**  
+  Central definitions of symbols, notation conventions, terminology, and recurrent method names.
 
-- [Site Maintenance Guide](10_References_Guides/)
+- **Site customisation**  
+  Notes on layout, styling, MathJax configuration, and shared site components.
 
-- [Jekyll Site Maintenance](10_References_Guides/Jekyll_site_maintenance.md)
-  - How GitHub Pages builds the site, how to preview locally, and how to update shared layouts, navigation, and MathJax config.
+- **Local testing with Jekyll**  
+  Instructions for building and previewing the site locally before deployment. Markdown editors are often forgiving, but the static site generator is less tolerant of broken links, malformed front matter, or invalid syntax.
 
-- [Notation And Symbols Glossary](10_References_Guides/Symbols_and_notations.md)
-  - Definitions of the symbols and notation used throughout the knowledge base.
+- **Version control**  
+  Notes on `.gitignore`, build artefacts, local test outputs, and temporary files that should not be committed.
 
-- [Glossary](10_References_Guides/glossary.md)
-    - Definitions of recurrent words,  phrases or code routines
+---
+
+## Overall structure
+
+- [System Architecture](architecture.md)  
+  Structural map of the documentation and high-level table of contents.
+
+- [00 Project Overview](00_project_overview/)  
+  Project aims, knowledge map, and guidance on how to use the site.
+
+- [01 Primer](01_Primer/)  
+  Short refreshers on mathematical tools and background concepts used throughout the notes.
+
+- [02 Born-Oppenheimer and Nonadiabaticity](02_Born_Oppenheimer_and_Nonadiabaticity/)  
+  Foundational material on the Born--Huang expansion, adiabatic approximations, diabatic representations, nonadiabatic coupling terms, and conical intersections.
+
+- [03 MCTDH Family](03_MCTDH_Family/)  
+  Notes, derivations, and diagrams for the MCTDH family of methods.
+
+- [04 vMCG Family](04_vMCG/)  
+  Notes and diagrams for vMCG, DD-vMCG, and related Gaussian-wavepacket methods.
+
+- [05 Direct Dynamics](05_Direct_Dynamics/)  
+  Notes on direct-dynamics machinery, quantum-chemistry database usage, interpolation, and related code paths.
+
+- [06 Diabatisation Deep Dive](06_diabatisation_deeperdive/)  
+  Theory, implementation notes, flowcharts, derivations, and specialised topics for diabatisation schemes.
+
+- [09 Electronic Structure Methods](09_electronic_structure_methods/)  
+  Notes on electronic-structure methods and interfaces relevant to the dynamics workflows.
+
+- [Site Maintenance Guide](10_References_Guides/)  
+  Guides for maintaining the site and its infrastructure.
+
+- [Jekyll Site Maintenance](10_References_Guides/Jekyll_site_maintenance.md)  
+  How GitHub Pages builds the site, how to preview locally, and how to update shared layouts, navigation, and MathJax configuration.
+
+- [Notation and Symbols Glossary](10_References_Guides/Symbols_and_notations.md)  
+  Definitions of mathematical symbols and notation used throughout the knowledge base.
+
+- [Glossary](10_References_Guides/glossary.md)  
+  Definitions of recurrent words, phrases, method names, and code routines.

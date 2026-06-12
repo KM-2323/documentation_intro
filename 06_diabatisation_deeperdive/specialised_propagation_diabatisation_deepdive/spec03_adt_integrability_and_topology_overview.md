@@ -2,7 +2,7 @@
 
 ## Purpose of this page
 
-The adiabatic-to-diabatic transformation (ADT) is introduced earlier as the transformation that removes the first-order nonadiabatic coupling vectors from the nuclear kinetic-energy operator. Locally, this idea is expressed by the differential equation
+The adiabatic-to-diabatic transformation (ADT) was introduced earlier as the transformation that removes first-order nonadiabatic coupling terms from the nuclear kinetic-energy operator. In the convention used in these notes, the local ADT equation is
 
 $$
 \begin{align}
@@ -11,17 +11,15 @@ $$
 \end{align}
 $$
 
-At first sight, this equation looks like an ordinary first-order differential equation. However, in a multidimensional nuclear configuration space it is a system of coupled first-order partial differential equations. This distinction matters. Along a single path, one can usually integrate the equation if the coupling is finite along that path. Defining a unique, smooth, path-independent transformation matrix over a whole region of nuclear configuration space is a stronger requirement.
+Here $\mat R$ denotes a nuclear coordinate vector, $\Cmat(\mat R)$ is the ADT matrix, and $\F$ is the retained nonadiabatic coupling matrix-valued vector.
 
-This page gives the conceptual overview. The detailed derivations are deferred to the linked derivation pages. The main questions are:
+This equation looks compact, but it hides three different questions:
 
-1. When does the ADT equation define an analytic transformation matrix?
-2. When is the ADT matrix path-independent?
-3. What happens when a closed path surrounds a conical intersection?
-4. Why can the diabatic potential matrix be single-valued even if the ADT matrix itself changes sign?
-5. What changes when only a finite electronic subspace is retained?
+1. **Local compatibility:** can the coordinate-resolved ADT equations be solved consistently in a regular region?
+2. **Global topology:** what happens when the ADT is transported around a closed loop enclosing a conical intersection or another singularity?
+3. **Finite-subspace validity:** what changes when the retained electronic space is only a finite subset of the complete Hilbert space?
 
-The discussion follows Baer's formulation of nonadiabatic coupling terms, ADT matrices, line integrals, topological matrices, and finite sub-Hilbert spaces.
+This page gives the overview. The later pages provide the detailed derivations, examples, and implementation-facing consequences.
 
 ---
 
@@ -38,53 +36,45 @@ $$
 \right\}
 $$
 
-be a set of $M$ adiabatic electronic states retained in the calculation. The nuclear coordinate vector is denoted by $\mat R$. In earlier sections, mass-scaled coordinates $\mat q$ are often used; the present discussion is independent of that choice, so $\mat R$ is used as a generic nuclear coordinate vector.
-
-For each nuclear coordinate $R_\mu$, define the coordinate-resolved nonadiabatic coupling matrix
+be the $M$ adiabatic electronic states retained in the calculation. For each nuclear coordinate $R_\mu$, define the coordinate-resolved nonadiabatic coupling matrix
 
 $$
 \begin{align}
 (\mat F_\mu)_{ji}
 =F_{ji,\mu}
-=\left\langle
+=
+\left\langle
 \psi_j
 \middle|
 \pdv{\psi_i}{R_\mu}
-\right\rangle.
-\label{eq:coordinate_resolved_nacm}
+\right\rangle .
+\label{eq:coordinate_resolved_nacm_overview}
 \end{align}
 $$
 
-Thus $\mat F_\mu$ is an $M\times M$ matrix in electronic-state space. The full nonadiabatic coupling object is the matrix-valued vector
+Each $\mat F_\mu$ is an $M\times M$ matrix in electronic-state space. The full coupling object is therefore a matrix-valued vector,
 
 $$
 \begin{align}
 \F
-=\left\{
+=
+\left\{
 \mat F_1,\mat F_2,\ldots,\mat F_f
 \right\},
 \end{align}
 $$
 
-where $f$ is the number of nuclear degrees of freedom in the coordinate representation being used. Equivalently, $\F$ may be viewed as an $M\times M\times f$ object.
+where $f$ is the number of nuclear coordinates in the chosen representation. Equivalently, $\F$ may be viewed as an $M\times M\times f$ object.
 
-For real adiabatic electronic functions, each coordinate-resolved matrix is antisymmetric,
-
-$$
-\begin{align}
-\mat F_\mu^{T}=-\mat F_\mu.
-\end{align}
-$$
-
-For complex electronic functions, the corresponding statement is anti-Hermiticity,
+For real adiabatic electronic functions, the coordinate-resolved matrices are antisymmetric. For complex electronic functions, they are anti-Hermitian:
 
 $$
 \begin{align}
-\mat F_\mu^\dagger=-\mat F_\mu.
+\mat F_\mu^\dagger=-\mat F_\mu .
 \end{align}
 $$
 
-The diabatic electronic basis is defined by the same convention used in the earlier diabatic-representation page:
+The diabatic or quasi-diabatic electronic basis is written as
 
 $$
 \begin{align}
@@ -93,17 +83,13 @@ $$
 \end{align}
 $$
 
-where $\psivec$ is the row vector of adiabatic electronic functions, $\varphivec$ is the row vector of diabatic or quasi-diabatic electronic functions, and $\Cmat(\mat R)$ is an $M\times M$ transformation matrix.
-
-With this convention, the diabatic potential matrix is
+where $\psivec$ and $\varphivec$ are row vectors of electronic functions. With this convention, the diabatic potential matrix is
 
 $$
 \begin{align}
 \W(\mat R)
-=\Cmat^\dagger(\mat R)
-\,
-\V(\mat R)
-\,
+=\Cmat^\dagger(\mat R)\,
+\V(\mat R)\,
 \Cmat(\mat R),
 \label{eq:diabatic_potential_overview}
 \end{align}
@@ -113,260 +99,103 @@ where $\V$ is the diagonal adiabatic potential matrix in the retained electronic
 
 ---
 
-## The ADT equation
+## The central distinction
 
-The derivative coupling in the transformed electronic basis is
+The main point of this group of pages is that the ADT equation has three levels of meaning.
 
-$$
-\begin{align}
-\F^{(\varphi)}
-=\Cmat^{-1}\F\Cmat
-+\Cmat^{-1}\nabla_{\mat R}\Cmat.
-\label{eq:connection_gauge_transformation_overview}
-\end{align}
-$$
+### 1. Path-local propagation
 
-For a unitary transformation, $\Cmat^{-1}=\Cmat^\dagger$. A strictly diabatic representation would satisfy
-
-$$
-\begin{align}
-\F^{(\varphi)}=0.
-\end{align}
-$$
-
-Substituting Eq. $\eqref{eq:connection_gauge_transformation_overview}$ gives
-
-$$
-\begin{align}
-\nabla_{\mat R}\Cmat+\F\Cmat=0.
-\label{eq:adt_equation_overview}
-\end{align}
-$$
-
-In component form, this means
-
-$$
-\begin{align}
-\pdv{\Cmat}{R_\mu}
-+\mat F_\mu \Cmat
-=0,
-\qquad
-\mu=1,\ldots,f.
-\label{eq:adt_equation_component_overview}
-\end{align}
-$$
-
-This is the central ADT equation.
-
-> Eq. $\eqref{eq:adt_equation_overview}$ is exact only when the electronic space considered is complete, or when the retained finite subspace behaves as an effectively isolated subspace. In practical calculations, the transformation is usually quasi-diabatic rather than exactly diabatic.
-
----
-
-## Local path solution versus regional ADT field
-
-Along a specified path $\Gamma$ in nuclear configuration space, the ADT equation can be viewed as an ordinary first-order equation. Let the path be parametrised by $s$,
-
-$$
-\begin{align}
-\mat R=\mat R(s),
-\qquad s\in[0,1],
-\end{align}
-$$
-
-with $\mat R(0)=\mat R_0$ and $\mat R(1)=\mat R_1$. Along this path,
-
-$$
-\begin{align}
-\frac{d\Cmat}{ds}
-=-\left[
-\F(\mat R(s))\cdot
-\frac{d\mat R}{ds}
-\right]
-\Cmat.
-\label{eq:path_adt_ode}
-\end{align}
-$$
-
-Formally,
+Along a chosen path $\Gamma$ from $\mat R_0$ to $\mat R_1$, the ADT equation can be treated as an ordinary differential equation. Formally,
 
 $$
 \begin{align}
 \Cmat(\mat R_1)
-=\mathcal P
+=
+\mathcal P
 \exp
 \left[
 -\int_{\Gamma}
 \F(\mat R)\cdot d\mat R
 \right]
 \Cmat(\mat R_0),
-\label{eq:path_ordered_adt_solution}
+\label{eq:path_ordered_adt_solution_overview}
 \end{align}
 $$
 
 where $\mathcal P$ denotes path ordering.
 
-Path ordering is required because the coupling matrices at different points, or along different coordinate directions, need not commute. In general,
+This path-local solution is the form used in propagation diabatisation: the transformation is updated from one geometry to another by integrating retained-state nonadiabatic couplings along a finite path.
+
+### 2. Regional ADT field
+
+A path-local solution is weaker than a single smooth matrix field $\Cmat(\mat R)$ defined over a region. In more than one nuclear coordinate, Eq. $\eqref{eq:adt_overview_equation}$ represents a set of coordinate-resolved equations,
 
 $$
 \begin{align}
-[
-\mat F_\mu(\mat R),
-\mat F_\nu(\mat R')
-]
-\neq
-0.
+\pdv{\Cmat}{R_\mu}
++
+\mat F_\mu\Cmat
+=0,
+\qquad
+\mu=1,\ldots,f.
+\label{eq:coordinate_adt_overview}
 \end{align}
 $$
 
-This is the non-Abelian character of the multistate ADT problem.
+For these equations to define one analytic matrix field, the different coordinate directions must be mutually compatible. This requirement leads to the curl condition.
 
-For two real electronic states, however, the situation is simpler. Each coordinate-resolved coupling matrix has the form
-
-$$
-\begin{align}
-\mat F_\mu
-=\begin{pmatrix}
-0 & F_{12,\mu}\\
--F_{12,\mu} & 0
-\end{pmatrix}
-=F_{12,\mu}
-\begin{pmatrix}
-0 & 1\\
--1 & 0
-\end{pmatrix}.
-\end{align}
-$$
-
-All components are scalar multiples of the same antisymmetric generator. Therefore the matrices commute with each other, and the two-state real case behaves as an Abelian problem. This is why the two-state ADT is often describable in terms of a single mixing angle.
-
----
-
-## Why analyticity of $\F$ alone is not enough
-
-It is tempting to think that if $\F$ is smooth or analytic, then $\Cmat$ must also be smooth or analytic. This is not sufficient in more than one nuclear coordinate.
-
-The reason is that Eq. $\eqref{eq:adt_equation_component_overview}$ gives one differential equation for every coordinate direction. For two coordinates $p$ and $q$,
-
-$$
-\begin{align}
-\pdv{\Cmat}{p}
-+\mat F_p\Cmat
-&=0,
-\\
-\pdv{\Cmat}{q}
-+\mat F_q\Cmat
-&=0.
-\end{align}
-$$
-
-If a single analytic matrix $\Cmat(p,q)$ is to satisfy both equations, the mixed derivatives of $\Cmat$ must be consistent:
-
-$$
-\begin{align}
-\frac{\partial^2\Cmat}{\partial p\,\partial q}
-=\frac{\partial^2\Cmat}{\partial q\,\partial p}.
-\end{align}
-$$
-
-This compatibility requirement gives the matrix curl condition,
+For two coordinates $p$ and $q$, the condition may be written as
 
 $$
 \begin{align}
 \pdv{\mat F_q}{p}
--\pdv{\mat F_p}{q}
-=\mat F_q\mat F_p
--\mat F_p\mat F_q.
-\label{eq:matrix_curl_condition_overview}
+-
+\pdv{\mat F_p}{q}
+=
+[\mat F_q,\mat F_p],
+\label{eq:curl_condition_overview}
 \end{align}
 $$
 
-Equivalently,
-
-$$
-\begin{align}
-\pdv{\mat F_q}{p}
--\pdv{\mat F_p}{q}
-=[\mat F_q,\mat F_p].
-\end{align}
-$$
-
-This is often written compactly as
-
-$$
-\begin{align}
-\operatorname{curl}\F
-=\F\times\F.
-\label{eq:compact_curl_condition_overview}
-\end{align}
-$$
-
-The right-hand side is not an ordinary scalar vector product. It contains matrix commutators. This is the non-Abelian part of the condition.
-
-A useful way to express the same idea is to define a curvature, or field strength,
+or, equivalently,
 
 $$
 \begin{align}
 \mat\Omega_{pq}
-=\pdv{\mat F_q}{p}
--\pdv{\mat F_p}{q}
--[\mat F_q,\mat F_p].
-\label{eq:curvature_definition_overview}
+=
+\pdv{\mat F_q}{p}
+-
+\pdv{\mat F_p}{q}
+-
+[\mat F_q,\mat F_p]
+=0.
+\label{eq:curvature_overview}
 \end{align}
 $$
 
-Then the curl condition is simply
-
-$$
-\begin{align}
-\mat\Omega_{pq}=0.
-\end{align}
-$$
-
-In words:
+Thus the local condition is:
 
 $$
 \boxed{
-\text{The ADT equation defines a locally consistent analytic transformation only when the retained coupling field is flat.}
+\text{A regular ADT field exists locally only when the retained coupling connection is flat.}
 }
 $$
 
-Here “flat” means zero non-Abelian curvature in the region considered.
+Here "flat" means zero non-Abelian curvature in the region considered.
 
-The detailed derivation of Eq. $\eqref{eq:matrix_curl_condition_overview}$ is given in [Derivation of the ADT curl condition](../derivations/derivation_curl_condition_from_adt.md).
+The detailed derivation and the distinction between smoothness of $\F$ and analyticity of $\Cmat$ are treated in [Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md).
 
----
+### 3. Closed-loop topology
 
-## Analyticity, path independence, and topology
-
-The curl condition is a local integrability condition. If $\F$ is analytic and Eq. $\eqref{eq:compact_curl_condition_overview}$ holds in a regular region, then the ADT equation has a locally analytic solution.
-
-However, local analyticity and global single-valuedness are different questions.
-
-If the region is simply connected and contains no singularities, then a flat connection implies that the result of integrating Eq. $\eqref{eq:path_adt_ode}$ is path-independent. In that case, the ADT matrix obtained at $\mat R_1$ does not depend on the path chosen from $\mat R_0$ to $\mat R_1$.
-
-If the region is not simply connected, or if a conical intersection or other singularity is removed from the region, the situation changes. The coupling may be curl-free away from the singularity, but a closed path that surrounds the singularity can still produce a nontrivial transformation.
-
-This is the same distinction that appears in the two-state conical-intersection model. Away from the intersection point, the NACV field can be locally written as the gradient of a mixing angle. Yet a closed loop around the conical intersection changes the mixing angle by $\pi$, producing the familiar sign change of real adiabatic electronic states.
-
-Thus:
-
-$$
-\boxed{
-\text{Curl-free locally does not automatically mean globally trivial.}}
-$$
-
-The global information is carried by closed-loop integrals.
-
----
-
-## The topological matrix
+Even when the curvature vanishes locally away from a singularity, a closed path may still carry nontrivial global information. This is the familiar situation around a conical intersection: locally the coupling can be regular away from the intersection, but a loop enclosing the singularity may produce a sign or phase change.
 
 For a closed contour $\Gamma$, define the topological matrix
 
 $$
 \begin{align}
 \mat D(\Gamma)
-=\mathcal P
+=
+\mathcal P
 \exp
 \left[
 -\oint_{\Gamma}
@@ -376,78 +205,60 @@ $$
 \end{align}
 $$
 
-This matrix measures the holonomy of the ADT connection around the loop. If the ADT matrix is propagated around $\Gamma$, then
+This matrix measures the holonomy of the ADT connection around the loop. If
 
 $$
 \begin{align}
 \Cmat_{\mathrm{final}}
-=\mat D(\Gamma)
-\Cmat_{\mathrm{initial}}.
-\label{eq:closed_loop_cmat_holonomy}
+=
+\mat D(\Gamma)
+\Cmat_{\mathrm{initial}},
 \end{align}
 $$
 
-If
+then $\mat D(\Gamma)$ tells us whether the transported ADT matrix returns to its initial value.
+
+The key distinction is:
 
 $$
-\begin{align}
-\mat D(\Gamma)=\mat I,
-\end{align}
+\boxed{
+\text{The curl condition controls local path independence; the topological matrix controls closed-loop behaviour.}
+}
 $$
 
-then the ADT matrix returns to itself after the loop. If $\mat D(\Gamma)\neq\mat I$, the ADT matrix is not single-valued around that loop.
-
-Convention warning: the precise sign in the exponent depends on whether one writes the ADT equation as $\nabla\Cmat+\F\Cmat=0$ or uses the opposite convention. The physical content is unchanged if the convention is used consistently.
-
-In the real two-state case, the topological matrix often reduces to a sign,
-
-$$
-\begin{align}
-\mat D(\Gamma)=\pm \mat I
-\end{align}
-$$
-
-or to a diagonal sign matrix, depending on the state labelling and the chosen electronic gauge. A loop enclosing a simple conical intersection gives a sign change in the real adiabatic eigenvectors. This is the same topology that appears in the Berry-phase description of conical intersections.
-
-Important notation warning: $\mat D(\Gamma)$ here denotes Baer's topological matrix. It should not be confused with the derivative-coupling numerator $\D_{ij}$ used in the propagation-diabatisation implementation notes.
+This distinction is developed in [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md).
 
 ---
 
-## Single-valued ADT matrices versus single-valued diabatic potentials
+## Single-valued $\Cmat$ versus single-valued $\W$
 
-A subtle but important point is that the ADT matrix itself need not always be single-valued for the diabatic potential matrix to be single-valued.
-
-The diabatic potential matrix is
+The ADT matrix itself does not always need to be single-valued for the diabatic potential matrix to be single-valued. Since
 
 $$
 \begin{align}
 \W
-=\Cmat^\dagger
-\V
-\Cmat.
+=
+\Cmat^\dagger \V \Cmat,
 \end{align}
 $$
 
-Suppose a closed loop gives
+a closed-loop change
 
 $$
 \begin{align}
 \Cmat_{\mathrm{final}}
-=\mat D
-\Cmat_{\mathrm{initial}}.
+=
+\mat D
+\Cmat_{\mathrm{initial}}
 \end{align}
 $$
 
-Then, because the adiabatic energy matrix $\V$ returns to the same value after the loop,
+gives
 
 $$
 \begin{align}
 \W_{\mathrm{final}}
-&=\Cmat_{\mathrm{final}}^\dagger
-\V
-\Cmat_{\mathrm{final}}
-\nonumber\\
-&=
+=
 \Cmat_{\mathrm{initial}}^\dagger
 \mat D^\dagger
 \V
@@ -456,119 +267,147 @@ $$
 \end{align}
 $$
 
-For the diabatic potential to be single-valued, we need
+Therefore $\W$ is single-valued when
 
 $$
 \begin{align}
-\mat D^\dagger
-\V
-\mat D
-=\V.
+\mat D^\dagger \V \mat D=\V.
 \label{eq:single_valued_w_condition_overview}
 \end{align}
 $$
 
-For nondegenerate adiabatic states, $\V$ is diagonal with distinct entries. Then Eq. $\eqref{eq:single_valued_w_condition_overview}$ requires $\mat D$ to be diagonal with diagonal elements of unit modulus. For real electronic functions, this usually means diagonal entries equal to $+1$ or $-1$.
+For nondegenerate adiabatic states, this usually means that $\mat D$ must be diagonal in the adiabatic basis, with diagonal elements of unit modulus. In real two-state problems, this often reduces to a sign change.
 
-Therefore,
+Thus:
 
 $$
 \boxed{
-\text{The ADT matrix may change sign around a loop, while the diabatic potential matrix remains single-valued.}
+\text{The ADT matrix may change sign around a loop while the diabatic potential matrix remains single-valued.}
 }
 $$
 
-This is why Baer's topological condition is usually stated in terms of the topological matrix and the single-valuedness of the diabatic potentials, not merely in terms of whether $\Cmat$ itself returns to the identical matrix.
+The detailed condition, including the role of degeneracies at the base point, is discussed in [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md).
 
-The detailed derivation is given in [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md).
+Important notation warning: $\mat D(\Gamma)$ here denotes Baer's topological matrix. It should not be confused with derivative-coupling numerators used in the propagation-diabatisation implementation notes.
 
 ---
 
-## Complete electronic Hilbert space versus finite retained subspace
+## Complete versus finite electronic spaces
 
-In the complete electronic Hilbert space, the nonadiabatic coupling matrix is generated by a complete set of electronic states. Under suitable regularity assumptions, the corresponding connection satisfies the exact non-Abelian curl condition. The ADT construction is then a property of the full electronic Hilbert space.
+In the complete electronic Hilbert space, the exact nonadiabatic coupling matrices have the correct differential structure. Away from singularities, the full connection is a pure gauge connection and satisfies the non-Abelian curl condition.
 
-Practical calculations never retain the full space. Instead, one selects a finite $P$-space of $M$ electronic states and omits the complementary $Q$-space. The retained coupling field is then
+Practical calculations do not retain the complete electronic Hilbert space. Instead, one selects a finite retained subspace $P$ and omits the complementary $Q$-space. The reduced ADT equation is then
 
 $$
 \begin{align}
+\nabla \Cmat_P
++
 \F^{(P)}
-=\left\{
-\mat F^{(P)}_1,\ldots,\mat F^{(P)}_f
-\right\},
-\end{align}
-$$
-
-where each $\mat F^{(P)}_\mu$ is an $M\times M$ matrix.
-
-The finite-subspace ADT equation is
-
-$$
-\begin{align}
-\nabla \Cmat_P+\F^{(P)}\Cmat_P=0.
+\Cmat_P
+=0.
 \label{eq:p_space_adt_equation_overview}
 \end{align}
 $$
 
-This equation is exact only if the retained subspace is closed under nuclear differentiation. In the notation of the group Born--Oppenheimer discussion, this means that the nonadiabatic couplings between retained $P$-states and omitted $Q$-states are negligible:
+This equation is exact only if the retained subspace is closed under nuclear differentiation. In practice, this requires weak coupling between retained and omitted states,
 
 $$
 \begin{align}
 \F_{ia}\approx \mat 0,
 \qquad
-i\leq M,
+i\in P,
 \quad
-a>M.
+a\in Q,
 \end{align}
 $$
 
-If these $P$--$Q$ couplings are not negligible, the projected connection $\F^{(P)}$ generally has residual curvature. In that case, the curl condition is not satisfied exactly inside the retained subspace, and the ADT matrix constructed from $\F^{(P)}$ becomes path-dependent.
+over the region of nuclear configuration space sampled by the dynamics.
 
-This is the finite-subspace version of the residual-coupling problem. A finite retained manifold can support a useful quasi-diabatic representation only when the omitted-state couplings are sufficiently small over the region of nuclear configuration space sampled by the dynamics.
+If the $P$--$Q$ couplings are not negligible, the projected connection $\F^{(P)}$ generally has residual curvature. The reduced curl condition then fails exactly, and the propagated transformation becomes path-dependent in a way that reflects the incompleteness of the retained state space.
 
-If the neglected $P$--$Q$ coupling is of order $\epsilon$, then the corrections to the reduced-space ADT construction and to the corresponding diabatic potential matrix are expected to enter at second order in the omitted coupling, schematically
+This is the finite-subspace version of the residual-coupling problem:
+
+$$
+\boxed{
+\text{A finite retained manifold supports a controlled quasi-diabatic representation only when it behaves as an effectively isolated subspace.}
+}
+$$
+
+The complete-versus-reduced distinction is treated in [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md). The practical question of how to choose a good retained space is treated in [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md).
+
+---
+
+## Multistate topology and sign structure
+
+The real two-state case is the simplest limit: a loop around a simple conical intersection produces a sign change in the adiabatic electronic states. The multistate case is more delicate.
+
+In a multistate retained space, the topological matrix need not behave like a set of independent two-state signs. Different coordinate-resolved coupling matrices may not commute, and the closed-loop transformation may contain genuinely multistate structure.
+
+For a single-valued diabatic potential matrix, the relevant question is not merely whether individual pairs change sign. It is whether the loop matrix $\mat D(\Gamma)$ has a form compatible with
 
 $$
 \begin{align}
-\text{finite-subspace error}
-=O(\epsilon^2),
+\mat D^\dagger \V \mat D=\V.
 \end{align}
 $$
 
-provided the retained space is otherwise well behaved. This is the same hierarchy that appeared in the finite-subspace Born--Oppenheimer discussion: omitted-state effects are not absent, but they may be controlled if the retained electronic manifold is sufficiently isolated.
+This leads naturally to the later sign and degeneracy discussions:
 
-> this is why propagation diabatisation in DD-vMCG must monitor intruder states, phase consistency, and state ordering. These are not merely numerical details. They are symptoms of whether the retained finite electronic subspace is behaving like a good quasi-diabatic manifold.
+- [Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs.md) explains why multistate topology is not just several independent two-state problems.
+- [Sign assignment of NACTs](spec09_sign_assignment_of_nacts.md) is the planned place for the pairwise sign-assignment discussion.
+- [Geometrical interpretation of sign flips](spec10_geometric_interpretation_signflip.md) gives the graph and loop interpretation of sign patterns.
+- [Degeneracy](spec11_degeneracy.md) discusses genuine multistate degeneracies and why some apparent contradictions arise.
 
 ---
 
 ## Relation to propagation diabatisation
 
-Propagation diabatisation uses the path form of the ADT equation,
+Propagation diabatisation uses the path-ordered ADT expression as a practical finite-path update between nearby nuclear geometries. In a complete and regular electronic Hilbert space, this can be viewed as an exact ADT. In DD-vMCG, it is used in a finite retained electronic subspace, so it is a quasi-diabatic construction.
 
-$$
-\begin{align}
-\Cmat(\mat R_1)
-=\mathcal P
-\exp
-\left[
--\int_{\mat R_0}^{\mat R_1}
-\F(\mat R)\cdot d\mat R
-\right]
-\Cmat(\mat R_0),
-\end{align}
-$$
-
-as a practical finite-path update between nearby nuclear geometries. In a complete and regular Hilbert space, this transformation can be treated as an exact ADT. In DD-vMCG, it is used in a finite retained electronic subspace and is therefore a quasi-diabatic construction.
-
-The algorithmic safeguards in propagation diabatisation can be interpreted through the present theory:
+The implementation safeguards can be interpreted through the theory above:
 
 - poor coupling-vector overlap suggests that the local retained-state character may have changed;
 - small adiabatic gaps make the numerical construction of $\F_{ij}$ from derivative-coupling numerators unstable;
-- state reordering may indicate that the path has crossed a region where the local diabatic labelling is unreliable;
-- intruder states signal that the chosen finite $P$-space may not be isolated.
+- state reordering may indicate that the local diabatic labelling is unreliable along the chosen path;
+- intruder states signal that the chosen finite $P$-space may no longer be isolated.
 
-Thus, the ADT topology and the finite-subspace theory are not separate from the implementation. They explain why a propagated diabatic representation must be treated as local, gauge-dependent, and sensitive to the quality of the retained electronic state manifold.
+These are not merely numerical details. They are practical diagnostics of whether the retained electronic manifold is still behaving like a useful quasi-diabatic subspace over the region sampled by the dynamics.
 
 ---
 
+## Reading map
+
+This overview is intended to orient the following pages:
+
+1. [Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md)  
+   Local compatibility of the coordinate-resolved ADT equations.
+
+2. [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md)  
+   Closed-loop ADT propagation, the topological matrix, and the condition for single-valued $\W$.
+
+3. [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md)  
+   How finite retained spaces modify the ADT equation and the curl condition.
+
+4. [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md)  
+   Practical criteria for choosing a retained electronic manifold.
+
+5. [Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs.md)  
+   Multistate loop matrices, sign patterns, and diagonal conditions.
+
+6. [Sign assignment of NACTs](spec09_sign_assignment_of_nacts.md)  
+   Planned discussion of pairwise NACT sign assignment and gauge consistency.
+
+7. [Geometrical interpretation of sign flips](spec10_geometric_interpretation_signflip.md)  
+   Graph-based interpretation of sign flips around enclosed intersections.
+
+8. [Degeneracy](spec11_degeneracy.md)  
+   Genuine multistate degeneracies and the distinction between breakable and unbreakable cases.
+
+---
+
+## Summary
+
+The ADT equation can be used at three levels. Along a chosen path, it gives a path-ordered propagation rule. Over a regular region, it defines a unique local ADT field only when the retained coupling connection has zero curvature. Around a closed loop, especially one enclosing a conical intersection, the topological matrix records whether the transported ADT matrix returns to itself.
+
+In a complete Hilbert space, these statements can be made exactly away from singularities. In a finite retained electronic subspace, they become controlled approximations only when the retained states are sufficiently isolated from omitted states. This is why propagation diabatisation must be treated as local, gauge-dependent, and sensitive to the quality of the retained electronic manifold.
 

@@ -1,10 +1,8 @@
-## Introduction to Conical Intersections: The Two-State Model
+## Introduction to conical intersections: the two-state model
 
-A longer and more algebraic derivation of the two-state model is given in [two state model](../derivations/derivations_two_state_model.md). That derivation also discusses the relation between the nonadiabatic coupling vector, the diabatic Hamiltonian elements, and the Lorentzian form that appears along one-dimensional cuts through an avoided crossing.
+This page is the beginner-level entry point to conical intersections. The aim is to show where the two-state model comes from, what the important vectors mean, and why the branching plane and intersection seam appear naturally.
 
-The present section is intended as a first introduction. The aim is to show where the two-state conical-intersection model comes from, what the important vectors mean, and why the branching plane and intersection seam appear naturally.
-
-At the end of this page, there is also a link to a more intermediate-level discussion of conical intersections and their relation to the NACV.
+A longer and more algebraic derivation is given in [Derivation: two-state model](../derivations/derivations_two_state_model.md). The intermediate continuation, [Conical intersections: intermediate](../intermediates/int02_conical_intersections.md), revisits the same model with more attention to the nonadiabatic coupling vector, $g$-$h$ notation, and one-dimensional Lorentzian cuts through an avoided crossing.
 
 ---
 
@@ -438,7 +436,7 @@ $$
 \end{align}
 $$
 
-In some conical-intersection literature this is also called the derivative-coupling vector. In the notation used in these notes, however, it is better to regard $\boldsymbol h_{ij}$ as the derivative-coupling numerator or interstate coupling vector. Such that $\boldsymbol h_{ij}$ remains finite in the local branching-space description, while the NACV $\F_{ij}$ becomes singular as $V_j-V_i\rightarrow 0$.
+In some conical-intersection literature this is also called the derivative-coupling vector. In the notation used in these notes, however, it is better to regard $\boldsymbol h_{ij}$ as the derivative-coupling numerator or interstate coupling vector. The vector $\boldsymbol h_{ij}$ remains finite in the local branching-space description, while the NACV $\F_{ij}$ becomes singular as $V_j-V_i\rightarrow 0$.
 
 To connect this notation with the two-state diabatic model used above, recall that near the conical-intersection point
 
@@ -543,7 +541,7 @@ $$
 
 In the full nuclear coordinate space, the conical intersection is therefore usually a seam rather than a single point. However, if we take a two-dimensional slice through the branching plane, the seam appears as a single point, and the two adiabatic surfaces form the familiar double-cone shape.
 
-> It should be noted in the discussion of the dimension of the intersection seam, it is assumed that the degeneracy occurs between two states only. For state of $M$ degeneracy, it is in general $f-\eta$ with $\eta$ defined as $\eta=\frac{(M-1)(M-2)}{2}$
+> This seam-counting statement is specific to a two-state degeneracy. For a generic real $M$-state degeneracy, the codimension is $\eta=(M-1)(M+2)/2$, so the seam dimension is $f-\eta$ when the constraints are independent; see [Dimension of a general $M$-state degeneracy](../intermediates/int04_M_state_degeneracy_dimension.md).
 
 ---
 
@@ -573,13 +571,8 @@ For this reason, a minimal two-mode linear vibronic coupling model often contain
 
 ### To read next
 
-[Symmetry of conical intersection](05_symmetry_of_conical_intersections.md)
-
----
-
-
-These sections provide first-level explanations of the physical meaning of the equations derived above. More detailed intermediate material is given in
-
-- [Conical intersection (intermediate)](../intermediates/int02_conical_intersections.md)
-
-which presents conical intersections more formally and discusses their relation to the nonadiabatic coupling vector.
+- [Symmetry of conical intersections](05_symmetry_of_conical_intersections.md)
+- [Conical intersections: intermediate](../intermediates/int02_conical_intersections.md)
+- [Topography of conical intersections](../intermediates/int03_topography_conical_intersection.md)
+- [Dimension of a general $M$-state degeneracy](../intermediates/int04_M_state_degeneracy_dimension.md)
+- [Derivation: two-state model](../derivations/derivations_two_state_model.md)

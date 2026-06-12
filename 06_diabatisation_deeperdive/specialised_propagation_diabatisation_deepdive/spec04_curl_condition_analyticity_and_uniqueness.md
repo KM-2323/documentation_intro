@@ -11,7 +11,7 @@ $$
 \end{align}
 $$
 
-This page explains the local mathematical condition under which this equation defines a regular ADT matrix over a region of nuclear configuration space.
+This page explains the local mathematical condition under which this equation defines a regular ADT matrix over a region of nuclear configuration space. It develops the first part of the roadmap introduced in [ADT integrability, topology, and finite electronic subspaces: overview](spec03_adt_integrability_and_topology_overview.md): the step from path-local propagation to a regional ADT field.
 
 The key point is that Eq. $\eqref{eq:adt_equation_int04}$ is not just one ordinary differential equation. In a molecule with several nuclear coordinates, it is a set of coupled first-order partial differential equations. The equation can usually be integrated along a chosen path, but a path-local solution is weaker than a unique matrix field $\Cmat(\mat R)$ defined throughout a region.
 
@@ -23,7 +23,7 @@ $$
 }
 $$
 
-The answer is controlled by the **curl condition**, or equivalently by the vanishing of the non-Abelian curvature of the retained nonadiabatic coupling matrix.
+The answer is controlled by the **curl condition**, or equivalently by the vanishing of the non-Abelian curvature of the retained nonadiabatic coupling matrix. This page focuses on that local condition. The closed-loop consequences are taken up separately in [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md), while finite-subspace corrections are treated in [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md).
 
 The detailed algebra is given in [Derivation of the curl condition from the ADT equation](../derivations/derivation_curl_condition_from_adt.md).
 
@@ -177,13 +177,13 @@ throughout the regular region reached by the solution.
 
 Thus the ADT matrix remains unitary, and therefore invertible, provided the NACM is anti-Hermitian and the initial transformation is unitary.
 
-This argument also applies inside an exactly closed finite subspace, because the retained coordinate-resolved matrices $\mat F_\mu^{(P)}$ are still anti-Hermitian within the retained electronic-state space.
+This argument also applies inside an exactly closed finite subspace, because the retained coordinate-resolved matrices $\mat F_\mu^{(P)}$ are still anti-Hermitian within the retained electronic-state space. Thus invertibility is not the main obstruction. The harder question is whether the coordinate equations are mutually compatible.
 
 ---
 
 ## Why analyticity of $\F$ is not enough
 
-Suppose the matrices $\mat F_p$ and $\mat F_q$ are smooth functions of the nuclear coordinates. This is necessary for a regular ADT matrix, but it is not sufficient.
+Suppose the matrices $\mat F_p$ and $\mat F_q$ are smooth functions of the nuclear coordinates. This regularity is necessary for a regular ADT matrix, but it is not sufficient.
 
 The reason is that $\Cmat(p,q)$ must have consistent mixed derivatives. If $\Cmat$ is to be analytic, then
 
@@ -315,13 +315,13 @@ $$
 \end{align}
 $$
 
-Thus, the ADT matrix can be analytic only if the nonadiabatic coupling field has zero non-Abelian curvature.
+Thus, the ADT matrix can be analytic only if the nonadiabatic coupling field has zero non-Abelian curvature. This is the local compatibility condition for the coordinate-resolved ADT equations.
 
 ---
 
 ## Compact vector notation
 
-In compact notation, the curl condition is often written as
+The same condition is often written in a compact vector notation,
 
 $$
 \begin{align}
@@ -330,7 +330,7 @@ $$
 \end{align}
 $$
 
-This notation is concise, but it can be misleading if read as an ordinary vector identity. The product on the right-hand side contains matrix multiplication and therefore commutators.
+This notation is concise, but it can be misleading if it is read as an ordinary vector identity. The product on the right-hand side contains matrix multiplication and therefore commutators.
 
 For example, in the $(p,q)$ coordinate plane, Eq. $\eqref{eq:curl_condition_compact_int04}$ means
 
@@ -345,13 +345,13 @@ $$
 
 The right-hand side vanishes only when $\mat F_p$ and $\mat F_q$ commute.
 
-This is why multistate ADT problems are more delicate than two-state real ADT problems. In a real two-state problem, all coordinate-resolved coupling matrices are proportional to the same antisymmetric generator, so they commute. In a general multistate problem, different coordinate-resolved matrices need not commute.
+This is why multistate ADT problems are more delicate than real two-state ADT problems. In a real two-state problem, all coordinate-resolved coupling matrices are proportional to the same antisymmetric generator, so they commute. In a general multistate problem, different coordinate-resolved matrices need not commute.
 
 ---
 
 ## Two-state Abelian limit
 
-For two real electronic states,
+The real two-state case is the simplest limit of the preceding non-Abelian condition. For two real electronic states,
 
 $$
 \begin{align}
@@ -410,13 +410,13 @@ $$
 
 up to sign convention. Around a conical intersection, however, the mixing angle is multivalued. Thus Eq. $\eqref{eq:two_state_curl_condition_int04}$ can hold locally away from the singularity while a closed loop around the singularity still produces nontrivial topology.
 
-This is the distinction between local curl-free behaviour and global single-valuedness.
+This is the distinction between local curl-free behaviour and global single-valuedness. The closed-loop side of this distinction is developed in [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md).
 
 ---
 
 ## Analyticity and local uniqueness
 
-If the matrices $\mat F_\mu$ are analytic in a regular region and the curvature vanishes,
+The previous section derived a necessary compatibility condition. Conversely, if the matrices $\mat F_\mu$ are analytic in a regular region and the curvature vanishes,
 
 $$
 \begin{align}
@@ -545,11 +545,11 @@ The detailed rectangular-path derivation is given in [Path-ordered ADT and close
 
 ## What happens when singularities are present
 
-The previous argument assumes that the coupling matrices are regular throughout the region. This fails near degeneracies such as conical intersections, where the adiabatic derivative coupling may become singular.
+The previous argument assumes that the coupling matrices are regular throughout the region. This assumption fails near degeneracies such as conical intersections, where the adiabatic derivative coupling may become singular.
 
 If a singular point lies inside a closed loop, then the loop cannot be contracted to a point without crossing the singularity. Even if the curl condition holds locally away from the singularity, the closed loop may still acquire a nontrivial topological factor.
 
-This is the origin of the topological matrix discussed in the next page. For a closed contour $\Gamma$,
+This is the origin of the topological matrix discussed in [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md). For a closed contour $\Gamma$,
 
 $$
 \begin{align}
@@ -579,7 +579,7 @@ $$
 
 In the complete electronic Hilbert space, the exact nonadiabatic coupling matrices satisfy the curl condition away from singularities. This is because the full electronic basis provides a complete resolution of identity and the corresponding coupling field is a pure gauge connection.
 
-In practical calculations, however, only a finite set of states is retained. The retained subspace is denoted by $P$, while the omitted states form the complementary $Q$-space.
+In practical calculations, however, only a finite set of states is retained. The retained subspace is denoted by $P$, while the omitted states form the complementary $Q$-space. This finite-subspace qualification is essential: a reduced coupling field can look like the complete-space object while failing to have the same exact integrability properties.
 
 If the retained $P$-space is exactly closed, meaning that
 
@@ -615,7 +615,7 @@ $$
 
 If the retained subspace is not exactly closed, then Eq. $\eqref{eq:p_space_curl_condition_int04}$ is generally not exact. Couplings to omitted states produce residual curvature in the projected connection. This is the finite-subspace obstruction to a globally exact diabatic representation.
 
-The detailed finite-subspace corrections are not introduced here. They are treated in [Complete versus reduced Hilbert spaces in ADT theory](spec06_complete_vs_reduced_hilbert_space_adt.md).
+The detailed finite-subspace corrections are not introduced here. They are treated in [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md), and the practical problem of choosing a suitable retained manifold is discussed in [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md).
 
 ---
 
@@ -625,7 +625,7 @@ The curl condition is the local consistency condition for the ADT equation. It a
 
 In a complete or exactly closed electronic space, the answer is yes away from singularities. In a finite approximate subspace, the answer is only approximately yes when the retained states are sufficiently decoupled from omitted states.
 
-This distinction is important for propagation diabatisation. The practical DD-vMCG algorithm propagates a transformation matrix along local paths using retained-state nonadiabatic couplings. The method works well when the retained state manifold behaves like an isolated subspace. If omitted states become important, the reduced coupling field may no longer satisfy the curl condition accurately, and the propagated transformation can become path-dependent or phase-inconsistent.
+This distinction is important for propagation diabatisation. The practical DD-vMCG algorithm propagates a transformation matrix along local paths using retained-state nonadiabatic couplings. The method is reliable only when the retained state manifold behaves like an effectively isolated subspace over the region sampled by the dynamics. If omitted states become important, the reduced coupling field may no longer satisfy the curl condition accurately, and the propagated transformation can become path-dependent or phase-inconsistent.
 
 ---
 

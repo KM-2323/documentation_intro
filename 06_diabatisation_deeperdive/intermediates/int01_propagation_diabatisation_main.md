@@ -83,11 +83,9 @@ $$
 \end{align}
 $$
 
-These two quantities should therefore not be treated as interchangeable. In the implementation notes below, $\D_{ij}$ denotes the derivative-coupling numerator, while $\F_{ij}$ denotes the nonadiabatic coupling vector obtained by dividing by the adiabatic energy gap.
+These two quantities should therefore not be treated as interchangeable. In the remainder of this section, $\D_{ij}$ denotes the interstate derivative-coupling numerator, while $\F_{ij}$ denotes the nonadiabatic coupling vector obtained by dividing by the adiabatic energy gap.
 
-In a complete electronic Hilbert space, Eq. $\eqref{eq:pd_adt_equation}$ can be formulated exactly. In practical direct dynamics, only a finite number of electronic states is retained. The propagated transformation is therefore a finite-subspace approximation. It is reliable when the retained states form a sufficiently isolated manifold and the neglected couplings to external states are small. Baer's line-integral formulation gives the theoretical background for this finite-subspace viewpoint, including the curl condition, the topological matrix, and the quantisation condition associated with closed paths.
 
-Propagation diabatisation is best understood as a practical, on-the-fly construction of a quasi-diabatic basis. It does not require locating a conical intersection before the dynamics begins, and it can be extended to more than two electronic states. Richings and Worth introduced the scheme for DD-vMCG, and later work extended it to multi-state direct-dynamics calculations.
 
 For keen readers and understanding how the adiabatic and diabatic matrix elements are related. See [deriving the relation between adiabatic and diabatic matrix elements](../derivations/derivations_adiab_diab_relation.md)
 
@@ -203,7 +201,7 @@ If a guard is triggered, the algorithm uses a safer predicted or local model so 
 - in a fallback branch, the predicted or locally fitted model may supply the stored diabatic quantities because the raw transformation is judged unsafe.
 
 ---
-
+<!-- 
 ### Related notes
 
 - [Residual derivative coupling](../specialised_propagation_diabatisation_deepdive/split_diabatic_representations_and_residual_couplings/split_diabatic_representation_and_residual_coupling.md)
@@ -221,15 +219,15 @@ If a guard is triggered, the algorithm uses a safer predicted or local model so 
 - Fallback QVC optimisation: [`optqvc`](../code+breakdown/subroutine_optqvc.md)
 - Final transformation of QC data
 
----
+--- -->
 
 ### Practical caveats
 
-Propagation diabatisation is local and path-dependent when applied in a finite electronic subspace. In a complete Hilbert space, the ADT equation can be formulated exactly. In DD-vMCG, only a finite number of electronic states is retained, so the neglected couplings must be small for the retained manifold to behave as a good quasi-diabatic subspace. Baer's finite-subspace treatment and curl-condition analysis are the appropriate theoretical background for this point.
+In a complete electronic Hilbert space, Eq. $\eqref{eq:pd_adt_equation}$ can be formulated exactly. In practical direct dynamics, only a finite number of electronic states is retained. The propagated transformation is therefore a finite-subspace approximation. It is reliable when the retained states form a sufficiently isolated manifold and the neglected couplings to external states are small. Baer's line-integral formulation gives the theoretical background for this finite-subspace viewpoint, including the curl condition, the topological matrix, and the quantisation condition associated with closed paths. (see [specialised topics](../specialised_propagation_diabatisation_deepdive/index.md))
 
-The multi-state case is also more delicate than the two-state case. In a three-state system, the ADT matrix can be written as a product of elementary rotations, leading to coupled first-order equations for three ADT angles. Different product orders give different angle equations. The transformation matrix is fixed once the boundary conditions and convention are fixed, but the individual angles are not independent physical observables. The main page should therefore warn the reader that multi-state propagation is not just several independent two-state transformations.
+Propagation diabatisation is thus best understood as a practical, on-the-fly construction of a quasi-diabatic basis. It does not require locating a conical intersection before the dynamics begins, and it can be extended to more than two electronic states. 
 
-> sign and phase conventions are part of the algorithm, not cosmetic details. A sign flip of a real adiabatic eigenvector changes the sign of the corresponding derivative-coupling vector. A propagated diabatic representation is only meaningful if the coupling-vector field is made phase-consistent across the database.
+
 
 ---
 

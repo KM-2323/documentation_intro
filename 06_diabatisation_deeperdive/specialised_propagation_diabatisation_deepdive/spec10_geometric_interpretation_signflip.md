@@ -6,6 +6,8 @@
 
 ## Geometrical interpretation of sign flips
 
+[Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs.md) described the allowed sign patterns in terms of the full topological matrix. This page gives the corresponding geometric interpretation for separated adjacent conical intersections. The limitation of that geometric picture for genuine multistate degeneracies is taken up in [Degeneracy](spec11_degeneracy.md).
+
 The diagonal entries of the topological matrix tell us which adiabatic electronic eigenfunctions change sign after a closed circuit. For real electronic states, the allowed diagonal topological matrix has the form
 
 $$
@@ -584,6 +586,14 @@ For separated adjacent conical intersections, each CI flips the two states that 
 Baer's geometrical sign-flip picture can be summarised as a parity rule on a chain of adiabatic states. A conical intersection $C_j$ between states $j$ and $j+1$ flips both corresponding eigenfunctions. If a contour encloses several adjacent CIs, any state lying between two enclosed CIs flips twice and is unchanged. Thus a contour around a connected block $C_j,\ldots,C_{n-1}$ flips only the two endpoint states $j$ and $n$. If the enclosed CIs are separated rather than consecutive, each disconnected block contributes two endpoint sign flips. 
 
 
-However, as we will see next, multi-degenerate points require an additional distinction: if the degeneracy can be unfolded into separated ordinary two-state CIs, the same endpoint rule applies in the limiting case; if it cannot, the full multistate topological matrix must be analysed directly. So, the $D$-matrix sign pattern is not determined merely by counting how many conical intersections lie inside a contour. It is determined by which electronic eigenfunctions are touched an odd number of times by the enclosed degeneracy structure.
+However, [Degeneracy](spec11_degeneracy.md) explains why multi-degenerate points require an additional distinction: if the degeneracy can be unfolded into separated ordinary two-state CIs, the same endpoint rule applies in the limiting case; if it cannot, the full multistate topological matrix must be analysed directly. Therefore, the $D$-matrix sign pattern is not determined merely by counting how many conical intersections lie inside a contour. It is determined by which electronic eigenfunctions are touched an odd number of times by the enclosed degeneracy structure.
 
+---
+
+### Links to related notes
+
+- [Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs.md)
+- [Degeneracy](spec11_degeneracy.md)
+- [Three-state sign flips and topological matrix](../worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)
+- [Four-state topological matrix and quantisation conditions](../worked_examples/adt_topology/example03_four_state_loop_and_D_matrix.md)
 

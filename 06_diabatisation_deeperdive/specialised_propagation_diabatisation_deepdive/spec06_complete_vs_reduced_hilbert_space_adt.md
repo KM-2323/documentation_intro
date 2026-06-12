@@ -1,10 +1,10 @@
-# Complete versus reduced Hilbert space ADT
+﻿# Complete versus reduced Hilbert space ADT
 
-The previous pages discussed the ADT equation, the curl condition, and the topological matrix as if the electronic Hilbert space were complete. In practical calculations, however, one never works with the full electronic Hilbert space. A finite number of adiabatic states is selected, and the remaining states are omitted.
+[Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md) and [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md) treated the ADT equation, the curl condition, and the topological matrix in the cleanest setting: a complete electronic Hilbert space. In practical calculations, however, one never works with the full electronic Hilbert space. A finite number of adiabatic states is selected, and the remaining states are omitted.
 
 This distinction is important. The ADT equation is exact in a complete electronic Hilbert space. In a reduced electronic subspace, it becomes a quasi-diabatic construction whose validity depends on how weakly the retained states are coupled to the omitted states.
 
-This page explains the difference between the complete Hilbert-space ADT and the reduced-subspace ADT. It also explains why Baer’s finite-subspace treatment leads to an error that is second order in the coupling between the retained and omitted states.
+This page explains the difference between the complete Hilbert-space ADT and the reduced-subspace ADT. It also explains why Baer's finite-subspace treatment leads to an error that is second order in the coupling between the retained and omitted states. The next page, [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md), turns this error estimate into a practical criterion for choosing the retained manifold.
 
 ---
 
@@ -205,7 +205,7 @@ $$
 
 Thus, in an exactly isolated subspace, the ADT and the diabatic potential matrix can be discussed as if $P$ were the complete electronic space.
 
-This is the strict group Born--Oppenheimer limit applied to ADT theory. The word “group” is important: the retained group of states may remain strongly coupled internally, but it is separated from the omitted states.
+This is the [strict group Born--Oppenheimer limit ](../../02_Born_Oppenheimer_and_Nonadiabaticity/intermediates/int01_group_born_approximations.md)applied to ADT theory. The word "group" is important: the retained group of states may remain strongly coupled internally, but it is separated from the omitted states.
 
 ---
 
@@ -226,7 +226,7 @@ $$
 
 where $\epsilon$ is small over the region of nuclear configuration space sampled by the dynamics.
 
-In this case, the retained subspace is not exactly closed. However, Baer’s finite-subspace analysis shows that the feedback of the omitted states into the retained ADT equation is second order:
+In this case, the retained subspace is not exactly closed. However, Baer's finite-subspace analysis shows that the feedback of the omitted states into the retained ADT equation is second order:
 
 $$
 \begin{align}
@@ -481,6 +481,7 @@ Thus a finite electronic subspace can support a controlled quasi-diabatic repres
 
 ## Links to related notes
 
+- [ADT integrability, topology, and finite electronic subspaces: overview](spec03_adt_integrability_and_topology_overview.md)
 - [The Born--Oppenheimer equation in a finite electronic subspace](../../02_Born_Oppenheimer_and_Nonadiabaticity/intermediates/int01_group_born_approximations.md)
 - [Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md)
 - [Topological matrix and single-valued diabatic potentials](spec05_topological_matrix_and_single_valued_diabatic_potentials.md)
@@ -492,7 +493,7 @@ Thus a finite electronic subspace can support a controlled quasi-diabatic repres
 
 ## References
 
-The reduced sub-Hilbert-space ADT analysis follows Baer’s treatment of nonadiabatic coupling terms, sub-Hilbert spaces, curl conditions, and topological effects. The connection to finite-state nuclear equations follows the group Born--Oppenheimer discussion in these notes and the multimode vibronic-coupling framework of Köppel, Domcke, and Cederbaum.
+The reduced sub-Hilbert-space ADT analysis follows Baer's treatment of nonadiabatic coupling terms, sub-Hilbert spaces, curl conditions, and topological effects. The connection to finite-state nuclear equations follows the group Born--Oppenheimer discussion in these notes and the multimode vibronic-coupling framework of Koeppel, Domcke, and Cederbaum.
 
 
 

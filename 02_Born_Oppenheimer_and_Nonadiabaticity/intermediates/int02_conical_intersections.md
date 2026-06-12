@@ -1,6 +1,6 @@
-
-
 # Two-state diabatic model, conical intersections, and the Lorentzian form of the NACV
+
+This intermediate note revisits the beginner-level model in [Introduction to conical intersections](../beginer/04_conical_intersections.md), but with a different purpose. The beginner page establishes the two degeneracy conditions and the branching-plane picture. Here the same model is used to connect the local diabatic Hamiltonian to $g$-$h$ notation, intersection-adapted coordinates, the nonadiabatic coupling vector, and the Lorentzian form obtained along one-dimensional cuts. The topographical use of these coordinates is taken up next in [Topography of conical intersections](int03_topography_conical_intersection.md).
 
 ## Real two-state diabatic potential matrix
 
@@ -141,7 +141,7 @@ $$
 
 These are two independent scalar conditions. In an $f$-dimensional internal nuclear coordinate space, their simultaneous solution generally defines an $(f-2)$-dimensional intersection seam, provided the two conditions are independent. For a nonlinear molecule $f=3N_{\mathrm{nuc}}-6$, while for a linear molecule $f=3N_{\mathrm{nuc}}-5$. The two directions that lift the degeneracy form the **branching space**, also called the $g$-$h$ plane. The remaining directions form the **intersection space**, along which the degeneracy is retained to first order. This is the standard local picture of a two-state conical intersection: near the degeneracy, the adiabatic surfaces form a double cone in the branching plane.
 
-> The discussion surrouding the dimension of intersection seam only hold true if the degeneracy occur between two states. For the general $M$ state degeneracy see 
+> This seam-counting statement is specific to a two-state degeneracy. For the generic real $M$-state case, see [Dimension of a general $M$-state degeneracy](int04_M_state_degeneracy_dimension.md).
 
 ----
 
@@ -349,7 +349,7 @@ This is the same local model written with a half-gap vector rather than the full
 
 ## Branching coordinates, $g$-$h$ notation, and seam coordinates
 
-The previous section already identifies the two first-order directions that lift the degeneracy: $\boldsymbol{\kappa}$ and $\boldsymbol{\lambda}$. This section only changes the language used to describe them. It connects the local diabatic notation to the more common $g$-$h$ notation and then separates three related ideas:
+The LVC construction above already identifies the two first-order directions that lift the degeneracy: $\boldsymbol{\kappa}$ and $\boldsymbol{\lambda}$. This section changes the language used to describe them. It connects the local diabatic notation to the more common $g$-$h$ notation and then separates three related ideas:
 
 1. the two branching coordinates, which lift the degeneracy;
 2. the $f-2$ seam coordinates, which retain the degeneracy to first order;
@@ -737,7 +737,7 @@ a=1,\ldots,f-2.
 \end{align}
 $$
 
-The superscript “dim” is used because these quantities are dimensional slopes of the average energy surface. They have the same units as $\overline g$ and $\overline h$. Physically, the projections $s_x^{\mathrm{dim}}$ and $s_y^{\mathrm{dim}}$ tilt the cone in the branching plane. And they do not change the energy gap directly, because they appear only in the common energy term. The projections $s_a$ describe how the common energy of the degenerate pair changes as one moves along the seam.
+The superscript "dim" is used because these quantities are dimensional slopes of the average energy surface. They have the same units as $\overline g$ and $\overline h$. Physically, the projections $s_x^{\mathrm{dim}}$ and $s_y^{\mathrm{dim}}$ tilt the cone in the branching plane. They do not change the energy gap directly, because they appear only in the common energy term. The projections $s_a$ describe how the common energy of the degenerate pair changes as one moves along the seam.
 
 > saying that $\boldsymbol s_{ij}$ does not lift the degeneracy does not mean that a displacement parallel to $\boldsymbol s_{ij}$ is automatically a seam displacement. If $\boldsymbol s_{ij}$ has components in the branching plane, then moving along $\boldsymbol s_{ij}$ also changes $x$ and $y$, and the degeneracy is lifted by the branching terms. The point is only that $\boldsymbol s_{ij}$ itself enters the Hamiltonian as a common energy shift, not as a splitting term.
 
@@ -777,7 +777,7 @@ O(Q^2).
 \end{align}
 $$
 
-Here $E^\times$ is the energy at the chosen conical-intersection point. While $x$ and $y$ are the projected direction along $\mat g_{ij}$ and $\mat h_{ij}$The first term is proportional to the identity matrix and therefore shifts both states equally. The second term is the part that splits the two states. 
+Here $E^\times$ is the energy at the chosen conical-intersection point. The coordinates $x$ and $y$ are the projected displacements along the intersection-adapted branching directions associated with $\mat g_{ij}$ and $\mat h_{ij}$. The first term is proportional to the identity matrix and therefore shifts both states equally. The second term is the part that splits the two states.
 
 The corresponding adiabatic energies are
 
@@ -1254,7 +1254,7 @@ then the sign of the mixing angle and hence the sign assigned to $\F_{12}$ chang
 
 --- 
 
-### Parametersation of NACV in the LVC model
+### Parameterisation of the NACV in the LVC model
 
 Substituting the LVC expressions
 
@@ -1487,3 +1487,10 @@ $$
 instead of Eq. $\eqref{eq:two_state_rotation_matrix}$, then the sign of $\theta$ and of $\F_{12}$ changes. This is not a physical change. It is only a phase convention for the adiabatic eigenvectors. What matters is that the convention is used consistently throughout the derivation and in the coupled nuclear equations.
 
 ---
+
+## Links to related notes
+
+- [Introduction to conical intersections](../beginer/04_conical_intersections.md)
+- [Topography of conical intersections](int03_topography_conical_intersection.md)
+- [Dimension of a general $M$-state degeneracy](int04_M_state_degeneracy_dimension.md)
+- [Derivation: two-state model](../derivations/derivations_two_state_model.md)

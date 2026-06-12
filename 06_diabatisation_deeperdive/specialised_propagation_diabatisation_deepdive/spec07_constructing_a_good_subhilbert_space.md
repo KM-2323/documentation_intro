@@ -1,6 +1,6 @@
 # Constructing a good sub-Hilbert space
 
-The previous page explained why a reduced electronic subspace can support an approximate ADT when the retained states are weakly coupled to the omitted states. This page addresses the next question:
+[Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md) explained why a reduced electronic subspace can support an approximate ADT when the retained states are weakly coupled to the omitted states. This page addresses the next question:
 
 $$
 \boxed{
@@ -11,6 +11,8 @@ $$
 The answer is not simply to keep a fixed number of low-lying states. A good sub-Hilbert space should contain the states that are strongly connected by nonadiabatic interactions over the region of nuclear configuration space relevant to the dynamics. States outside this subspace may be omitted only if their couplings to the retained states are weak.
 
 In Baer's terminology, the retained set is called a **sub-Hilbert space** (SHS). If the construction is restricted to a finite region of nuclear configuration space, one may also speak of a **sub-sub-Hilbert space** (SSHS).
+
+This note is the practical bridge between the reduced-space error analysis and the multistate topology discussion in [Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs.md).
 
 ---
 
@@ -38,7 +40,7 @@ $$
 \end{align}
 $$
 
-If this condition is satisfied, the retained ADT matrix, the reduced curl condition, and the diabatic potential matrix are perturbed only to order $O(\epsilon^2)$. This was the main result of the previous page.
+If this condition is satisfied, the retained ADT matrix, the reduced curl condition, and the diabatic potential matrix are perturbed only to order $O(\epsilon^2)$. This was the main result of [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md).
 
 If the condition is not satisfied, the chosen subspace is too small. In that case, the ADT constructed inside $P$ may become path-dependent, the curl condition may fail, and the resulting diabatic matrix may not represent the correct electronic topology.
 
@@ -290,7 +292,7 @@ $$
 
 If this condition holds for the contours relevant to the dynamics, then the outside intersections may be ignored for the local calculation. If it does not hold, the local subspace must be enlarged.
 
-> this is a local statement in nuclear configuration space. A subspace that is adequate near one Franck--Condon region may cease to be adequate if the wavepacket later reaches another intersection seam or an intruder state.
+> This is a local statement in nuclear configuration space. A subspace that is adequate near one Franck--Condon region may cease to be adequate if the wavepacket later reaches another intersection seam or an intruder state.
 
 ---
 
@@ -390,7 +392,7 @@ A good sub-Hilbert space is a retained electronic manifold that is internally st
 
 Once such a subspace is chosen, it should be treated as a whole. The ADT matrix is a transformation of the retained manifold, not of isolated states. If the coupling to omitted states remains small over the relevant region of nuclear configuration space, the retained ADT, curl condition, and diabatic potential matrix are accurate to $O(\epsilon^2)$. If the omitted-state coupling is not small, the subspace must be enlarged.
 
-This page therefore completes the practical logic begun in the previous page:
+This page therefore completes the practical logic begun in [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md):
 
 $$
 \boxed{

@@ -8,9 +8,9 @@ The local topography can be described using the two-state Hamiltonian in the int
 
 ---
 
-### Quick reminder: 
+### Quick reminder: two-state LVC form
 
-#### two-state LVC form
+This section briefly recalls the notation from [Conical intersections: intermediate](int02_conical_intersections.md). The purpose is not to rederive the two-state model, but to define the quantities used in the topographical classification below.
 
 A two-state diabatic potential matrix is
 
@@ -194,7 +194,7 @@ $$
 The scalar quantity $\boldsymbol g_{ij}\cdot\mat Q$ is the first-order change in half the adiabatic energy gap along the displacement $\mat Q$.
 
 
-#### Intersection-adpated branching coordinatyes
+#### Intersection-adapted branching coordinates
 The raw vectors $\boldsymbol g_{ij}$ and $\boldsymbol h_{ij}$ need not be orthogonal. It is therefore useful to introduce an orthogonalised pair of branching-space vectors,
 
 $$
@@ -301,7 +301,7 @@ s_y^{\mathrm{dim}}
 \end{align}
 $$
 
-The superscript “dim” is used because these quantities are dimensional slopes of the average energy surface. They have the same units as $\overline g$ and $\overline h$. While, again, the projections $s_x^{\mathrm{dim}}$ and $s_y^{\mathrm{dim}}$ tilt the cone in the branching plane. They do not change the energy gap directly, because they appear only in the common energy term.
+The superscript "dim" is used because these quantities are dimensional slopes of the average energy surface. They have the same units as $\overline g$ and $\overline h$. The projections $s_x^{\mathrm{dim}}$ and $s_y^{\mathrm{dim}}$ tilt the cone in the branching plane. They do not change the energy gap directly, because they appear only in the common energy term.
 
 
 
@@ -401,13 +401,13 @@ x_{\mathrm E}^2+y_{\mathrm E}^2
 \end{align}
 $$
 
-This energy-like form is useful for displaying the conical topology, while the geometric $x,y$ coordinates are more useful for classifying the local topography. Hence, the proceeding discussion will convern mainly with \eqref{eq:branching_space_gap_topography}. 
+This energy-like form is useful for displaying the conical topology, while the geometric $x,y$ coordinates are more useful for classifying the local topography. The following discussion therefore works mainly with Eq. \eqref{eq:branching_space_gap_topography}. 
 
 ---
 
 ## Topography parameters
 
-Building upon this coordinate framework, the following section introduces the topographical parameters that characterise the local environment of the conical intersection. Formalising these parameters provides the mathematical machinery to classify and visualise the surfaces within the branching coordiantes.
+Building on this coordinate framework, the following section introduces the topographical parameters that characterise the local environment of the conical intersection. These parameters provide the machinery needed to classify and visualise the surfaces within the branching coordinates.
 
 ### Pitch and asymmetry of the cone
 
@@ -548,9 +548,9 @@ s_y^{\mathrm{top}}
 \end{align}
 $$
 
-The superscript “top” denotes dimensionless topographical tilt components.
+The superscript "top" denotes dimensionless topographical tilt components.
 
-> Warning (which annoyed me) some papers denote the dimensionless quantities in Eq. \eqref{eq:dimensionless_tilt_components_topography} simply by $s_x$ and $s_y$. In these notes, the superscript is retained to distinguish them from the dimensional projections in Eq. \eqref{eq:dimensional_tilt_components_topography}.
+> Notation warning: some papers denote the dimensionless quantities in Eq. \eqref{eq:dimensionless_tilt_components_topography} simply by $s_x$ and $s_y$. In these notes, the superscript is retained to distinguish them from the dimensional projections in Eq. \eqref{eq:dimensional_tilt_components_topography}.
 
 Using Eq. \eqref{eq:dimensionless_tilt_components_topography}, the tilted two-state energies can be written as
 
@@ -582,7 +582,7 @@ This is the most convenient form for comparing different conical-intersection to
 
 ### Tilt magnitude and tilt heading
 
-Further once may define the collective tilt parameter as
+The two dimensionless tilt components can be combined into a tilt magnitude,
 
 $$
 \begin{align}
@@ -597,12 +597,13 @@ $$
 \end{align}
 $$
 
-which is a dimensionless measure of how strongly the average surface is tilted relative to the cone pitch. If we then define the tilt heading as the polar angle of the tilt direction in the branching plane for whcih the average energy of the two PES is maximum (see [text](../derivations/derivations_tilt_heading_CX_topography.md) ):
+which is a dimensionless measure of how strongly the average surface is tilted relative to the cone pitch. The corresponding tilt heading is the polar angle of the tilt direction in the branching plane, equivalently the direction in which the average energy of the two PES increases most steeply. A derivation is given in [Derivation: tilt heading for conical-intersection topography](../derivations/derivations_tilt_heading_CX_topography.md):
 
 $$
 \begin{align}
 \tan\theta_s
-=\frac{s_y}{s_x}
+=
+\frac{s_y^{\mathrm{top}}}{s_x^{\mathrm{top}}}
 \label{eq:tilt_heading_theta_s}
 \end{align}
 $$
@@ -628,7 +629,7 @@ s_x^{\mathrm{top}}x+s_y^{\mathrm{top}}y
 \end{align}
 $$
 
-with the double-angle rule applied ($\cos(A-B) = \cos(A)\cos(B) +\sin(A)\sin(B) $)
+where the angle-difference identity $\cos(A-B)=\cos(A)\cos(B)+\sin(A)\sin(B)$ has been used,
 and
 
 $$
@@ -636,7 +637,7 @@ $$
 (x^2+y^2)
 +
 \Delta_{gh}(x^2-y^2)
-&=r^2 + r^2\cos^2\theta - r^2\sin^2\theta
+&=r^2+\Delta_{gh}r^2\left(\cos^2\theta-\sin^2\theta\right)
 \\
 &=
 r^2
@@ -646,7 +647,7 @@ r^2
 \end{align}
 $$
 
-with the double=angle rule applied ($\cos(2A) = \cos(A)^2 +\sin(A)^2$)
+where the double-angle identity $\cos(2A)=\cos^2(A)-\sin^2(A)$ has been used.
 
 Therefore Eq. \eqref{eq:topography_energy_xy_form} becomes
 
@@ -763,7 +764,7 @@ $$
 
 The physical interpretation is as follows. In a peaked conical intersection, the intersection point remains an extremal point of the two surfaces within the branching plane: the upper surface rises away from the intersection and the lower surface falls away from it. In a sloped conical intersection, the average-energy tilt is strong enough that, along some directions in the branching plane, the upper surface can lie below its value at the intersection point, or the lower surface can lie above its value at the intersection point.
 
-> a peaked conical intersection is not a stationary point in the ordinary sense. The gradient of an adiabatic surface at the conical-intersection point is not well-defined because the surface is conical and non-differentiable there. Peaked means extremal in the local conical topography, not stationary in the smooth single-surface sense.
+> A peaked conical intersection is not a stationary point in the ordinary sense. The gradient of an adiabatic surface at the conical-intersection point is not well-defined because the surface is conical and non-differentiable there. Peaked means extremal in the local conical topography, not stationary in the smooth single-surface sense.
 
 ---
 
@@ -852,7 +853,7 @@ $$
 
 A bifurcating conical intersection has two preferred downhill paths on the lower surface. A single-path conical intersection has one dominant downhill path. This classification is useful because two conical intersections may both be peaked or both be sloped but still differ in how the lower surface guides the nuclear wavepacket away from the intersection.
 
-> the expression for $\mathcal B$ contains $\Delta_{gh}$ in the denominator, so the perfectly symmetric limit $\Delta_{gh}=0$ should be treated with care. In that limit, the geometric distinction between single-path and bifurcating behaviour must be interpreted directly from the local surface shape rather than from Eq. \eqref{eq:B_parameter_dimensionless} alone.
+> The expression for $\mathcal B$ contains $\Delta_{gh}$ in the denominator, so the perfectly symmetric limit $\Delta_{gh}=0$ should be treated with care. In that limit, the geometric distinction between single-path and bifurcating behaviour must be interpreted directly from the local surface shape rather than from Eq. \eqref{eq:B_parameter_dimensionless} alone.
 
 ---
 
@@ -932,3 +933,13 @@ $$
 $$
 
 This classification describes the local shape of the adiabatic surfaces. It should not be confused with the topological classification associated with Berry phases, sign changes, and the topological matrix. Topography describes the local cone shape; topology describes the global behaviour of electronic states around closed loops.
+
+---
+
+## Links to related notes
+
+- [Introduction to conical intersections](../beginer/04_conical_intersections.md)
+- [Conical intersections: intermediate](int02_conical_intersections.md)
+- [Dimension of a general $M$-state degeneracy](int04_M_state_degeneracy_dimension.md)
+- [Derivation: tilt heading for conical-intersection topography](../derivations/derivations_tilt_heading_CX_topography.md)
+- [Visuals: different conical intersections](../visuals/different_conical_intersections.md)

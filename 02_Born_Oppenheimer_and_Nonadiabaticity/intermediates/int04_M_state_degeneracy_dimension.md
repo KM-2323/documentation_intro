@@ -12,7 +12,7 @@ $$
 
 These conditions state that the two diagonal diabatic energies must be equal and that the off-diagonal diabatic coupling must vanish. If the gradients of these two conditions are independent, their simultaneous solution defines an $(f-2)$-dimensional seam. This is the standard two-state result discussed in [Conical intersections](../beginer/04_conical_intersections.md) and [Conical intersections: intermediate](int02_conical_intersections.md).
 
-For an $M$-state degeneracy, the same idea applies, but the number of independent scalar conditions is larger. The simplest way to see the counting is to first examine the three-state case explicitly.
+This page is the extension of that seam-counting argument. For an $M$-state degeneracy, the same idea applies, but the number of independent scalar conditions is larger. The simplest way to see the counting is to first examine the three-state case explicitly.
 
 Throughout this section, assume a real symmetric diabatic Hamiltonian matrix. This is appropriate for the usual non-relativistic, same-spin-multiplicity case with real electronic wavefunctions. If complex Hermitian matrices are required, for example in the presence of spin-orbit coupling or magnetic fields, the counting changes. This caveat is discussed at the end of the section.
 
@@ -308,7 +308,7 @@ E^\times \mat I_3.
 $$
 
 
-The conditiom in Eq. \eqref{eq:three_state_scalar_identity_condition} is thus both necessary and sufficient for a three-fold degeneracy of a real symmetric three-state matrix. Indeed,
+The condition in Eq. \eqref{eq:three_state_scalar_identity_condition} is thus both necessary and sufficient for a three-fold degeneracy of a real symmetric three-state matrix. Indeed,
 
 $$
 \det(\mat W-E\mat I_3)
@@ -416,7 +416,7 @@ $$
 
 This is why a generic three-state degeneracy has a five-dimensional branching space and an $(f-5)$-dimensional seam, not an $(f-6)$-dimensional seam.
 
-The missing “sixth” condition corresponds to the common energy shift. The value of
+The missing "sixth" condition corresponds to the common energy shift. The value of
 
 $$
 \begin{align}
@@ -638,4 +638,13 @@ $$
 
 assumes that the $\eta$ constraints are independent. If their gradients are linearly dependent, or if symmetry forces some conditions automatically, the actual seam dimension may differ from the generic value.
 
-References: [@von_neumann_wigner_1929; @baer_2002_nact; @yarkony_1996_diabolical_intersections; @worth_cederbaum_2004_conical_intersections]
+---
+
+## Links to related notes
+
+- [Introduction to conical intersections](../beginer/04_conical_intersections.md)
+- [Conical intersections: intermediate](int02_conical_intersections.md)
+- [Topography of conical intersections](int03_topography_conical_intersection.md)
+- [Multistate topology, signs, and degeneracies](../../06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec08_multistate_topology_signs.md)
+- [Degeneracy](../../06_diabatisation_deeperdive/specialised_propagation_diabatisation_deepdive/spec11_degeneracy.md)
+

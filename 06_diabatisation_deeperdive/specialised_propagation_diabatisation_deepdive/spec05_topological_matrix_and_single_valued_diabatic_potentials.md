@@ -1,8 +1,8 @@
 # Topological matrix and single-valued diabatic potentials
 
-The previous section introduced the curl condition as a local integrability condition for the adiabatic-to-diabatic transformation (ADT). In a regular, simply connected region, a vanishing non-Abelian curl means that the ADT matrix can be defined independently of the path used to reach a point.
+[Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md) introduced the curl condition as a local integrability condition for the adiabatic-to-diabatic transformation (ADT). In a regular, simply connected region, a vanishing non-Abelian curl means that the ADT matrix can be defined independently of the path used to reach a point.
 
-This page discusses the corresponding global question. What happens when the transformation matrix is transported around a closed loop? In particular, what must be true if the diabatic potential matrix is to remain single-valued at the same nuclear geometry?
+This page discusses the corresponding global question. What happens when the transformation matrix is transported around a closed loop? In particular, what must be true if the diabatic potential matrix is to remain single-valued at the same nuclear geometry? The finite-subspace implications of this condition are taken up in [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md).
 
 The key object is the **topological matrix**, also called the holonomy of the nonadiabatic coupling matrix around a closed path. This object records the sign or phase change accumulated by the electronic basis after one complete circuit.
 
@@ -426,7 +426,7 @@ $$
 
 In a complete electronic Hilbert space, the topological matrix is a property of the exact nonadiabatic coupling field. In a finite retained electronic subspace, the situation is more delicate. If the retained subspace is effectively isolated from the omitted states, the projected nonadiabatic coupling field can still give a meaningful quasi-diabatic transformation.
 
-If important external states are omitted, the closed-loop matrix may fail to have the required diagonal sign or phase structure. In that case, the transformed potential matrix may become path-dependent or phase-inconsistent. This is one reason why Baer’s sub-Hilbert-space discussion is important for practical diabatisation: the quality of the ADT depends on whether the retained electronic manifold behaves approximately like a closed subspace.
+If important external states are omitted, the closed-loop matrix may fail to have the required diagonal sign or phase structure. In that case, the transformed potential matrix may become path-dependent or phase-inconsistent. This is one reason why Baer's sub-Hilbert-space discussion is important for practical diabatisation: the quality of the ADT depends on whether the retained electronic manifold behaves approximately like a closed subspace.
 
 This point is also important in propagation diabatisation. In DD-vMCG, the transformation matrix is propagated using a finite set of electronic states. If the retained states cease to form a good quasi-diabatic manifold, the propagated transformation may no longer define a coherent global set of diabatic surfaces.
 
@@ -480,8 +480,10 @@ Thus the ADT matrix may carry nontrivial topological sign information, while the
 
 ## Links to related notes
 
+- [ADT integrability, topology, and finite electronic subspaces: overview](spec03_adt_integrability_and_topology_overview.md)
 - [Curl condition, analyticity, and uniqueness](spec04_curl_condition_analyticity_and_uniqueness.md)
 - [Complete versus reduced Hilbert space ADT](spec06_complete_vs_reduced_hilbert_space_adt.md)
+- [Constructing a good sub-Hilbert space](spec07_constructing_a_good_subhilbert_space.md)
 - [Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs.md)
 - [Derivation: topological matrix condition for single-valued diabatic potentials](../derivations/derivation_topological_matrix_condition_for_W.md)
 - [Derivation: path-ordered ADT and closed contours](../derivations/derivation_path_ordered_adt_and_closed_contours.md)

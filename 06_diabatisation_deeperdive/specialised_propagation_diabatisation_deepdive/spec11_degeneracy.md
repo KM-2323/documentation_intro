@@ -1,9 +1,10 @@
 ## Foreword
-While compiling this section, it became clear that the current theoretical distinction between "breakable" and "unbreakable" degeneracies remains somewhat phenomenological and ultimately unsatisfying.
 
-The transition from a simple two-state sign-flip rule to a genuine multistate $\mat D$ matrix leaves a noticeable gap: how do we rigorously identify an unbreakable degeneracy a priori? 
+[Geometrical interpretation of sign flips](spec10_geometric_interpretation_signflip.md) described a useful endpoint rule for separated adjacent conical intersections. This page addresses the limitation of that rule: genuine multistate degeneracies are not always equivalent to several ordinary two-state conical intersections placed at the same geometry.
 
-My current interpretation is that a degeneracy is truly unbreakable when the branching coordinates are strictly the only coordinates available to lift the degeneracy, meaning the surrounding intersection seam lacks the external dimensionality required to unfold the states into separated conical intersections.I have presented the standard arguments below for completeness, along with my own interpretations to help bridge the gaps. However, this remains an open area for discussion. If anyone reading this has deeper insights or alternative interpretations, please contribute by sending an email or submitting a pull request. Because I think this will aid our understanding and sign-assignment of non-adiabatic coupling vector in forming the ADT matrices in any reduced-dimension propagation diabatisation.
+The distinction between "breakable" and "unbreakable" degeneracies remains partly interpretive in the present notes. The working view used here is that an unbreakable degeneracy is one for which the branching coordinates are effectively the only coordinates available to lift the degeneracy. In that case, the surrounding intersection structure lacks the external dimensionality required to unfold the point into separated two-state conical intersections.
+
+This page therefore presents the standard argument, the tension with explicit multistate model examples, and the interpretation used in these notes. The aim is not to close the classification problem completely, but to state where the adjacent-CI sign rule stops and where the full multistate topological matrix must be used.
 
 ## Genuine multistate degeneracies and the apparent contradiction
 
@@ -68,7 +69,7 @@ $$
 with all interior states unchanged.
 
 
-However, in our earlier three states examples ([three-state worked example](../worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)), it is clear that it contradict current explicit multistate model calculations. In our worked example, the allowed topological matrix does not permit a two-function sign flip. In the corresponding four-state model ([four-state worked example](../worked_examples/adt_topology/example03_four_state_loop_and_D_matrix.md)), the possible outcomes may be either no sign flips or all four functions changing sign, but not the intermediate case where only two functions flip.
+However, the earlier [three-state worked example](../worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md) and [four-state worked example](../worked_examples/adt_topology/example03_four_state_loop_and_D_matrix.md) show that this collapsed-chain expectation is not generally compatible with explicit multistate model calculations. In the three-state example, the allowed topological matrix does not permit a two-function sign flip. In the four-state model, the possible outcomes may be either no sign flips or all four functions changing sign, but not the intermediate case where only two functions flip.
 
 This is not a small technical detail. It shows that a genuine multistate degeneracy is not always equivalent to several ordinary two-state conical intersections placed at the same point.
 
@@ -86,7 +87,7 @@ $$
 \end{align}
 $$
 
-However, in the special three-state model  ([three-state worked example](../worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)) , the coupling matrix has the form
+However, in the special three-state model ([three-state worked example](../worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)), the coupling matrix has the form
 
 $$
 \begin{align}
@@ -364,7 +365,7 @@ The important message is not that multistate topology is impossible to analyse. 
 
 For separated two-state CIs, the sign pattern follows from the adjacent-CI contour algebra. For a breakable multistate degeneracy, the same rule can be recovered by unfolding the degeneracy. For an unbreakable multistate degeneracy, the sign pattern depends on the full multistate nonadiabatic coupling matrix and must be computed from the corresponding topological matrix.
 
-Baer's discussion therefore, to me,  leaves a genuine classification problem:
+Within the present interpretation, Baer's discussion therefore leaves a genuine classification problem:
 
 $$
 \boxed{
@@ -372,7 +373,7 @@ $$
 }
 $$
 
-This is not answered by the two-state conical-intersection picture alone. It requires the full multistate ADT framework, including the structure of the nonadiabatic coupling matrix, the available nuclear coordinates, and the topology of the closed contour. Further, there is always the added complexity of sign assignment of nonadiabatic coupling vectors. 
+This is not answered by the two-state conical-intersection picture alone. It requires the full multistate ADT framework, including the structure of the nonadiabatic coupling matrix, the available nuclear coordinates, and the topology of the closed contour. The sign assignment of nonadiabatic coupling vectors adds a further layer of complexity.
 
 ---
 
@@ -391,3 +392,12 @@ $$
 \text{two-state topology explains breakable multistate degeneracies, but genuine multistate degeneracies require full multistate ADT analysis.}
 }
 $$
+
+---
+
+### Links to related notes
+
+- [Multistate topology, signs, and degeneracies](spec08_multistate_topology_signs.md)
+- [Geometric interpretation of sign flips](spec10_geometric_interpretation_signflip.md)
+- [Three-state sign flips and topological matrix](../worked_examples/adt_topology/example02_three_state_sign_flips_and_D_matrix.md)
+- [Four-state topological matrix and quantisation conditions](../worked_examples/adt_topology/example03_four_state_loop_and_D_matrix.md)

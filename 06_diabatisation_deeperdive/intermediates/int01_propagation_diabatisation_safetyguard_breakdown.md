@@ -198,7 +198,7 @@ $$
 \end{align}
 $$
 
-Here $\Gadiab_{\text{pred}}$ is diagonal in the electronic-state indices, while $\D_{\text{pred}}$ contains the off-diagonal derivative-coupling numerator vectors.
+Here $\Gadiab_{\text{pred}}$ is diagonal in the electronic-state indices, while $\D_{\text{pred}}$ contains the off-diagonal interstate derivative-coupling numerator vectors.
 
 ---
 
@@ -259,7 +259,7 @@ $$
 \end{align}
 $$
 
-then the direction is consistent but the sign is wrong. The code treats this as a phase convention problem and flips the sign of the quantum-chemistry numerator,
+then the direction is consistent but the sign is wrong. The code treats this as a phase convention problem and flips the sign of the interstate derivative coupling numerator numerator,
 
 $$
 \begin{align}
@@ -279,10 +279,10 @@ $$
 \end{align}
 $$
 
-However, it should be noted that such sign flip in current implementation is done pair-wise. Further, it does not distinguish the origin of the sign flip. It could be a gauge correction caused by the arbitrary sign of real adiabatic electronic eigenvectors when external quantum chemistr software is called. Or it could be a topological effect from encircling a conical intersection.
+However, it should be noted that such a sign flip in the the current implementation is done pair-wise. Further, it does not distinguish the origin of the sign flip. It could be a gauge correction arising fromrom the arbitrary sign of real adiabatic electronic eigenvectors when external quantum chemistry software invokedoked. Or it could be a topological effect from encircling a conical intersection.
 
 
-The code aims to only enforce the local gauge at each step, (as it will be explored). Though it is prudent to emphasize that sign assignment for nonadiabatic couplings is a real issue in multistate systems. Continuity of NACV is useful, but continuity alone can fail when several conical intersections or several state pairs interact.
+> The code aims to only enforce the local gauge at each step (as it will be explored). Though it is prudent to emphasise that sign assignment for nonadiabatic couplings is a real issue in multistate systems. Continuity of NACV is useful, but continuity alone can fail when several conical intersections or several state pairs interact.
 
 ---
 
@@ -290,7 +290,7 @@ The code aims to only enforce the local gauge at each step, (as it will be explo
 
 The second guard compares the ordering of the predicted diabatic model at the new point with the ordering of the diabatic model at the old database point.
 
-A simple way to express this is to define an ordering map from the diagonal diabatic elements,
+If one defines an ordering map from the diagonal diabatic elements,
 
 $$
 \begin{align}
@@ -306,7 +306,7 @@ W_{NN}(\mat q)
 \end{align}
 $$
 
-The guard compares the order of the diabatic states of the closed point and the current point (using the predicted diabatic model)
+The guard compares the order of the diabatic states of the closed point (`idbloc`) and the current point (using the predicted diabatic model)
 
 $$
 \begin{align}
@@ -335,7 +335,7 @@ $$
 \end{align}
 $$
 
-may not give a reliable transformation across that step as the value of NACV will tend to be discontinuos. 
+may not give a reliable transformation across that step as the value of NACV will tend to be discontinuos. Further, in these region, the NACV are in general non-reliable.
 
 In the conceptual/original guard logic from the 2021 paper, the normal propagation branch is bypassed. The predicted transformation matrix,
 
@@ -373,7 +373,7 @@ $$
 \end{align}
 $$
 
-> However, the current code then routes into `optqvc` which is a Cubic path-model fallback. For its description see code breakdown ([optqvc](../code+breakdown/subroutine_optqvc.md)) and [math breakdown](../derivations/derivations_qvc_path_model.md) and below for brief overview.
+> However, the current code then routes into `optqvc` which is a Cubic path-model fallback. For its description see code breakdown ([optqvc](../code+breakdown/subroutine_optqvc.md)) and [math breakdown](../derivations/derivations_qvc_path_model.md) or below for brief overview.
 
 ---
 
@@ -412,7 +412,7 @@ $$
 then the point is treated as lying in a near-degenerate region where the raw quantum-chemistry data are not trusted for the normal propagation branch. In this branch, the predicted diabatic surfaces are stored in the QC database, together with the raw adiabatic data.
 
 
-Symbolically, the stored diabatic model is therefore taken from a predicted model.
+In the 2021 paper, the stored diabatic model is therefore taken from the predicted model such that
 
 $$
 \begin{align}
@@ -422,16 +422,15 @@ $$
 \end{align}
 $$
 
-while the raw adiabatic data are retained as diagnostic information and optimisation parameters.
+> In current implementation, the prediced diabatic model likewise are tuned with the fall back QVC model 
 
-> In current implementation, the prediced diabatic model are again tuned with the fall back QVC model 
 ---
 
-## Guard 4: failed or unusable quantum-chemistry calculation (chronologically the first guard)
+## Guard 4: failed or unusable quantum-chemistry calculation (algorithmically the first guard)
 
 The fourth guard handles cases where the quantum-chemistry calculation fails or returns unusable data. Examples include failed CASSCF convergence, or missing derivative-coupling data. 
 
-If the quantum-chemistry calculation fails, the algorithm does not store the failed raw data as valid ab initio data. Instead, it stores the predicted diabatic surfaces and the corresponding predicted adiabatic surfaces:
+If the quantum-chemistry calculation fails, the algorithm does not store the failed raw data as valid ab initio data. Instead, it stores the predicted diabatic surfaces and the corresponding predicted adiabatic information:
 
 $$
 \begin{align}
@@ -453,13 +452,21 @@ $$
 \end{align}
 $$
 
-
+$$
+\begin{align}
+\Gadiab (\mat q_+) + \D(\mat q_+)
+\longleftarrow
+\Cmat_{\mathrm{pred}}(\mat q_+)
+\Gdiab(\mat q_+)
+\Cmat_{\mathrm{pred}}^\dagger(\mat q_+).
+\end{align}
+$$
 
 ---
 
 ## Cubic path-model fallback
 
-The normal branch of propagation diabatisation obtains the local adiabatic-to-diabatic transformation by integrating the nonadiabatci coupling vector $\F$ field along a path in nuclear configuration space. In the DD-vMCG implementation this is motivated by
+<!-- The normal branch of propagation diabatisation obtains the local adiabatic-to-diabatic transformation by integrating the nonadiabatci coupling vector $\F$ field along a path in nuclear configuration space which solves
 
 $$
 \begin{align}
@@ -469,7 +476,7 @@ $$
 \end{align}
 $$
 
-The approximation is finite-subspace dependent: couplings to excluded electronic states leave a non-removable residual component. The propagated transformation is most reliable where the removable coupling between the retained states dominates, especially near crossings included in the retained state manifold.
+The approximation is finite-subspace dependent: couplings to excluded electronic states leave a non-removable residual component. The propagated transformation is most reliable where the removable coupling between the retained states dominates, especially near crossings included in the retained state manifold. -->
 
 When the implementation's safety checks indicate that direct propagation from the selected database point is unreliable, the code may enter a fallback branch implemented in `optqvc`. This branch constructs a one-dimensional diabatic model along the displacement from the database point to the current geometry,
 
@@ -487,7 +494,7 @@ The local model can be written schematically as
 
 $$
 \begin{align}
-\mat V_d(x)
+\mat W(x)
 =\mat A
 +
 \mat Bx
@@ -666,7 +673,7 @@ $$
 \end{align}
 $$
 
-In the two-state implementation, if the determinant is negative after the diagonal sign convention has been applied, this may be corrected by multiplying one column of the ADT matrix, for example the second column, by $-1$. This is a phase convention, not a physical change.
+In current implementation, if the determinant is negative after the diagonal sign convention has been applied, this is corrected by multiplying the second column by $-1$. Again this is just a phase convention, not a physical change.
 
 ---
 
