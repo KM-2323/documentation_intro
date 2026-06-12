@@ -97,7 +97,7 @@ V_+-V_-
 \end{align}
 $$
 
-For a true degeneracy, the two adiabatic surfaces must touch:
+For a true degeneracy, the two adiabatic surfaces must coincide:
 
 $$
 V_+=V_-.
@@ -135,7 +135,7 @@ $$
 W_{12}=0
 $$
 
-at the same time. This is why conical intersections are generic in multidimensional molecular systems.
+at the same time. This is why conical intersections are ubiquitous in multidimensional molecular systems.
 
 ---
 
@@ -163,7 +163,7 @@ $$
 W_{12}(\mat q_0)=0.
 $$
 
-These conditions are not a consequence of orthogonality of the electronic basis. They are the degeneracy conditions for this two-state diabatic matrix.
+which are required by the degeneracy conditions for this two-state diabatic matrix. -->
 
 To describe the local shape of the surfaces, we expand the matrix elements to first order in $\mat Q$:
 
@@ -290,7 +290,7 @@ E&0\\
 \end{align}
 $$
 
-This is the same model written with a different notation.
+which is the same model written with a different notation.
 
 ---
 
@@ -344,7 +344,7 @@ $$
 \end{align}
 $$
 
-Thus the symmetric form and the direct Taylor-expansion form contain the same information. They simply organise the terms differently.
+Thus the symmetric form and the direct Taylor-expansion form contain the same information. They simply organise the terms differently. They are presented only for readers to be comfortable with alternative symbolcs and notations.
 
 ---
 
@@ -401,7 +401,7 @@ V_j-V_i
 \end{align}
 $$
 
-is a derivative coupling between adiabatic states and becomes singular at the conical intersection. That more detailed relation is discussed in the intermediate-level derivation.
+is a derivative coupling between adiabatic states and becomes singular at the conical intersection. That more detailed relation is discussed in the  [two-state derviations](../derivations/derivations_two_state_model.md) and [intermediate](../intermediates/int02_conical_intersections.md) note.
 
 
 

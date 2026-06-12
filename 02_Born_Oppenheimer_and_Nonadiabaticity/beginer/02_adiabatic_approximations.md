@@ -69,7 +69,8 @@ i\hbar\pdv{\boldsymbol{\chi}}{t}
 \end{align}
 $$
 
-This form is useful because it shows that the nuclear gradient has effectively been replaced by a modified, or dressed, gradient. The extra term $\F$ appears because the adiabatic electronic basis itself changes as the nuclei move.
+which is known as the gauge-invariant dressed-kinetic operator.
+<!-- This form is useful because it shows that the nuclear gradient has effectively been replaced by a modified, or dressed, gradient. The extra term $\F$ appears because the adiabatic electronic basis itself changes as the nuclei move. -->
 
 To make the mass dependence explicit, we now transform from mass-scaled coordinates $\mat q$ back to Cartesian nuclear coordinates $\mat R$. If
 
@@ -100,7 +101,7 @@ i\hbar\pdv{\boldsymbol{\chi}}{t}
 \end{align}
 $$
 
-The adiabatic approximation is the step where we neglect the derivative-coupling terms in this kinetic operator. In the present notation, this means assuming
+To arrive at the adianatic approximation, we neglect the derivative-coupling terms in this kinetic operator. In the present notation, this means assuming
 
 
 $$
@@ -109,7 +110,7 @@ $$
 \end{align}
 $$
 
-Physically, this approximation is motivated by the large nuclear masses. Since the non-adiabatic terms enter the nuclear equation with inverse powers of the nuclear masses, they are often small when the relevant electronic states are well separated in energy.
+Physically, this approximation is motivated by the large nuclear masses. Since the non-adiabatic terms enter the nuclear equation with inverse powers of the nuclear masses, they are often small when the relevant electronic states are well separated in energy. The term adiabatic is also motivated by statistical mechanics where the character of the adiabatic states are assumed to be slowly varying with respect to nuclear motion.
 
 Neglecting these terms gives
 
@@ -143,7 +144,7 @@ $$
 
 This is the equation usually meant when we say that the nuclei move on a single potential energy surface. In this approximation, the electronic state is fixed, and the nuclear wavefunction evolves only on the corresponding adiabatic PES $V_i(\mat R)$.
 
-A more advanced version of this idea keeps a group of strongly relevant electronic states before deciding which couplings can be neglected. That block-state version is discussed in the grouped-Born note. For the present beginner-level discussion, the key point is simply that the usual adiabatic approximation removes the derivative couplings and leaves independent nuclear motion on adiabatic PESs.
+A more advanced version of this idea keeps a group of strongly relevant electronic states before deciding which couplings can be neglected. That block-state version is discussed in the [Grouped-Born note](../intermediates/int01_group_born_approximations.md). For the present beginner-level discussion, the key point is simply that the usual adiabatic approximation removes the derivative couplings and leaves independent nuclear motion on adiabatic PESs.
 
 ## Why neglecting $\F$ can fail
 
@@ -173,7 +174,7 @@ At an exact degeneracy, such as a conical intersection, the denominator $V_i-V_j
 
 In dynamical terms, a wavepacket initially moving on one adiabatic surface can transfer population to another surface in a region where the two states are close in energy. This population transfer occurs without photon emission, so it is called a radiationless or non-radiative transition.
 
-This is the main reason we introduce a diabatic representation. Instead of keeping singular derivative couplings in the kinetic energy operator, we transform the electronic basis so that the important couplings appear as smoother off-diagonal potential terms,
+This is one of the reasons we introduce a diabatic representation. Instead of keeping singular derivative couplings in the kinetic energy operator, we transform the electronic basis so that the important couplings appear as smoother off-diagonal potential terms,
 
 $$
 \W = \Cinv \V \Cmat

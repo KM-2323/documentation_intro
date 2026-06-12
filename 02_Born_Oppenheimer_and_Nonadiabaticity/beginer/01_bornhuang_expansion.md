@@ -1,6 +1,20 @@
-# General introduction: from the TDSE to the adiabatic nuclear equations
+# Born--Huang expansion and adiabatic nuclear equations
 
-## Preliminaries
+## Purpose
+
+This page introduces the Born--Huang expansion and the coupled nuclear equations obtained by projecting the molecular time-dependent Schrodinger equation onto an adiabatic electronic basis. The central point is that the Born--Huang expansion is a representation of the full molecular wavefunction. It is not yet the Born--Oppenheimer or adiabatic approximation.
+
+The page therefore establishes three objects needed throughout the following notes:
+
+1. the adiabatic electronic basis $\{\psi_i(\mat r;\mat R)\}$;
+2. the nuclear coefficient functions $\chi_i(\mat R,t)$;
+3. the derivative-coupling terms that appear because the electronic basis depends on nuclear geometry.
+
+The next page, [Adiabatic approximations](02_adiabatic_approximations.md), explains which additional terms are neglected to obtain independent nuclear motion on one or more adiabatic potential energy surfaces.
+
+---
+
+## Notation and coordinate conventions
 
 Throughout these guides, atomic units are used unless stated otherwise. In atomic units,
 
@@ -23,7 +37,9 @@ $$
 
 Here, $r_{ij}$ denotes the distance between two charged particles. The sign and nuclear charge factors are determined by the particular interaction. For example, an electron--nucleus attraction contributes a term proportional to $-Z_A/r_{iA}$, whereas electron--electron and nucleus--nucleus interactions are repulsive.
 
-Bold symbols are used for vectors and matrices. Underlined bold symbols are reserved for collections with tensorial structure, such as a matrix of vectors. The nuclear coordinate vector is denoted by $\mat R$. For a molecule with $N_{\mathrm{nuc}}$ nuclei, a Cartesian representation has
+Bold symbols are used for vectors and matrices. Underlined bold symbols are reserved for quantities with tensorial structure, such as a matrix of vectors. 
+
+The nuclear coordinate vector is denoted by $\mat R$. For a molecule with $N_{\mathrm{nuc}}$ nuclei, a Cartesian representation has
 
 $$
 f = 3N_{\mathrm{nuc}}
@@ -110,11 +126,11 @@ $$
 =-\frac{1}{2}\nabla_{\mat q}^{2}.
 $$
 
-This simplification is one of the main reasons for introducing mass-scaled coordinates. A more detailed discussion of mass-scaled and mass-frequency-scaled coordinates is given in [Coordinate transformations](../01_Primer/coordinate_transformation.md).
+This simplification is one of the main reasons for introducing mass-scaled coordinates. A more detailed discussion of mass-scaled and mass-frequency-scaled coordinates is given in [Coordinate transformations](../../01_Primer/coordiante_transformation.md).
 
 ---
 
-## Setting the stage
+## Molecular Hamiltonian and clamped-nuclei electronic basis
 
 The aim of quantum dynamics is to describe the time evolution of a molecular system. Within the non-relativistic framework, this evolution is governed by the time-dependent Schrödinger equation (TDSE),
 
@@ -137,7 +153,7 @@ $$
 \end{align}
 $$
 
-Here, $\hat T_{\mathrm n}$ is the nuclear kinetic energy operator and $\hat H_{\mathrm{el}}$ is the clamped-nuclei electronic Hamiltonian. A common convention is to include the nuclear--nuclear repulsion in $\hat H_{\mathrm{el}}$, so that the electronic eigenvalues directly define the adiabatic potential energy surfaces. With this convention,
+Here, $\hat T_{\mathrm n}$ is the nuclear kinetic energy operator and $\hat H_{\mathrm{el}}$ is the clamped-nuclei electronic Hamiltonian. The common convention is to include the nuclear--nuclear repulsion in $\hat H_{\mathrm{el}}$, so that the electronic eigenvalues directly define the adiabatic potential energy surfaces. With this convention,
 
 $$
 \begin{align}
@@ -152,7 +168,7 @@ $$
 
 The semicolon in $\hat H_{\mathrm{el}}(\mat r;\mat R)$ indicates that $\mat R$ is treated as a parameter in the electronic problem. In other words, for each fixed nuclear geometry $\mat R$, the electronic Schrödinger equation is solved as an eigenvalue problem in the electronic coordinates $\mat r$. The resulting electronic eigenfunctions and eigenvalues nevertheless change as the nuclear geometry changes.
 
-The clamped-nuclei electronic eigenvalue problem is
+The clamped-nuclei electronic eigenvalue problem of interest is thus:
 
 $$
 \begin{align}
@@ -166,7 +182,7 @@ $$
 
 where $V_i(\mat R)$ is the $i$-th adiabatic potential energy surface and $\psi_i(\mat r;\mat R)$ is the corresponding electronic eigenfunction. 
 
-At each nuclear geometry, the electronic eigenfunctions are taken to be orthonormal with respect to integration over the electronic coordinates,
+Then at each nuclear geometry, the electronic eigenfunctions are taken to be orthonormal with respect to integration over the electronic coordinates,
 
 $$
 \begin{align}
@@ -201,8 +217,6 @@ $$
 \end{align}
 $$
 
-This distinction is important. The full Born--Huang expansion is exact only when the electronic basis is complete. A finite-state expansion is a controlled approximation only when the neglected states are weakly coupled to the retained subspace.
-
 ---
 
 ## Born--Huang expansion of the molecular wavefunction
@@ -230,15 +244,20 @@ $$
 \end{pmatrix}.
 $$
 
-The Born--Huang expansion should be distinguished from the Born--Oppenheimer expansion. The expansion in Eq. $\eqref{eq:born_huang_expansion}$ is a sum over electronic states and is formally exact in a complete electronic basis. The Born--Oppenheimer expansion is obtained only after making additional assumptions, typically by retaining one electronic state and neglecting the couplings induced by nuclear motion.
+> Finite-subspace caveat: the Born--Huang expansion is formally exact only when the electronic basis is complete. A finite-state expansion is controlled only when the omitted electronic states are weakly coupled to the retained subspace over the region of nuclear configuration space relevant to the dynamics. This finite-subspace issue is treated more carefully in [The Born--Oppenheimer equation in a finite electronic subspace](../intermediates/int01_group_born_approximations.md).
 
-> the electronic basis functions $\psi_i(\mat r;\mat R)$ depend on $\mat R$. Therefore, the nuclear kinetic energy operator does not act only on $\chi_i(\mat R,t)$; it also acts on the electronic basis. This is the origin of derivative coupling terms.
+
+The Born--Huang expansion should be distinguished from the Born--Oppenheimer approximation. The expansion in Eq. $\eqref{eq:born_huang_expansion}$ is a sum over electronic states and is formally exact in a complete electronic basis. The Born--Oppenheimer or adiabatic approximation is introduced only later, when derivative couplings are neglected and nuclear motion is assumed to proceed on decoupled adiabatic surfaces.
+
+> Key point: the electronic basis functions $\psi_i(\mat r;\mat R)$ depend on $\mat R$. Therefore, the nuclear kinetic energy operator does not act only on $\chi_i(\mat R,t)$; it also acts on the electronic basis. This is the origin of the derivative-coupling terms.
+
+
 
 ---
 
 ## Projection onto the adiabatic electronic basis
 
-Substituting Eq. $\eqref{eq:born_huang_expansion}$ into the TDSE and projecting from the left with $\bra{\psi_j}$, followed by integration over electronic coordinates, gives a set of coupled nuclear equations. In mass-scaled coordinates $\mat q$, these equations are
+Substituting Eq. $\eqref{eq:born_huang_expansion}$ into the TDSE and projecting from the left with $\bra{\psi_j}$, followed by integration over electronic coordinates, gives a set of coupled nuclear equations. This is the central result of the page. In mass-scaled coordinates $\mat q$, the component form is
 
 $$
 \begin{align}
@@ -341,7 +360,7 @@ $$
 
 Unlike $\F_{ji}$, $G_{ji}$ is a scalar function of the nuclear coordinates for each pair of electronic states. The collection of all $G_{ji}$ forms an $N_{\mathrm s}\times N_{\mathrm s}$ matrix $\mat G$.
 
-Terminology note: $\F_{ji}$ is often called the derivative coupling vector, nonadiabatic coupling vector, or first-order nonadiabatic coupling term. To avoid ambiguity in later sections, this guide will usually use the term *nonadiabatic coupling vector (NACV)* for Eq. $\eqref{eq:first_derivative_coupling}$. The term derivative coupling /electronic derivative coupling will be introduced carefully when discussing diabatisation and DD-vMCG.
+Terminology note: $\F_{ji}$ is often called the derivative coupling vector, nonadiabatic coupling vector, or first-order nonadiabatic coupling term. To avoid ambiguity in later sections, this page uses the term *nonadiabatic coupling vector (NACV)* for Eq. $\eqref{eq:first_derivative_coupling}$. Related terminology, including electronic derivative coupling, is introduced more carefully in the diabatisation and DD-vMCG notes.
 
 For real electronic eigenfunctions, the nonadiabatic coupling matrix (NACM) is antisymmetric,
 
@@ -450,7 +469,7 @@ Here, $\mat I$ is the $N_{\mathrm s}\times N_{\mathrm s}$ identity matrix in ele
 
 ## Dressed kinetic energy form
 
-A compact form often used in the literature rewrites the derivative coupling terms as part of a dressed, or gauge-covariant, kinetic energy operator. This form follows from expressing the second derivative coupling matrix $\mat G$ in terms of the first derivative couplings $\F$  (NACV).
+A compact form often used in the literature rewrites the derivative-coupling terms as part of a dressed, or gauge-covariant, kinetic energy operator. This section is included as a bridge to [Adiabatic approximations](02_adiabatic_approximations.md) and [Diabatic representation](03_diabatic_representation.md), where this form becomes the starting point for controlled approximations and basis transformations. The compact form follows from expressing the second derivative coupling matrix $\mat G$ in terms of the first derivative couplings $\F$.
 
 For a complete electronic basis,
 
@@ -553,27 +572,28 @@ $$
 
 This equation is mathematically compact but physically important. It shows that, in the adiabatic representation, the nuclear kinetic energy is not simply $-\frac{1}{2}\nabla_{\mat q}^{2}$. Instead, the nuclear derivatives are modified by the geometry-dependence of the electronic basis.
 
-> this is the point at which the adiabatic representation becomes inconvenient for nonadiabatic dynamics. The NACV can become large, or even singular, near electronic degeneracies. This motivates later discussions of adiabatic approximations, conical intersections, and diabatic or quasi-diabatic representations.
-
----
-### To read next:
-[Adiabatic Representation](02_adiabatic_approximations.md)
+> Interpretation: this is the point at which the adiabatic representation becomes inconvenient for nonadiabatic dynamics. The NACV can become large, or even singular, near electronic degeneracies. This motivates the later discussions of adiabatic approximations, conical intersections, and diabatic or quasi-diabatic representations.
 
 ---
 
+## Summary
 
-These sections provide first-level explanations of the physical meaning of the equations derived above. More detailed intermediate material is given in
+The Born--Huang expansion rewrites the full molecular wavefunction as a sum of adiabatic electronic functions multiplied by nuclear coefficient functions. This expansion is exact in a complete electronic basis. Once the electronic basis is truncated to a finite set of states, the result becomes a finite-subspace approximation whose reliability depends on the neglected couplings to omitted states.
 
-- [Group Born approximations](../intermediates/int01_group_born_approximations.md)
+Projecting the molecular TDSE onto the adiabatic electronic basis gives coupled nuclear equations. The coupling terms arise because the electronic eigenfunctions depend on nuclear geometry. These terms are collected in the NACV $\F_{ji}$ and the scalar second-derivative coupling $G_{ji}$. The dressed kinetic energy form shows the same point compactly: in the adiabatic representation, the nuclear derivative is modified by the geometry-dependence of the electronic basis.
 
-which discusses implicit approximations made when a finite set of adiabatic electronic states is retained. In particular, the Born--Huang expansion is formally exact only for a complete electronic basis, while practical calculations use a finite electronic subspace.
+This is the starting point for the next pages. [Adiabatic approximations](02_adiabatic_approximations.md) explains what is neglected to obtain independent motion on adiabatic potential energy surfaces. [Diabatic representation](03_diabatic_representation.md) explains how the same physics can be represented by changing the electronic basis so that important couplings appear in the potential matrix instead.
 
 ---
 
-## References
+## To read next
 
-The Born--Huang expansion and the resulting nonadiabatic coupling terms are discussed in standard treatments of beyond-Born--Oppenheimer molecular dynamics (I need to cite born-oppenheimer, born-huang, the excited state quantum chemistry paper, physical review paper) 
+- [Adiabatic approximations](02_adiabatic_approximations.md)
+- [Diabatic representation](03_diabatic_representation.md)
+- [The Born--Oppenheimer equation in a finite electronic subspace](../intermediates/int01_group_born_approximations.md)
+- [Derivation: adiabatic TDSE from the Born--Huang expansion](../derivations/derivation_adiabatic_tdse.md)
+- [Derivation: dressed kinetic energy operator](../derivations/derivation_dressed_term.md)
 
-The mass-scaled coordinate convention and direct-dynamics notation used here are consistent with the conventions adopted in direct molecular dynamics treatments (cite the paper on role of conical intersection in nonadiabatic dynamics by Michael Robb and Graham Worth)
+---
 
-The same adiabatic nuclear equations provide the starting point for the diabatisation methods used in DD-vMCG [cite the propagation diabatisation paper].
+
