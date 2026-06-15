@@ -13,7 +13,7 @@ $$
 
 Here $\mat R$ denotes a nuclear coordinate vector, $\Cmat(\mat R)$ is the ADT matrix, and $\F$ is the retained nonadiabatic coupling matrix-valued vector.
 
-This equation looks compact, but it hides three different questions:
+This equation looks trivial, but it hides three different questions:
 
 1. **Local compatibility:** can the coordinate-resolved ADT equations be solved consistently in a regular region?
 2. **Global topology:** what happens when the ADT is transported around a closed loop enclosing a conical intersection or another singularity?
@@ -83,7 +83,7 @@ $$
 \end{align}
 $$
 
-where $\psivec$ and $\varphivec$ are row vectors of electronic functions. With this convention, the diabatic potential matrix is
+where $\psivec$ (adiabatic) and $\varphivec$ (quasi-diabatic) are row vectors of electronic functions. With this convention, the diabatic potential matrix is
 
 $$
 \begin{align}

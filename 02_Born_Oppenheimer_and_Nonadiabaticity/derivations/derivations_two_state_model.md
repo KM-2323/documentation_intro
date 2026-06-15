@@ -1,3 +1,5 @@
+### 1. Two state adiabatic energy and adiabatic representation is diabatic basis
+
 For a 2-state system, the diabatic potentials are
 
 $$
@@ -186,7 +188,7 @@ $$
 \end{align}
 $$
 
-### The derivative coupling identity in a 1-dimenional two state model 
+### 2. The derivative coupling identity in a 1-dimenional two state model 
 
 The NACV $\F_{12}$
 
