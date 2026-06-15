@@ -2,9 +2,13 @@
 
 ### Brief theoretical background
 
-Propagation diabatisation is used in DD-vMCG because the nuclear wavefunction is propagated in a local Gaussian basis. Around each Gaussian centre, the potential model is built from local energies, gradients, and, where available, Hessians. These quantities need to vary smoothly with nuclear geometry.
+A central feature of DD-vMCG is that the potential model is constructed on the fly as the nuclear wavefunction evolves. In this formulation, the nuclear wavefunction is represented by a linear combination of time-dependent Gaussian basis functions. Around each Gaussian centre, a local harmonic approximation is built from electronic-structure information, typically including energies, gradients, and, where available, Hessians. For this local expansion and the subsequent database interpolation to remain meaningful, the stored potential quantities must vary smoothly with nuclear geometry.
 
-This smoothness is not guaranteed in the adiabatic representation. Near a degeneracy, the adiabatic potential energy surfaces may form a conical intersection, and the nonadiabatic derivative coupling can become singular. A diabatic or quasi-diabatic representation moves this difficulty out of the kinetic-energy operator and into smoother potential-like couplings. This is why DD-vMCG uses diabatic potential matrices rather than raw adiabatic surfaces for the local harmonic expansion.
+This smoothness is not guaranteed in the adiabatic representation. Near an electronic degeneracy, the adiabatic potential energy surfaces may form a conical intersection, and the corresponding nonadiabatic derivative couplings can become large or singular. A diabatic or quasi-diabatic representation addresses this difficulty by transferring the dominant nonadiabatic coupling from derivative operators in the kinetic-energy term into smoother potential-like couplings. DD-vMCG therefore constructs local diabatic potential matrices for use in the on-the-fly potential model, rather than relying directly on untransformed adiabatic surfaces as the propagation surfaces.
+
+Propagation diabatisation is suited to this framework because the adiabatic-to-diabatic transformation is itself built during the dynamics. The transformation at a newly visited geometry is obtained by propagating the transformation matrix from a nearby database point, using the nonadiabatic coupling information along the connecting path. In this sense, the diabatic representation is not defined once at the beginning of the calculation; it is extended through configuration space as new electronic-structure data are generated and added to the database.
+
+
 
 With the row-vector convention used in these notes, the diabatic electronic basis is written as
 

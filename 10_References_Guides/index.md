@@ -17,11 +17,10 @@ Many of the contents are created with the help of [dev cheat sheet by michael on
 - [HTML and Liquid template guide](html_liquid_template_guide.md)
 - [JavaScript guide](javascript_guide.md)
 - [Style SCSS guide](style_scss_guide.md)
-- [Code writing template](code_explanation_template.md)
+
 
 ## Reference Material
 
 - [Symbols and notations](Symbols_and_notations.md)
 - [Glossary](glossary.md)
 - [Method comparison table](Method_comparison_table.md)
- [text](bashguide.md)

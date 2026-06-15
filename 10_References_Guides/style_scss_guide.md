@@ -123,7 +123,7 @@ Class selector:
 }
 ```
 
-In plain English, this code says: "find the element with class `site-footer-custom`, and make its text muted grey."
+This reads  "find the element with class `site-footer-custom`, and make its text muted grey."
 
 Element selector:
 
@@ -134,7 +134,7 @@ Element selector:
 }
 ```
 
-In plain English, this code says: "for images inside the main content column, never let them grow wider than their container, and keep their height proportional."
+This reads  "for images inside the main content column, never let them grow wider than their container, and keep their height proportional."
 
 Compound selector:
 
@@ -144,7 +144,7 @@ Compound selector:
 }
 ```
 
-In plain English, this code says: "show an element only when the same element has both `page-toc` and `is-ready` classes."
+This reads  "show an element only when the same element has both `page-toc` and `is-ready` classes."
 
 Pseudo-class selector:
 
@@ -155,7 +155,7 @@ Pseudo-class selector:
 }
 ```
 
-In plain English, this code says: "underline footer links when the reader hovers over them or focuses them with the keyboard."
+This reads  "underline footer links when the reader hovers over them or focuses them with the keyboard."
 
 Media query:
 
@@ -168,7 +168,7 @@ Media query:
 }
 ```
 
-In plain English, this code says: "on narrow screens, align both previous and next navigation cards to the left."
+This reads  "on narrow screens, align both previous and next navigation cards to the left."
 
 If a syntax entry does not have a visible rendering effect by itself, it is because it is structural. For example, braces `{}` and semicolons `;` do not create a style on their own; they make the stylesheet readable to the browser so the declarations inside can take effect.
 
@@ -301,7 +301,7 @@ strong, b {
 }
 ```
 
-In plain English, this code says: "find every `<strong>` element and every `<b>` element, then make the text very bold."
+This reads  "find every `<strong>` element and every `<b>` element, then make the text very bold."
 
 Connected pieces:
 
@@ -317,7 +317,7 @@ Connected pieces:
 <div class="knowledge-map-frame" markdown="1">
 ```
 
-In plain English, this code says: "start a wrapper `div`, give it the class `knowledge-map-frame`, and let Markdown still be processed inside it."
+This reads  "start a wrapper `div`, give it the class `knowledge-map-frame`, and let Markdown still be processed inside it."
 
 ```scss
 .knowledge-map-frame {
@@ -325,7 +325,7 @@ In plain English, this code says: "start a wrapper `div`, give it the class `kno
 }
 ```
 
-In plain English, this code says: "when an element has the class `knowledge-map-frame`, add horizontal scrolling if its content is too wide."
+This reads  "when an element has the class `knowledge-map-frame`, add horizontal scrolling if its content is too wide."
 
 Connected pieces:
 
@@ -343,7 +343,7 @@ Connected pieces:
 }
 ```
 
-In plain English, this code says: "find an `svg` inside a `.mermaid` element, but only when that Mermaid element is inside `.knowledge-map-frame`; do not force that SVG to shrink to the normal content width."
+This reads  "find an `svg` inside a `.mermaid` element, but only when that Mermaid element is inside `.knowledge-map-frame`; do not force that SVG to shrink to the normal content width."
 
 Connected pieces:
 
@@ -365,7 +365,7 @@ Connected pieces:
 }
 ```
 
-In plain English, this code says: "hide the table of contents at first, then show it only after the same element also has the class `is-ready`."
+This reads  "hide the table of contents at first, then show it only after the same element also has the class `is-ready`."
 
 Connected pieces:
 
@@ -386,7 +386,7 @@ Connected pieces:
 }
 ```
 
-In plain English, this code says: "on screens at least 1400 pixels wide, keep the ready table of contents stuck near the top as the reader scrolls."
+This reads  "on screens at least 1400 pixels wide, keep the ready table of contents stuck near the top as the reader scrolls."
 
 Connected pieces:
 

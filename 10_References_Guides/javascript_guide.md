@@ -54,7 +54,7 @@ JavaScript uses dots to reach inside an object:
 heading.id
 ```
 
-In plain English, this code says: "from the object stored in `heading`, read its `id` property."
+This reads  "from the object stored in `heading`, read its `id` property."
 
 In `page-toc.js`, many objects are HTML elements from the browser's DOM. DOM means "Document Object Model": the browser's JavaScript representation of the HTML page.
 
@@ -66,7 +66,7 @@ const headings = Array.from(
 );
 ```
 
-In plain English, this code says: "ask the browser for all `h2` and `h3` headings inside `.main-content`, then turn that result into a normal JavaScript array."
+This reads  "ask the browser for all `h2` and `h3` headings inside `.main-content`, then turn that result into a normal JavaScript array."
 
 After that, each `heading` in the loop is one real heading element, like:
 
@@ -101,7 +101,7 @@ The TOC needs each link to jump to a heading on the same page. In HTML, same-pag
 <a href="#main-idea">Main Idea</a>
 ```
 
-In plain English, this code says: "when clicked, jump to the element on this page whose `id` is `main-idea`."
+This reads  "when clicked, jump to the element on this page whose `id` is `main-idea`."
 
 The matching heading looks like this:
 
@@ -115,7 +115,7 @@ The matching heading looks like this:
 link.href = "#" + heading.id;
 ```
 
-In plain English, this code says: "set the new link's destination to a hash mark followed by this heading's id."
+This reads  "set the new link's destination to a hash mark followed by this heading's id."
 
 If `heading.id` is `main-idea`, the result is:
 
@@ -135,7 +135,7 @@ heading.id = heading.textContent
   .replace(/^-|-$/g, "");
 ```
 
-In plain English, this code says: "take the heading text, trim outside spaces, make it lowercase, turn runs of non-letter/non-number characters into hyphens, and remove hyphens from the start or end."
+This reads  "take the heading text, trim outside spaces, make it lowercase, turn runs of non-letter/non-number characters into hyphens, and remove hyphens from the start or end."
 
 So `Main Idea!` becomes `main-idea`.
 
@@ -321,7 +321,7 @@ The script is inline because it is tightly coupled to the layout and external Me
 const toc = document.querySelector(".page-toc");
 ```
 
-In plain English, this code says: "ask the browser for the first element with class `page-toc`, and store that element in a variable named `toc`."
+This reads  "ask the browser for the first element with class `page-toc`, and store that element in a variable named `toc`."
 
 Connected pieces:
 
@@ -339,7 +339,7 @@ if (!toc || !tocList) {
 }
 ```
 
-In plain English, this code says: "if either the TOC wrapper or the TOC list was not found, stop running this script now."
+This reads  "if either the TOC wrapper or the TOC list was not found, stop running this script now."
 
 This prevents errors on pages without a TOC include. `!toc` means "if `toc` was not found".
 
@@ -359,7 +359,7 @@ link.textContent = heading.textContent;
 tocList.appendChild(link);
 ```
 
-In plain English, this code says: "make a new link, point it at this heading, copy the heading text into the link, and place the link inside the TOC."
+This reads  "make a new link, point it at this heading, copy the heading text into the link, and place the link inside the TOC."
 
 Connected pieces:
 
@@ -375,7 +375,7 @@ Connected pieces:
 toc.classList.add("is-ready");
 ```
 
-In plain English, this code says: "add the class `is-ready` to the TOC element."
+This reads  "add the class `is-ready` to the TOC element."
 
 The script does not set colours, borders, or spacing directly. It adds a class. SCSS handles the display:
 
@@ -385,7 +385,7 @@ The script does not set colours, borders, or spacing directly. It adds a class. 
 }
 ```
 
-In plain English, this code says: "when an element has both `page-toc` and `is-ready`, show it as a block on the page."
+This reads  "when an element has both `page-toc` and `is-ready`, show it as a block on the page."
 
 Connected pieces:
 
@@ -404,7 +404,7 @@ Connected pieces:
 ```
 {% endraw %}
 
-In plain English, this code says: "load the local MathJax settings first, then load the external MathJax library."
+This reads  "load the local MathJax settings first, then load the external MathJax library."
 
 The local config script runs first. It defines `window.MathJax`. The external MathJax library loads second and reads that configuration.
 

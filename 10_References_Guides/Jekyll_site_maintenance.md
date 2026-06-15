@@ -65,7 +65,8 @@ bundle exec jekyll build
 
 If the remote theme cannot be downloaded, the build may fail with a connection error to GitHub. That is a network/theme-fetch problem, not usually a Markdown problem.
 
-option2: 
+**option 2**: 
+
 Alternatively, local server can be hosted through python. To start a server (optionally set port to 80):
 
 ```bash
@@ -76,7 +77,7 @@ python -m http.server 80
 Now open the browser at:
 [http://localhost/](http://localhost/)
 
-option3:
+**option3**:
 
 To start the local development server, run the included script from the project root:
 
@@ -182,6 +183,7 @@ toc_min_headings: 5
 
 The site-wide fallback is `toc_min_headings` in `_config.yml`.
 > **Note for local deployment, it is recommned to change all toc to false to speed up local rendering.**
+
 ### `assets/js/page-toc.js`
 
 This script scans page headings and fills the TOC.

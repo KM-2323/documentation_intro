@@ -1,5 +1,5 @@
-# A Straightforward Method of Analysis for Direct Quantum Dynamics 2010
-MCTDH generates delocalized wavepackets. In contrast, Gaussian functions used in the DD-vMCG approach are localised around their centres and can be seen as following quantum trajectories. Each one will contribute to some extent to the global wavepacket. The problem here is that the basis set is not orthogonal, which makes the definition of individual contributions ambiguous. We propose here a solution in the form of a new analysis derived from the Mulliken analysis of orbital populations.
+# GGP analysis
+MCTDH generates delocalized wavepackets. In contrast, Gaussian functions used in the DD-vMCG approach are localised around their centres and can be seen as following quantum trajectories. Each one will contribute to some extent to the global wavepacket. The problem here is that the basis set is not orthogonal, which makes the definition of individual contributions ambiguous. Thus, GGP analysis, inpsired by Muliken analysis of orbital popluations,  was proposed.
 
 ## Normalization condition
 For a given electronic state $s$ the nuclear wavepacket is expanded in a basis set of time-dependent parametrized Gaussian functions, the GBFs, $g_j(\mat Q,t)$:
@@ -57,11 +57,11 @@ implies cross terms also contribute to the total wavepacket which akins to atomi
 
 ## Mulliken population analysis
 ### MO expansion and overlap
-* Atomic orbitals (AO):${\chi_{\mu}}$, non-orthogonal, with overlap matrix $\Smat_{\mu\nu}=\braket{\chi_\mu}{\nu}$
+* Atomic orbitals (AO):${\chi_{\mu}}$, non-orthogonal, with overlap matrix $\Smat_{\mu\nu}=\braket{\chi_\mu}{\chi_\nu}$
 * Molecular orbitals (MO):
 
     $$
-    \ket{\phi_i}=\sum_{\mu}\Cmat_{\mu i}\ket{\chi_\mu}
+    \ket{\phi_i}=\sum_{\mu}\ket{\chi_\mu}\Cmat_{\mu i}
     $$
 
 * For a closed-shell system, the density matrix in the AO basis:
@@ -94,7 +94,9 @@ $$
 \end{align}
 $$
 
-Which we could see it has a structure of sum over dummy index of ($\text{coef}_{\text{dummy}}\times\text{coef}_{\text{of interest}}\times\text{overlap}$).
+Which we could see it has a structure of sum over dummy index of 
+
+$$\text{overlap}\times\text{coef}_{\text{of interest}}\times\text{coef}_{\text{dummy}}$$
 
 ## PGP vs GGP
 The pseudo Gaussian population (PGP) is just:
@@ -124,11 +126,11 @@ $$
 \end{align}
 $$
 
-This in fact also has the structure of sum over dummy index of ($\text{coef}_{\text{dummy}}\times\text{coef}_{\text{of interest}}\times\text{overlap}$).
+This in fact also has the structure of sum over dummy index of 
 
-In eq\ref{eq:ggp}, only the real part is taken as quoted ''The imaginary parts can be
-ignored as they sum up to zero. In our calculations, the
-individual imaginary parts were always small''. 
+$$\text{overlap}\times\text{coef}_{\text{of interest}}\times\text{coef}_{\text{dummy}}$$
+
+> In eq\ref{eq:ggp}, only the real part is taken as quoting from the paper ''The imaginary parts can be ignored as they sum up to zero. In our calculations, the individual imaginary parts were always small''. (May need to visit the code to confirm)
 
 ## Example exploration
 consider a one-dimensional case with a single electronic state. The global wavepacket is expanded in a basis
@@ -158,7 +160,7 @@ Assume each GWPs is normalized and real with width $1/\sqrt2$ in mass-frequency 
 
 $$
 \begin{align}
-    g_j(\mat Q,t)=\frac{\ee^{-\frac{1}{2}\lrp{\mat Q-\mat Q_j}^2}}{\pi^{1/4}}
+    g_j(\mat Q,t)=\frac{\exp^{-\frac{1}{2}\lrp{\mat Q-\mat Q_j}^2}}{\pi^{1/4}}
 \end{align}
 $$
 

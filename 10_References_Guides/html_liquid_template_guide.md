@@ -67,7 +67,7 @@ Avoid ordinary HTML comments for long template notes:
 
 HTML comments are valid, but they are shipped to the browser. Liquid comments are better for internal documentation.
 
-## HTML Elements Used So Far
+## HTML Elements Appeared in _site
 
 This table lists the authored HTML tags currently used in `_includes`, `_layouts`, and raw HTML examples in the Markdown guides, plus the generated elements that `style.scss` currently targets.
 
@@ -107,7 +107,7 @@ You do not usually write `mjx-container` yourself. MathJax creates it in the bro
 }
 ```
 
-In plain English, this code says: "inside the main content area, if MathJax creates an equation container, let it scroll sideways when the equation is too wide."
+This reads  "inside the main content area, if MathJax creates an equation container, let it scroll sideways when the equation is too wide."
 
 ## Attributes Used So Far
 
@@ -124,17 +124,16 @@ In plain English, this code says: "inside the main content area, if MathJax crea
 | `src` | Built-in script/image attribute | Points a `<script>` tag at a JavaScript file or CDN URL. |
 | `type` | Built-in attribute | `type="module"` tells the browser that the inline script uses JavaScript module syntax such as `import`. |
 
-## What `markdown="1"` Means
+## Special `markdown="1"` 
 
-You really do use `markdown="1"` in `00_project_overview/knowledge_map.md`:
+Only appeared in `markdown="1"` in `00_project_overview/knowledge_map.md`:
 
 ```html
 <div class="knowledge-map-frame" markdown="1">
 ```
+It starts a normal HTML `div`, give it the styling hook `knowledge-map-frame`, and tell Kramdown that the content inside this wrapper should still be read as Markdown."
 
-In plain English, this code says: "start a normal HTML `div`, give it the styling hook `knowledge-map-frame`, and tell Kramdown that the content inside this wrapper should still be read as Markdown."
-
-Kramdown is the Markdown engine used by Jekyll. Normally, when Kramdown sees a block of raw HTML, it is cautious and may leave the inside alone instead of converting Markdown syntax inside it. The attribute `markdown="1"` means "please process Markdown inside this HTML wrapper too."
+> Kramdown is the Markdown engine used by Jekyll. Normally, when Kramdown sees a block of raw HTML, it is cautious and may leave the inside alone instead of converting Markdown syntax inside it. The attribute `markdown="1"` means "please process Markdown inside this HTML wrapper too."
 
 Use it when you need both:
 
@@ -154,15 +153,15 @@ graph TD
 </div>
 ````
 
-In plain English, this code says: "wrap this Mermaid Markdown code fence in a styled HTML box, but still let Jekyll recognise the fenced code block as Markdown."
+This will wrap the Mermaid Markdown code fence in a styled HTML box, but still let Jekyll recognise the fenced code block as Markdown. (for displaying certian code blocks)
 
 Without `markdown="1"`, the triple backticks may be treated as plain text inside the raw HTML wrapper instead of becoming a proper code block. That would stop the Mermaid conversion chain from working cleanly.
 
 Do not add `markdown="1"` to every HTML tag. Use it only when the content inside a raw HTML element still needs Markdown processing.
 
-## Site Classes And Display Effects
+## More on Site Classes And Display Effects
 
-Classes are not HTML elements. They are names attached to elements:
+They are names attached to elements:
 
 ```html
 <nav class="page-breadcrumb" aria-label="Page navigation">
@@ -269,7 +268,7 @@ Source Markdown:
 This is **important**.
 ```
 
-In plain English, this code says: "write a sentence where the word `important` should be emphasised."
+This reads "write a sentence where the word `important` should be emphasised."
 
 Generated HTML:
 
@@ -277,7 +276,7 @@ Generated HTML:
 <p>This is <strong>important</strong>.</p>
 ```
 
-In plain English, this code says: "make one paragraph, and mark `important` as strong text inside it."
+This reads  "make one paragraph, and mark `important` as strong text inside it."
 
 Connected files:
 
@@ -299,7 +298,7 @@ Source in `00_project_overview/knowledge_map.md`:
 </div>
 ```
 
-In plain English, this code says: "make a wrapper around this block, attach the `knowledge-map-frame` class for styling, and still process Markdown inside the wrapper."
+This reads  "make a wrapper around this block, attach the `knowledge-map-frame` class for styling, and still process Markdown inside the wrapper."
 
 Connected files:
 
@@ -324,7 +323,7 @@ Simplified template:
 ```
 {% endraw %}
 
-In plain English, this code says: "if this page has a section title, print a slash separator and then print a breadcrumb link to that section."
+This reads  "if this page has a section title, print a slash separator and then print a breadcrumb link to that section."
 
 Connected files:
 
@@ -351,7 +350,7 @@ Source data in `_data/reading_paths.yml`:
       url: /section/second.html
 ```
 
-In plain English, this code says: "define a named reading path, then list the pages in the order readers should move through them."
+This reads  "define a named reading path, then list the pages in the order readers should move through them."
 
 Connected files:
 
@@ -378,7 +377,7 @@ graph TD
 ```
 ````
 
-In plain English, this code says: "create a Mermaid diagram where node `A` points to node `B`."
+This reads  "create a Mermaid diagram where node `A` points to node `B`."
 
 What happens:
 

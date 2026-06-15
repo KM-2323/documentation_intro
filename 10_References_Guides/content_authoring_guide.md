@@ -191,6 +191,14 @@ Explain what calls it and what it prepares for.
 
 - `name`: meaning
 
+## Temporary arrays and object shapes
+
+- `name`: meaning
+
+## Important helper routines
+
+One paragraph explaining the achieved output and linkd to pages that explains it if it exist
+
 ## Important Globals Or Module Data
 
 - `name`: meaning
@@ -205,6 +213,10 @@ Explain what calls it and what it prepares for.
 | Theory object | Code variable |
 | --- | --- |
 | Example | `example` |
+
+## Worked miniature example
+
+If possible, include small numerical examples to illustrate
 
 ## Failure Modes Or Caveats
 
