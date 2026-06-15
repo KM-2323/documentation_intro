@@ -256,7 +256,7 @@ $$
 
 suggests a two-state subspace plus an omitted third state, provided the coupling between $\{1,2\}$ and $3$ is weak.
 
-This graph picture is not a replacement for the mathematical conditions, but it is useful for deciding which states should be included before checking the curl condition, topological matrix, and boundary couplings.
+
 
 ---
 
